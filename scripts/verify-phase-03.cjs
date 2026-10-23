@@ -3,7 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
-const output = path.resolve(__dirname, "../docs/evidence/phase-03");
+const output = process.env.EVIDENCE_DIR || path.resolve(__dirname, "../docs/evidence/phase-03");
 const base = process.env.BASE_URL || "http://127.0.0.1:5173";
 (async () => {
   fs.mkdirSync(output, { recursive: true });
@@ -132,8 +132,8 @@ const base = process.env.BASE_URL || "http://127.0.0.1:5173";
     .waitFor();
   assert(
     await page
-      .getByRole("button", { name: "Scan unavailable", exact: true })
-      .isDisabled(),
+      .getByRole("button", { name: "Run security checks", exact: true })
+      .isEnabled(),
   );
   results.flow.push(
     "injected DNS exact-match verification persisted by backend",

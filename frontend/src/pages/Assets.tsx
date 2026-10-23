@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../authApi';
 import {
   Alert,
@@ -11,6 +11,7 @@ import {
 } from '../components/ui/Primitives';
 
 type Asset = {
+  scan_available: boolean;
   id: string;
   canonical_fqdn: string;
   status: string;
@@ -125,10 +126,9 @@ export function Assets() {
         DNS proof confirms control at a specific name and time; it does not
         authorize every host or service behind it.
       </p>
-      <Alert title="Security scanning arrives in Phase 04">
-        No scans are available in this release. ShieldMate Starter performs
-        limited external configuration checks. It does not guarantee security or
-        detect all vulnerabilities.
+      <Alert title="Limited checks, exact domain only">
+        ShieldMate Starter performs limited external configuration checks. It
+        does not guarantee security or detect all vulnerabilities.
       </Alert>
       {error && (
         <Alert title="Unable to complete request" tone="error">
@@ -239,6 +239,46 @@ export function Assets() {
                       {date(asset.verification_valid_until)}
                     </p>
                   </div>
+                  <div className="asset-scan-actions">
+                    <Button
+                      pending={pending}
+                      disabled={!asset.scan_available}
+                      onClick={async () => {
+                        setPending(true);
+                        setError('');
+                        try {
+                          const run = await api<{ id: string }>(
+                            `/domains/${asset.id}/scans`,
+                            'POST',
+                          );
+                          navigate(`/app/assets/${asset.id}/scans/${run.id}`);
+                        } catch (e) {
+                          fail(e);
+                        } finally {
+                          setPending(false);
+                        }
+                      }}
+                    >
+                      Run security checks
+                    </Button>
+                    {!asset.scan_available && (
+                      <p className="field-help">
+                        {asset.status === 'stale'
+                          ? 'DNS proof is stale. Generate a new challenge and verify again.'
+                          : asset.status === 'expired'
+                            ? 'The DNS challenge expired. Generate a new challenge and verify ownership.'
+                            : asset.status === 'verified'
+                              ? 'Recorded scan authorization is missing or no longer valid.'
+                              : 'Ownership is not verified. Publish the TXT challenge and verify ownership.'}
+                      </p>
+                    )}
+                    <Link
+                      className="button button-quiet"
+                      to={`/app/assets/${asset.id}/scans`}
+                    >
+                      Scan history for {asset.canonical_fqdn}
+                    </Link>
+                  </div>
                   <Button
                     variant="secondary"
                     onClick={() => {
@@ -333,7 +373,7 @@ export function Assets() {
             >
               Generate new challenge
             </Button>
-            <Button disabled>Scan unavailable</Button>
+
             <Button
               variant="quiet"
               disabled={pending}

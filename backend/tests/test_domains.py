@@ -310,7 +310,7 @@ def test_upgrade_preserves_phase02_identity_and_session(tmp_path, monkeypatch):
             assert restarted.get("/api/v1/domains").json() == client.get("/api/v1/domains").json()
 
 
-def test_verified_state_persists_and_scanner_is_absent(owner):
+def test_verified_state_persists_and_scanner_can_enqueue(owner):
     from fastapi.testclient import TestClient
 
     from app.main import create_app
@@ -322,7 +322,7 @@ def test_verified_state_persists_and_scanner_is_absent(owner):
     with TestClient(create_app(c.app.state.settings)) as restarted:
         restarted.cookies.update(c.cookies)
         assert restarted.get("/api/v1/domains/" + row["id"]).json()["status"] == "verified"
-    assert mutate(c, "/domains/" + row["id"] + "/scans").status_code == 404
+    assert mutate(c, "/domains/" + row["id"] + "/scans").status_code == 202
 
 
 def test_no_tcp_fallback(monkeypatch):

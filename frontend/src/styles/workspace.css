@@ -234,12 +234,14 @@
   min-width: 0;
   max-width: 100%;
 }
-.assets-page {
+.assets-page,
+.scans-page {
   padding: 40px var(--page-gutter);
   max-width: 1280px;
   margin-inline: auto;
 }
-.assets-page h1 {
+.assets-page h1,
+.scans-page h1 {
   font: 500 2.25rem/1.2 var(--font-body);
   margin-block: 16px 24px;
 }
@@ -322,4 +324,76 @@
 }
 .confirm-dialog::backdrop {
   background: rgb(50 16 21 / 0.7);
+}
+
+.scans-page > p,
+.scans-page > .button-row {
+  margin-bottom: 1.5rem;
+}
+.scan-history {
+  list-style: none;
+  padding: 0;
+}
+.scan-history li,
+.scan-summary {
+  border-block: 1px solid var(--color-stroke);
+  padding: 1.5rem 0;
+}
+.scan-history li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+.scan-summary dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1rem;
+}
+.scan-summary dd {
+  margin: 0;
+}
+.observation-group {
+  margin-top: 2.5rem;
+}
+.observation {
+  border-top: 1px solid var(--color-stroke);
+  padding: 1.5rem 0;
+}
+.observation h3 {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+.observation > p {
+  max-width: 72ch;
+  margin-block: 0.75rem;
+}
+.observation summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding-block: 0.75rem;
+}
+.observation dd {
+  margin: 0.25rem 0 0.75rem;
+}
+.scans-page,
+.scans-page code,
+.scan-history h2 {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.asset-scan-actions {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 25rem;
+}
+@media (max-width: 600px) {
+  .scan-history li {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .scan-summary dl {
+    grid-template-columns: 1fr;
+  }
 }

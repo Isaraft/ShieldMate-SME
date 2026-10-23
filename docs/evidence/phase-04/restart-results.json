@@ -1,0 +1,8 @@
+{
+  "isolated_fixture_stack": true,
+  "external_network_probes": false,
+  "queued_job_and_session_survive_backend_restart": true,
+  "completed_observations_survive_backend_and_worker_restart": true,
+  "sigkill_running_worker_recovers_to_interrupted": true,
+  "actual_recovery_wait_seconds": 89.0
+}

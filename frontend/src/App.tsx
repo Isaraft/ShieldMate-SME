@@ -19,6 +19,7 @@ import {
   PrivateOverview,
   PrivatePlanned,
 } from './pages/Account';
+import { Scans } from './pages/Scans';
 import { Assets } from './pages/Assets';
 import { UiKit } from './pages/UiKit';
 
@@ -42,7 +43,7 @@ function Shell() {
   const previousKey = useRef(key);
   const main = useRef<HTMLElement>(null);
   useEffect(() => {
-    document.title = `${titles[pathname] ?? 'Page not found'} · ShieldMate SME`;
+    document.title = `${titles[pathname] ?? (pathname.includes('/scans') ? 'Security check records' : 'Page not found')} · ShieldMate SME`;
     if (hash) {
       const target = document.getElementById(hash.slice(1));
       target?.scrollIntoView?.();
@@ -109,6 +110,11 @@ export function App() {
         <Route element={<PrivateWorkspace />}>
           <Route path="/app" element={<PrivateOverview />} />
           <Route path="/app/assets" element={<Assets />} />
+          <Route path="/app/assets/:domainId/scans" element={<Scans />} />
+          <Route
+            path="/app/assets/:domainId/scans/:scanId"
+            element={<Scans />}
+          />
           {workspaceRoutes
             .filter(
               (route) => route.path !== '/app' && route.path !== '/app/assets',

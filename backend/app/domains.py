@@ -62,6 +62,8 @@ def now() -> int:
 
 
 def output(asset: DomainAsset) -> DomainOut:
+    from app.scanner.policy import eligible
+
     moment = now()
     status = "pending"
     if asset.verified_at:
@@ -84,6 +86,7 @@ def output(asset: DomainAsset) -> DomainOut:
         last_verification_error_code=asset.last_verification_error_code,
         record_hostname="_shieldmate-challenge." + asset.canonical_fqdn,
         record_value="shieldmate-verification=" + asset.challenge_token,
+        scan_available=eligible(asset, moment),
     )
 
 

@@ -53,3 +53,13 @@ checks. `scripts/qa/phase03_server.py` is an isolated test harness with injected
 never run it as the application server or present its verified fixtures as live DNS proof.
 Production entry remains `app.main:app`. Live provider E2E requires an operator-controlled
 domain and manual TXT publication; it is not part of automated CI.
+
+## Phase 04 checks
+
+Run the existing backend/frontend quality commands plus the scanner tests (included in
+pytest/Vitest). Network tests use mocked DNS/socket transports and temporary migrated DBs.
+They never probe external domains. See [scanner design](scanner.md) and the Phase 04 report.
+Use the ordinary Compose stack for marketing/auth regressions; use the separate
+`scripts/qa/phase04.compose.yaml` stack for deterministic scanning browser/restart checks.
+It uses an isolated volume and mounted test-only modules, not production network results.
+A real team-owned live scan remains a separate manual acceptance step.

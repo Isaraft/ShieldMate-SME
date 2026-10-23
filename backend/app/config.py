@@ -33,6 +33,13 @@ class Settings(BaseSettings):
     dns_timeout: float = 3.0
     domain_rate_limit: int = 20
     domain_ip_rate_limit: int = 100
+    scan_user_hourly: int = 6
+    scan_org_hourly: int = 6
+    scan_domain_hourly: int = 2
+    scan_queue_limit: int = 20
+    scan_history_limit: int = 100
+    scan_timeout: float = 45.0
+    scan_io_timeout: float = 3.0
 
     @model_validator(mode="after")
     def secure_production(self) -> "Settings":
@@ -52,6 +59,16 @@ class Settings(BaseSettings):
             and 1 <= self.domain_ip_rate_limit <= 1000
         ):
             raise ValueError("Invalid domain limits")
+        if not (
+            1 <= self.scan_user_hourly <= 100
+            and 1 <= self.scan_org_hourly <= 100
+            and 1 <= self.scan_domain_hourly <= 20
+            and 1 <= self.scan_queue_limit <= 100
+            and 1 <= self.scan_history_limit <= 1000
+            and 5 <= self.scan_timeout <= 60
+            and 0.1 <= self.scan_io_timeout <= 5
+        ):
+            raise ValueError("Invalid scan limits")
         return self
 
     @field_validator("database_url")

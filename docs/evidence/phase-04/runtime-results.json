@@ -1,0 +1,6 @@
+{
+  "python": "3.13.17",
+  "blocked_special_use_cases": 24,
+  "tls_defaults_verified": true,
+  "external_connections": false
+}

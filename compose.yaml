@@ -26,6 +26,23 @@ services:
       start_period: 10s
     networks: [local]
 
+  worker:
+    build: ./backend
+    command: ["/app/.venv/bin/python", "-m", "app.scanner.worker"]
+    environment:
+      SHIELDMATE_DATABASE_URL: sqlite:////app/storage/shieldmate.db
+    volumes:
+      - database:/app/storage
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    networks: [local]
+
   frontend:
     build: ./frontend
     ports:

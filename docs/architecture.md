@@ -108,3 +108,11 @@ verification makes one bounded UDP TXT lookup; the packaged PSL never refreshes 
 A compare-and-set after network I/O checks generation/expiry/owner/existence before granting
 proof. See [the Phase 03 report](phase-03-results.md) for the precise lifecycle and limits.
 No security scanner, finding, task or report implementation exists yet.
+
+## Phase 04 scanner boundary
+
+The historical sections above describe earlier phase states. Phase 04 now adds a durable
+SQLite scan queue, bounded separate worker, versioned observations, owner-scoped endpoints
+and private scan history/details. No findings/tasks/report engine exists. See
+[scanner design](scanner.md) for the exact network/authorization model, bounds, lifecycle,
+retention and deliberate limitations, and [actual Phase 04 results](phase-04-results.md).

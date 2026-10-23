@@ -60,7 +60,7 @@ it('enrolls with consent, displays persisted instructions and disables scans', a
   await user.click(screen.getByRole('button', { name: 'Add domain' }));
   expect(await screen.findByText(asset.record_value)).toBeInTheDocument();
   expect(
-    screen.getByRole('button', { name: 'Scan unavailable' }),
+    screen.getByRole('button', { name: 'Run security checks' }),
   ).toBeDisabled();
   expect(fetch).toHaveBeenCalledWith(
     '/api/v1/domains',
