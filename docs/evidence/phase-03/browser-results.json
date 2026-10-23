@@ -1,0 +1,36 @@
+{
+  "browser": "151.0.7922.34",
+  "viewports": [
+    {
+      "width": 360,
+      "violations": [],
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "violations": [],
+      "overflow": false
+    },
+    {
+      "width": 1280,
+      "violations": [],
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "violations": [],
+      "overflow": false
+    }
+  ],
+  "flow": [
+    "unauthenticated redirect",
+    "register and login",
+    "onboarding and session reload",
+    "rename survives reload",
+    "authorization enrollment, copy and reload persistence",
+    "injected DNS exact-match verification persisted by backend",
+    "rotation invalidation, keyboard dialog cancellation and confirmed deletion",
+    "missing record and temporary DNS error feedback"
+  ],
+  "errors": []
+}

@@ -3,7 +3,9 @@ const fs = require("node:fs");
 const path = require("node:path");
 const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
-const output = path.resolve(__dirname, "../docs/evidence/phase-02");
+const output = path.resolve(
+  process.env.EVIDENCE_DIR || path.join(__dirname, "../docs/evidence/phase-02"),
+);
 const base = process.env.BASE_URL || "http://127.0.0.1:5173";
 (async () => {
   const browser = await chromium.launch();

@@ -234,3 +234,92 @@
   min-width: 0;
   max-width: 100%;
 }
+.assets-page {
+  padding: 40px var(--page-gutter);
+  max-width: 1280px;
+  margin-inline: auto;
+}
+.assets-page h1 {
+  font: 500 2.25rem/1.2 var(--font-body);
+  margin-block: 16px 24px;
+}
+.assets-page > p {
+  max-width: 75ch;
+}
+.assets-page .feedback {
+  margin-block: 24px;
+}
+.asset-enrollment {
+  display: grid;
+  gap: 24px;
+  max-width: 720px;
+  margin-block: 40px;
+}
+.authorization-choice {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  line-height: 1.6;
+}
+.authorization-choice input {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  margin-top: 4px;
+  accent-color: var(--color-red-700);
+}
+.asset-list article {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid var(--color-stroke);
+  padding-block: 24px;
+}
+.asset-list h2,
+.dns-instructions h2 {
+  overflow-wrap: anywhere;
+  margin-bottom: 16px;
+}
+.asset-list p {
+  font-size: 0.8125rem;
+  margin-top: 8px;
+}
+.dns-instructions {
+  margin-block: 40px;
+  padding: 24px;
+  border-top: 3px solid var(--color-burgundy-900);
+  background: var(--color-surface-raised);
+}
+.dns-instructions p {
+  margin-block: 16px;
+  max-width: 75ch;
+}
+.dns-instructions dt {
+  margin-top: 24px;
+  font-weight: 500;
+}
+.dns-instructions dd {
+  margin: 8px 0 24px;
+}
+.dns-instructions code {
+  display: block;
+  overflow-wrap: anywhere;
+  font-family: var(--font-body);
+  padding: 12px;
+  border: 1px solid var(--color-stroke);
+}
+.confirm-dialog {
+  max-width: min(560px, calc(100vw - 48px));
+  padding: 32px;
+  border: 2px solid var(--color-burgundy-900);
+  color: var(--color-burgundy-950);
+  background: var(--color-surface-raised);
+}
+.confirm-dialog p {
+  margin-block: 24px;
+}
+.confirm-dialog::backdrop {
+  background: rgb(50 16 21 / 0.7);
+}

@@ -27,6 +27,12 @@ class Settings(BaseSettings):
     trusted_origins: list[str] = ["http://127.0.0.1:5173", "http://localhost:5173"]
     session_seconds: int = 28800
     auth_rate_limit: int = 10
+    domain_quota: int = 5
+    challenge_seconds: int = 172800
+    verification_seconds: int = 2592000
+    dns_timeout: float = 3.0
+    domain_rate_limit: int = 20
+    domain_ip_rate_limit: int = 100
 
     @model_validator(mode="after")
     def secure_production(self) -> "Settings":
@@ -37,6 +43,15 @@ class Settings(BaseSettings):
             raise ValueError("Production requires Secure cookies and HTTPS trusted origins")
         if not 60 <= self.session_seconds <= 604800 or not 1 <= self.auth_rate_limit <= 100:
             raise ValueError("Invalid authentication limits")
+        if not (
+            1 <= self.domain_quota <= 100
+            and 60 <= self.challenge_seconds <= 604800
+            and 60 <= self.verification_seconds <= 7776000
+            and 0.1 <= self.dns_timeout <= 5
+            and 1 <= self.domain_rate_limit <= 100
+            and 1 <= self.domain_ip_rate_limit <= 1000
+        ):
+            raise ValueError("Invalid domain limits")
         return self
 
     @field_validator("database_url")

@@ -1,0 +1,6 @@
+{
+  "domain_and_challenge_survive_container_restart": true,
+  "session_preserved": true,
+  "dns_queries_performed": false,
+  "health": "ok"
+}

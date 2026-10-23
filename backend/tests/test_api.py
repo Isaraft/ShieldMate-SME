@@ -10,7 +10,7 @@ def test_health_contract(client: TestClient) -> None:
 
 
 def test_missing_business_endpoints(client: TestClient) -> None:
-    for path in ["/api/v1/domains", "/api/v1/scans", "/docs"]:
+    for path in ["/api/v1/scans", "/docs"]:
         response = client.get(path)
         assert response.status_code == 404
         assert response.json()["error"]["code"] == "http_404"

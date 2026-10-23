@@ -1,4 +1,4 @@
-# Verification through Phase 02
+# Verification through Phase 03
 
 Run the exact automated commands in README. Backend tests use temporary or in-memory
 SQLite, not the user's local database. Frontend tests mock only the health transport;
@@ -45,3 +45,11 @@ See [Phase 02 commands and evidence](phase-02-results.md). The original public r
 now target `/preview`; private `/app` routes use real session guards. Integration tests
 use migrated temporary SQLite databases and never reset the user database. Browser
 accounts are generated only during local QA, with random passwords kept in memory.
+
+## Phase 03 domains
+
+[Phase 03 results](phase-03-results.md) records the actual domain security tests and browser
+checks. `scripts/qa/phase03_server.py` is an isolated test harness with injected DNS only;
+never run it as the application server or present its verified fixtures as live DNS proof.
+Production entry remains `app.main:app`. Live provider E2E requires an operator-controlled
+domain and manual TXT publication; it is not part of automated CI.

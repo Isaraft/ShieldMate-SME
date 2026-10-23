@@ -1,0 +1,76 @@
+{
+  "browser": "151.0.7922.34",
+  "viewports": [
+    {
+      "width": 360,
+      "route": "/app/settings",
+      "violations": []
+    },
+    {
+      "width": 360,
+      "route": "/register",
+      "violations": []
+    },
+    {
+      "width": 360,
+      "route": "/login",
+      "violations": []
+    },
+    {
+      "width": 768,
+      "route": "/app/settings",
+      "violations": []
+    },
+    {
+      "width": 768,
+      "route": "/register",
+      "violations": []
+    },
+    {
+      "width": 768,
+      "route": "/login",
+      "violations": []
+    },
+    {
+      "width": 1280,
+      "route": "/app/settings",
+      "violations": []
+    },
+    {
+      "width": 1280,
+      "route": "/register",
+      "violations": []
+    },
+    {
+      "width": 1280,
+      "route": "/login",
+      "violations": []
+    },
+    {
+      "width": 1920,
+      "route": "/app/settings",
+      "violations": []
+    },
+    {
+      "width": 1920,
+      "route": "/register",
+      "violations": []
+    },
+    {
+      "width": 1920,
+      "route": "/login",
+      "violations": []
+    }
+  ],
+  "flow": [
+    "unauthenticated redirect",
+    "register and login",
+    "onboarding and session reload",
+    "rename survives reload",
+    "invalid session redirects cleanly",
+    "logout revocation and replay denied",
+    "private access denied after logout",
+    "keyboard focus and reduced motion"
+  ],
+  "errors": []
+}

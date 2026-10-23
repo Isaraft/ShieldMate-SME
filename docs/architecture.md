@@ -1,4 +1,4 @@
-# Architecture through Phase 02
+# Architecture through Phase 03
 
 ## Initial assessment
 
@@ -99,3 +99,12 @@ See `design-system.md` for the SPA SEO limitations and public-release follow-up.
 `/app` is private and owner-scoped; `/preview` is the public Phase 01 design shell.
 See [the Phase 02 report](phase-02-results.md) for contracts, password/session parameters,
 CSRF, limits, cookies, data migration and production requirements.
+
+## Phase 03 domains
+
+`/app/assets` and the owner-scoped domain API now persist authorization attestations and
+versioned TXT challenges. Revision `90bff5eabc24` adds domains and audit events. Production
+verification makes one bounded UDP TXT lookup; the packaged PSL never refreshes over HTTP.
+A compare-and-set after network I/O checks generation/expiry/owner/existence before granting
+proof. See [the Phase 03 report](phase-03-results.md) for the precise lifecycle and limits.
+No security scanner, finding, task or report implementation exists yet.

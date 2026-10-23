@@ -1,8 +1,9 @@
-# ShieldMate SME Starter — Phase 02
+# ShieldMate SME Starter — Phase 03
 
 **Phase 02: real accounts and one company workspace per owner.** Register, sign in,
 create/rename your organization, reload with a persistent cookie session and sign out.
-Domain verification, external scanning, findings, tasks, reports and payments remain planned.
+Domain enrollment and DNS TXT ownership proof are implemented. External security checks,
+findings, tasks, reports and payments remain planned.
 
 The Phase 01 burgundy/red landing and public design preview are preserved at `/preview`;
 `/app` is private and `/app/settings` edits your actual company. See
@@ -114,4 +115,24 @@ See [the design system](docs/design-system.md) for tokens, component patterns an
 limits. `/` is the public landing page, `/app` the private workspace, and `/preview/ui-kit`
 the public interactive component reference. `/preview` holds the public design shell.
 
-Phase 03 has NOT started. Do not implement it without explicit owner approval.
+Phase 04 has NOT started. Do not implement it without explicit owner approval.
+
+## Domain ownership (Phase 03)
+
+Open `/app/assets`. Enter a domain only, such as `shop.example.com`, with no URL, whitespace,
+port or path. ASCII and valid Punycode are supported; direct Unicode input is rejected.
+A public registrable domain is required; public suffixes and internal/special names are rejected.
+Acknowledge that you control it or have written authorization. Enrollment makes no DNS request.
+
+Create the displayed separate TXT record at your own DNS provider, then choose Verify ownership.
+Check whether your provider appends the zone to avoid duplicating the hostname. Do not modify
+SPF/DMARC. DNS propagation has no guaranteed time; missing records stay pending and resolver
+failures remain inconclusive. Challenges expire after 48 hours; a successful proof is fresh for
+30 days. Generate new challenge revokes previous proof and requires replacing the TXT value.
+TXT values are public domain-control proofs, never login credentials. DNS control alone does
+not authorize tests against every underlying server. No scanner is enabled.
+
+Default quota is five domains. `.env.example` documents limits and lifetimes. Restarting
+`docker compose restart backend` preserves domains/challenges; `docker compose down` preserves
+the database volume. See [Phase 03 results](docs/phase-03-results.md) for commands, state rules,
+manual DNS setup, security tests and the explicit absence of live DNS-provider E2E evidence.

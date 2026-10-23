@@ -19,6 +19,7 @@ import {
   PrivateOverview,
   PrivatePlanned,
 } from './pages/Account';
+import { Assets } from './pages/Assets';
 import { UiKit } from './pages/UiKit';
 
 const titles: Record<string, string> = {
@@ -107,8 +108,11 @@ export function App() {
         <Route path="/register" element={<AccountForm register />} />
         <Route element={<PrivateWorkspace />}>
           <Route path="/app" element={<PrivateOverview />} />
+          <Route path="/app/assets" element={<Assets />} />
           {workspaceRoutes
-            .filter((route) => route.path !== '/app')
+            .filter(
+              (route) => route.path !== '/app' && route.path !== '/app/assets',
+            )
             .map((route) => (
               <Route
                 key={route.path}

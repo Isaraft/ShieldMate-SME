@@ -14,6 +14,9 @@ from app.api.health import router as health_router
 from app.auth import router as auth_router
 from app.config import Settings
 from app.db import Database
+from app.domain_dns import check_txt
+from app.domain_limits import DomainLimiter
+from app.domains import router as domains_router
 from app.errors import (
     SECURITY_HEADERS,
     error_response,
@@ -70,6 +73,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         return response
 
     app.state.settings = settings
+    app.state.check_txt = check_txt
+    app.state.domain_limiter = DomainLimiter()
+    app.include_router(domains_router, prefix="/api/v1")
     app.include_router(auth_router, prefix="/api/v1")
     app.include_router(health_router, prefix="/api/v1")
     return app
