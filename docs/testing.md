@@ -1,4 +1,4 @@
-# Verification through Phase 03
+# Verification through Phase 05
 
 Run the exact automated commands in README. Backend tests use temporary or in-memory
 SQLite, not the user's local database. Frontend tests mock only the health transport;
@@ -63,3 +63,24 @@ Use the ordinary Compose stack for marketing/auth regressions; use the separate
 `scripts/qa/phase04.compose.yaml` stack for deterministic scanning browser/restart checks.
 It uses an isolated volume and mounted test-only modules, not production network results.
 A real team-owned live scan remains a separate manual acceptance step.
+
+## Phase 05 finding verification
+
+The full backend suite includes deterministic saved-observation rule cases and migrated
+SQLite integration tests for authorization, lifecycle, retention, source ordering, concurrent
+reconciliation/read snapshots, crash rollback and backfill. No external probes are used.
+Frontend tests mock API responses only in test files; production pages always request the
+backend. See [Phase 05 results](phase-05-results.md) for exact commands and counts.
+
+`scripts/qa/phase05.compose.yaml` is a separate local stack with an isolated volume. It
+injects DNS ownership verification and explicitly synthetic saved scanner observations;
+its worker runs the real offline reconciliation loop. `phase05_seed.py` refuses workspaces
+without the LOCAL QA prefix. The QA modules are mounted only for tests and are absent
+from production images. Never present these snapshots as a live security assessment.
+
+`scripts/verify-phase-05.cjs` checks real registration/session/organization/asset routes,
+worker processing, source links, exact API/UI totals and priorities, partial/clean/reopened
+history, container restart, idempotent backfill, stale and error states. It captures four
+widths and runs axe. Earlier browser scripts support `EVIDENCE_DIR` so regression evidence
+can be retained without overwriting historical phase screenshots. Live owned-domain E2E,
+physical assistive devices and non-Chromium browsers require separate manual checks.

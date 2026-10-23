@@ -11,6 +11,7 @@ from sqlalchemy import select
 from app.config import Settings
 from app.db import Database
 from app.domains import event, locked
+from app.findings.reconcile import reconcile_pending
 from app.models import CheckObservation, DomainAsset, Organization, ScanRun
 from app.scanner.contracts import CHECKS, Observation, ScanFailure
 from app.scanner.policy import Budget, eligible
@@ -127,6 +128,7 @@ def main() -> None:
         signal.signal(sig, lambda *_: stop.set())
     try:
         while not stop.is_set():
+            reconcile_pending(database)
             if not work_once(database, settings):
                 stop.wait(1)
     finally:

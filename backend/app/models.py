@@ -109,3 +109,69 @@ class CheckObservation(Base):
     source: Mapped[str] = mapped_column(String(40))
     explanation: Mapped[str] = mapped_column(String(600))
     evidence: Mapped[dict[str, str | int | list[str]]] = mapped_column(JSON)
+
+
+class FindingEvaluation(Base):
+    __tablename__ = "finding_evaluations"
+    __table_args__ = (UniqueConstraint("scan_id", "policy_version"),)
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    scan_id: Mapped[str] = mapped_column(ForeignKey("scan_runs.id", ondelete="CASCADE"), index=True)
+    organization_id: Mapped[str] = mapped_column(ForeignKey("organizations.id"), index=True)
+    asset_id: Mapped[str] = mapped_column(ForeignKey("domains.id", ondelete="CASCADE"), index=True)
+    policy_version: Mapped[str] = mapped_column(String(32))
+    evaluated_at: Mapped[int]
+    scan_created_at: Mapped[int]
+    applied: Mapped[bool]
+    assessment: Mapped[dict[str, object]] = mapped_column(JSON)
+
+
+class Finding(Base):
+    __tablename__ = "findings"
+    __table_args__ = (
+        UniqueConstraint("organization_id", "fingerprint"),
+        CheckConstraint("status IN ('open','resolved')"),
+        CheckConstraint("severity IN ('high','medium','low','info')"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    organization_id: Mapped[str] = mapped_column(ForeignKey("organizations.id"), index=True)
+    asset_id: Mapped[str] = mapped_column(ForeignKey("domains.id", ondelete="CASCADE"), index=True)
+    fingerprint: Mapped[str] = mapped_column(String(64))
+    rule_id: Mapped[str] = mapped_column(String(40))
+    policy_version: Mapped[str] = mapped_column(String(32))
+    category: Mapped[str] = mapped_column(String(24), index=True)
+    status: Mapped[str] = mapped_column(String(12), index=True)
+    severity: Mapped[str] = mapped_column(String(8), index=True)
+    severity_rank: Mapped[int]
+    urgency: Mapped[int]
+    relevance: Mapped[int]
+    confidence: Mapped[str] = mapped_column(String(16))
+    title: Mapped[str] = mapped_column(String(180))
+    impact: Mapped[str] = mapped_column(String(600))
+    recommendation: Mapped[str] = mapped_column(String(800))
+    rationale: Mapped[str] = mapped_column(String(600))
+    limitation: Mapped[str] = mapped_column(String(600))
+    first_seen_at: Mapped[int]
+    last_seen_at: Mapped[int]
+    resolved_at: Mapped[int | None]
+    observed_at: Mapped[int]
+    source_scan_id: Mapped[str] = mapped_column(String(36))
+    evidence: Mapped[list[dict[str, object]]] = mapped_column(JSON)
+    last_evaluation_at: Mapped[int]
+    last_scan_created_at: Mapped[int]
+    last_scan_id: Mapped[str] = mapped_column(String(36))
+    recheck_status: Mapped[str] = mapped_column(String(20))
+    history_truncated: Mapped[bool] = mapped_column(default=False)
+
+
+class FindingEvent(Base):
+    __tablename__ = "finding_events"
+    __table_args__ = (UniqueConstraint("finding_id", "source_scan_id", "policy_version"),)
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    finding_id: Mapped[str] = mapped_column(
+        ForeignKey("findings.id", ondelete="CASCADE"), index=True
+    )
+    source_scan_id: Mapped[str] = mapped_column(String(36), index=True)
+    policy_version: Mapped[str] = mapped_column(String(32))
+    occurred_at: Mapped[int]
+    kind: Mapped[str] = mapped_column(String(24))
+    snapshot: Mapped[dict[str, object]] = mapped_column(JSON)

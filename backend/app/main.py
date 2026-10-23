@@ -24,6 +24,7 @@ from app.errors import (
     unexpected_error,
     validation_error,
 )
+from app.findings.api import router as findings_router
 from app.scanner.service import router as scans_router
 
 logger = logging.getLogger("shieldmate")
@@ -78,6 +79,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.domain_limiter = DomainLimiter()
     app.include_router(domains_router, prefix="/api/v1")
     app.include_router(scans_router, prefix="/api/v1")
+    app.include_router(findings_router, prefix="/api/v1")
     app.include_router(auth_router, prefix="/api/v1")
     app.include_router(health_router, prefix="/api/v1")
     return app

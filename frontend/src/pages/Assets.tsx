@@ -401,8 +401,9 @@ export function Assets() {
         <h2 id="remove-title">Remove domain?</h2>
         <p>
           Remove {remove?.canonical_fqdn} from this workspace and revoke its
-          verification. This cannot be undone and does not remove records at
-          your DNS provider.
+          verification. Derived findings and their history are also removed.
+          This cannot be undone and does not remove records at your DNS
+          provider.
         </p>
         <div className="button-row">
           <Button variant="secondary" onClick={() => dialog.current?.close()}>

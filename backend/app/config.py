@@ -40,6 +40,7 @@ class Settings(BaseSettings):
     scan_history_limit: int = 100
     scan_timeout: float = 45.0
     scan_io_timeout: float = 3.0
+    finding_stale_seconds: int = 604800
 
     @model_validator(mode="after")
     def secure_production(self) -> "Settings":
@@ -69,6 +70,8 @@ class Settings(BaseSettings):
             and 0.1 <= self.scan_io_timeout <= 5
         ):
             raise ValueError("Invalid scan limits")
+        if not 60 <= self.finding_stale_seconds <= 7776000:
+            raise ValueError("Invalid finding freshness policy")
         return self
 
     @field_validator("database_url")

@@ -397,3 +397,218 @@
     grid-template-columns: 1fr;
   }
 }
+
+.findings-page {
+  padding: 40px var(--page-gutter);
+  max-width: 1280px;
+  margin-inline: auto;
+}
+.findings-page h1 {
+  font: 500 2.25rem/1.2 var(--font-body);
+  margin-block: 24px;
+}
+.findings-page > p,
+.finding-detail section > p {
+  max-width: 75ch;
+  margin-block: 1rem;
+}
+.findings-page h2 {
+  margin-block: 1.5rem 1rem;
+}
+.review-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1px solid var(--color-stroke);
+  padding: 1rem;
+  margin-block: 1.5rem;
+}
+.review-mode legend {
+  font-size: 0.8125rem;
+  padding-inline: 0.5rem;
+}
+.review-mode label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.review-mode input {
+  accent-color: var(--color-red-700);
+  width: 1.125rem;
+  height: 1.125rem;
+}
+.assessment-summary {
+  border-block: 1px solid var(--color-stroke);
+  padding-block: 0.5rem 1.5rem;
+}
+.coverage-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-block: 1.5rem;
+}
+.coverage-counts dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.coverage-counts dd {
+  margin: 0.5rem 0 0;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.finding-state {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 0.75rem;
+}
+.priority-section {
+  margin-block: 2.5rem;
+}
+.priority-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+.priority-list > li {
+  border-top: 4px solid var(--color-red-700);
+  background: var(--color-surface-raised);
+  padding: 1.5rem;
+}
+.priority-list h3 {
+  font: 600 1.25rem/1.4 var(--font-body);
+  margin-block: 0.75rem;
+}
+.priority-list h4 {
+  font-size: 0.875rem;
+  margin-block: 1rem 0.25rem;
+}
+.priority-list p {
+  max-width: 72ch;
+}
+.finding-filters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: end;
+  border-block: 1px solid var(--color-stroke);
+  padding-block: 1.5rem;
+  margin-block: 2rem;
+}
+.finding-filters label {
+  display: grid;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.finding-filters select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--color-burgundy-900);
+  border-radius: 0;
+  padding: 0.75rem;
+  font: inherit;
+  background: var(--color-surface-raised);
+  color: var(--color-burgundy-950);
+}
+.findings-page .button-row {
+  margin-block: 1.5rem;
+}
+.finding-evidence section {
+  border-top: 1px solid var(--color-stroke);
+  margin-block: 1rem;
+  padding-block: 1rem;
+}
+.finding-evidence h3,
+.finding-history h3 {
+  font: 600 1rem/1.4 var(--font-body);
+}
+.finding-evidence dl,
+.finding-dates {
+  display: grid;
+  gap: 0.5rem 1rem;
+  margin-block: 1rem;
+}
+.finding-dates {
+  grid-template-columns: max-content 1fr;
+}
+.finding-evidence dd,
+.finding-dates dd {
+  margin: 0;
+}
+.findings-page details {
+  margin-block: 1rem;
+}
+.findings-page summary {
+  cursor: pointer;
+  padding-block: 0.5rem;
+  font-weight: 500;
+}
+.findings-page,
+.findings-page code,
+.findings-page td,
+.finding-filters > * {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.finding-history {
+  padding-left: 1.25rem;
+}
+.finding-history li {
+  border-top: 1px solid var(--color-stroke);
+  padding-block: 1rem;
+}
+@media (min-width: 1100px) {
+  .priority-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .finding-filters {
+    grid-template-columns: 1fr;
+  }
+  .finding-dates {
+    grid-template-columns: 1fr;
+  }
+  .findings-page table,
+  .findings-page tbody,
+  .findings-page tr,
+  .findings-page td {
+    display: block;
+    width: 100%;
+  }
+  .findings-page thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .findings-page td {
+    border: 0;
+    padding: 0.75rem 0;
+  }
+  .findings-page td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 600;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .findings-page tr {
+    border-block: 1px solid var(--color-stroke);
+    padding-block: 1rem;
+  }
+}
+
+.priority-section > p {
+  margin-bottom: 1rem;
+}
+@media (max-width: 600px) {
+  .findings-page caption {
+    display: block;
+    width: 100%;
+  }
+}

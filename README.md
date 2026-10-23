@@ -1,9 +1,9 @@
-# ShieldMate SME Starter — Phase 04
+# ShieldMate SME Starter — Phase 05
 
 **Phase 02: real accounts and one company workspace per owner.** Register, sign in,
 create/rename your organization, reload with a persistent cookie session and sign out.
 Domain enrollment and DNS TXT ownership proof are implemented. Authorized, bounded DNS/TLS/HTTP configuration checks now run through a durable worker.
-Findings, prioritization, tasks, reports and payments remain planned.
+Evidence-backed findings, contextual priorities and finding history are now available. Tasks, reports and payments remain planned.
 
 The Phase 01 burgundy/red landing and public design preview are preserved at `/preview`;
 `/app` is private and `/app/settings` edits your actual company. See
@@ -116,7 +116,7 @@ See [the design system](docs/design-system.md) for tokens, component patterns an
 limits. `/` is the public landing page, `/app` the private workspace, and `/preview/ui-kit`
 the public interactive component reference. `/preview` holds the public design shell.
 
-Phase 05 has NOT started. Do not implement it without explicit owner approval.
+Phase 06 has NOT started. Do not implement it without explicit owner approval.
 
 ## Domain ownership (Phase 03)
 
@@ -150,7 +150,7 @@ Compose starts this worker automatically. After enrolling an **actually authoriz
 domain, publish and verify the real TXT proof. Choose **Run security checks** in Assets.
 The scan record polls while queued/running and stops on completion, partial completion, failure
 or interruption. Open **Scan history** for persisted records. Status is execution status,
-not a whole-site safety verdict. No score or prioritized findings are implemented.
+not a whole-site safety verdict. Findings now interpret these saved observations offline; no security score is calculated.
 
 Defaults: 6 scans/user/hour, 6/org/hour, 2/domain/hour; one active scan/domain;
 20 queued/running jobs globally; one worker slot, sequential checks; 45s network budget,
@@ -172,3 +172,41 @@ See [Phase 04 implementation, threat model and actual evidence](docs/phase-04-re
 and [the scanner design](docs/scanner.md). No real owned-domain live scan has been exercised
 in the supplied environment; browser screenshots use an isolated, visibly labeled QA fixture stack.
 Never run the `scripts/qa/` harness as the application or present it as live security evidence.
+
+## Evidence-backed findings (Phase 05)
+
+Open `/app/findings` after an authorized scan. The existing worker evaluates retained
+terminal scans offline and persists six versioned rule decisions. The list includes a
+Limited External Configuration Assessment, a server-ranked Top 3 of actual open findings,
+filters, pagination and a Business/Technical presentation toggle. Each detail shows impact,
+action, sanitized evidence, source time, severity reasoning and lifecycle history. Scan
+history links directly to its related findings.
+
+Only comparable conclusive evidence resolves a finding. Failed, missing or inapplicable
+checks preserve the previous state with a Not rechecked label; fresh evidence can reopen
+the same finding. Old evidence is labeled stale (default seven days). No fabricated CVEs,
+security score, task completion or whole-company security verdict is provided.
+
+The worker automatically backfills existing eligible Phase 04 scans. For an explicit,
+organization-scoped local maintenance pass (from `backend/`):
+
+```sh
+uv run python -m app.findings.backfill --organization-id YOUR_ORGANIZATION_UUID
+```
+
+For Compose, run from the project root:
+
+```sh
+docker compose exec -T backend .venv/bin/python -m app.findings.backfill --organization-id YOUR_ORGANIZATION_UUID
+```
+
+Repeating the command returns zero new evaluations.
+It makes no network requests and never accepts user-supplied findings. Start the normal
+scanner worker even if only backfilling; API reads do not evaluate scans.
+
+Revision `9752376ee8f2` adds findings/evaluations/events after the Phase 04 migration.
+Source scan retention remains bounded; sanitized finding snapshots survive source pruning.
+History retains at most 50 events per finding, visibly disclosing compaction. Removing an
+asset deletes its derived findings/history, as disclosed by the confirmation dialog.
+See [risk methodology](docs/risk-methodology.md), [Phase 05 results](docs/phase-05-results.md)
+and [architecture](docs/architecture.md) for rule caveats, API contracts and actual checks.

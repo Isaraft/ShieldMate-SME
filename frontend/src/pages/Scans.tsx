@@ -79,6 +79,14 @@ function ScanRecords() {
         does not guarantee security or detect all vulnerabilities.
       </p>
       <div className="button-row">
+        {scanId && (
+          <Link
+            className="button button-secondary"
+            to={`/app/findings?domain_id=${domainId}&scan_id=${scanId}`}
+          >
+            Review derived findings
+          </Link>
+        )}
         <Link className="button button-secondary" to="/app/assets">
           Back to assets
         </Link>

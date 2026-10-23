@@ -38,6 +38,9 @@ def test_migration_upgrade_downgrade_and_sqlite_constraints(tmp_path: Path, monk
             "check_observations",
             "domain_events",
             "domains",
+            "finding_evaluations",
+            "finding_events",
+            "findings",
             "organizations",
             "scan_runs",
             "sessions",
@@ -45,7 +48,7 @@ def test_migration_upgrade_downgrade_and_sqlite_constraints(tmp_path: Path, monk
         ]
         with database.sessions() as session:
             assert session.scalar(text("SELECT version_num FROM alembic_version")) == (
-                "1806ce4b7076"
+                "9752376ee8f2"
             )
             assert session.scalar(text("PRAGMA foreign_keys")) == 1
         command.check(config)

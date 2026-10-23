@@ -116,3 +116,43 @@ SQLite scan queue, bounded separate worker, versioned observations, owner-scoped
 and private scan history/details. No findings/tasks/report engine exists. See
 [scanner design](scanner.md) for the exact network/authorization model, bounds, lifecycle,
 retention and deliberate limitations, and [actual Phase 04 results](phase-04-results.md).
+
+## Phase 05 current architecture and API
+
+Phase 05 supersedes earlier statements that findings are absent. Scanner transport,
+network policy, DNS proof and authentication remain unchanged. `app/findings/adapter.py`
+allowlists persisted Phase 04 values; `engine.py` is a pure offline evaluator;
+`registry.py` owns editorial explanations; `reconcile.py` transactionally persists current
+findings, scan evaluations and compact event snapshots. The existing worker reconciles
+up to five terminal sources before its next scan iteration. An explicit organization-scoped
+backfill CLI uses the same idempotent service. No request handler triggers network probes
+or finding mutation.
+
+Additive revision `9752376ee8f2` follows `1806ce4b7076`. Unique source/policy evaluations
+and organization/fingerprint constraints plus SQLite BEGIN IMMEDIATE serialize retries.
+Source insertion order breaks equal-second timestamps. Older out-of-order evaluations
+are archived without overwriting newer current state. Current findings and history cascade
+on explicit asset deletion; source pruning retains finding/event snapshots. See
+[risk methodology](risk-methodology.md) for limits and lifecycle semantics.
+
+Read-only API contracts (authenticated organization derived from the session):
+
+- `GET /api/v1/findings`: bounded filtered list with domain options, exact aggregate counts,
+  assessment coverage and server-ranked Top 3 in one response. This avoids duplicate
+  summary/priorities routes and inconsistent independently fetched counters. A single
+  SQLite read snapshot covers the response.
+- `GET /api/v1/findings/{finding_id}`: impact, recommended action, severity components,
+  escaped sanitized evidence, source availability and lifecycle history.
+- `GET /api/v1/findings/assessments/{scan_id}`: pending/in-flight/evaluated source coverage,
+  versioned rule decisions and whether an older evaluation was applied to current state.
+
+Filters: status, severity, category, freshness, domain UUID and source scan UUID. Sort:
+priority/newest/oldest/domain; offset 0–10000, limit 1–50. Unknown parameters, invalid enums
+and malformed IDs return 422. Foreign domain/scan/finding IDs return consistent 404.
+No findings mutation endpoint, policy overrides, manual resolution, raw evidence payload
+or task persistence exists. Existing CSRF protections apply unchanged to existing mutations.
+
+Frontend `/app/findings` and `/app/findings/:findingId` share typed contracts and reusable
+assessment, priority, filter, evidence and review-mode components. Business/Technical only
+changes presentation. Polling occurs only while selected assessments are pending/in flight.
+Phase 06 dashboard/tasks/reporting remain unavailable.
