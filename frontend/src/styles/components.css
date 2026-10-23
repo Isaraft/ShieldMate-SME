@@ -1,0 +1,180 @@
+.menu-toggle.button {
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+}
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 20px;
+  min-height: 48px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  line-height: 1.4;
+  border-radius: 0;
+}
+.button-primary {
+  color: var(--color-surface-raised);
+  background: var(--color-red-700);
+}
+.button-primary:hover {
+  background: var(--color-burgundy-900);
+}
+.button-secondary {
+  border-color: currentColor;
+  background: transparent;
+  color: var(--color-burgundy-950);
+}
+.button-secondary:hover {
+  background: var(--color-surface);
+}
+.button-light {
+  color: var(--color-burgundy-950);
+  background: var(--color-surface-raised);
+}
+.button-light:hover {
+  background: var(--color-surface);
+}
+.button-quiet {
+  background: transparent;
+  text-decoration: underline;
+}
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.button:disabled {
+  border: 1px dashed var(--color-stroke);
+  background: var(--color-surface);
+  color: var(--color-burgundy-950);
+  cursor: not-allowed;
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 500;
+  min-height: 44px;
+}
+.text-link:hover {
+  text-decoration-thickness: 2px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid currentColor;
+  padding: 4px 8px;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-neutral {
+  color: var(--color-burgundy-900);
+}
+.badge-success {
+  color: var(--color-success);
+}
+.badge-warning {
+  color: var(--color-warning);
+}
+.badge-error {
+  color: var(--color-error);
+}
+.feedback {
+  padding: 20px;
+  background: var(--color-surface-raised);
+  border-left: 3px solid currentColor;
+  font-size: 0.875rem;
+}
+.feedback strong {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.feedback-success {
+  color: var(--color-success);
+}
+.feedback-warning {
+  color: var(--color-warning);
+}
+.feedback-error {
+  color: var(--color-error);
+}
+.field label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.field input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--color-burgundy-900);
+  padding: 12px;
+  background: var(--color-surface-raised);
+  color: var(--color-burgundy-950);
+  border-radius: 0;
+}
+.field input[aria-invalid='true'] {
+  border: 2px solid var(--color-error);
+}
+.field-help {
+  font-size: 0.8125rem;
+  margin-top: 8px;
+}
+.field-error {
+  color: var(--color-error);
+  margin-top: 8px;
+  font-size: 0.875rem;
+}
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+.table-wrap {
+  width: 100%;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.875rem;
+}
+caption {
+  text-align: left;
+  font-weight: 500;
+  padding: 16px 0;
+}
+th,
+td {
+  text-align: left;
+  padding: 16px;
+  border-block: 1px solid var(--color-stroke);
+  overflow-wrap: anywhere;
+}
+th {
+  background: var(--color-surface);
+  font-weight: 500;
+}
+.table-empty {
+  padding-block: 32px;
+  line-height: 1.6;
+}
+.loading-state {
+  display: grid;
+  gap: 12px;
+  margin-block: 24px;
+  font-size: 0.8125rem;
+}
+.loading-line {
+  display: block;
+  width: 60%;
+  height: 8px;
+  background: var(--color-stroke);
+}

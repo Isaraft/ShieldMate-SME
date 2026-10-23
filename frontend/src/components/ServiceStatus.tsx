@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Button } from './ui/Primitives';
 
 type Status = 'loading' | 'ready' | 'unavailable';
 
@@ -53,15 +54,15 @@ export function ServiceStatus() {
         </span>
       </p>
       {status === 'unavailable' && (
-        <button
-          className="text-button"
+        <Button
+          variant="quiet"
           onClick={() => {
             setStatus('loading');
             setAttempt((value) => value + 1);
           }}
         >
           Retry connection
-        </button>
+        </Button>
       )}
       <p className="text-sm">
         Connection status only. No domain checks are running.

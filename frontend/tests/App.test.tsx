@@ -13,6 +13,7 @@ function renderRoute(path = '/') {
 }
 
 beforeEach(() => {
+  vi.stubGlobal('scrollTo', vi.fn());
   vi.stubGlobal(
     'fetch',
     vi
@@ -21,8 +22,8 @@ beforeEach(() => {
   );
 });
 
-describe('foundation routes', () => {
-  it('renders an honest shell and the actual health response', async () => {
+describe('public site and preserved foundation routes', () => {
+  it('renders the landing page without making product API requests', () => {
     renderRoute();
     expect(
       screen.getByRole('heading', { name: /know what to fix first/i }),
@@ -30,8 +31,9 @@ describe('foundation routes', () => {
     expect(
       screen.getByRole('button', { name: 'Create workspace' }),
     ).toBeDisabled();
-    expect(await screen.findByText('Responding')).toBeInTheDocument();
-    expect(fetch).toHaveBeenCalledWith('/api/v1/health', expect.any(Object));
+    expect(fetch).not.toHaveBeenCalled();
+    expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
+    expect(screen.getByText('Planned Starter workflow')).toBeInTheDocument();
   });
 
   it('supports navigation and moves focus to the new content', async () => {
@@ -71,9 +73,10 @@ describe('foundation routes', () => {
     expect(
       screen.getByRole('heading', { name: 'This path ends here.' }),
     ).toBeInTheDocument();
-    await user.click(
-      screen.getByRole('link', { name: 'Return to foundation' }),
-    );
-    expect(await screen.findByText('Responding')).toBeInTheDocument();
+    await user.click(screen.getByRole('link', { name: 'Return to home' }));
+    expect(
+      screen.getByRole('heading', { name: /know what to fix first/i }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('main')).toHaveFocus();
   });
 });

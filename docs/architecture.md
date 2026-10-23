@@ -1,4 +1,4 @@
-# Phase 00 architecture
+# Architecture through Phase 01
 
 ## Initial assessment
 
@@ -11,8 +11,8 @@ and safety claims in the old presentation are not implemented or repeated as ach
 
 ## Boundaries
 
-React + TypeScript + Vite render a small welcome screen, accessible layout, future-route
-placeholders and a 404. React Router handles navigation. Tailwind v4 provides the token
+React + TypeScript + Vite render the public landing page, shared chrome, an explicit
+workspace preview, interactive UI reference and a 404. React Router handles navigation. Tailwind v4 provides the token
 and utility foundation; component CSS carries the restrained layout. A same-origin
 `GET /api/v1/health` is the only application request. The UI reports connection status,
 not security status, with loading, timeout, error and retry states.
@@ -53,9 +53,9 @@ application API errors use the JSON envelope. There are no modifying public API 
 
 Deep burgundy, vivid red and warm ivory establish a confident, editorial identity.
 Anton provides a condensed display voice; IBM Plex Sans makes supporting copy and
-navigation readable. Large type is confined to the small welcome panel; the workspace
-uses compact navigation and quiet, explicit planned states. Expressive public-page design
-and the full component system belong to Phase 01, which has not started.
+navigation readable. Large type defines the public marketing page; the workspace uses compact navigation
+and quiet, explicit planned states. Phase 01 adds small typed controls and a local
+interactive reference at `/app/ui-kit`, without API or storage writes.
 
 Central tokens live in `frontend/src/styles.css`, including semantic success/warning/error
 colors, visible focus, reduced-motion rules and responsive spacing. All state colors have
@@ -89,4 +89,6 @@ Authentication, organization authorization, CSRF, sensitive-action rate limiting
 domain verification, SSRF protections, checks, findings, tasks, PDF, sample demo,
 subscriptions, production TLS and deployment are absent. Do not expose the local services
 publicly. The frontend is a client-rendered SPA with noindex metadata, not a public
-marketing release; social previews, sitemap and a documented SEO strategy belong to Phase 01.
+marketing deployment. Phase 01 adds Open Graph basics, an original favicon and a
+robots policy. No real production origin exists, so canonical/sitemap URLs are deferred.
+See `design-system.md` for the SPA SEO limitations and public-release follow-up.

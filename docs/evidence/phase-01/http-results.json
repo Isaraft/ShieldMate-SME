@@ -1,0 +1,23 @@
+{
+  "/": {
+    "status": 200,
+    "type": "text/html"
+  },
+  "csp": "default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'",
+  "/app/assets": {
+    "status": 200,
+    "type": "text/html"
+  },
+  "/api/v1/health": {
+    "status": 200,
+    "type": "application/json"
+  },
+  "/favicon.svg": {
+    "status": 200,
+    "type": "image/svg+xml"
+  },
+  "/robots.txt": {
+    "status": 200,
+    "type": "text/plain"
+  }
+}

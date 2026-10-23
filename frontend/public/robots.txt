@@ -1,0 +1,3 @@
+# Local pre-launch preview. Revisit before an approved public release.
+User-agent: *
+Disallow: /

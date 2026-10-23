@@ -1,11 +1,12 @@
-# ShieldMate SME Starter — Phase 00
+# ShieldMate SME Starter — Phase 01
 
-**Foundation only. Authentication, external scanning, findings, remediation tasks,
+**Public website and interface preview. Authentication, external scanning, findings, remediation tasks,
 reports, sample demo and paid subscriptions are NOT implemented.** No domain probing
-or security assessment happens in this build. Phase 01 has not started.
+or security assessment happens in this build. Phase 01 is complete; Phase 02 requires explicit approval.
 
-This local foundation includes React/TypeScript/Vite/Tailwind, honest route placeholders,
-a real backend connection indicator, FastAPI health, SQLite/SQLAlchemy/Alembic and tests.
+This local build includes an editorial burgundy/red landing page, a clearly labeled workspace
+preview, reusable UI controls and an interactive UI reference. The React/TypeScript/Vite/
+Tailwind, FastAPI health, SQLite/SQLAlchemy/Alembic foundation and its tests are preserved.
 The original specifications and three visual references are preserved.
 
 ## Run with Docker
@@ -62,8 +63,8 @@ npm run dev
 
 Open <http://127.0.0.1:5173>. Vite proxies `/api` to port 8000, so no browser CORS
 allowlist is needed. Stop each process with Ctrl+C. Local SQLite is in `backend/storage/`
-and is ignored by Git. No secrets, credentials or cloud accounts are required for Phase 00.
-If the API is stopped, the UI reports unavailable and provides a connection retry.
+and is ignored by Git. No secrets, credentials or cloud accounts are required for this preview.
+On `/app`, if the API is stopped, the UI reports unavailable and provides a connection retry.
 
 ## Verify
 
@@ -94,7 +95,8 @@ npm audit
 
 From the project root: `docker compose config --quiet`. See
 [testing](docs/testing.md) for scope and manual checks, and
-[Phase 00 results](docs/phase-00-results.md) for actual outcomes and limitations.
+[Phase 01 results](docs/phase-01-results.md) for current outcomes and limitations.
+[Phase 00 results](docs/phase-00-results.md) remain as historical evidence.
 The `preview` script serves static build output only; use the dev server or Compose for
 the same-origin backend connection.
 
@@ -109,4 +111,8 @@ the same-origin backend connection.
 - `AGENTS.md`, `SHIELDMATE_MVP_SPEC.md`, `PHASES.md`, `PROMPTS/PHASE_00.md`: supplied rules.
 
 Read [architecture and decisions](docs/architecture.md) before extending the app.
-Phase 01 is brand/marketing/UI-kit work and requires the owner's approval before starting.
+See [the design system](docs/design-system.md) for tokens, component patterns and SEO
+limits. `/` is the public landing page, `/app` the workspace preview, and `/app/ui-kit`
+the local interactive component reference. All former planned routes remain.
+
+Phase 02 has NOT started. Do not implement it without explicit owner approval.
