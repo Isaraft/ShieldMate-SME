@@ -1,0 +1,16 @@
+{
+  "sourceCommit": "45c7036",
+  "cleanClone": true,
+  "commands": [
+    "git clone --no-hardlinks",
+    "uv sync --locked",
+    "npm ci --no-fund",
+    "copy .env.example .env",
+    "uv run alembic upgrade head",
+    "uv run uvicorn app.main:app (temporary loopback port 18000)",
+    "API_PROXY_TARGET=http://127.0.0.1:18000 npm run dev -- --port 15173"
+  ],
+  "realProxyHealth": "ok",
+  "renderedWorkspace": true,
+  "pass": true
+}

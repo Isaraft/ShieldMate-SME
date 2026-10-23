@@ -58,6 +58,7 @@ absent. Backend direct `.venv/bin` commands are equivalent to the README's `uv r
 | `docker compose config --quiet` | PASS. |
 | `docker compose up --build --wait` | PASS after installer and network fixes — both images built and both services healthy. |
 | Container runtime and recreation checks | PASS — health at ports 8000/5173, CSP/deep links, non-root users, read-only roots and unchanged SQLite file across `down` / `up --wait`. |
+| Clean local clone: `uv sync --locked`, `npm ci --no-fund`, migration and startup | PASS — fresh clone of implementation commit `45c7036`, new SQLite database, real proxied health and rendered workspace. |
 | `git diff --check` | PASS. |
 
 Development startup was exercised with Uvicorn on loopback port 18000 and Vite on 15173
@@ -129,6 +130,12 @@ retested. No scanner or external-domain request endpoint is enabled.
 NOT TESTED / outside this phase: production hosting/TLS, full assistive-technology audit,
 other browser engines, authentication, live scans, PDFs and real-user alpha/beta sessions.
 No claims are made for these activities.
+
+All ten Phase 00 objectives pass. The clean-clone check used temporary loopback ports
+18000/15173 so it could run alongside the verified Compose setup on 8000/5173; its processes
+were stopped afterward. The original project containers remain running for local review.
+No remote Git push or external deployment occurred. The final Git working tree is clean
+on `main`; original documents, implementation and verification evidence are committed.
 
 ## Run locally and handoff
 
