@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { api, type Identity } from '../authApi';
+import { Link, useLocation } from 'react-router-dom';
 const links = [
   ['product', 'Product'],
   ['how-it-works', 'How it works'],
@@ -18,6 +19,21 @@ export function Wordmark() {
   );
 }
 export function Header() {
+  const { pathname } = useLocation();
+  const [signedIn, setSignedIn] = useState(false);
+  useEffect(() => {
+    let active = true;
+    api<Identity>('/auth/me')
+      .then((value) => {
+        if (active) setSignedIn(Boolean(value.id));
+      })
+      .catch(() => {
+        if (active) setSignedIn(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [pathname]);
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   return (
@@ -54,7 +70,10 @@ export function Header() {
             {label}
           </Link>
         ))}
-        <Link className="header-preview" to="/app">
+        <Link to={signedIn ? '/app' : '/login'}>
+          {signedIn ? 'My workspace' : 'Sign in'}
+        </Link>
+        <Link className="header-preview" to="/preview">
           Workspace preview <span aria-hidden="true">↗</span>
         </Link>
       </nav>
@@ -76,8 +95,8 @@ export function Footer() {
         </p>
         <nav aria-label="Footer navigation">
           <Link to="/#scope">Product scope</Link>
-          <Link to="/app">Interface preview</Link>
-          <Link to="/app/ui-kit">UI foundation</Link>
+          <Link to="/preview">Interface preview</Link>
+          <Link to="/preview/ui-kit">UI foundation</Link>
         </nav>
         <a className="back-top" href="#main">
           Back to top ↑

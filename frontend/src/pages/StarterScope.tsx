@@ -1,4 +1,5 @@
-import { Badge, Button } from '../components/ui/Primitives';
+import { Link } from 'react-router-dom';
+import { Badge } from '../components/ui/Primitives';
 export function StarterScope() {
   return (
     <section
@@ -29,11 +30,11 @@ export function StarterScope() {
             <li>Practical actions and management reporting</li>
           </ul>
           <div className="planned-access">
-            <Button disabled aria-describedby="account-note">
-              Create workspace
-            </Button>
+            <Link className="button button-primary" to="/register">
+              Create account
+            </Link>
             <p id="account-note">
-              Unavailable. Accounts arrive in a later phase.
+              Create an account, then set up your company workspace.
             </p>
           </div>
         </div>

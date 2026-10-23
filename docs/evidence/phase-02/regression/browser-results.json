@@ -1,0 +1,246 @@
+{
+  "base": "http://127.0.0.1:5173",
+  "viewports": [
+    {
+      "width": 360,
+      "route": "/",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".launch-label > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".signal-arrow"
+            ],
+            [
+              ".button-light.button[href$=\"/#how-it-works\"] > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "route": "/preview",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 360,
+      "route": "/preview/ui-kit",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 360,
+      "route": "/not-a-page",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".launch-label > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".signal-arrow"
+            ],
+            [
+              ".button-light.button[href$=\"/#how-it-works\"] > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "route": "/preview",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 768,
+      "route": "/preview/ui-kit",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 768,
+      "route": "/not-a-page",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 1280,
+      "route": "/",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".launch-label > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".signal-arrow"
+            ],
+            [
+              ".button-light.button[href$=\"/#how-it-works\"] > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "route": "/preview",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 1280,
+      "route": "/preview/ui-kit",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 1280,
+      "route": "/not-a-page",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 1920,
+      "route": "/",
+      "overflow": false,
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "nodes": [
+            [
+              ".launch-label > span[aria-hidden=\"true\"]"
+            ],
+            [
+              ".signal-arrow"
+            ],
+            [
+              ".button-light.button[href$=\"/#how-it-works\"] > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "route": "/preview",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 1920,
+      "route": "/preview/ui-kit",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "width": 1920,
+      "route": "/not-a-page",
+      "overflow": false,
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "interactions": [
+    "skip link",
+    "keyboard menu open and Escape restore",
+    "visible 3px focus",
+    "closed menu inaccessible",
+    "anchor focus and repeated anchor",
+    "FAQ keyboard disclosure",
+    "preview CTA",
+    "all workspace routes",
+    "disabled feature actions",
+    "empty findings table",
+    "validation and focus/error/success/reset",
+    "long text wrapping",
+    "404 recovery",
+    "reduced motion",
+    "forced colors focus",
+    "health failure and retry"
+  ],
+  "errors": [],
+  "apiRequests": [
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/health",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/health",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/health",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/health",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/health",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/health",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/auth/me",
+    "/api/v1/health",
+    "/api/v1/health"
+  ],
+  "contrast": {
+    "ink/canvas": 15.24,
+    "ink/raised": 16.48,
+    "raised/burgundy": 13.94,
+    "raised/red": 5.09,
+    "raised/crimson": 8.24,
+    "crimson/canvas": 7.62,
+    "success/raised": 7.06,
+    "success/canvas": 6.53,
+    "warning/raised": 6.83
+  },
+  "browser": "151.0.7922.34"
+}

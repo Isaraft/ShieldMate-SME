@@ -75,12 +75,18 @@ it('routes the preview CTA to an honest workspace and only requests health', asy
   expect(screen.getByRole('button', { name: 'Run a check' })).toBeDisabled();
   expect(await screen.findByText('Responding')).toBeInTheDocument();
   expect(fetch).toHaveBeenCalledWith('/api/v1/health', expect.any(Object));
-  expect(fetch).toHaveBeenCalledTimes(1);
+  expect(
+    vi
+      .mocked(fetch)
+      .mock.calls.every(([url]) =>
+        ['/api/v1/auth/me', '/api/v1/health'].includes(String(url)),
+      ),
+  ).toBe(true);
   expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
 });
 
 it('shows an empty findings table without fabricated results', () => {
-  renderRoute('/app/findings');
+  renderRoute('/preview/findings');
   const table = screen.getByRole('table', {
     name: 'Findings structure — no results available',
   });
@@ -92,7 +98,7 @@ it('shows an empty findings table without fabricated results', () => {
 
 it('validates the component example, restores input focus, resets, and never sends data', async () => {
   const user = userEvent.setup();
-  renderRoute('/app/ui-kit');
+  renderRoute('/preview/ui-kit');
   const input = screen.getByRole('textbox', { name: 'Example label' });
   await user.click(screen.getByRole('button', { name: 'Try validation' }));
   expect(input).toHaveFocus();
@@ -105,7 +111,11 @@ it('validates the component example, restores input focus, resets, and never sen
   await user.click(screen.getByRole('button', { name: 'Reset' }));
   expect(input).toHaveValue('');
   expect(screen.queryByText('Example validated')).not.toBeInTheDocument();
-  expect(fetch).not.toHaveBeenCalled();
+  expect(
+    vi
+      .mocked(fetch)
+      .mock.calls.every(([url]) => String(url) === '/api/v1/auth/me'),
+  ).toBe(true);
 });
 
 it('keeps disabled and pending controls inert and out of tab order', async () => {

@@ -33,10 +33,15 @@ def test_migration_upgrade_downgrade_and_sqlite_constraints(tmp_path: Path, monk
     command.upgrade(config, "head")  # Safe to run again at each local startup.
     database = Database(url)
     try:
-        assert inspect(database.engine).get_table_names() == ["alembic_version"]
+        assert inspect(database.engine).get_table_names() == [
+            "alembic_version",
+            "organizations",
+            "sessions",
+            "users",
+        ]
         with database.sessions() as session:
             assert session.scalar(text("SELECT version_num FROM alembic_version")) == (
-                "0001_foundation"
+                "6b5520d9fa5d"
             )
             assert session.scalar(text("PRAGMA foreign_keys")) == 1
         command.check(config)

@@ -18,7 +18,11 @@ export function WorkspaceLayout() {
           <p className="eyebrow">Starter / Preview</p>
           <nav aria-label="Workspace navigation">
             {workspaceRoutes.map((route, index) => (
-              <NavLink key={route.path} to={route.path} end>
+              <NavLink
+                key={route.path}
+                to={route.path.replace('/app', '/preview')}
+                end
+              >
                 <span className="nav-index" aria-hidden="true">
                   0{index + 1}
                 </span>
@@ -28,7 +32,7 @@ export function WorkspaceLayout() {
             ))}
           </nav>
           <div className="workspace-nav-bottom">
-            <Link to="/app/ui-kit">
+            <Link to="/preview/ui-kit">
               UI foundation <span aria-hidden="true">↗</span>
             </Link>
             <p>

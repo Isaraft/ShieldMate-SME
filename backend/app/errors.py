@@ -5,6 +5,11 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException
 
+
+class PublicError(HTTPException):
+    """Only fixed application-authored messages may be returned to callers."""
+
+
 logger = logging.getLogger("shieldmate")
 
 SECURITY_HEADERS = {
@@ -26,9 +31,14 @@ def error_response(status: int, code: str, message: str) -> JSONResponse:
 async def http_error(_: Request, exc: HTTPException) -> JSONResponse:
     # Do not echo arbitrary exception details into a public response.
     messages = {404: "This endpoint does not exist.", 405: "This method is not allowed."}
-    return error_response(
-        exc.status_code, f"http_{exc.status_code}", messages.get(exc.status_code, "Request failed.")
+    message = (
+        str(exc.detail)
+        if isinstance(exc, PublicError)
+        else messages.get(exc.status_code, "Request failed.")
     )
+    response = error_response(exc.status_code, f"http_{exc.status_code}", message)
+    response.headers.update(exc.headers or {})
+    return response
 
 
 async def validation_error(_: Request, __: RequestValidationError) -> JSONResponse:

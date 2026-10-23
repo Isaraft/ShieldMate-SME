@@ -188,7 +188,7 @@ export function Landing() {
               Explore the interface foundation. <br />
               No account. No scan. No invented results.
             </p>
-            <Link className="button button-light" to="/app">
+            <Link className="button button-light" to="/preview">
               Explore workspace preview <span aria-hidden="true">↗</span>
             </Link>
           </div>

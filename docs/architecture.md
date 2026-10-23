@@ -1,4 +1,4 @@
-# Architecture through Phase 01
+# Architecture through Phase 02
 
 ## Initial assessment
 
@@ -14,14 +14,16 @@ and safety claims in the old presentation are not implemented or repeated as ach
 React + TypeScript + Vite render the public landing page, shared chrome, an explicit
 workspace preview, interactive UI reference and a 404. React Router handles navigation. Tailwind v4 provides the token
 and utility foundation; component CSS carries the restrained layout. A same-origin
-`GET /api/v1/health` is the only application request. The UI reports connection status,
+`GET /api/v1/health` remains the liveness endpoint; Phase 02 adds the account and
+owned-organization routes documented in `phase-02-results.md`. The UI reports connection status,
 not security status, with loading, timeout, error and retry states.
 
 FastAPI serves a typed `{ "status": "ok" }` liveness response. Settings, exception handling,
 routers and database sessions are separate modules. SQLAlchemy 2 uses SQLite, enables
 foreign keys on every connection and exposes a session dependency for future routes.
-There are no account, organization, domain, finding or task models. Alembic's initial
-revision is intentionally empty; only its version table is created. Application startup
+Phase 02 adds User, Organization and LoginSession models through revision
+`6b5520d9fa5d` after the preserved empty foundation revision. There are no domain,
+finding or task models. Application startup
 does not call `create_all`; the documented migration step owns schema changes.
 
 The local Vite server proxies `/api` to loopback port 8000. Compose builds static assets,
@@ -38,7 +40,7 @@ phases must implement the specified egress constraints before enabling checks.
 Pydantic Settings reads the root `.env`; process environment takes precedence. SQLite
 relative paths resolve from `backend/`, regardless of the process working directory.
 CORS is off by default; explicit origins may be configured for GET only without cookies.
-Hostnames must be explicit. No secrets, sessions or browser storage are needed yet.
+Hostnames must be explicit. Opaque cookie sessions are database-backed; raw secrets never enter browser storage.
 Errors use `error: {code, message}` without submitted input or exception details.
 Application error logging records exception type, not payload. Access logging is disabled
 in documented commands to avoid recording query strings. Standard server/startup diagnostics
@@ -47,7 +49,7 @@ remain local operational output; never add secret-bearing exception messages in 
 The health endpoint is liveness, not database readiness. It does not query SQLite or
 certify that a future workflow can complete. Container startup runs migrations first.
 TrustedHostMiddleware rejects invalid host headers with Starlette's fixed plain-text 400;
-application API errors use the JSON envelope. There are no modifying public API routes.
+application API errors use the JSON envelope. Account and organization mutations require exact Origin and server-bound CSRF.
 
 ## Visual concept and initial choices
 
@@ -85,10 +87,15 @@ Official implementation references: [Vite requirements](https://vite.dev/guide/)
 
 ## Deferred work
 
-Authentication, organization authorization, CSRF, sensitive-action rate limiting,
-domain verification, SSRF protections, checks, findings, tasks, PDF, sample demo,
+Domain verification, SSRF protections, checks, findings, tasks, PDF, sample demo,
 subscriptions, production TLS and deployment are absent. Do not expose the local services
 publicly. The frontend is a client-rendered SPA with noindex metadata, not a public
 marketing deployment. Phase 01 adds Open Graph basics, an original favicon and a
 robots policy. No real production origin exists, so canonical/sitemap URLs are deferred.
 See `design-system.md` for the SPA SEO limitations and public-release follow-up.
+
+## Phase 02 account boundary
+
+`/app` is private and owner-scoped; `/preview` is the public Phase 01 design shell.
+See [the Phase 02 report](phase-02-results.md) for contracts, password/session parameters,
+CSRF, limits, cookies, data migration and production requirements.

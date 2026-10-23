@@ -65,7 +65,7 @@ export function LandingHero() {
           <Link className="button button-light" to="/#how-it-works">
             See how it works <span aria-hidden="true">↓</span>
           </Link>
-          <Link className="text-link" to="/app">
+          <Link className="text-link" to="/preview">
             View interface preview <span aria-hidden="true">↗</span>
           </Link>
         </div>

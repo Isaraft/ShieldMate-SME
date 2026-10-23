@@ -11,9 +11,16 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from starlette.responses import Response
 
 from app.api.health import router as health_router
+from app.auth import router as auth_router
 from app.config import Settings
 from app.db import Database
-from app.errors import SECURITY_HEADERS, http_error, unexpected_error, validation_error
+from app.errors import (
+    SECURITY_HEADERS,
+    error_response,
+    http_error,
+    unexpected_error,
+    validation_error,
+)
 
 logger = logging.getLogger("shieldmate")
 
@@ -54,10 +61,16 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.middleware("http")
     async def security_headers(request: Request, call_next: RequestResponseEndpoint) -> Response:
+        if request.method in {"POST", "PATCH", "PUT"}:
+            length = request.headers.get("content-length", "")
+            if not length.isdigit() or int(length) > 16384:
+                return error_response(413, "body_too_large", "Request body must be at most 16 KiB.")
         response = await call_next(request)
         response.headers.update(SECURITY_HEADERS)
         return response
 
+    app.state.settings = settings
+    app.include_router(auth_router, prefix="/api/v1")
     app.include_router(health_router, prefix="/api/v1")
     return app
 

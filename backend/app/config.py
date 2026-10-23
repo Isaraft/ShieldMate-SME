@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import Literal
 from urllib.parse import urlsplit
 
-from pydantic import field_validator
+from pydantic import field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy.engine import make_url
 
@@ -23,6 +23,22 @@ class Settings(BaseSettings):
     allowed_hosts: list[str] = ["localhost", "127.0.0.1", "backend"]
     cors_origins: list[str] = []
 
+    cookie_secure: bool = False
+    trusted_origins: list[str] = ["http://127.0.0.1:5173", "http://localhost:5173"]
+    session_seconds: int = 28800
+    auth_rate_limit: int = 10
+
+    @model_validator(mode="after")
+    def secure_production(self) -> "Settings":
+        if self.environment == "production" and (
+            not self.cookie_secure
+            or any(not x.startswith("https://") for x in self.trusted_origins)
+        ):
+            raise ValueError("Production requires Secure cookies and HTTPS trusted origins")
+        if not 60 <= self.session_seconds <= 604800 or not 1 <= self.auth_rate_limit <= 100:
+            raise ValueError("Invalid authentication limits")
+        return self
+
     @field_validator("database_url")
     @classmethod
     def validate_database(cls, value: str) -> str:
@@ -40,7 +56,7 @@ class Settings(BaseSettings):
             raise ValueError("Supply explicit hostnames without wildcards, ports or schemes")
         return values
 
-    @field_validator("cors_origins")
+    @field_validator("cors_origins", "trusted_origins")
     @classmethod
     def validate_origins(cls, values: list[str]) -> list[str]:
         for value in values:

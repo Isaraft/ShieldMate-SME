@@ -1,4 +1,4 @@
-# Verification through Phase 01
+# Verification through Phase 02
 
 Run the exact automated commands in README. Backend tests use temporary or in-memory
 SQLite, not the user's local database. Frontend tests mock only the health transport;
@@ -15,11 +15,11 @@ as if they existed.
 
 1. Start both services. Load `/` and inspect the landing page. Open `/app`; the local API should show Responding.
 2. Tab from the top: the first focus target is Skip to content. Activate it, then check
-   visible focus through navigation. The disabled Create workspace button cannot submit.
+   visible focus through navigation. The Create account link opens registration.
 3. Open Workspace preview. Navigate to every route; each says Coming in a later phase.
    Navigation changes focus to the main content. Refresh `/app/assets` directly.
 4. Visit `/not-a-page`; use Return to home.
-5. Stop the backend, reload `/app`, observe Unavailable, restart it and choose Retry connection.
+5. Stop the backend, reload `/preview`, observe Unavailable, restart it and choose Retry connection.
 6. At widths 360, 768, 1280 and 1920 CSS px, inspect text wrapping and absence of horizontal
    overflow. Check reduced motion and readable contrast. No metrics or fake findings appear.
 7. In Compose, verify `/api/v1/health` through port 5173, security headers, non-root users
@@ -38,3 +38,10 @@ route/viewport combinations plus 16 interactions using the production container.
 The mobile menu and FAQ must work by keyboard; UI examples never send input.
 See [the exact commands and evidence](phase-01-results.md). The QA script uses optional
 Playwright/axe tooling installed outside the application dependency tree.
+
+## Phase 02 verification
+
+See [Phase 02 commands and evidence](phase-02-results.md). The original public route tests
+now target `/preview`; private `/app` routes use real session guards. Integration tests
+use migrated temporary SQLite databases and never reset the user database. Browser
+accounts are generated only during local QA, with random passwords kept in memory.

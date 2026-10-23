@@ -1,13 +1,12 @@
-# ShieldMate SME Starter — Phase 01
+# ShieldMate SME Starter — Phase 02
 
-**Public website and interface preview. Authentication, external scanning, findings, remediation tasks,
-reports, sample demo and paid subscriptions are NOT implemented.** No domain probing
-or security assessment happens in this build. Phase 01 is complete; Phase 02 requires explicit approval.
+**Phase 02: real accounts and one company workspace per owner.** Register, sign in,
+create/rename your organization, reload with a persistent cookie session and sign out.
+Domain verification, external scanning, findings, tasks, reports and payments remain planned.
 
-This local build includes an editorial burgundy/red landing page, a clearly labeled workspace
-preview, reusable UI controls and an interactive UI reference. The React/TypeScript/Vite/
-Tailwind, FastAPI health, SQLite/SQLAlchemy/Alembic foundation and its tests are preserved.
-The original specifications and three visual references are preserved.
+The Phase 01 burgundy/red landing and public design preview are preserved at `/preview`;
+`/app` is private and `/app/settings` edits your actual company. See
+[Phase 02 implementation and security details](docs/phase-02-results.md).
 
 ## Run with Docker
 
@@ -104,15 +103,15 @@ the same-origin backend connection.
 
 - `frontend/src/`: layout, routing, planned pages, connection state and centralized tokens.
 - `frontend/tests/`: render, routing and connection-state smoke tests.
-- `backend/app/`: versioned health router, validated settings, DB/session and error modules.
-- `backend/migrations/`: empty initial schema revision; no business tables yet.
+- `backend/app/`: versioned health/auth/organization routes, validated settings, models and safe errors.
+- `backend/migrations/`: foundation plus user, organization and session schema.
 - `backend/tests/`: API contract, safe errors/configuration and migration tests.
 - `docs/`: architecture, review evidence, test guidance and original design references.
 - `AGENTS.md`, `SHIELDMATE_MVP_SPEC.md`, `PHASES.md`, `PROMPTS/PHASE_00.md`: supplied rules.
 
 Read [architecture and decisions](docs/architecture.md) before extending the app.
 See [the design system](docs/design-system.md) for tokens, component patterns and SEO
-limits. `/` is the public landing page, `/app` the workspace preview, and `/app/ui-kit`
-the local interactive component reference. All former planned routes remain.
+limits. `/` is the public landing page, `/app` the private workspace, and `/preview/ui-kit`
+the public interactive component reference. `/preview` holds the public design shell.
 
-Phase 02 has NOT started. Do not implement it without explicit owner approval.
+Phase 03 has NOT started. Do not implement it without explicit owner approval.

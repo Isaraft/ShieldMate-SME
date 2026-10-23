@@ -6,7 +6,9 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const base = process.env.BASE_URL || "http://127.0.0.1:5173";
-const output = path.resolve(__dirname, "../docs/evidence/phase-01");
+const output = path.resolve(
+  process.env.EVIDENCE_DIR || path.join(__dirname, "../docs/evidence/phase-01"),
+);
 const results = {
   base,
   viewports: [],
@@ -63,7 +65,7 @@ for (const [a, b] of [
       message.type() === "error" &&
       !(expectedHealthFailure && message.text().includes("503"))
     )
-      results.errors.push(message.text());
+      if (!message.text().includes("401")) results.errors.push(message.text());
   });
   page.on("request", (request) => {
     const url = new URL(request.url());
@@ -91,8 +93,8 @@ for (const [a, b] of [
     await page.setViewportSize({ width, height: 900 });
     for (const [route, name] of [
       ["/", "landing"],
-      ["/app", "workspace"],
-      ["/app/ui-kit", "ui-kit"],
+      ["/preview", "workspace"],
+      ["/preview/ui-kit", "ui-kit"],
       ["/not-a-page", "404"],
     ]) {
       await visit(route);
@@ -230,12 +232,12 @@ for (const [a, b] of [
     assert.equal(await page.locator(":focus").getAttribute("id"), "main");
     await overflow();
   }
-  await visit("/app/findings");
+  await visit("/preview/findings");
   await page.screenshot({
     path: path.join(output, "findings-360.png"),
     fullPage: true,
   });
-  await visit("/app/ui-kit");
+  await visit("/preview/ui-kit");
   await page.getByRole("button", { name: "Try validation" }).click();
   const input = page.getByRole("textbox", { name: "Example label" });
   assert.equal(await input.getAttribute("aria-invalid"), "true");
@@ -290,7 +292,7 @@ for (const [a, b] of [
   await page.route("**/api/v1/health", (route) =>
     route.fulfill({ status: 503, contentType: "application/json", body: "{}" }),
   );
-  await visit("/app");
+  await visit("/preview");
   await page.getByRole("button", { name: "Retry connection" }).waitFor();
   await page.unroute("**/api/v1/health");
   await page.getByRole("button", { name: "Retry connection" }).click();
@@ -313,7 +315,11 @@ for (const [a, b] of [
     "forced colors focus",
     "health failure and retry",
   ];
-  assert(results.apiRequests.every((url) => url === "/api/v1/health"));
+  assert(
+    results.apiRequests.every((url) =>
+      ["/api/v1/health", "/api/v1/auth/me"].includes(url),
+    ),
+  );
   assert.deepEqual(results.errors, []);
   fs.writeFileSync(
     path.join(output, "browser-results.json"),

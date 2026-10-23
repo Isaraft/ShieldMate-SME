@@ -1,0 +1,6 @@
+{
+  "container_restart": "PASS",
+  "same_account_and_company": "PASS",
+  "session_survives": "PASS",
+  "logout_after_restart": "PASS"
+}

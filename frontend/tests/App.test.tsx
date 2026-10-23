@@ -29,16 +29,16 @@ describe('public site and preserved foundation routes', () => {
       screen.getByRole('heading', { name: /know what to fix first/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('button', { name: 'Create workspace' }),
-    ).toBeDisabled();
-    expect(fetch).not.toHaveBeenCalled();
+      screen.getByRole('link', { name: 'Create account' }),
+    ).toHaveAttribute('href', '/register');
+    expect(fetch).toHaveBeenCalledWith('/api/v1/auth/me', expect.any(Object));
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
     expect(screen.getByText('Planned Starter workflow')).toBeInTheDocument();
   });
 
   it('supports navigation and moves focus to the new content', async () => {
     const user = userEvent.setup();
-    renderRoute('/app');
+    renderRoute('/preview');
     const nav = screen.getByRole('navigation', {
       name: 'Workspace navigation',
     });
@@ -52,13 +52,11 @@ describe('public site and preserved foundation routes', () => {
   });
 
   it.each([
-    ['/app', 'Overview'],
-    ['/app/assets', 'Assets'],
-    ['/app/findings', 'Findings'],
-    ['/app/tasks', 'Action plan'],
-    ['/app/reports', 'Reports'],
-    ['/login', 'Sign in'],
-    ['/register', 'Create workspace'],
+    ['/preview', 'Overview'],
+    ['/preview/assets', 'Assets'],
+    ['/preview/findings', 'Findings'],
+    ['/preview/tasks', 'Action plan'],
+    ['/preview/reports', 'Reports'],
     ['/demo', 'Sample Demo'],
   ])('labels %s as a future feature', (path, title) => {
     renderRoute(path);

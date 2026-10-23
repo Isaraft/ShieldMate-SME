@@ -1,20 +1,38 @@
 import { useEffect, useRef } from 'react';
-import { Link, Outlet, Route, Routes, useLocation } from 'react-router-dom';
+import {
+  Link,
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+  useLocation,
+} from 'react-router-dom';
 import { Header, Footer } from './components/SiteChrome';
 import { PlannedState } from './components/PlannedState';
 import { Landing } from './pages/Landing';
 import { WorkspaceLayout, WorkspacePage } from './pages/Workspace';
 import { workspaceRoutes } from './pages/workspaceRoutes';
+import {
+  AccountForm,
+  PrivateWorkspace,
+  OrganizationSettings,
+  PrivateOverview,
+  PrivatePlanned,
+} from './pages/Account';
 import { UiKit } from './pages/UiKit';
 
 const titles: Record<string, string> = {
   '/': 'Know what to fix first',
-  '/login': 'Sign in — planned',
-  '/register': 'Create workspace — planned',
+  '/login': 'Sign in',
+  '/register': 'Create account',
   '/demo': 'Sample Demo — planned',
-  '/app/ui-kit': 'UI foundation',
+  '/preview/ui-kit': 'UI foundation',
+  '/app/settings': 'Organization settings',
   ...Object.fromEntries(
-    workspaceRoutes.map((route) => [route.path, `${route.title} — preview`]),
+    workspaceRoutes.flatMap((route) => [
+      [route.path, route.title],
+      [route.path.replace('/app', '/preview'), `${route.title} — preview`],
+    ]),
   ),
 };
 
@@ -75,31 +93,31 @@ export function App() {
           {workspaceRoutes.map((route) => (
             <Route
               key={route.path}
-              path={route.path}
+              path={route.path.replace('/app', '/preview')}
               element={<WorkspacePage route={route} />}
             />
           ))}
-          <Route path="/app/ui-kit" element={<UiKit />} />
+          <Route path="/preview/ui-kit" element={<UiKit />} />
         </Route>
         <Route
-          path="/login"
-          element={
-            <PlannedState title="Sign in" phase="Phase 02">
-              <p>
-                Authentication is not implemented. Do not enter credentials into
-                this preview.
-              </p>
-            </PlannedState>
-          }
+          path="/app/ui-kit"
+          element={<Navigate to="/preview/ui-kit" replace />}
         />
-        <Route
-          path="/register"
-          element={
-            <PlannedState title="Create workspace" phase="Phase 02">
-              <p>Registration and organization setup are not implemented.</p>
-            </PlannedState>
-          }
-        />
+        <Route path="/login" element={<AccountForm />} />
+        <Route path="/register" element={<AccountForm register />} />
+        <Route element={<PrivateWorkspace />}>
+          <Route path="/app" element={<PrivateOverview />} />
+          {workspaceRoutes
+            .filter((route) => route.path !== '/app')
+            .map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={<PrivatePlanned title={route.title} />}
+              />
+            ))}
+          <Route path="/app/settings" element={<OrganizationSettings />} />
+        </Route>
         <Route
           path="/demo"
           element={
