@@ -116,3 +116,13 @@ Before an approved public release, configure a real origin, decide which routes 
 indexed, generate a sitemap, and consider SSR/prerendering for marketing. This Vite SPA
 has no SSR, route-specific initial metadata or true HTTP 404 for client-side unknown
 routes. The rendered 404 works; the SPA fallback still responds with HTTP 200.
+
+## Phase 06 operational composition
+
+The real overview uses a ruled operating strip, an asymmetric first-priority emphasis and
+compact paired work/scan lists. It reuses the same Phase 05 evidence/priorities and Plex UI
+hierarchy; Anton remains the display brand. Sharp borders, warm ivory and red actions retain
+the established identity. Task pages use plain labeled forms, explicit human/technical state,
+readable timestamps and escaped work history. No gauges, invented scores or decorative
+activity appear. Narrow screens stack actionable rows and forms; native controls, visible
+focus, reduced motion and semantic headings remain the foundation.

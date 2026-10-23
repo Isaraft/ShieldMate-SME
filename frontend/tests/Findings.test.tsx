@@ -248,6 +248,6 @@ it('shows resolution/reopening history and preserved evidence after source reten
   expect(screen.getByText(/Source scan was pruned/)).toBeInTheDocument();
   expect(screen.getByText('Finding history')).toBeInTheDocument();
   expect(
-    screen.getByText(/Remediation task management is coming in Phase 06/),
+    screen.getByText(/Only a later conclusive authorized check/),
   ).toBeInTheDocument();
 });

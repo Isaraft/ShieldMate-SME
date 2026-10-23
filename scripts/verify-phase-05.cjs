@@ -5,7 +5,9 @@ const assert = require("node:assert/strict");
 const crypto = require("node:crypto");
 const { execFileSync } = require("node:child_process");
 const base = process.env.BASE_URL || "http://127.0.0.1:15373";
-const output = path.resolve(__dirname, "../docs/evidence/phase-05");
+const output = path.resolve(
+  process.env.EVIDENCE_DIR || path.join(__dirname, "../docs/evidence/phase-05"),
+);
 const compose = [
   "compose",
   "-p",

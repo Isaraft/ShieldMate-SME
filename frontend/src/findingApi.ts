@@ -35,6 +35,8 @@ export type Finding = {
   source_scan_id: string;
   source_scan_available: boolean;
   evidence: Evidence[];
+  task_id?: string | null;
+  task_status?: string | null;
   ranking_reason: string;
 };
 export type RuleEvaluation = {

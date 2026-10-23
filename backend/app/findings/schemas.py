@@ -49,6 +49,8 @@ class FindingOut(BaseModel):
     source_scan_id: str
     source_scan_available: bool
     evidence: list[Evidence]
+    task_id: str | None = None
+    task_status: str | None = None
     ranking_reason: str
 
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { api, ApiError } from '../authApi';
 import {
   Alert,
@@ -56,6 +56,13 @@ export function Assets() {
   const dialog = useRef<HTMLDialogElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
   const navigate = useNavigate();
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!assets || !hash.startsWith('#asset-')) return;
+    const target = document.getElementById(hash.slice(1));
+    target?.scrollIntoView?.();
+    target?.focus({ preventScroll: true });
+  }, [assets, hash]);
   const active = assets?.find((a) => a.id === selected);
   function fail(e: unknown) {
     if (e instanceof ApiError && e.status === 401)
@@ -225,7 +232,7 @@ export function Assets() {
           ) : (
             <div className="asset-list" aria-label="Your domains">
               {assets.map((asset) => (
-                <article key={asset.id}>
+                <article key={asset.id} id={`asset-${asset.id}`} tabIndex={-1}>
                   <div>
                     <h2>{asset.canonical_fqdn}</h2>
                     <Badge
@@ -401,9 +408,9 @@ export function Assets() {
         <h2 id="remove-title">Remove domain?</h2>
         <p>
           Remove {remove?.canonical_fqdn} from this workspace and revoke its
-          verification. Derived findings and their history are also removed.
-          This cannot be undone and does not remove records at your DNS
-          provider.
+          verification. Derived findings, remediation tasks and their histories
+          are also removed. This cannot be undone and does not remove records at
+          your DNS provider.
         </p>
         <div className="button-row">
           <Button variant="secondary" onClick={() => dialog.current?.close()}>

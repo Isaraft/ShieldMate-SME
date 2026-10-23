@@ -1,0 +1,130 @@
+import type { Finding, FindingPage } from '../../src/findingApi';
+import type { DashboardData, TaskDetail } from '../../src/workflowApi';
+export const finding: Finding = {
+  id: 'fixture',
+  asset_id: 'asset',
+  hostname: 'qa.example.com',
+  fingerprint: 'stable',
+  rule_id: 'TLS_CERTIFICATE_ACTION',
+  policy_version: 'starter-risk-1',
+  category: 'tls',
+  status: 'open',
+  severity: 'high',
+  urgency: 2,
+  relevance: 2,
+  confidence: 'conclusive',
+  title: 'Certificate renewal was due within 7 days',
+  impact: 'Certificate expiry can interrupt access.',
+  recommendation:
+    'Check renewal, install the renewed certificate, then rerun authorized checks.',
+  rationale: 'A recorded near-term certificate deadline.',
+  limitation: 'Only one endpoint was observed.',
+  first_seen_at: 1700000000,
+  last_seen_at: 1700000000,
+  observed_at: 1700000000,
+  resolved_at: null,
+  last_evaluation_at: 1700000001,
+  recheck_status: 'confirmed',
+  stale: false,
+  history_truncated: false,
+  source_scan_id: 'source',
+  source_scan_available: true,
+  ranking_reason: 'High, urgency 2/3. Stable ordering, not a score.',
+  evidence: [
+    {
+      observation_id: 'observation',
+      check_id: 'TLS_CERTIFICATE',
+      observed_at: 1700000000,
+      outcome: 'pass',
+      source: 'TLS 443',
+      values: { not_after: 1700600000, text: '<script>alert(1)</script>' },
+    },
+  ],
+};
+export function findingPage(): FindingPage {
+  return {
+    domains: [{ id: 'asset', hostname: 'qa.example.com' }],
+    items: [finding],
+    priorities: [finding],
+    total: 1,
+    offset: 0,
+    limit: 20,
+    summary: {
+      total: 1,
+      counts_by_status: { open: 1 },
+      counts_by_severity: { high: 1 },
+      counts_by_category: { tls: 1 },
+      assessment: {
+        policy_version: 'starter-risk-1',
+        source_scans: 1,
+        evaluated_scans: 1,
+        pending_evaluations: 0,
+        in_flight_scans: 0,
+        stale_assessments: 0,
+        unsupported_scans: 0,
+        observation_counts: { pass: 1, not_checked: 12 },
+        rule_counts: { issue: 1, not_evaluable: 5 },
+        last_scan_at: 1700000000,
+        notes: 'Limited saved observations only. No numerical score.',
+      },
+    },
+  };
+}
+
+export const task: TaskDetail = {
+  id: 'task-id',
+  finding_id: finding.id,
+  status: 'todo',
+  owner_label: '',
+  note: '',
+  version: 1,
+  created_at: 1700000000,
+  updated_at: 1700000000,
+  completed_at: null,
+  history_truncated: false,
+  reopened_at: null,
+  finding,
+  history: [
+    {
+      id: 'event-1',
+      actor_id: 'owner',
+      actor_label: 'Workspace owner',
+      version: 1,
+      kind: 'created',
+      created_at: 1700000000,
+      changes: { status: { old: '', new: 'todo' } },
+    },
+  ],
+};
+export function dashboard(): DashboardData {
+  return {
+    organization: {
+      id: 'org',
+      name: 'Actual company',
+      created_at: 1,
+      updated_at: 1,
+    },
+    generated_at: 1700000001,
+    asset_count: 1,
+    verified_assets: 1,
+    eligible_assets: 1,
+    task_counts: { todo: 1 },
+    done_unverified: 0,
+    recent_scan_count: 1,
+    last_useful_observation_at: 1700000000,
+    findings: findingPage(),
+    tasks: [task],
+    scans: [
+      {
+        id: 'source',
+        asset_id: 'asset',
+        hostname: 'qa.example.com',
+        status: 'completed',
+        created_at: 1700000000,
+        finished_at: 1700000001,
+        completed_checks: 13,
+      },
+    ],
+    activity: [],
+  };
+}

@@ -16,9 +16,11 @@ import {
   AccountForm,
   PrivateWorkspace,
   OrganizationSettings,
-  PrivateOverview,
   PrivatePlanned,
 } from './pages/Account';
+import { Dashboard } from './pages/Dashboard';
+import { Tasks } from './pages/Tasks';
+import { TaskDetail } from './pages/TaskDetail';
 import { Scans } from './pages/Scans';
 import { Findings } from './pages/Findings';
 import { FindingDetail } from './pages/FindingDetail';
@@ -45,7 +47,7 @@ function Shell() {
   const previousKey = useRef(key);
   const main = useRef<HTMLElement>(null);
   useEffect(() => {
-    document.title = `${titles[pathname] ?? (pathname.includes('/scans') ? 'Security check records' : pathname.startsWith('/app/findings/') ? 'Finding evidence' : 'Page not found')} · ShieldMate SME`;
+    document.title = `${titles[pathname] ?? (pathname.includes('/scans') ? 'Security check records' : pathname.startsWith('/app/findings/') ? 'Finding evidence' : pathname.startsWith('/app/tasks/') ? 'Remediation task' : 'Page not found')} · ShieldMate SME`;
     if (hash) {
       const target = document.getElementById(hash.slice(1));
       target?.scrollIntoView?.();
@@ -110,8 +112,10 @@ export function App() {
         <Route path="/login" element={<AccountForm />} />
         <Route path="/register" element={<AccountForm register />} />
         <Route element={<PrivateWorkspace />}>
-          <Route path="/app" element={<PrivateOverview />} />
+          <Route path="/app" element={<Dashboard />} />
           <Route path="/app/assets" element={<Assets />} />
+          <Route path="/app/tasks" element={<Tasks />} />
+          <Route path="/app/tasks/:taskId" element={<TaskDetail />} />
           <Route path="/app/findings" element={<Findings />} />
           <Route path="/app/findings/:findingId" element={<FindingDetail />} />
           <Route path="/app/assets/:domainId/scans" element={<Scans />} />
@@ -124,7 +128,8 @@ export function App() {
               (route) =>
                 route.path !== '/app' &&
                 route.path !== '/app/assets' &&
-                route.path !== '/app/findings',
+                route.path !== '/app/findings' &&
+                route.path !== '/app/tasks',
             )
             .map((route) => (
               <Route

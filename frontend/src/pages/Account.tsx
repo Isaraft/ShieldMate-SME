@@ -186,6 +186,7 @@ export function PrivateWorkspace() {
             <Link to="/app/settings">Settings</Link>
           </nav>
           <Outlet
+            key={`${identity.id}:${identity.organization.id}`}
             context={{ identity, refresh: () => setAttempt((n) => n + 1) }}
           />
         </>
@@ -283,31 +284,14 @@ export function OrganizationSettings() {
     />
   );
 }
-export function PrivateOverview() {
-  const { identity } = useOutletContext<{ identity: Identity }>();
-  return (
-    <section className="account-page">
-      <p className="eyebrow">Workspace / Overview</p>
-      <h1>{identity.organization?.name}</h1>
-      <p>You are signed in as {identity.email}.</p>
-      <Alert title="Workspace ready">
-        Your account and company are saved. Domain onboarding, scans, findings,
-        actions and reports are planned for later phases.
-      </Alert>
-      <Link to="/app/settings">Edit organization settings</Link>
-      <Link to="/preview">Explore the public interface preview</Link>
-    </section>
-  );
-}
-
 export function PrivatePlanned({ title }: { title: string }) {
   return (
     <section className="account-page">
       <p className="eyebrow">Company workspace / Planned</p>
       <h1>{title}</h1>
       <Alert title="Coming in a later phase">
-        This feature is not available yet. No domain checks or security results
-        exist in this release.
+        This feature is not available yet. Reports are planned for Phase 07.
+        Existing assets, findings and remediation tasks remain available.
       </Alert>
       <Button disabled>Unavailable</Button>
     </section>

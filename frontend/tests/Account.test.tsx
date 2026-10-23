@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { beforeEach, expect, it, vi } from 'vitest';
+import { dashboard } from './fixtures/workflow';
 import { App } from '../src/App';
 function route(path: string) {
   render(
@@ -52,13 +53,16 @@ it('shows a loading state without private content while checking identity', () =
 it('renders real company and account identity', async () => {
   vi.stubGlobal(
     'fetch',
-    vi.fn(async () => ({
+    vi.fn(async (url) => ({
       ok: true,
-      json: async () => ({
-        id: 'user-id',
-        email: 'owner@example.com',
-        organization: { id: 'org', name: 'Actual company' },
-      }),
+      json: async () =>
+        String(url).endsWith('/dashboard/summary')
+          ? dashboard()
+          : {
+              id: 'user-id',
+              email: 'owner@example.com',
+              organization: { id: 'org', name: 'Actual company' },
+            },
     })),
   );
   route('/app');

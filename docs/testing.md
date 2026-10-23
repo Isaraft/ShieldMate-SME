@@ -1,4 +1,4 @@
-# Verification through Phase 05
+# Verification through Phase 06
 
 Run the exact automated commands in README. Backend tests use temporary or in-memory
 SQLite, not the user's local database. Frontend tests mock only the health transport;
@@ -84,3 +84,21 @@ history, container restart, idempotent backfill, stale and error states. It capt
 widths and runs axe. Earlier browser scripts support `EVIDENCE_DIR` so regression evidence
 can be retained without overwriting historical phase screenshots. Live owned-domain E2E,
 physical assistive devices and non-Chromium browsers require separate manual checks.
+
+## Phase 06 dashboard and tasks
+
+The backend suite adds task create/open idempotency, status/owner/note persistence, version
+conflicts, CSRF/Origin/session/tenant checks, bounded history and persistent abuse budget,
+atomic rollback/concurrent mutations, composite foreign keys, preserved migrations, honest
+dashboard states and absence of evaluator/network writes. Frontend tests cover exact
+projections, truthful states, task filtering, secure creation, saved edits, escaped notes,
+recurrence, conflicts, draft navigation and session expiry.
+
+`scripts/qa/phase06.compose.yaml` uses its own volume/ports and mounted injected TXT/saved
+observation fixtures. The worker runs real reconciliation; production images contain no QA
+modules. `scripts/verify-phase-06.cjs` exercises actual account → asset → observations →
+priority → task → edit → reload → done/unverified → conflict → evidence resolution/recurrence
+→ container restart → source navigation. Four widths and axe are recorded. See
+[Phase 06 results](phase-06-results.md) for exact commands and actual evidence. A live
+team-owned DNS/provider scan, real assistive technology and SME beta users remain separate
+manual work; fixture QA does not establish those outcomes.

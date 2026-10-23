@@ -1,0 +1,112 @@
+{
+  "browser": "151.0.7922.34",
+  "fixtures": "Isolated DB, injected DNS/socket; no external scan",
+  "flow": [
+    "private route requires authentication",
+    "pending asset disabled; genuine empty history",
+    "queued/running -> 13 persisted observations; keyboard disclosure/focus/reduced motion",
+    "reload and history preserve scan ID/evidence",
+    "TLS failure is partial; DNS and HTTP survive",
+    "unsafe DNS fails closed with explanatory feedback",
+    "real UI recovers after controlled API outage"
+  ],
+  "viewports": [
+    {
+      "page": "empty",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "empty",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "empty",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "empty",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "completed",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "completed",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "completed",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "completed",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "history",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "history",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "history",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "history",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "assets",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "assets",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "assets",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "assets",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    }
+  ],
+  "errors": []
+}

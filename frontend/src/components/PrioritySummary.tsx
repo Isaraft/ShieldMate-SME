@@ -1,3 +1,4 @@
+import { TaskAction } from './TaskAction';
 import { Link } from 'react-router-dom';
 import type { Finding } from '../findingApi';
 import { FindingState, EvidenceList } from './FindingEvidence';
@@ -28,6 +29,7 @@ export function PrioritySummary({
                 <Link to={`/app/findings/${finding.id}`}>{finding.title}</Link>
               </h3>
               <FindingState finding={finding} />
+              <TaskAction finding={finding} />
               <h4>Why this matters</h4>
               <p>{finding.impact}</p>
               <h4>Recommended next step</h4>

@@ -1,3 +1,4 @@
+import { TaskAction } from '../components/TaskAction';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { api, ApiError } from '../authApi';
@@ -63,6 +64,7 @@ function DetailRecord({ findingId }: { findingId: string }) {
         <>
           <p>{finding.hostname}</p>
           <FindingState finding={finding} />
+          <TaskAction finding={finding} />
           <ReviewMode technical={technical} setTechnical={setTechnical} />
           {finding.recheck_status === 'not_rechecked' && (
             <Alert title="Verification unavailable" tone="warning">
@@ -159,8 +161,8 @@ function DetailRecord({ findingId }: { findingId: string }) {
             </ol>
           </section>
           <p>
-            Remediation task management is coming in Phase 06. A future
-            completed task will not automatically resolve a technical finding.
+            Record human work in the linked task. Only a later conclusive
+            authorized check can resolve this finding.
           </p>
         </>
       )}

@@ -156,3 +156,25 @@ Frontend `/app/findings` and `/app/findings/:findingId` share typed contracts an
 assessment, priority, filter, evidence and review-mode components. Business/Technical only
 changes presentation. Polling occurs only while selected assessments are pending/in flight.
 Phase 06 dashboard/tasks/reporting remain unavailable.
+
+## Phase 06 current workflow
+
+The private overview is now connected to `GET /api/v1/dashboard/summary`. It projects saved
+organization/domain/scan/finding/task state in one SQLite read snapshot. The Phase 05 query
+functions moved to `app/findings/queries.py`; ranking/evaluation logic is unchanged and is
+shared by Findings, dashboard and task priority sorting. Finding responses attach canonical
+task pointers in batch. No dashboard endpoint evaluates or starts a scan.
+
+`app/tasks/` owns typed schemas, scoped read projections and transactional creation/editing.
+Additive revision `e53b215e4b66` creates tasks/events and a matching composite finding identity
+index. Composite foreign keys enforce tenant agreement through finding → task → work event.
+A unique finding key prevents duplicate canonical tasks. Versioned edits append actor/change
+history atomically; conflicting edits return 409. Human status cannot write technical state.
+The existing session/CSRF/network safety implementation and Phase 05 policy are preserved.
+
+`Dashboard`, `Tasks`, `TaskDetail`, `TaskAction` and `TaskContext` compose existing design
+primitives. Shared resource loading guards late requests/session changes, refreshes scoped
+views and preserves drafts during conflicts. Source links degrade honestly under retention;
+asset removal cascades derived task history with explicit confirmation copy. See
+[workflow semantics, exact queries and limits](remediation-workflow.md) and
+[Phase 06 actual verification](phase-06-results.md). No Phase 07 work is implemented.

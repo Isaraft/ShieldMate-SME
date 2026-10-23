@@ -1,0 +1,55 @@
+# Isolated Phase06 test stack. Never use this harness for real customer data or public deployment.
+services:
+  backend:
+    image: shieldmate-backend
+    command:
+      [
+        sh,
+        -c,
+        ".venv/bin/alembic upgrade head && exec .venv/bin/uvicorn scripts.qa.phase04_server:app --host 0.0.0.0 --port 8000 --no-access-log",
+      ]
+    environment: &qa_environment
+      SHIELDMATE_DATABASE_URL: sqlite:////app/storage/shieldmate.db
+      SHIELDMATE_QA_ORIGIN: http://127.0.0.1:15473
+    volumes:
+      - database:/app/storage
+      - ../../scripts:/app/scripts:ro
+    ports: ["127.0.0.1:15400:8000"]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test:
+        [
+          CMD,
+          /app/.venv/bin/python,
+          -c,
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=3)",
+        ]
+      interval: 2s
+      retries: 15
+  worker:
+    image: shieldmate-worker
+    command: [/app/.venv/bin/python, -m, app.scanner.worker]
+    environment: *qa_environment
+    volumes:
+      - database:/app/storage
+      - ../../scripts:/app/scripts:ro
+    depends_on:
+      backend: { condition: service_healthy }
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+  frontend:
+    image: shieldmate-frontend
+    ports: ["127.0.0.1:15473:8080"]
+    depends_on:
+      backend: { condition: service_healthy }
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  database:

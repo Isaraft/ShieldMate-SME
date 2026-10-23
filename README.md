@@ -1,9 +1,9 @@
-# ShieldMate SME Starter — Phase 05
+# ShieldMate SME Starter — Phase 06
 
 **Phase 02: real accounts and one company workspace per owner.** Register, sign in,
 create/rename your organization, reload with a persistent cookie session and sign out.
 Domain enrollment and DNS TXT ownership proof are implemented. Authorized, bounded DNS/TLS/HTTP configuration checks now run through a durable worker.
-Evidence-backed findings, contextual priorities and finding history are now available. Tasks, reports and payments remain planned.
+Evidence-backed findings, contextual priorities and finding history are now available. A connected dashboard and persistent remediation tasks are available. Reports and payments remain planned.
 
 The Phase 01 burgundy/red landing and public design preview are preserved at `/preview`;
 `/app` is private and `/app/settings` edits your actual company. See
@@ -116,7 +116,7 @@ See [the design system](docs/design-system.md) for tokens, component patterns an
 limits. `/` is the public landing page, `/app` the private workspace, and `/preview/ui-kit`
 the public interactive component reference. `/preview` holds the public design shell.
 
-Phase 06 has NOT started. Do not implement it without explicit owner approval.
+Phase 07 has NOT started. Do not implement it without explicit owner approval.
 
 ## Domain ownership (Phase 03)
 
@@ -210,3 +210,25 @@ History retains at most 50 events per finding, visibly disclosing compaction. Re
 asset deletes its derived findings/history, as disclosed by the confirmation dialog.
 See [risk methodology](docs/risk-methodology.md), [Phase 05 results](docs/phase-05-results.md)
 and [architecture](docs/architecture.md) for rule caveats, API contracts and actual checks.
+
+## Dashboard and action workflow (Phase 06)
+
+Open `/app` for your organization overview: current ownership scope, saved findings and
+Phase 05 Top 3, human task workload, coverage, recent scans and real work activity. Counts
+come from scoped persisted records; no global security score is calculated. Create a task
+from a supported open finding, then use `/app/tasks` to filter work or edit its owner label,
+note and status. Work history records actual changes and survives reload/restart.
+
+**Done by a person is not technical resolution.** An open finding remains open until a
+later authorized, conclusive check resolves that exact condition. Stale/incomplete evidence
+and recurrence are labeled. Recheck links lead to existing asset controls; fresh DNS proof,
+authorization, quotas and network safety still apply. No automatic scans or remediation occur.
+
+Additive migration `e53b215e4b66` follows Phase 05. Compose applies it on startup; manual
+execution remains `cd backend && uv run alembic upgrade head`. No seeding or new credentials
+are required. Existing local data remains in the same volume. Never use the isolated QA
+harness as the ordinary app or present its screenshots as live assessments.
+
+See [remediation workflow/API/retention](docs/remediation-workflow.md) and
+[Phase 06 verification and screenshots](docs/phase-06-results.md). Phase 07 reports/demo
+remain unimplemented and require explicit approval.

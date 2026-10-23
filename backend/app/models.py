@@ -1,7 +1,16 @@
 import time
 import uuid
 
-from sqlalchemy import JSON, CheckConstraint, ForeignKey, Index, String, UniqueConstraint, text
+from sqlalchemy import (
+    JSON,
+    CheckConstraint,
+    ForeignKey,
+    ForeignKeyConstraint,
+    Index,
+    String,
+    UniqueConstraint,
+    text,
+)
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db import Base
@@ -129,6 +138,7 @@ class Finding(Base):
     __tablename__ = "findings"
     __table_args__ = (
         UniqueConstraint("organization_id", "fingerprint"),
+        Index("finding_identity_org", "id", "organization_id", unique=True),
         CheckConstraint("status IN ('open','resolved')"),
         CheckConstraint("severity IN ('high','medium','low','info')"),
     )
@@ -175,3 +185,52 @@ class FindingEvent(Base):
     occurred_at: Mapped[int]
     kind: Mapped[str] = mapped_column(String(24))
     snapshot: Mapped[dict[str, object]] = mapped_column(JSON)
+
+
+class RemediationTask(Base):
+    __tablename__ = "remediation_tasks"
+    __table_args__ = (
+        UniqueConstraint("finding_id"),
+        UniqueConstraint("id", "organization_id"),
+        ForeignKeyConstraint(
+            ["finding_id", "organization_id"],
+            ["findings.id", "findings.organization_id"],
+            ondelete="CASCADE",
+        ),
+        CheckConstraint("status IN ('todo','in_progress','done')"),
+        CheckConstraint("version >= 1"),
+        CheckConstraint("length(owner_label) <= 80 AND length(note) <= 2000"),
+        Index("task_org_status_updated", "organization_id", "status", "updated_at"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    organization_id: Mapped[str] = mapped_column(ForeignKey("organizations.id"), index=True)
+    finding_id: Mapped[str] = mapped_column(String(36))
+    status: Mapped[str] = mapped_column(String(16), default="todo")
+    owner_label: Mapped[str] = mapped_column(String(80), default="")
+    note: Mapped[str] = mapped_column(String(2000), default="")
+    created_at: Mapped[int]
+    updated_at: Mapped[int]
+    completed_at: Mapped[int | None]
+    version: Mapped[int] = mapped_column(default=1)
+    history_truncated: Mapped[bool] = mapped_column(default=False)
+
+
+class TaskEvent(Base):
+    __tablename__ = "task_events"
+    __table_args__ = (
+        UniqueConstraint("task_id", "version"),
+        ForeignKeyConstraint(
+            ["task_id", "organization_id"],
+            ["remediation_tasks.id", "remediation_tasks.organization_id"],
+            ondelete="CASCADE",
+        ),
+        Index("task_event_org_time", "organization_id", "created_at"),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    organization_id: Mapped[str] = mapped_column(ForeignKey("organizations.id"))
+    task_id: Mapped[str] = mapped_column(String(36), index=True)
+    actor_id: Mapped[str] = mapped_column(ForeignKey("users.id"))
+    version: Mapped[int]
+    kind: Mapped[str] = mapped_column(String(16))
+    created_at: Mapped[int]
+    changes: Mapped[dict[str, dict[str, str]]] = mapped_column(JSON)

@@ -1,0 +1,136 @@
+{
+  "browser": "151.0.7922.34",
+  "fixtures": "Isolated QA observations only; no live network assessment",
+  "flow": [
+    "real authentication, owned workspace and no-scan empty state",
+    "saved Phase04-shaped observations -> automatic worker evaluation -> exact counts and stable Top3",
+    "working filters, Business/Technical toggle, keyboard disclosure/focus/reduced motion and intact scan provenance",
+    "partial/unknown evidence preserves all six open findings as not rechecked",
+    "real resolution -> reopening with stable IDs/firstSeen -> container restart persistence -> idempotent maintenance backfill",
+    "source-time freshness produces explicit stale evidence without false resolution",
+    "API error/retry and exact cross-asset counts"
+  ],
+  "viewports": [
+    {
+      "page": "empty",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "empty",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "empty",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "empty",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "findings",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "findings",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "findings",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "findings",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "filtered",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "filtered",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "filtered",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "filtered",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "detail",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "detail",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "detail",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "detail",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "stale",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "stale",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "stale",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "stale",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    }
+  ],
+  "errors": []
+}
