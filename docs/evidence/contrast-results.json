@@ -1,0 +1,44 @@
+[
+  {
+    "foreground": "burgundy950",
+    "background": "surface",
+    "contrast": 15.24,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "raised",
+    "background": "burgundy900",
+    "contrast": 13.94,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "raised",
+    "background": "red700",
+    "contrast": 8.24,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "red500",
+    "background": "surface",
+    "contrast": 4.71,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "success",
+    "background": "surface",
+    "contrast": 6.53,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "warning",
+    "background": "surface",
+    "contrast": 6.32,
+    "AA_normal_text": true
+  },
+  {
+    "foreground": "red700",
+    "background": "surface",
+    "contrast": 7.62,
+    "AA_normal_text": true
+  }
+]

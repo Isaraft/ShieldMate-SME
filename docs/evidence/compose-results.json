@@ -1,0 +1,72 @@
+{
+  "health": [
+    {
+      "port": 8000,
+      "status": 200,
+      "body": {
+        "status": "ok"
+      }
+    },
+    {
+      "port": 5173,
+      "status": 200,
+      "body": {
+        "status": "ok"
+      }
+    }
+  ],
+  "containers": [
+    {
+      "name": "/shieldmate-backend-1",
+      "user": "10001:10001",
+      "readOnly": true,
+      "dropAllCapabilities": true,
+      "loopbackPorts": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "8000"
+        }
+      ]
+    },
+    {
+      "name": "/shieldmate-frontend-1",
+      "user": "101:101",
+      "readOnly": true,
+      "dropAllCapabilities": true,
+      "loopbackPorts": [
+        {
+          "HostIp": "127.0.0.1",
+          "HostPort": "5173"
+        }
+      ]
+    }
+  ],
+  "networkDriver": "bridge",
+  "outboundFirewallBlocked": false,
+  "directRouteAndCSP": true,
+  "databaseBefore": {
+    "uid": 10001,
+    "revision": "0001_foundation",
+    "tables": [
+      [
+        "alembic_version"
+      ]
+    ],
+    "inode": 1743777,
+    "mtime": 1792768709790412432,
+    "sha256": "ed5cbfcee040108fadfe6435b6083dbcb36374807084f99811b42543b761daa4"
+  },
+  "databaseAfterRecreation": {
+    "uid": 10001,
+    "revision": "0001_foundation",
+    "tables": [
+      [
+        "alembic_version"
+      ]
+    ],
+    "inode": 1743777,
+    "mtime": 1792768709790412432,
+    "sha256": "ed5cbfcee040108fadfe6435b6083dbcb36374807084f99811b42543b761daa4"
+  },
+  "persistencePass": true
+}

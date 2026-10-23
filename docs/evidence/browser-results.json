@@ -1,0 +1,105 @@
+{
+  "browser": "151.0.7922.34",
+  "viewports": [
+    {
+      "width": 360,
+      "route": "/",
+      "viewport": 360,
+      "scroll": 360,
+      "pass": true
+    },
+    {
+      "width": 360,
+      "route": "/app/assets",
+      "viewport": 360,
+      "scroll": 360,
+      "pass": true
+    },
+    {
+      "width": 360,
+      "route": "/missing-page",
+      "viewport": 360,
+      "scroll": 360,
+      "pass": true
+    },
+    {
+      "width": 768,
+      "route": "/",
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "width": 768,
+      "route": "/app/assets",
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "width": 768,
+      "route": "/missing-page",
+      "viewport": 768,
+      "scroll": 768,
+      "pass": true
+    },
+    {
+      "width": 1280,
+      "route": "/",
+      "viewport": 1280,
+      "scroll": 1280,
+      "pass": true
+    },
+    {
+      "width": 1280,
+      "route": "/app/assets",
+      "viewport": 1280,
+      "scroll": 1280,
+      "pass": true
+    },
+    {
+      "width": 1280,
+      "route": "/missing-page",
+      "viewport": 1280,
+      "scroll": 1280,
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "route": "/",
+      "viewport": 1920,
+      "scroll": 1920,
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "route": "/app/assets",
+      "viewport": 1920,
+      "scroll": 1920,
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "route": "/missing-page",
+      "viewport": 1920,
+      "scroll": 1920,
+      "pass": true
+    }
+  ],
+  "checks": {
+    "realHealthResponse": true,
+    "disabledRegistration": true,
+    "skipLinkAndFocus": true,
+    "routeFocus": true,
+    "directRouteRefresh": true,
+    "reducedMotion": true,
+    "noPageErrors": true,
+    "noExternalRequests": true
+  },
+  "focus": {
+    "outlineStyle": "solid",
+    "outlineWidth": "3px"
+  },
+  "errors": [],
+  "externalRequests": []
+}

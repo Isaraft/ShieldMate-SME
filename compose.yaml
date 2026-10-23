@@ -1,0 +1,55 @@
+name: shieldmate
+
+services:
+  backend:
+    build: ./backend
+    environment:
+      SHIELDMATE_ENVIRONMENT: development
+      SHIELDMATE_DATABASE_URL: sqlite:////app/storage/shieldmate.db
+      SHIELDMATE_ALLOWED_HOSTS: '["localhost","127.0.0.1","backend"]'
+      SHIELDMATE_CORS_ORIGINS: '[]'
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - database:/app/storage
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: [CMD, /app/.venv/bin/python, -c, "import json, urllib.request; assert json.load(urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=3)) == {'status': 'ok'}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks: [local]
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:5173:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: [CMD, wget, -q, -O, /dev/null, "http://127.0.0.1:8080/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks: [local]
+
+volumes:
+  database:
+
+networks:
+  local:
+    driver: bridge

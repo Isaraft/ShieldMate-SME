@@ -1,0 +1,54 @@
+{
+  "reviewed_files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 9603,
+      "sha256": "141ed2f7db07d4c36753dcaff4ea2c3501fdbcca92aa199beb6c358cedae662c",
+      "preserved": true
+    },
+    {
+      "path": "PHASES.md",
+      "bytes": 8924,
+      "sha256": "6e77d15c15d9da4b2fdcfac966cdba97d00863151cfe36e9a777e6a5088dbe0c",
+      "preserved": true
+    },
+    {
+      "path": "PROMPTS/PHASE_00.md",
+      "bytes": 7068,
+      "sha256": "212c118692603314b3cccf008209d6b3b9129b4e4bd4ad5f31970f774a8fb5c5",
+      "preserved": true
+    },
+    {
+      "path": "README_START_HERE.md",
+      "bytes": 1147,
+      "sha256": "5b95df7caabfe37e3c8c1543bf60423ebd597af543892cf7e9748f66361002bd",
+      "preserved": true
+    },
+    {
+      "path": "SHIELDMATE_MVP_SPEC.md",
+      "bytes": 29968,
+      "sha256": "3fc3323665472153f1715286412d234ebc06f698b8be38b971f0abd94a60c852",
+      "preserved": true
+    },
+    {
+      "path": "docs/design-references/brand-slide-01.png",
+      "bytes": 85818,
+      "sha256": "09e551bbee33c96fdd58c8a31eb096dc56798abee32852abb492955a6e48923c",
+      "preserved": true
+    },
+    {
+      "path": "docs/design-references/brand-slide-02.png",
+      "bytes": 136726,
+      "sha256": "3a198561c2b75417874e05ce3d913623b2d46a074a36fa73952f9cdb322aab92",
+      "preserved": true
+    },
+    {
+      "path": "docs/design-references/brand-slide-03.png",
+      "bytes": 210373,
+      "sha256": "d12ef33f0a0195d4ff6facf366914d611993babe07b2debff92e2a43bad245ba",
+      "preserved": true
+    }
+  ],
+  "review_scope": "Full text of five Markdown files and visual inspection of all three PNG references.",
+  "phase_authorization": "Phase 00 only; later phases reviewed for boundaries, not implemented."
+}
