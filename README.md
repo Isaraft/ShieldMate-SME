@@ -1,4 +1,4 @@
-# ShieldMate SME Starter — Phase 07
+# ShieldMate SME Starter — Phase 08 local RC
 
 **Phase 02: real accounts and one company workspace per owner.** Register, sign in,
 create/rename your organization, reload with a persistent cookie session and sign out.
@@ -11,11 +11,13 @@ The Phase 01 burgundy/red landing and public design preview are preserved at `/p
 
 ## Report and sample journeys
 
-Open `/app/reports` after sign-in. Reports require currently authorized domains with usable persisted observations and completed evaluation; ownership alone is not an assessment. Review coverage/exclusions, choose EN or RU, generate a snapshot, then download the immutable saved artifact from history. Source findings/tasks can change later without changing that PDF. Human work completion never proves technical resolution. Raw work notes are omitted from exports.
+Open `/app/reports` after sign-in. Reports require currently authorized domains with usable persisted observations and completed evaluation; ownership alone is not an assessment. Review coverage/exclusions, choose EN, RU or KK, generate a snapshot, then download the immutable saved artifact from history. Source findings/tasks can change later without changing that PDF. Human work completion never proves technical resolution. Raw work notes are omitted from exports.
 
 Open [Sample Demo](http://127.0.0.1:5173/demo) for a **fictional, read-only** reserved-domain scenario and PDFs marked DEMO on every page. It accesses no customer records or scanners. `/preview` remains the design preview. The global English / Русский / Қазақша selector preserves route/form values and stores only language preference.
 
-See [reports](docs/reports.md), [synthetic demo](docs/demo.md), [localization](docs/localization.md) and [Phase 07 verification](docs/phase-07-results.md). The outstanding real owned-domain E2E requires a domain owner's authorization; isolated QA fixtures are not live assessment evidence. Phase 08/09 have not started.
+See [reports](docs/reports.md), [synthetic demo](docs/demo.md), [localization](docs/localization.md) and [Phase 07 verification](docs/phase-07-results.md). The outstanding real owned-domain E2E requires a domain owner's authorization; isolated QA fixtures are not live assessment evidence. Phase 08 hardening and a localhost-only release profile are implemented. Phase 09 has not started.
+
+For the compiled same-origin release candidate, run `docker compose -f compose.local.yaml up --build -d --wait` and open <http://127.0.0.1:8080>. See [local release / backup recovery](docs/local-release-runbook.md), [defense walkthrough](docs/defense-demo-runbook.md), [Phase 08 results](docs/phase-08-results.md) and [risk register](docs/phase-08-risk-register.md). No public deployment is configured or authorized.
 
 ## Run with Docker
 

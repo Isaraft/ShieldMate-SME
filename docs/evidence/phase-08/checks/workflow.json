@@ -1,0 +1,13 @@
+{
+  "browser": "151.0.7922.34",
+  "fixture": "LOCAL QA — injected DNS and socket responses, real queue, API, DB and PDFs. No external assessment.",
+  "flows": [
+    "Browser registration/login/onboarding/consent/TXT/queued scan/finding/task done; finding remains open; shared Top 3 and real PDF API",
+    "Eight cross-tenant resource denials; CSRF/Origin rejection; stable CSRF reads; isolated demo leaves tenant reports unchanged",
+    "Conclusive clean fixture scan resolves findings; done task alone did not; stored report bytes remain unchanged",
+    "Actual same-browser two-tab logout/account transition removes tenant A draft and denies old task under tenant B",
+    "SIGKILL worker, real lease expiry, interrupted persistence/no automatic retry; unsafe destination fixture fails closed"
+  ],
+  "errors": [],
+  "views": 399
+}

@@ -1,0 +1,113 @@
+{
+  "reports": [
+    {
+      "file": "docs/evidence/phase-08/pdfs/demo-en.pdf",
+      "pages": 6,
+      "sha256": "9517b73eb432ecdab5cfd408db262c2182f4083e239639b11129a3f97a228b54",
+      "words": 1359,
+      "bounds": "PASS",
+      "context_each_page": "DEMO",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/demo-kk.pdf",
+      "pages": 6,
+      "sha256": "d2413d55667b1466ff2bd6353d737b33ad9b7572debe31de8a91310ebef61609",
+      "words": 1325,
+      "bounds": "PASS",
+      "context_each_page": "DEMO",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/demo-ru.pdf",
+      "pages": 6,
+      "sha256": "8ab35108f059c312ea1caebee0a45bf385d18caca988d079522a15800b31b31b",
+      "words": 1305,
+      "bounds": "PASS",
+      "context_each_page": "DEMO",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/edge-en.pdf",
+      "pages": 5,
+      "sha256": "a9089878cc5513fe1214726bf3df37f288684be4567c0cc0a04728b128cfd116",
+      "words": 1011,
+      "bounds": "PASS",
+      "context_each_page": "LOCAL QA",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/edge-kk.pdf",
+      "pages": 5,
+      "sha256": "4ffddf85949b9cdf8b2c17c2855478c76e7fafd9c6507130421ec14d693a45a8",
+      "words": 1015,
+      "bounds": "PASS",
+      "context_each_page": "LOCAL QA",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/edge-ru.pdf",
+      "pages": 5,
+      "sha256": "307b4c1bbb660536fc00b6b9cbee114cba37c54825aa44f850d6b4547ea8b2fb",
+      "words": 1010,
+      "bounds": "PASS",
+      "context_each_page": "LOCAL QA",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/long-en.pdf",
+      "pages": 24,
+      "sha256": "458738b7810881bc18599ed95ce01b8bba69c893ecd68b8d5b501cb50406e456",
+      "words": 5956,
+      "bounds": "PASS",
+      "context_each_page": "LOCAL QA",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/long-kk.pdf",
+      "pages": 26,
+      "sha256": "35725c3c829ef828a673acc4538c5608b93ec11cb10512f988c3601e676b7e7a",
+      "words": 5787,
+      "bounds": "PASS",
+      "context_each_page": "LOCAL QA",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/long-ru.pdf",
+      "pages": 26,
+      "sha256": "680d1ecc8fbf6b7f42d9f02bd5660ff9144c6d5fbe23beddcba7e85af56e2307",
+      "words": 5560,
+      "bounds": "PASS",
+      "context_each_page": "LOCAL QA",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/short-en.pdf",
+      "pages": 8,
+      "sha256": "4cdabe877631e4a6aabf8f83230e8e7d1c23c0f81377f9cf3fcbebb4a76357f0",
+      "words": 1870,
+      "bounds": "PASS",
+      "context_each_page": "LOCAL QA",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/short-kk.pdf",
+      "pages": 9,
+      "sha256": "a1cdd0f94f4e6a9c98ee7b73d7d766755586f5b01e54179d492caa24a99272f6",
+      "words": 1835,
+      "bounds": "PASS",
+      "context_each_page": "LOCAL QA",
+      "text_extractable": true
+    },
+    {
+      "file": "docs/evidence/phase-08/pdfs/short-ru.pdf",
+      "pages": 9,
+      "sha256": "295c4006fdcb053bc6e846be9074cf1de99cb5a0ddaf484ca96e122ba571327a",
+      "words": 1789,
+      "bounds": "PASS",
+      "context_each_page": "LOCAL QA",
+      "text_extractable": true
+    }
+  ],
+  "total_pages": 135
+}

@@ -1,0 +1,1 @@
+Production image contains no QA scripts

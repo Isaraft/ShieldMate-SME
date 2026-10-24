@@ -1,0 +1,5 @@
+{
+  "source_files_match_final_image": 58,
+  "localhost_readiness": "ready",
+  "qa_services": "stopped; volumes retained"
+}

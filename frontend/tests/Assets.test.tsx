@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
-import { beforeEach, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { Assets } from '../src/pages/Assets';
+import { setLocale, tr, type Locale } from '../src/i18n';
+afterEach(() => act(() => setLocale('en')));
 const asset = {
   id: 'asset',
   canonical_fqdn: 'example.com',
@@ -98,3 +100,28 @@ it('shows a recoverable server failure', async () => {
     await screen.findByRole('button', { name: 'Retry loading domains' }),
   ).toBeInTheDocument();
 });
+
+it.each(['en', 'ru', 'kk'] as Locale[])(
+  'translates the ownership instruction status in %s',
+  async (locale) => {
+    act(() => setLocale(locale));
+    rows = [{ ...asset, status: 'verified' }];
+    renderAssets();
+    await userEvent.click(
+      await screen.findByRole('button', {
+        name: tr('DNS instructions for ') + 'example.com',
+      }),
+    );
+    expect(
+      within(
+        document.querySelector('.dns-instructions') as HTMLElement,
+      ).getByText(tr('verified'), { exact: true }),
+    ).toBeInTheDocument();
+    if (locale !== 'en')
+      expect(
+        within(
+          document.querySelector('.dns-instructions') as HTMLElement,
+        ).queryByText('verified', { exact: true }),
+      ).not.toBeInTheDocument();
+  },
+);

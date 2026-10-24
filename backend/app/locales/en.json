@@ -972,5 +972,7 @@
   "Your workspace": "Your workspace",
   "dns": "DNS",
   "http": "HTTP",
-  "Your account": "Your account"
+  "Your account": "Your account",
+  "Too many session requests. Retry in 15 minutes.": "Too many session requests. Retry in 15 minutes.",
+  "Service storage is not ready. Retry later.": "Service storage is not ready. Retry later."
 }

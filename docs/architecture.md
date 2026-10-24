@@ -191,3 +191,11 @@ read-only demo uses one canonical synthetic fixture and no customer storage. EN/
 controlled text shares one catalog between React and PDF rendering. See [reports](reports.md),
 [demo isolation](demo.md), [localization](localization.md) and [verification](phase-07-results.md).
 No Phase 08 deployment or Phase 09 beta testing has been implemented.
+
+## Phase 08 local release and security boundary
+
+The optional `compose.local.yaml` project serves compiled frontend files through Nginx on loopback 8080 and proxies same-origin `/api` to an unpublished API port. It uses explicit `local_release` validation and private new SQLite/backups volumes. The development profile remains available separately. Production HTTPS/Secure-cookie checks remain enforced; no public infrastructure is configured.
+
+`app/http_security.py` bounds actual modifying-request bytes and stops unexpected pre-header exceptions from escaping to the server traceback logger. CSRF is now stable for a session (domain-separated HMAC from the opaque session value, hash stored), rotates with login and becomes invalid on revocation/expiry. Legacy sessions adopt the derived value on their next bootstrap. RC and development cookies have different names because ports do not isolate cookies. Browser identity revalidation hides private content and successful auth/logout emits a payload-free cross-tab invalidation signal. Server organization checks remain authoritative.
+
+`/api/v1/health/ready` checks readable storage and exact Alembic head separately from liveness. `app/maintenance.py` provides verified online SQLite backup and no-overwrite restore into a new path; it never exposes a backup API. No new migrations or dependencies were introduced. See `local-release-runbook.md` for permissions/WAL/recovery and `phase-08-risk-register.md` for residual trust boundaries and pre-exposure blockers.

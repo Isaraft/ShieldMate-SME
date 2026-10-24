@@ -14,6 +14,9 @@ SPECIAL_NETWORKS = tuple(
         "168.63.129.16/32",  # Azure host/platform virtual endpoint, despite public classification.
         "192.0.0.0/24",  # Protocol assignments, including globally flagged anycast exceptions.
         "192.88.99.0/24",  # Deprecated 6to4 relay space.
+        "100:0:0:1::/64",  # IANA dummy prefix (2025), independent of stdlib version.
+        "3fff::/20",  # Documentation (2024).
+        "5f00::/16",  # SRv6 SIDs, not globally reachable website destinations.
         "2001::/23",  # IETF protocol assignments, not ordinary website address space.
     )
 )

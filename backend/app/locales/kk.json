@@ -972,5 +972,7 @@
   "Your workspace": "Сіздің жұмыс кеңістігіңіз",
   "dns": "DNS",
   "http": "HTTP",
-  "Your account": "Сіздің аккаунтыңыз"
+  "Your account": "Сіздің аккаунтыңыз",
+  "Too many session requests. Retry in 15 minutes.": "Сеанс сұраулары тым көп. 15 минуттан кейін қайталаңыз.",
+  "Service storage is not ready. Retry later.": "Қызметтің деректер қоймасы әлі дайын емес. Кейінірек қайталаңыз."
 }

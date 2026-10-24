@@ -1,4 +1,5 @@
 import hashlib
+import hmac
 import re
 import secrets
 import threading
@@ -26,6 +27,11 @@ COOKIE = "shieldmate_session"
 # Single-process local MVP limiter; bounded keys, monotonic expiry, never stores email/password.
 _attempts: dict[str, deque[float]] = defaultdict(deque)
 _lock = threading.Lock()
+
+
+def csrf_value(token: str) -> str:
+    """Session-bound, domain-separated token; stable across tabs, never persisted raw."""
+    return hmac.new(token.encode(), b"shieldmate-csrf-v1", hashlib.sha256).hexdigest()
 
 
 def digest(value: str) -> str:
@@ -86,8 +92,17 @@ class Identity(BaseModel):
     organization: OrganizationOut | None
 
 
+def cookie_name(request: Request) -> str:
+    # Cookies are not port-scoped; parallel local profiles must not overwrite each other.
+    return (
+        "shieldmate_rc_session"
+        if request.app.state.settings.environment == "local_release"
+        else COOKIE
+    )
+
+
 def session_for(request: Request, db: Session) -> LoginSession:
-    token = request.cookies.get(COOKIE, "")
+    token = request.cookies.get(cookie_name(request), "")
     session = db.get(LoginSession, digest(token)) if 20 <= len(token) <= 128 else None
     if session is None or session.revoked or session.expires_at <= int(time.time()):
         raise HTTPException(401, "Your session has ended. Sign in again.")
@@ -120,7 +135,8 @@ Mutation = Annotated[LoginSession, Depends(mutation)]
 
 def issue(request: Request, response: Response, db: Session, user_id: str | None) -> str:
     db.execute(delete(LoginSession).where(LoginSession.expires_at < int(time.time()) - 86400))
-    token, csrf = secrets.token_urlsafe(32), secrets.token_urlsafe(32)
+    token = secrets.token_urlsafe(32)
+    csrf = csrf_value(token)
     lifetime = request.app.state.settings.session_seconds if user_id else 1800
     db.add(
         LoginSession(
@@ -131,7 +147,7 @@ def issue(request: Request, response: Response, db: Session, user_id: str | None
         )
     )
     response.set_cookie(
-        COOKIE,
+        cookie_name(request),
         token,
         max_age=lifetime,
         httponly=True,
@@ -172,11 +188,23 @@ def csrf(request: Request, response: Response, db: DB) -> dict[str, str]:
         current = session_for(request, db)
     except HTTPException:
         current = None
-    # Rotate only the CSRF secret; a cross-site reader cannot read this response.
-    value = secrets.token_urlsafe(32)
+    # Stable per session: reading a token in another tab must not invalidate in-flight work.
+    # Existing sessions adopt the derived token on their first refresh after this upgrade.
     if current:
-        current.csrf_hash = digest(value)
+        value = csrf_value(request.cookies[cookie_name(request)])
+        if current.csrf_hash != digest(value):
+            current.csrf_hash = digest(value)
     else:
+        try:
+            request.app.state.bootstrap_limiter.check(
+                request.client.host if request.client else "unknown", 100
+            )
+        except HTTPException:
+            raise HTTPException(
+                429,
+                "Too many session requests. Retry in 15 minutes.",
+                headers={"Retry-After": "900"},
+            ) from None
         value = issue(request, response, db, None)
     db.commit()
     return {"csrf_token": value}
@@ -219,7 +247,7 @@ def logout(request: Request, response: Response, db: DB, current: Mutation) -> d
     current.revoked = True
     db.commit()
     response.delete_cookie(
-        COOKIE,
+        cookie_name(request),
         path="/api",
         secure=request.app.state.settings.cookie_secure,
         httponly=True,

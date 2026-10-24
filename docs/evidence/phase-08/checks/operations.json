@@ -1,0 +1,130 @@
+{
+  "backup": {
+    "revision": "f34f9df9b6a4",
+    "rows": {
+      "alembic_version": 1,
+      "check_observations": 108,
+      "domain_events": 42,
+      "domains": 9,
+      "finding_evaluations": 9,
+      "finding_events": 40,
+      "findings": 34,
+      "organizations": 4,
+      "remediation_tasks": 1,
+      "report_events": 33,
+      "scan_runs": 9,
+      "security_reports": 9,
+      "sessions": 12,
+      "task_events": 2,
+      "users": 4
+    },
+    "integrity": "ok",
+    "report_hashes": "ok",
+    "file": "/app/backups/phase08.sqlite",
+    "sha256": "70cac2a18d6bba28c5df184ba4db7ff3a1ce35a35a0650f2eb9edcc2de23668e"
+  },
+  "restore": {
+    "revision": "f34f9df9b6a4",
+    "rows": {
+      "alembic_version": 1,
+      "check_observations": 108,
+      "domain_events": 42,
+      "domains": 9,
+      "finding_evaluations": 9,
+      "finding_events": 40,
+      "findings": 34,
+      "organizations": 4,
+      "remediation_tasks": 1,
+      "report_events": 33,
+      "scan_runs": 9,
+      "security_reports": 9,
+      "sessions": 12,
+      "task_events": 2,
+      "users": 4
+    },
+    "integrity": "ok",
+    "report_hashes": "ok",
+    "file": "/app/storage/shieldmate.db",
+    "sha256": "70cac2a18d6bba28c5df184ba4db7ff3a1ce35a35a0650f2eb9edcc2de23668e"
+  },
+  "existing_destination_refused": true,
+  "restored_api_checks": [
+    "/auth/me",
+    "/domains",
+    "/domains/3fecb953-4078-4e97-aa02-93864d91f3d8/scans",
+    "/findings",
+    "/tasks/eb7712a0-0305-4a0e-970d-a7a92ae908d0",
+    "/reports",
+    "/dashboard/summary"
+  ],
+  "restored_private_pdf_hashes": 3,
+  "rc_headers_host_size_deep_links": "PASS",
+  "runtime": [
+    {
+      "name": "/shieldmate-rc-backend-1",
+      "user": "10001:10001",
+      "readonly": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security": [
+        "no-new-privileges:true"
+      ],
+      "ports": {
+        "8000/tcp": null
+      },
+      "health": "healthy"
+    },
+    {
+      "name": "/shieldmate-rc-worker-1",
+      "user": "10001:10001",
+      "readonly": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security": [
+        "no-new-privileges:true"
+      ],
+      "ports": {
+        "8000/tcp": null
+      },
+      "health": "running"
+    },
+    {
+      "name": "/shieldmate-rc-frontend-1",
+      "user": "101:101",
+      "readonly": true,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security": [
+        "no-new-privileges:true"
+      ],
+      "ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "8080"
+          }
+        ]
+      },
+      "health": "healthy"
+    }
+  ],
+  "permissions": {
+    "/app/storage": {
+      "mode": "0o700",
+      "uid": 10001
+    },
+    "/app/storage/shieldmate.db": {
+      "mode": "0o600",
+      "uid": 10001
+    },
+    "/app/backups": {
+      "mode": "0o700",
+      "uid": 10001
+    }
+  },
+  "failed_migration_exit": 255,
+  "failed_migration_never_started_http": true
+}

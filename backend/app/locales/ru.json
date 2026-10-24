@@ -972,5 +972,7 @@
   "Your workspace": "Ваша рабочая область",
   "dns": "DNS",
   "http": "HTTP",
-  "Your account": "Ваш аккаунт"
+  "Your account": "Ваш аккаунт",
+  "Too many session requests. Retry in 15 minutes.": "Слишком много запросов сеанса. Повторите через 15 минут.",
+  "Service storage is not ready. Retry later.": "Хранилище сервиса пока недоступно. Повторите позже."
 }

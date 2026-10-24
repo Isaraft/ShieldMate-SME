@@ -1,0 +1,190 @@
+{
+  "scan_id": "e76af6a8-4825-4dbc-957c-07c761d222f3",
+  "status": "interrupted",
+  "checks": 4,
+  "no_retry": true,
+  "blocked_scan": {
+    "id": "1df2069a-0e39-4ce2-a6f7-e1fa7f537309",
+    "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+    "hostname": "qa-blocked.example.com",
+    "status": "failed",
+    "created_at": 1792868832,
+    "started_at": 1792868832,
+    "finished_at": 1792868832,
+    "error_code": "unsafe_destination",
+    "completed_checks": 13,
+    "total_checks": 13,
+    "engine_version": "starter-checks-1",
+    "observations": [
+      {
+        "check_id": "DNS_ADDRESS",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "DNS_DMARC_PRESENT",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "DNS_MX_PRESENT",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "DNS_SPF_PRESENT",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "HTTPS_CSP",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "HTTPS_FRAME",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "HTTPS_HSTS",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "HTTPS_NOSNIFF",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "HTTPS_PERMISSIONS",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "HTTPS_REFERRER",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "HTTPS_RESPONSE",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "HTTP_REDIRECT",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      },
+      {
+        "check_id": "TLS_CERTIFICATE",
+        "observed_at": 1792868832,
+        "outcome": "inconclusive",
+        "summary": "Check could not be completed",
+        "source": "check engine",
+        "explanation": "No security conclusion is available. Successful observations from other checks remain recorded. Recheck eligibility and retry when appropriate.",
+        "evidence": {
+          "error_code": "unsafe_destination"
+        },
+        "asset_id": "dee2eaf9-e2ab-4b1f-9b63-b6cc52369f97",
+        "engine_version": "starter-checks-1"
+      }
+    ]
+  }
+}

@@ -14,6 +14,8 @@ logger = logging.getLogger("shieldmate")
 
 SECURITY_HEADERS = {
     "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
     "Referrer-Policy": "no-referrer",
     "Content-Security-Policy": "default-src 'none'; frame-ancestors 'none'",
     "Cache-Control": "no-store",

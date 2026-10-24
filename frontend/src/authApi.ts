@@ -1,3 +1,4 @@
+import { notifySessionChange } from './sessionEvents';
 export type Organization = {
   id: string;
   name: string;
@@ -51,5 +52,7 @@ export async function api<T>(
       response.status,
     );
   }
+  if (method === 'POST' && (path === '/auth/login' || path === '/auth/logout'))
+    notifySessionChange();
   return response.json() as Promise<T>;
 }

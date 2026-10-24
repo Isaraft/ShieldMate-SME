@@ -1,0 +1,7 @@
+{
+  "declared_2_actual_over_16k_status": 200,
+  "received": {
+    "received": 20000
+  },
+  "unhandled_exception_escapes_application_boundary": true
+}

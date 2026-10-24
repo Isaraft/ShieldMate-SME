@@ -1,5 +1,7 @@
 # Phase: 02 — Authentication & Organization Workspace
 
+Historical Phase 02 report. Phase 08 replaces per-read CSRF rotation with stable session-bound tokens and adds a separate local RC cookie; see [current architecture](architecture.md) and [Phase 08 results](phase-08-results.md). The original verification below records behavior at that phase.
+
 ## Design/architecture decisions
 
 The existing burgundy/red identity, local fonts and typed UI controls are retained.

@@ -2,30 +2,30 @@ import logging
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI, Request
+from alembic.config import Config
+from alembic.script import ScriptDirectory
+from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException
-from starlette.middleware.base import RequestResponseEndpoint
 from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware.trustedhost import TrustedHostMiddleware
-from starlette.responses import Response
 
 from app.api.health import router as health_router
+from app.api.readiness import router as readiness_router
 from app.auth import router as auth_router
-from app.config import Settings
+from app.config import BACKEND_ROOT, Settings
 from app.dashboard import router as dashboard_router
 from app.db import Database
 from app.domain_dns import check_txt
 from app.domain_limits import DomainLimiter
 from app.domains import router as domains_router
 from app.errors import (
-    SECURITY_HEADERS,
-    error_response,
     http_error,
     unexpected_error,
     validation_error,
 )
 from app.findings.api import router as findings_router
+from app.http_security import SecurityBoundary
 from app.reports.api import router as reports_router
 from app.reports.demo import router as demo_router
 from app.scanner.service import router as scans_router
@@ -39,6 +39,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @asynccontextmanager
     async def lifespan(app: FastAPI) -> AsyncIterator[None]:
+        app.state.expected_revision = ScriptDirectory.from_config(
+            Config(str(BACKEND_ROOT / "alembic.ini"))
+        ).get_current_head()
         app.state.database = Database(settings.database_url)
         logger.info("service_started phase=00")
         try:
@@ -68,22 +71,12 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             allow_headers=[],
         )
 
-    @app.middleware("http")
-    async def security_headers(request: Request, call_next: RequestResponseEndpoint) -> Response:
-        if request.method in {"POST", "PATCH", "PUT"}:
-            length = request.headers.get("content-length", "")
-            if not length.isdigit() or int(length) > 16384:
-                return error_response(413, "body_too_large", "Request body must be at most 16 KiB.")
-        response = await call_next(request)
-        private = response.headers.get("Cache-Control") == "private, no-store"
-        response.headers.update(SECURITY_HEADERS)
-        if private:
-            response.headers["Cache-Control"] = "private, no-store"
-        return response
+    app.add_middleware(SecurityBoundary)
 
     app.state.settings = settings
     app.state.check_txt = check_txt
     app.state.domain_limiter = DomainLimiter()
+    app.state.bootstrap_limiter = DomainLimiter()
     app.state.task_limiter = DomainLimiter()
     app.state.report_limiter = DomainLimiter()
     app.include_router(domains_router, prefix="/api/v1")
@@ -95,6 +88,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.include_router(dashboard_router, prefix="/api/v1")
     app.include_router(auth_router, prefix="/api/v1")
     app.include_router(health_router, prefix="/api/v1")
+    app.include_router(readiness_router, prefix="/api/v1")
     return app
 
 

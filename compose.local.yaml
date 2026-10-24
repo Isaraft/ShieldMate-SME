@@ -1,0 +1,72 @@
+# Local release candidate: static frontend, same-origin API, isolated private storage.
+name: shieldmate-rc
+services:
+  backend:
+    image: shieldmate-backend
+    build: ./backend
+    environment: &settings
+      SHIELDMATE_ENVIRONMENT: local_release
+      SHIELDMATE_DATABASE_URL: sqlite:////app/storage/shieldmate.db
+      SHIELDMATE_ALLOWED_HOSTS: '["localhost","127.0.0.1","backend"]'
+      SHIELDMATE_CORS_ORIGINS: "[]"
+      SHIELDMATE_COOKIE_SECURE: "false"
+      SHIELDMATE_TRUSTED_ORIGINS: '["http://127.0.0.1:${SHIELDMATE_RC_PORT:-8080}","http://localhost:${SHIELDMATE_RC_PORT:-8080}"]'
+    volumes: [database:/app/storage, backups:/app/backups]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test:
+        [
+          CMD,
+          /app/.venv/bin/python,
+          -c,
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health/ready', timeout=3)",
+        ]
+      interval: 5s
+      timeout: 4s
+      retries: 10
+    networks: [local]
+  worker:
+    image: shieldmate-worker
+    build: ./backend
+    command: [/app/.venv/bin/python, -m, app.scanner.worker]
+    environment: *settings
+    volumes: [database:/app/storage]
+    depends_on: { backend: { condition: service_healthy } }
+    restart: unless-stopped
+    stop_grace_period: 65s
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    networks: [local]
+  frontend:
+    image: shieldmate-frontend
+    build: { context: ., dockerfile: frontend/Dockerfile }
+    ports: ["127.0.0.1:${SHIELDMATE_RC_PORT:-8080}:8080"]
+    depends_on: { backend: { condition: service_healthy } }
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    healthcheck:
+      test:
+        [
+          CMD,
+          wget,
+          -q,
+          -O,
+          /dev/null,
+          "http://127.0.0.1:8080/api/v1/health/ready",
+        ]
+      interval: 5s
+      timeout: 4s
+      retries: 10
+    networks: [local]
+volumes:
+  database:
+  backups:
+networks:
+  local: { driver: bridge }

@@ -1,0 +1,13 @@
+# Merge with compose.local.yaml under a separately named QA project/volume.
+services:
+  backend:
+    command:
+      [
+        sh,
+        -c,
+        ".venv/bin/alembic upgrade head && exec .venv/bin/uvicorn scripts.qa.phase08_server:app --host 0.0.0.0 --port 8000 --no-access-log --no-server-header",
+      ]
+    volumes: ["./scripts:/app/scripts:ro"]
+  worker:
+    command: [/app/.venv/bin/python, -m, scripts.qa.phase08_worker]
+    volumes: ["./scripts:/app/scripts:ro"]

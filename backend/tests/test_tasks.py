@@ -327,8 +327,9 @@ def test_resolved_creation_nonexistent_ids_and_atomic_rollback(workspace, monkey
 
     event.listen(Session, "before_flush", crash)
     try:
-        with pytest.raises(RuntimeError):
-            mutate(c, "/findings/" + finding["id"] + "/task", {})
+        response = mutate(c, "/findings/" + finding["id"] + "/task", {})
+        assert response.status_code == 500
+        assert "QA event failure" not in response.text
     finally:
         event.remove(Session, "before_flush", crash)
     assert c.get("/api/v1/tasks").json()["total"] == 0

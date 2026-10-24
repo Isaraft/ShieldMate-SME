@@ -18,7 +18,7 @@ class Settings(BaseSettings):
         hide_input_in_errors=True,
     )
 
-    environment: Literal["development", "test", "production"] = "development"
+    environment: Literal["development", "test", "production", "local_release"] = "development"
     database_url: str = "sqlite:///./storage/shieldmate.db"
     allowed_hosts: list[str] = ["localhost", "127.0.0.1", "backend"]
     cors_origins: list[str] = []
@@ -45,10 +45,30 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def secure_production(self) -> "Settings":
         if self.environment == "production" and (
-            not self.cookie_secure
+            not self.trusted_origins
+            or not self.cookie_secure
             or any(not x.startswith("https://") for x in self.trusted_origins)
         ):
             raise ValueError("Production requires Secure cookies and HTTPS trusted origins")
+        if self.environment == "local_release":
+            if (
+                self.cookie_secure
+                or self.cors_origins
+                or not self.trusted_origins
+                or self.database_url.endswith(":memory:")
+                or any(
+                    host not in {"localhost", "127.0.0.1", "backend"} for host in self.allowed_hosts
+                )
+                or any(
+                    urlsplit(origin).scheme != "http"
+                    or urlsplit(origin).hostname not in {"localhost", "127.0.0.1"}
+                    or urlsplit(origin).port is None
+                    for origin in self.trusted_origins
+                )
+            ):
+                raise ValueError(
+                    "Local release requires loopback HTTP origins, file storage and no CORS"
+                )
         if not 60 <= self.session_seconds <= 604800 or not 1 <= self.auth_rate_limit <= 100:
             raise ValueError("Invalid authentication limits")
         if not (
@@ -96,8 +116,11 @@ class Settings(BaseSettings):
     def validate_origins(cls, values: list[str]) -> list[str]:
         for value in values:
             origin = urlsplit(value)
+            port = origin.port  # Parse/range-check ports rather than accepting malformed origins.
             if (
-                origin.scheme not in {"http", "https"}
+                any(ord(c) < 33 or ord(c) > 126 for c in value)
+                or (port is not None and port == 0)
+                or origin.scheme not in {"http", "https"}
                 or not origin.hostname
                 or origin.username
                 or origin.password

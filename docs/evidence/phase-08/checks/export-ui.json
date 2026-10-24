@@ -1,0 +1,25 @@
+{
+  "reports": [
+    {
+      "locale": "en",
+      "id": "829205ab-91e8-45b9-ad0e-8ee45bcdee05",
+      "sha256": "05208aac3cf92322522cae4b96a633dfeb8199c918395cd3717e7e7d1808b870",
+      "button_and_browser_download": "PASS"
+    },
+    {
+      "locale": "ru",
+      "id": "c1f984a2-a010-42c0-9faa-2b4725c9b26b",
+      "sha256": "b9eff153fd2661099a75211b360e1dd067432401637f4d71d8f6d92d9f6c0fe0",
+      "button_and_browser_download": "PASS"
+    },
+    {
+      "locale": "kk",
+      "id": "a5ccfd60-9236-48df-ac1a-6765a76fc810",
+      "sha256": "fbf20e301f49799e99cb56e555bbdebea577d6dbbf473882aae0508b75be98f9",
+      "button_and_browser_download": "PASS"
+    }
+  ],
+  "report_retry": "PASS",
+  "demo_steps": 12,
+  "errors": []
+}

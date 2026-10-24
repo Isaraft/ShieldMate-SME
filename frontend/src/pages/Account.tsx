@@ -1,3 +1,4 @@
+import { onSessionChange } from '../sessionEvents';
 import { T, tr } from '../i18n';
 import { useEffect, useState } from 'react';
 import {
@@ -125,12 +126,17 @@ export function PrivateWorkspace() {
   const [identity, setIdentity] = useState<Identity | null>();
   const [error, setError] = useState('');
   const [attempt, setAttempt] = useState(0);
+  const [checking, setChecking] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     let active = true;
     api<Identity>('/auth/me')
       .then((user) => {
-        if (active) setIdentity(user);
+        if (active) {
+          setIdentity(user);
+          setChecking(document.hidden);
+          setError('');
+        }
       })
       .catch((e) => {
         if (active) {
@@ -138,12 +144,33 @@ export function PrivateWorkspace() {
           else setError('Unable to load your account. Please retry.');
         }
       });
-    const refresh = () => setAttempt((n) => n + 1);
+    const refresh = () => {
+      setChecking(true);
+      setAttempt((n) => n + 1);
+    };
+    const changed = () => {
+      setIdentity(undefined);
+      setError('');
+      refresh();
+    };
+    const unsubscribe = onSessionChange(changed);
+    const visibility = () => {
+      if (document.hidden) setChecking(true);
+      else refresh();
+    };
+    const restored = (event: PageTransitionEvent) => {
+      if (event.persisted) refresh();
+    };
+    document.addEventListener('visibilitychange', visibility);
+    window.addEventListener('pageshow', restored);
     window.addEventListener('focus', refresh);
     const interval = window.setInterval(refresh, 60000);
     return () => {
       active = false;
       window.removeEventListener('focus', refresh);
+      document.removeEventListener('visibilitychange', visibility);
+      window.removeEventListener('pageshow', restored);
+      unsubscribe();
       window.clearInterval(interval);
     };
   }, [attempt]);
@@ -172,58 +199,68 @@ export function PrivateWorkspace() {
   if (identity === null) return <Navigate to="/login" replace />;
   return (
     <div>
-      <div className="preview-banner">
-        <strong>{identity.organization?.name ?? tr('Your account')}</strong>
-        <span>{identity.email}</span>
-        <Link to="/app/settings">
-          <T text={'Organization settings'} />
-        </Link>
-        <Button
-          variant="quiet"
-          onClick={async () => {
-            try {
-              await api('/auth/logout', 'POST');
-              navigate('/login', { replace: true });
-            } catch (e) {
-              if (e instanceof ApiError && e.status === 401)
-                navigate('/login', { replace: true });
-              else setError('Unable to sign out. Retry.');
-            }
-          }}
-        >
-          <T text={'Sign out'} />
-        </Button>
-      </div>
-      {identity.organization ? (
-        <>
-          <nav className="private-nav" aria-label={tr('Workspace navigation')}>
-            <Link to="/app">
-              <T text={'Overview'} />
-            </Link>
-            <Link to="/app/assets">
-              <T text={'Assets'} />
-            </Link>
-            <Link to="/app/findings">
-              <T text={'Findings'} />
-            </Link>
-            <Link to="/app/tasks">
-              <T text={'Action plan'} />
-            </Link>
-            <Link to="/app/reports">
-              <T text={'Reports'} />
-            </Link>
-            <Link to="/app/settings">
-              <T text={'Settings'} />
-            </Link>
-          </nav>
-          <Outlet
-            key={`${identity.id}:${identity.organization.id}`}
-            context={{ identity, refresh: () => setAttempt((n) => n + 1) }}
-          />
-        </>
-      ) : (
-        <OrganizationForm onSaved={() => setAttempt((n) => n + 1)} />
+      {checking && (
+        <div className="account-page">
+          <LoadingState label={tr('Checking your session…')} />
+        </div>
       )}
+      <div hidden={checking}>
+        <div className="preview-banner">
+          <strong>{identity.organization?.name ?? tr('Your account')}</strong>
+          <span>{identity.email}</span>
+          <Link to="/app/settings">
+            <T text={'Organization settings'} />
+          </Link>
+          <Button
+            variant="quiet"
+            onClick={async () => {
+              try {
+                await api('/auth/logout', 'POST');
+                navigate('/login', { replace: true });
+              } catch (e) {
+                if (e instanceof ApiError && e.status === 401)
+                  navigate('/login', { replace: true });
+                else setError('Unable to sign out. Retry.');
+              }
+            }}
+          >
+            <T text={'Sign out'} />
+          </Button>
+        </div>
+        {identity.organization ? (
+          <>
+            <nav
+              className="private-nav"
+              aria-label={tr('Workspace navigation')}
+            >
+              <Link to="/app">
+                <T text={'Overview'} />
+              </Link>
+              <Link to="/app/assets">
+                <T text={'Assets'} />
+              </Link>
+              <Link to="/app/findings">
+                <T text={'Findings'} />
+              </Link>
+              <Link to="/app/tasks">
+                <T text={'Action plan'} />
+              </Link>
+              <Link to="/app/reports">
+                <T text={'Reports'} />
+              </Link>
+              <Link to="/app/settings">
+                <T text={'Settings'} />
+              </Link>
+            </nav>
+            <Outlet
+              key={`${identity.id}:${identity.organization.id}`}
+              context={{ identity, refresh: () => setAttempt((n) => n + 1) }}
+            />
+          </>
+        ) : (
+          <OrganizationForm onSaved={() => setAttempt((n) => n + 1)} />
+        )}
+      </div>
     </div>
   );
 }

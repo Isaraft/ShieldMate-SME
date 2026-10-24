@@ -1,0 +1,16 @@
+{
+  "baseline": "e2c58b6",
+  "backend_tests_passed": 325,
+  "frontend_tests_passed": 98,
+  "rendered_axe_views": 531,
+  "axe_violations": 0,
+  "pdfs": 12,
+  "rendered_pdf_pages": 135,
+  "stored_historical_pdf_hashes_verified": 41,
+  "prior_manifest_matches": 6,
+  "actual_export_button_downloads": 3,
+  "demo_step_interactions": 12,
+  "backup_restore": "PASS",
+  "owned_domain_external_e2e": "NOT TESTED \u2014 no authorized real target supplied",
+  "external_browsers_native_reviewer_assistive_devices": "NOT TESTED"
+}

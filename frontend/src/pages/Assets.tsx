@@ -336,7 +336,7 @@ export function Assets() {
             {active.canonical_fqdn}
           </h2>
           <Badge tone={active.status === 'verified' ? 'success' : 'neutral'}>
-            {active.status}
+            {tr(active.status)}
           </Badge>
           <p>
             <T text={'Record type: '} />

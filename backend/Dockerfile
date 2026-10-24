@@ -13,10 +13,14 @@ RUN uv export --frozen --no-dev --output-file /tmp/requirements.txt \
 COPY app ./app
 COPY migrations ./migrations
 COPY alembic.ini ./
+COPY deploy/entrypoint.sh /app/entrypoint.sh
 RUN groupadd --gid 10001 shieldmate \
     && useradd --uid 10001 --gid shieldmate --no-create-home shieldmate \
-    && mkdir /app/storage \
-    && chown shieldmate:shieldmate /app/storage
+    && mkdir /app/storage /app/backups \
+    && chown shieldmate:shieldmate /app/storage /app/backups \
+    && chmod 700 /app/storage /app/backups \
+    && chmod 555 /app/entrypoint.sh
 USER 10001:10001
 EXPOSE 8000
+ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["sh", "-c", ".venv/bin/alembic upgrade head && exec .venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 1 --no-access-log --no-server-header"]
