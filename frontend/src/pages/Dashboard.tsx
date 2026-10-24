@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useWorkspaceResource } from '../hooks/useWorkspaceResource';
@@ -20,42 +21,62 @@ export function Dashboard() {
   const [technical, setTechnical] = useState(false);
   return (
     <section className="dashboard findings-page">
-      <p className="eyebrow">Company workspace / Decisions & action</p>
+      <p className="eyebrow">
+        <T text={'Company workspace / Decisions & action'} />
+      </p>
       <h1>{data?.organization.name ?? 'Your workspace'}</h1>
       <p className="dashboard-intro">
-        Know what deserves attention. Record the work. Verify it with evidence.
+        <T
+          text={
+            'Know what deserves attention. Record the work. Verify it with evidence.'
+          }
+        />
       </p>
       {error && (
-        <Alert title="Overview unavailable" tone="error">
-          {error}
-          <Button onClick={refresh}>Retry overview</Button>
+        <Alert title={tr('Overview unavailable')} tone="error">
+          {tr(error)}
+          <Button onClick={refresh}>
+            <T text={'Retry overview'} />
+          </Button>
         </Alert>
       )}
-      {!data && !error && <LoadingState label="Loading your workspace…" />}
+      {!data && !error && (
+        <LoadingState label={tr('Loading your workspace…')} />
+      )}
       {data && (
         <>
           <p className="field-help">
-            Last useful observation: {scanDate(data.last_useful_observation_at)}{' '}
-            · Overview read {scanDate(data.generated_at)}.
+            <T text={'Last useful observation: '} />
+            {scanDate(data.last_useful_observation_at)}{' '}
+            <T text={'· Overview read '} />
+            {scanDate(data.generated_at)}.
           </p>
           {error && (
             <p>
-              The records below are the last loaded snapshot and may be out of
-              date.
+              <T
+                text={
+                  'The records below are the last loaded snapshot and may be out of date.'
+                }
+              />
             </p>
           )}
           <ReviewMode technical={technical} setTechnical={setTechnical} />
           <dl className="operating-strip">
             <div>
-              <dt>Fresh ownership proofs</dt>
+              <dt>
+                <T text={'Fresh ownership proofs'} />
+              </dt>
               <dd>
                 <Link to="/app/assets">
-                  {data.verified_assets} / {data.asset_count} domains
+                  {data.verified_assets} / {data.asset_count}
+                  <T text={' domains'} />
                 </Link>
               </dd>
             </div>
             <div>
-              <dt>Supported open findings</dt>
+              <dt>
+                <T text={'Supported open findings'} />
+              </dt>
               <dd>
                 <Link to="/app/findings?status=open">
                   {data.findings.total}
@@ -63,7 +84,9 @@ export function Dashboard() {
               </dd>
             </div>
             <div>
-              <dt>Human work in progress</dt>
+              <dt>
+                <T text={'Human work in progress'} />
+              </dt>
               <dd>
                 <Link to="/app/tasks?status=in_progress">
                   {data.task_counts.in_progress ?? 0}
@@ -71,7 +94,9 @@ export function Dashboard() {
               </dd>
             </div>
             <div>
-              <dt>Work marked done</dt>
+              <dt>
+                <T text={'Work marked done'} />
+              </dt>
               <dd>
                 <Link to="/app/tasks?status=done">
                   {data.task_counts.done ?? 0}
@@ -80,36 +105,57 @@ export function Dashboard() {
             </div>
           </dl>
           {data.asset_count === 0 ? (
-            <EmptyState title="Start with a domain you control">
+            <EmptyState title={tr('Start with a domain you control')}>
               <p>
-                Your workspace is saved. Add a domain and publish its TXT
-                ownership proof before any checks.
+                <T
+                  text={
+                    'Your workspace is saved. Add a domain and publish its TXT ownership proof before any checks.'
+                  }
+                />
               </p>
-              <Link to="/app/assets">Add an authorized domain</Link>
+              <Link to="/app/assets">
+                <T text={'Add an authorized domain'} />
+              </Link>
             </EmptyState>
           ) : data.eligible_assets === 0 ? (
-            <Alert title="Ownership needs attention" tone="warning">
-              No enrolled domain currently meets authorization and proof
-              requirements.{' '}
-              <Link to="/app/assets">Review domain ownership</Link>.
+            <Alert title={tr('Ownership needs attention')} tone="warning">
+              <T
+                text={
+                  'No enrolled domain currently meets authorization and proof requirements.'
+                }
+              />{' '}
+              <Link to="/app/assets">
+                <T text={'Review domain ownership'} />
+              </Link>
+              .
             </Alert>
           ) : data.recent_scan_count === 0 ? (
-            <Alert title="Ready for the first assessment">
-              {data.eligible_assets} domains meet ownership requirements. No
-              scans are recorded.{' '}
-              <Link to="/app/assets">Open authorized scan controls</Link>;
-              quotas and safety checks still apply.
+            <Alert title={tr('Ready for the first assessment')}>
+              {data.eligible_assets}
+              <T
+                text={
+                  ' domains meet ownership requirements. No scans are recorded.'
+                }
+              />{' '}
+              <Link to="/app/assets">
+                <T text={'Open authorized scan controls'} />
+              </Link>
+              <T text={'; quotas and safety checks still apply.'} />
             </Alert>
           ) : null}
           {data.done_unverified > 0 && (
             <Alert
-              title="Human work is not technical resolution"
+              title={tr('Human work is not technical resolution')}
               tone="warning"
             >
-              {data.done_unverified} tasks are marked done while their findings
-              remain open.{' '}
+              {data.done_unverified}
+              <T
+                text={
+                  ' tasks are marked done while their findings remain open.'
+                }
+              />{' '}
               <Link to="/app/tasks?status=done">
-                Review work awaiting verification
+                <T text={'Review work awaiting verification'} />
               </Link>
               .
             </Alert>
@@ -118,7 +164,9 @@ export function Dashboard() {
             findings={data.findings.priorities}
             technical={technical}
           />
-          <Link to="/app/findings">Review all findings and evidence</Link>
+          <Link to="/app/findings">
+            <T text={'Review all findings and evidence'} />
+          </Link>
           <AssessmentSummary
             coverage={data.findings.summary.assessment}
             technical={technical}
@@ -126,39 +174,63 @@ export function Dashboard() {
           {data.scans.some((s) =>
             ['partial', 'failed', 'interrupted'].includes(s.status),
           ) && (
-            <Alert title="Some recent checks were incomplete" tone="warning">
-              Collection errors do not prove safety or remediation. Review the
-              recorded scope and unavailable observations.
+            <Alert
+              title={tr('Some recent checks were incomplete')}
+              tone="warning"
+            >
+              <T
+                text={
+                  'Collection errors do not prove safety or remediation. Review the recorded scope and unavailable observations.'
+                }
+              />
             </Alert>
           )}
           <div className="dashboard-columns">
             <section>
               <div className="section-heading">
-                <h2>Remediation queue</h2>
-                <Link to="/app/tasks">All tasks</Link>
+                <h2>
+                  <T text={'Remediation queue'} />
+                </h2>
+                <Link to="/app/tasks">
+                  <T text={'All tasks'} />
+                </Link>
               </div>
               <p>
-                To do: {data.task_counts.todo ?? 0} · In progress:{' '}
-                {data.task_counts.in_progress ?? 0} · Done by a person:{' '}
-                {data.task_counts.done ?? 0}. Up to five recently changed tasks.
+                <T text={'To do: '} />
+                {data.task_counts.todo ?? 0}
+                <T text={' · In progress:'} />{' '}
+                {data.task_counts.in_progress ?? 0}
+                <T text={' · Done by a person:'} /> {data.task_counts.done ?? 0}
+                <T text={'. Up to five recently changed tasks.'} />
               </p>
               {data.tasks.length ? (
                 <TaskRows tasks={data.tasks} />
               ) : (
                 <p>
-                  No tasks yet. Create a task from a supported open finding; no
-                  work is generated automatically.
+                  <T
+                    text={
+                      'No tasks yet. Create a task from a supported open finding; no work is generated automatically.'
+                    }
+                  />
                 </p>
               )}
             </section>
             <section>
               <div className="section-heading">
-                <h2>Recent scans</h2>
-                <Link to="/app/assets">Assets & scan history</Link>
+                <h2>
+                  <T text={'Recent scans'} />
+                </h2>
+                <Link to="/app/assets">
+                  <T text={'Assets & scan history'} />
+                </Link>
               </div>
               <p>
-                {data.recent_scan_count} retained runs for current assets.
-                Showing up to five latest.
+                {data.recent_scan_count}
+                <T
+                  text={
+                    ' retained runs for current assets. Showing up to five latest.'
+                  }
+                />
               </p>
               {data.scans.length ? (
                 <ul className="work-queue">
@@ -168,7 +240,8 @@ export function Dashboard() {
                         {s.hostname}
                       </Link>
                       <p>
-                        {s.status} · {s.completed_checks} collected observations
+                        {s.status} · {s.completed_checks}
+                        <T text={' collected observations'} />
                         <br />
                         {scanDate(s.finished_at ?? s.created_at)}
                       </p>
@@ -176,27 +249,42 @@ export function Dashboard() {
                   ))}
                 </ul>
               ) : (
-                <p>No scan history. No safety conclusion is available.</p>
+                <p>
+                  <T
+                    text={'No scan history. No safety conclusion is available.'}
+                  />
+                </p>
               )}
             </section>
           </div>
           <section>
-            <h2>Recent work activity</h2>
-            <p>Up to five saved task events. Changes describe human work.</p>
+            <h2>
+              <T text={'Recent work activity'} />
+            </h2>
+            <p>
+              <T
+                text={
+                  'Up to five saved task events. Changes describe human work.'
+                }
+              />
+            </p>
             {data.activity.length ? (
               <ol className="work-queue">
                 {data.activity.map((e) => (
                   <li key={`${e.task_id}:${e.version}`}>
-                    <Link to={`/app/tasks/${e.task_id}`}>{e.title}</Link>
+                    <Link to={`/app/tasks/${e.task_id}`}>{tr(e.title)}</Link>
                     <p>
-                      {e.actor_label} · {e.kind} · revision {e.version} ·{' '}
-                      {scanDate(e.created_at)}
+                      {tr(e.actor_label)} · {tr(e.kind)}
+                      <T text={' · revision '} />
+                      {e.version} · {scanDate(e.created_at)}
                     </p>
                   </li>
                 ))}
               </ol>
             ) : (
-              <p>No task changes have been recorded.</p>
+              <p>
+                <T text={'No task changes have been recorded.'} />
+              </p>
             )}
           </section>
         </>

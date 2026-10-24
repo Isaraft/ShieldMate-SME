@@ -1,3 +1,4 @@
+import { dateTime } from './i18n';
 export type ScanState =
   'queued' | 'running' | 'completed' | 'partial' | 'failed' | 'interrupted';
 export type Observation = {
@@ -32,11 +33,7 @@ export type History = {
 export const isActive = (state: ScanState) =>
   state === 'queued' || state === 'running';
 export function scanDate(value: number | null) {
-  return value
-    ? new Date(value * 1000).toLocaleString(undefined, {
-        timeZoneName: 'short',
-      })
-    : 'Not yet';
+  return dateTime(value);
 }
 export const scanErrors: Record<string, string> = {
   authorization_changed:

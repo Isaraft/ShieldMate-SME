@@ -1,3 +1,4 @@
+import { T } from '../i18n';
 type PlannedStateProps = {
   title: string;
   phase: string;
@@ -7,12 +8,17 @@ type PlannedStateProps = {
 export function PlannedState({ title, phase, children }: PlannedStateProps) {
   return (
     <section className="planned-state" aria-labelledby="page-title">
-      <p className="eyebrow">Planned · {phase}</p>
+      <p className="eyebrow">
+        <T text={'Planned · '} />
+        {phase}
+      </p>
       <h1 id="page-title">{title}</h1>
-      <p className="availability">Coming in a later phase</p>
+      <p className="availability">
+        <T text={'Coming in a later phase'} />
+      </p>
       <div className="prose">{children}</div>
       <p className="empty-note">
-        No workspace data is collected or stored in this preview.
+        <T text={'No workspace data is collected or stored in this preview.'} />
       </p>
     </section>
   );

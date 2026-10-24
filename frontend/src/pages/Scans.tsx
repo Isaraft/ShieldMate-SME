@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { api, ApiError } from '../authApi';
@@ -72,11 +73,18 @@ function ScanRecords() {
   const base = `/app/assets/${domainId}/scans`;
   return (
     <section className="scans-page">
-      <p className="eyebrow">Company workspace / Technical observations</p>
-      <h1>{scanId ? 'Security check record' : 'Scan history'}</h1>
+      <p className="eyebrow">
+        <T text={'Company workspace / Technical observations'} />
+      </p>
+      <h1>
+        <T text={scanId ? 'Security check record' : 'Scan history'} />
+      </h1>
       <p>
-        ShieldMate Starter performs limited external configuration checks. It
-        does not guarantee security or detect all vulnerabilities.
+        <T
+          text={
+            'ShieldMate Starter performs limited external configuration checks. It does not guarantee security or detect all vulnerabilities.'
+          }
+        />
       </p>
       <div className="button-row">
         {scanId && (
@@ -84,22 +92,22 @@ function ScanRecords() {
             className="button button-secondary"
             to={`/app/findings?domain_id=${domainId}&scan_id=${scanId}`}
           >
-            Review derived findings
+            <T text={'Review derived findings'} />
           </Link>
         )}
         <Link className="button button-secondary" to="/app/assets">
-          Back to assets
+          <T text={'Back to assets'} />
         </Link>
         {scanId && (
           <Link className="button button-quiet" to={base}>
-            View scan history
+            <T text={'View scan history'} />
           </Link>
         )}
       </div>
       {error && (
         <>
-          <Alert tone="error" title="Unable to load scan records">
-            {error}
+          <Alert tone="error" title={tr('Unable to load scan records')}>
+            {tr(error)}
           </Alert>
           <Button
             onClick={() => {
@@ -107,20 +115,23 @@ function ScanRecords() {
               setRetry(retry + 1);
             }}
           >
-            Retry loading scans
+            <T text={'Retry loading scans'} />
           </Button>
         </>
       )}
       {!error && !scan && !history && (
-        <LoadingState label="Loading scan records…" />
+        <LoadingState label={tr('Loading scan records…')} />
       )}
       {history && (
         <>
           {!history.items.length ? (
-            <EmptyState title="No completed scans yet">
+            <EmptyState title={tr('No completed scans yet')}>
               <p>
-                Enroll and verify an authorized domain in Assets, then run its
-                limited security checks.
+                <T
+                  text={
+                    'Enroll and verify an authorized domain in Assets, then run its limited security checks.'
+                  }
+                />
               </p>
             </EmptyState>
           ) : (
@@ -132,15 +143,17 @@ function ScanRecords() {
                     <p>{scanDate(row.created_at)}</p>
                     <Badge>{row.status}</Badge>
                     <p>
-                      {row.completed_checks} of {row.total_checks} check
-                      outcomes recorded
+                      {row.completed_checks}
+                      <T text={' of '} />
+                      {row.total_checks}
+                      <T text={' check outcomes recorded'} />
                     </p>
                   </div>
                   <Link
                     className="button button-secondary"
                     to={`${base}/${row.id}`}
                   >
-                    View scan record
+                    <T text={'View scan record'} />
                   </Link>
                 </li>
               ))}
@@ -152,14 +165,14 @@ function ScanRecords() {
               disabled={offset === 0}
               onClick={() => setOffset(Math.max(0, offset - 10))}
             >
-              Newer scans
+              <T text={'Newer scans'} />
             </Button>
             <Button
               variant="quiet"
               disabled={offset + 10 >= history.total}
               onClick={() => setOffset(offset + 10)}
             >
-              Older scans
+              <T text={'Older scans'} />
             </Button>
           </div>
         </>
@@ -169,30 +182,47 @@ function ScanRecords() {
           <div className="scan-summary" role="status">
             <h2>{scan.hostname}</h2>
             <Badge tone={scan.status === 'completed' ? 'success' : 'neutral'}>
-              {scan.status}
+              {tr(scan.status)}
             </Badge>
             <p>
-              {scan.completed_checks} of {scan.total_checks} check outcomes
-              recorded.{' '}
-              {isActive(scan.status)
-                ? 'Updates arrive automatically. Unrecorded checks have not been checked yet.'
-                : 'This record is stored; it does not update automatically.'}
+              {scan.completed_checks}
+              <T text={' of '} />
+              {scan.total_checks}
+              <T text={' check outcomes recorded.'} />{' '}
+              <T
+                text={
+                  isActive(scan.status)
+                    ? 'Updates arrive automatically. Unrecorded checks have not been checked yet.'
+                    : 'This record is stored; it does not update automatically.'
+                }
+              />
             </p>
             <dl>
-              <dt>Requested</dt>
+              <dt>
+                <T text={'Requested'} />
+              </dt>
               <dd>{scanDate(scan.created_at)}</dd>
-              <dt>Started</dt>
+              <dt>
+                <T text={'Started'} />
+              </dt>
               <dd>{scanDate(scan.started_at)}</dd>
-              <dt>Finished</dt>
+              <dt>
+                <T text={'Finished'} />
+              </dt>
               <dd>{scanDate(scan.finished_at)}</dd>
-              <dt>Engine</dt>
+              <dt>
+                <T text={'Engine'} />
+              </dt>
               <dd>{scan.engine_version}</dd>
             </dl>
           </div>
           {scan.error_code && (
-            <Alert title="Scan limitation" tone="warning">
-              {scanErrors[scan.error_code] ??
-                `The scan could not fully complete (${scan.error_code}). No blanket security conclusion is available.`}
+            <Alert title={tr('Scan limitation')} tone="warning">
+              {tr(
+                scanErrors[scan.error_code] ??
+                  'The scan could not fully complete. Review its recorded error code.',
+              )}{' '}
+              <code>{scan.error_code}</code>
             </Alert>
           )}
           {(['DNS', 'TLS', 'HTTP'] as const).map((group) => {
@@ -207,7 +237,9 @@ function ScanRecords() {
               >
                 <h2>{group === 'HTTP' ? 'HTTP & HTTPS' : group}</h2>
                 {!observations.length && (
-                  <p>Not checked — no observations recorded yet.</p>
+                  <p>
+                    <T text={'Not checked — no observations recorded yet.'} />
+                  </p>
                 )}
                 {observations.map((row) => (
                   <article className="observation" key={row.check_id}>
@@ -222,14 +254,19 @@ function ScanRecords() {
                             : 'neutral'
                       }
                     >
-                      {labels[row.outcome]}
+                      {tr(labels[row.outcome])}
                     </Badge>
                     <p>{row.explanation}</p>
                     <details>
-                      <summary>Technical evidence</summary>
+                      <summary>
+                        <T text={'Technical evidence'} />
+                      </summary>
                       <p>
-                        Source: {row.source} · Observed{' '}
-                        {scanDate(row.observed_at)} · Asset: {scan.hostname}
+                        <T text={'Source: '} />
+                        {row.source}
+                        <T text={' · Observed'} /> {scanDate(row.observed_at)}
+                        <T text={' · Asset: '} />
+                        {scan.hostname}
                       </p>
                       <dl>
                         {Object.entries(row.evidence).map(([key, value]) => (

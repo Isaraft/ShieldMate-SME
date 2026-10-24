@@ -1,3 +1,4 @@
+import { T, tr } from '../../i18n';
 import {
   useId,
   type ButtonHTMLAttributes,
@@ -25,7 +26,7 @@ export function Button({
       aria-busy={pending || undefined}
       className={`button button-${variant} ${className}`}
     >
-      {pending ? 'Please wait…' : children}
+      {pending ? tr('Please wait…') : children}
     </button>
   );
 }
@@ -52,7 +53,7 @@ export function Alert({
       className={`feedback feedback-${tone}`}
       role={tone === 'error' ? 'alert' : 'status'}
     >
-      <strong>{title}</strong>
+      <strong>{tr(title)}</strong>
       <div>{children}</div>
     </div>
   );
@@ -72,7 +73,7 @@ export function Field({
   const fieldId = id ?? generatedId;
   return (
     <div className="field">
-      <label htmlFor={fieldId}>{label}</label>
+      <label htmlFor={fieldId}>{tr(label)}</label>
       <input
         {...props}
         id={fieldId}
@@ -80,11 +81,12 @@ export function Field({
         aria-describedby={`${fieldId}-help${error ? ` ${fieldId}-error` : ''}`}
       />
       <p id={`${fieldId}-help`} className="field-help">
-        {help}
+        {tr(help)}
       </p>
       {error && (
         <p id={`${fieldId}-error`} className="field-error" role="alert">
-          Error: {error}
+          <T text={'Error: '} />
+          {tr(error)}
         </p>
       )}
     </div>
@@ -102,7 +104,7 @@ export function EmptyState({
       <span className="empty-symbol" aria-hidden="true">
         [ — ]
       </span>
-      <h2>{title}</h2>
+      <h2>{tr(title)}</h2>
       <div className="prose">{children}</div>
     </div>
   );
@@ -111,7 +113,7 @@ export function LoadingState({ label }: { label: string }) {
   return (
     <div className="loading-state" role="status">
       <span className="loading-line" aria-hidden="true" />
-      <span>{label}</span>
+      <span>{tr(label)}</span>
     </div>
   );
 }

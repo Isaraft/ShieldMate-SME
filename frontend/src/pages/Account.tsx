@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { useEffect, useState } from 'react';
 import {
   Link,
@@ -25,16 +26,24 @@ export function AccountForm({ register = false }: { register?: boolean }) {
   const created = params.has('created');
   return (
     <section className="account-page">
-      <p className="eyebrow">ShieldMate SME / Account</p>
-      <h1>{register ? 'Create account' : 'Sign in'}</h1>
+      <p className="eyebrow">
+        <T text={'ShieldMate SME / Account'} />
+      </p>
+      <h1>
+        <T text={register ? 'Create account' : 'Sign in'} />
+      </h1>
       <p>
-        {register
-          ? 'Start with your account. Create your company workspace after signing in.'
-          : 'Continue to your company workspace.'}
+        <T
+          text={
+            register
+              ? 'Start with your account. Create your company workspace after signing in.'
+              : 'Continue to your company workspace.'
+          }
+        />
       </p>
       {created && (
-        <Alert title="Account created" tone="success">
-          Sign in with your new account.
+        <Alert title={tr('Account created')} tone="success">
+          <T text={'Sign in with your new account.'} />
         </Alert>
       )}
       <form
@@ -63,8 +72,8 @@ export function AccountForm({ register = false }: { register?: boolean }) {
         }}
       >
         <Field
-          label="Email address"
-          help="Use your own email address."
+          label={tr('Email address')}
+          help={tr('Use your own email address.')}
           type="email"
           autoComplete="email"
           required
@@ -73,8 +82,8 @@ export function AccountForm({ register = false }: { register?: boolean }) {
           onChange={(e) => setEmail(e.target.value)}
         />
         <Field
-          label="Password"
-          help="12–128 characters. Passphrases and Unicode are supported."
+          label={tr('Password')}
+          help={tr('12–128 characters. Passphrases and Unicode are supported.')}
           type="password"
           autoComplete={register ? 'new-password' : 'current-password'}
           required
@@ -84,20 +93,28 @@ export function AccountForm({ register = false }: { register?: boolean }) {
           onChange={(e) => setPassword(e.target.value)}
         />
         {error && (
-          <Alert title="Unable to continue" tone="error">
-            {error}
+          <Alert title={tr('Unable to continue')} tone="error">
+            {tr(error)}
           </Alert>
         )}
         <Button type="submit" pending={pending}>
-          {register ? 'Create account' : 'Sign in'}
+          <T text={register ? 'Create account' : 'Sign in'} />
         </Button>
       </form>
       <Link to={register ? '/login' : '/register'}>
-        {register ? 'Already have an account? Sign in' : 'Create an account'}
+        <T
+          text={
+            register ? 'Already have an account? Sign in' : 'Create an account'
+          }
+        />
       </Link>
       {!register && (
         <p className="field-help">
-          Email verification and password reset are not available yet.
+          <T
+            text={
+              'Email verification and password reset are not available yet.'
+            }
+          />
         </p>
       )}
     </section>
@@ -133,8 +150,8 @@ export function PrivateWorkspace() {
   if (error)
     return (
       <section className="account-page">
-        <Alert title="Connection unavailable" tone="error">
-          {error}
+        <Alert title={tr('Connection unavailable')} tone="error">
+          {tr(error)}
         </Alert>
         <Button
           onClick={() => {
@@ -142,14 +159,14 @@ export function PrivateWorkspace() {
             setAttempt((n) => n + 1);
           }}
         >
-          Retry
+          <T text={'Retry'} />
         </Button>
       </section>
     );
   if (identity === undefined)
     return (
       <div className="account-page">
-        <LoadingState label="Checking your session…" />
+        <LoadingState label={tr('Checking your session…')} />
       </div>
     );
   if (identity === null) return <Navigate to="/login" replace />;
@@ -158,7 +175,9 @@ export function PrivateWorkspace() {
       <div className="preview-banner">
         <strong>{identity.organization?.name ?? 'Your account'}</strong>
         <span>{identity.email}</span>
-        <Link to="/app/settings">Organization settings</Link>
+        <Link to="/app/settings">
+          <T text={'Organization settings'} />
+        </Link>
         <Button
           variant="quiet"
           onClick={async () => {
@@ -172,18 +191,30 @@ export function PrivateWorkspace() {
             }
           }}
         >
-          Sign out
+          <T text={'Sign out'} />
         </Button>
       </div>
       {identity.organization ? (
         <>
-          <nav className="private-nav" aria-label="Workspace navigation">
-            <Link to="/app">Overview</Link>
-            <Link to="/app/assets">Assets</Link>
-            <Link to="/app/findings">Findings</Link>
-            <Link to="/app/tasks">Action plan</Link>
-            <Link to="/app/reports">Reports</Link>
-            <Link to="/app/settings">Settings</Link>
+          <nav className="private-nav" aria-label={tr('Workspace navigation')}>
+            <Link to="/app">
+              <T text={'Overview'} />
+            </Link>
+            <Link to="/app/assets">
+              <T text={'Assets'} />
+            </Link>
+            <Link to="/app/findings">
+              <T text={'Findings'} />
+            </Link>
+            <Link to="/app/tasks">
+              <T text={'Action plan'} />
+            </Link>
+            <Link to="/app/reports">
+              <T text={'Reports'} />
+            </Link>
+            <Link to="/app/settings">
+              <T text={'Settings'} />
+            </Link>
           </nav>
           <Outlet
             key={`${identity.id}:${identity.organization.id}`}
@@ -211,14 +242,24 @@ export function OrganizationForm({
   const navigate = useNavigate();
   return (
     <section className="account-page">
-      <p className="eyebrow">Company workspace</p>
+      <p className="eyebrow">
+        <T text={'Company workspace'} />
+      </p>
       <h1>
-        {organization ? 'Organization settings' : 'Create your workspace'}
+        <T
+          text={
+            organization ? 'Organization settings' : 'Create your workspace'
+          }
+        />
       </h1>
       <p>
-        {organization
-          ? 'Update your company display name.'
-          : 'One company workspace per account. Choose the name your team uses.'}
+        <T
+          text={
+            organization
+              ? 'Update your company display name.'
+              : 'One company workspace per account. Choose the name your team uses.'
+          }
+        />
       </p>
       <form
         onSubmit={async (event) => {
@@ -247,25 +288,25 @@ export function OrganizationForm({
         }}
       >
         <Field
-          label="Company name"
-          help="1–120 characters. You can rename it later."
+          label={tr('Company name')}
+          help={tr('1–120 characters. You can rename it later.')}
           required
           maxLength={120}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         {error && (
-          <Alert title="Unable to save" tone="error">
-            {error}
+          <Alert title={tr('Unable to save')} tone="error">
+            {tr(error)}
           </Alert>
         )}
         {message && (
-          <Alert title="Saved" tone="success">
-            {message}
+          <Alert title={tr('Saved')} tone="success">
+            {tr(message)}
           </Alert>
         )}
         <Button type="submit" pending={pending}>
-          {organization ? 'Save company name' : 'Create workspace'}
+          <T text={organization ? 'Save company name' : 'Create workspace'} />
         </Button>
       </form>
     </section>
@@ -287,13 +328,20 @@ export function OrganizationSettings() {
 export function PrivatePlanned({ title }: { title: string }) {
   return (
     <section className="account-page">
-      <p className="eyebrow">Company workspace / Planned</p>
+      <p className="eyebrow">
+        <T text={'Company workspace / Planned'} />
+      </p>
       <h1>{title}</h1>
-      <Alert title="Coming in a later phase">
-        This feature is not available yet. Reports are planned for Phase 07.
-        Existing assets, findings and remediation tasks remain available.
+      <Alert title={tr('Coming in a later phase')}>
+        <T
+          text={
+            'This feature is not available yet. This area is planned for a later phase. Existing assets, findings and remediation tasks remain available.'
+          }
+        />
       </Alert>
-      <Button disabled>Unavailable</Button>
+      <Button disabled>
+        <T text={'Unavailable'} />
+      </Button>
     </section>
   );
 }

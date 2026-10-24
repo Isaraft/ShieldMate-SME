@@ -1,13 +1,21 @@
-# ShieldMate SME Starter — Phase 06
+# ShieldMate SME Starter — Phase 07
 
 **Phase 02: real accounts and one company workspace per owner.** Register, sign in,
 create/rename your organization, reload with a persistent cookie session and sign out.
 Domain enrollment and DNS TXT ownership proof are implemented. Authorized, bounded DNS/TLS/HTTP configuration checks now run through a durable worker.
-Evidence-backed findings, contextual priorities and finding history are now available. A connected dashboard and persistent remediation tasks are available. Reports and payments remain planned.
+Evidence-backed findings, contextual priorities and finding history are now available. A connected dashboard and persistent remediation tasks are available. Immutable server-generated Security Snapshot PDFs, persistent report history, an isolated Sample Demo and English/Russian localization are now available. Payments remain out of scope.
 
 The Phase 01 burgundy/red landing and public design preview are preserved at `/preview`;
 `/app` is private and `/app/settings` edits your actual company. See
 [Phase 02 implementation and security details](docs/phase-02-results.md).
+
+## Report and sample journeys
+
+Open `/app/reports` after sign-in. Reports require currently authorized domains with usable persisted observations and completed evaluation; ownership alone is not an assessment. Review coverage/exclusions, choose EN or RU, generate a snapshot, then download the immutable saved artifact from history. Source findings/tasks can change later without changing that PDF. Human work completion never proves technical resolution. Raw work notes are omitted from exports.
+
+Open [Sample Demo](http://127.0.0.1:5173/demo) for a **fictional, read-only** reserved-domain scenario and PDFs marked DEMO on every page. It accesses no customer records or scanners. `/preview` remains the design preview. The global EN/RU toggle preserves route/form values and stores only language preference.
+
+See [reports](docs/reports.md), [synthetic demo](docs/demo.md), [localization](docs/localization.md) and [Phase 07 verification](docs/phase-07-results.md). The outstanding real owned-domain E2E requires a domain owner's authorization; isolated QA fixtures are not live assessment evidence. Phase 08/09 have not started.
 
 ## Run with Docker
 
@@ -90,6 +98,7 @@ npm test
 npm run lint
 npm run typecheck
 npm run format:check
+npm run i18n:check
 npm run build
 npm audit
 ```

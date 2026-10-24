@@ -1,3 +1,4 @@
+import { T } from '../i18n';
 export function ReviewMode({
   technical,
   setTechnical,
@@ -7,7 +8,9 @@ export function ReviewMode({
 }) {
   return (
     <fieldset className="review-mode">
-      <legend>Reading mode — same evidence and permissions</legend>
+      <legend>
+        <T text={'Reading mode — same evidence and permissions'} />
+      </legend>
       <label>
         <input
           type="radio"
@@ -15,7 +18,7 @@ export function ReviewMode({
           checked={!technical}
           onChange={() => setTechnical(false)}
         />{' '}
-        Business
+        <T text={'Business'} />
       </label>
       <label>
         <input
@@ -24,7 +27,7 @@ export function ReviewMode({
           checked={technical}
           onChange={() => setTechnical(true)}
         />{' '}
-        Technical
+        <T text={'Technical'} />
       </label>
     </fieldset>
   );

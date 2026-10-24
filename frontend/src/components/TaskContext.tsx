@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { Link } from 'react-router-dom';
 import type { Task } from '../workflowApi';
 import { statusLabel } from '../workflowApi';
@@ -8,39 +9,57 @@ import { scanDate } from '../scanApi';
 export function TaskContext({ task }: { task: Task }) {
   return (
     <>
-      <Badge>{statusLabel[task.status]} · human work</Badge>
+      <Badge>
+        {tr(statusLabel[task.status])}
+        <T text={' · human work'} />
+      </Badge>
       <FindingState finding={task.finding} />
       {task.status === 'done' && task.finding.status === 'open' && (
         <Alert
-          title="Task marked done — remediation not yet verified"
+          title={tr('Task marked done — remediation not yet verified')}
           tone="warning"
         >
-          The finding remains open. Only comparable evidence from a later
-          authorized check can confirm resolution.
+          <T
+            text={
+              'The finding remains open. Only comparable evidence from a later authorized check can confirm resolution.'
+            }
+          />
         </Alert>
       )}
       {task.finding.status === 'resolved' && (
         <p>
-          Evidence indicates resolved at {scanDate(task.finding.resolved_at)}.
-          This is separate from work completion.
+          <T text={'Evidence indicates resolved at '} />
+          {scanDate(task.finding.resolved_at)}
+          <T text={'. This is separate from work completion.'} />
         </p>
       )}
       {task.finding.stale && (
         <p>
-          Historical evidence is stale. This is not a fresh security conclusion.
+          <T
+            text={
+              'Historical evidence is stale. This is not a fresh security conclusion.'
+            }
+          />
         </p>
       )}
       {task.finding.recheck_status === 'not_rechecked' && (
         <p>
-          The latest check could not reassess this condition; its last known
-          state is retained.
+          <T
+            text={
+              'The latest check could not reassess this condition; its last known state is retained.'
+            }
+          />
         </p>
       )}
       {task.reopened_at && (
-        <Alert title="Recurrence recorded" tone="warning">
-          The finding reopened at {scanDate(task.reopened_at)}. Review current
-          evidence and explicitly move this task back to In progress if more
-          work is needed. Historical notes remain unchanged.
+        <Alert title={tr('Recurrence recorded')} tone="warning">
+          <T text={'The finding reopened at '} />
+          {scanDate(task.reopened_at)}
+          <T
+            text={
+              '. Review current evidence and explicitly move this task back to In progress if more work is needed. Historical notes remain unchanged.'
+            }
+          />
         </Alert>
       )}
     </>
@@ -52,27 +71,40 @@ export function TaskRows({ tasks }: { tasks: Task[] }) {
       {tasks.map((task) => (
         <li key={task.id}>
           <div>
-            <Link to={`/app/tasks/${task.id}`}>{task.finding.title}</Link>
+            <Link to={`/app/tasks/${task.id}`}>{tr(task.finding.title)}</Link>
             <p>
               {task.finding.hostname} ·{' '}
-              {task.owner_label || 'Owner label not set'}
+              {task.owner_label || tr('Owner label not set')}
             </p>
           </div>
           <p>
-            {statusLabel[task.status]} · {task.finding.status} finding ·{' '}
-            {task.finding.severity}
+            {tr(statusLabel[task.status])} · {tr(task.finding.status)}
+            <T text={' finding ·'} /> {tr(task.finding.severity)}
             <br />
-            Updated {scanDate(task.updated_at)}
+            <T text={'Updated '} />
+            {scanDate(task.updated_at)}
           </p>
-          {task.finding.stale && <p>Stale technical evidence</p>}
+          {task.finding.stale && (
+            <p>
+              <T text={'Stale technical evidence'} />
+            </p>
+          )}
           {task.finding.recheck_status === 'not_rechecked' && (
-            <p>Condition not rechecked</p>
+            <p>
+              <T text={'Condition not rechecked'} />
+            </p>
           )}
           {task.reopened_at && (
-            <p>Recurrence recorded — review current evidence</p>
+            <p>
+              <T text={'Recurrence recorded — review current evidence'} />
+            </p>
           )}
           {task.status === 'done' && task.finding.status === 'open' && (
-            <p>Work complete; technical verification still required.</p>
+            <p>
+              <T
+                text={'Work complete; technical verification still required.'}
+              />
+            </p>
           )}
         </li>
       ))}

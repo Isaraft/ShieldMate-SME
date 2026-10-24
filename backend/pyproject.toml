@@ -12,6 +12,7 @@ dependencies = [
   "argon2-cffi>=25.1.0",
   "dnspython==2.8.0",
   "tldextract==5.3.0",
+  "reportlab>=4.4,<5",
 ]
 
 [dependency-groups]
@@ -21,6 +22,7 @@ dev = [
   "ruff>=0.11,<1.0",
   "mypy>=1.15,<2.0",
   "pip-audit>=2.8,<3.0",
+  "pypdf>=6,<7",
 ]
 
 [tool.uv]
@@ -43,3 +45,7 @@ python_version = "3.13"
 strict = true
 files = ["app"]
 plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["reportlab.*"]
+ignore_missing_imports = true

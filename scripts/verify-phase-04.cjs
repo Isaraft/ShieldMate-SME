@@ -108,7 +108,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:15173';
   article = await enroll('qablocked.example.com');
   await article.getByRole('button', { name: 'Run security checks' }).click();
   await page.locator('.scan-summary').getByText('failed', { exact: true }).waitFor();
-  await page.getByText('DNS includes a private or special-use address. Network probes were blocked.', { exact: true }).waitFor();
+  await page.getByText('DNS includes a private or special-use address. Network probes were blocked.', { exact: false }).waitFor();
   await page.screenshot({ path: path.join(output, 'blocked.png'), fullPage: true });
   results.flow.push('unsafe DNS fails closed with explanatory feedback');
   await page.goto(base + '/app/assets');

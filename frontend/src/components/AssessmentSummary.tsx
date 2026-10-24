@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import type { FindingPage } from '../findingApi';
 import { Alert } from './ui/Primitives';
 import { scanDate } from '../scanApi';
@@ -20,13 +21,17 @@ export function AssessmentSummary({
         className="assessment-summary"
         aria-labelledby="assessment-title"
       >
-        <h2 id="assessment-title">Limited external configuration assessment</h2>
+        <h2 id="assessment-title">
+          <T text={'Limited external configuration assessment'} />
+        </h2>
         <p>
-          {coverage.evaluated_scans} evaluated source{' '}
-          {coverage.evaluated_scans === 1 ? 'scan' : 'scans'} of{' '}
-          {coverage.source_scans} latest selected{' '}
-          {coverage.source_scans === 1 ? 'scan' : 'scans'}. Last scan:{' '}
-          {scanDate(coverage.last_scan_at)}.
+          {coverage.evaluated_scans}
+          <T text={' evaluated source'} />{' '}
+          <T text={coverage.evaluated_scans === 1 ? 'scan' : 'scans'} />
+          <T text={' of '} /> {coverage.source_scans}
+          <T text={' latest selected'} />{' '}
+          <T text={coverage.source_scans === 1 ? 'scan' : 'scans'} />
+          <T text={'. Last scan:'} /> {scanDate(coverage.last_scan_at)}.
         </p>
         <dl className="coverage-counts">
           {Object.entries(coverage.observation_counts).map(([key, value]) => (
@@ -37,40 +42,65 @@ export function AssessmentSummary({
           ))}
         </dl>
         <p>{coverage.notes}</p>
-        {technical && <p>Policy: {coverage.policy_version}</p>}
+        {technical && (
+          <p>
+            <T text={'Policy: '} />
+            {coverage.policy_version}
+          </p>
+        )}
         <dl className="coverage-counts">
           {Object.entries(coverage.rule_counts).map(([key, value]) => (
             <div key={key}>
-              <dt>Rules: {ruleLabels[key] ?? key.replaceAll('_', ' ')}</dt>
+              <dt>
+                <T text={'Rules: '} />
+                {tr(ruleLabels[key] ?? key.replaceAll('_', ' '))}
+              </dt>
               <dd>{value}</dd>
             </div>
           ))}
         </dl>
       </section>
       {(coverage.pending_evaluations > 0 || coverage.in_flight_scans > 0) && (
-        <Alert title="Assessment still processing">
-          {coverage.in_flight_scans} scans in progress;{' '}
-          {coverage.pending_evaluations} terminal scans await offline
-          evaluation. Existing findings retain their last known state. This page
-          updates automatically.
+        <Alert title={tr('Assessment still processing')}>
+          {coverage.in_flight_scans}
+          <T text={' scans in progress;'} /> {coverage.pending_evaluations}
+          <T
+            text={
+              ' terminal scans await offline evaluation. Existing findings retain their last known state. This page updates automatically.'
+            }
+          />
         </Alert>
       )}
       {coverage.unsupported_scans > 0 && (
-        <Alert title="Unsupported scan engine" tone="warning">
-          {coverage.unsupported_scans} selected{' '}
-          {coverage.unsupported_scans === 1 ? 'scan uses' : 'scans use'} an
-          unsupported observation version. Their rule evaluations remain
-          unknown.
+        <Alert title={tr('Unsupported scan engine')} tone="warning">
+          {coverage.unsupported_scans}
+          <T text={' selected'} />{' '}
+          <T
+            text={coverage.unsupported_scans === 1 ? 'scan uses' : 'scans use'}
+          />
+          <T
+            text={
+              ' an unsupported observation version. Their rule evaluations remain unknown.'
+            }
+          />
         </Alert>
       )}
       {coverage.stale_assessments > 0 && (
-        <Alert title="Historical evidence" tone="warning">
-          {coverage.stale_assessments} selected source{' '}
-          {coverage.stale_assessments === 1
-            ? 'assessment is'
-            : 'assessments are'}{' '}
-          stale. Their dates describe past observations, not a fresh security
-          conclusion. Reverify ownership if needed before another scan.
+        <Alert title={tr('Historical evidence')} tone="warning">
+          {coverage.stale_assessments}
+          <T text={' selected source'} />{' '}
+          <T
+            text={
+              coverage.stale_assessments === 1
+                ? 'assessment is'
+                : 'assessments are'
+            }
+          />{' '}
+          <T
+            text={
+              'stale. Their dates describe past observations, not a fresh security conclusion. Reverify ownership if needed before another scan.'
+            }
+          />
         </Alert>
       )}
     </>

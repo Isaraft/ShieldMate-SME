@@ -126,3 +126,17 @@ the established identity. Task pages use plain labeled forms, explicit human/tec
 readable timestamps and escaped work history. No gauges, invented scores or decorative
 activity appear. Narrow screens stack actionable rows and forms; native controls, visible
 focus, reduced motion and semantic headings remain the foundation.
+
+## Phase 07 reports, demo and Russian typography
+
+Reports reuse the existing compact editorial workspace hierarchy, sharp dividers and
+burgundy/red accents. Coverage and history use stacked mobile layouts, with readable
+wrapping for checksums and source identifiers. The public guided sample has an explicit
+burgundy/red DEMO banner and repeated endnote. PDFs use white A4 pages, dark burgundy
+text, red rules and selective emphasis for print readability, with honest scope and
+page numbers rather than decorative charts or invented scores.
+
+The UI remains Anton/IBM Plex Sans. Locally served Plex Cyrillic faces cover Russian;
+Russian display headings use Plex because Anton lacks Cyrillic. ReportLab embeds the
+licensed Liberation Sans regular/bold TTFs for selectable Cyrillic PDFs. That PDF-only
+font is a technical Unicode requirement, not a change to the website's design identity.

@@ -1,0 +1,11 @@
+**
+!frontend/
+!frontend/**
+!backend/
+!backend/app/
+!backend/app/locales/
+!backend/app/locales/**
+frontend/node_modules
+frontend/dist
+frontend/.cache
+frontend/coverage

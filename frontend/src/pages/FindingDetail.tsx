@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { TaskAction } from '../components/TaskAction';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -43,20 +44,26 @@ function DetailRecord({ findingId }: { findingId: string }) {
   }, [findingId, retry, navigate]);
   return (
     <section className="findings-page finding-detail">
-      <p className="eyebrow">Company workspace / Evidence-backed finding</p>
-      <Link to="/app/findings">Back to findings</Link>
+      <p className="eyebrow">
+        <T text={'Company workspace / Evidence-backed finding'} />
+      </p>
+      <Link to="/app/findings">
+        <T text={'Back to findings'} />
+      </Link>
       <h1>{finding?.title ?? 'Finding evidence'}</h1>
-      {!finding && !error && <LoadingState label="Loading finding evidence…" />}
+      {!finding && !error && (
+        <LoadingState label={tr('Loading finding evidence…')} />
+      )}
       {error && (
-        <Alert title="Unable to load finding" tone="error">
-          {error}
+        <Alert title={tr('Unable to load finding')} tone="error">
+          {tr(error)}
           <Button
             onClick={() => {
               setError('');
               setRetry(retry + 1);
             }}
           >
-            Retry finding
+            <T text={'Retry finding'} />
           </Button>
         </Alert>
       )}
@@ -67,92 +74,139 @@ function DetailRecord({ findingId }: { findingId: string }) {
           <TaskAction finding={finding} />
           <ReviewMode technical={technical} setTechnical={setTechnical} />
           {finding.recheck_status === 'not_rechecked' && (
-            <Alert title="Verification unavailable" tone="warning">
-              The latest evaluation could not recheck this rule. The last known
-              lifecycle state and evidence are retained.
+            <Alert title={tr('Verification unavailable')} tone="warning">
+              <T
+                text={
+                  'The latest evaluation could not recheck this rule. The last known lifecycle state and evidence are retained.'
+                }
+              />
             </Alert>
           )}
           {finding.stale && (
-            <Alert title="Historical evidence" tone="warning">
-              This evidence is stale. The certificate or configuration may have
-              changed since the recorded observation.
+            <Alert title={tr('Historical evidence')} tone="warning">
+              <T
+                text={
+                  'This evidence is stale. The certificate or configuration may have changed since the recorded observation.'
+                }
+              />
             </Alert>
           )}
           {finding.status === 'resolved' && (
-            <Alert title="Resolved by comparable technical evidence">
-              This specific condition was no longer observed at{' '}
-              {scanDate(finding.resolved_at)}. This does not certify the whole
-              site or company.
+            <Alert title={tr('Resolved by comparable technical evidence')}>
+              <T text={'This specific condition was no longer observed at'} />{' '}
+              {scanDate(finding.resolved_at)}
+              <T text={'. This does not certify the whole site or company.'} />
             </Alert>
           )}
           <section>
-            <h2>Why this matters</h2>
-            <p>{finding.impact}</p>
-            <h2>Recommended next step</h2>
-            <p>{finding.recommendation}</p>
-            <h2>Why this priority</h2>
-            <p>{finding.rationale}</p>
-            <p>{finding.ranking_reason}</p>
-            <h2>Limits of this conclusion</h2>
-            <p>{finding.limitation}</p>
+            <h2>
+              <T text={'Why this matters'} />
+            </h2>
+            <p>{tr(finding.impact)}</p>
+            <h2>
+              <T text={'Recommended next step'} />
+            </h2>
+            <p>{tr(finding.recommendation)}</p>
+            <h2>
+              <T text={'Why this priority'} />
+            </h2>
+            <p>{tr(finding.rationale)}</p>
+            <p>{tr(finding.ranking_reason)}</p>
+            <h2>
+              <T text={'Limits of this conclusion'} />
+            </h2>
+            <p>{tr(finding.limitation)}</p>
           </section>
           <dl className="finding-dates">
-            <dt>First detected</dt>
+            <dt>
+              <T text={'First detected'} />
+            </dt>
             <dd>{scanDate(finding.first_seen_at)}</dd>
-            <dt>Last issue observed</dt>
+            <dt>
+              <T text={'Last issue observed'} />
+            </dt>
             <dd>{scanDate(finding.last_seen_at)}</dd>
-            <dt>Current supporting evidence</dt>
+            <dt>
+              <T text={'Current supporting evidence'} />
+            </dt>
             <dd>{scanDate(finding.observed_at)}</dd>
-            <dt>Last evaluation</dt>
+            <dt>
+              <T text={'Last evaluation'} />
+            </dt>
             <dd>{scanDate(finding.last_evaluation_at)}</dd>
           </dl>
           <section>
-            <h2>Technical evidence & provenance</h2>
+            <h2>
+              <T text={'Technical evidence & provenance'} />
+            </h2>
             <p>
-              Rule {finding.rule_id} · Policy {finding.policy_version} ·
-              Confidence: {finding.confidence}
+              <T text={'Rule '} />
+              {finding.rule_id}
+              <T text={' · Policy '} />
+              {finding.policy_version}
+              <T text={' · Confidence: '} />
+              {tr(finding.confidence)}
             </p>
             <SourceLink finding={finding} />
             <details open={technical}>
-              <summary>Inspect saved technical evidence</summary>
+              <summary>
+                <T text={'Inspect saved technical evidence'} />
+              </summary>
               <EvidenceList evidence={finding.evidence} />
-              <p>Source scan ID: {finding.source_scan_id}</p>
-              <p>Stable fingerprint: {finding.fingerprint}</p>
+              <p>
+                <T text={'Source scan ID: '} />
+                {finding.source_scan_id}
+              </p>
+              <p>
+                <T text={'Stable fingerprint: '} />
+                {finding.fingerprint}
+              </p>
             </details>
           </section>
           <section>
-            <h2>Finding history</h2>
+            <h2>
+              <T text={'Finding history'} />
+            </h2>
             {finding.history_truncated && (
               <p>
-                History was compacted: first detection, latest
-                resolution/reopening and recent evaluations are retained.
+                <T
+                  text={
+                    'History was compacted: first detection, latest resolution/reopening and recent evaluations are retained.'
+                  }
+                />
               </p>
             )}
             <ol className="finding-history">
               {finding.history.map((event) => (
                 <li key={event.source_scan_id}>
-                  <h3>{event.kind.replaceAll('_', ' ')}</h3>
+                  <h3>{tr(event.kind.replaceAll('_', ' '))}</h3>
                   <p>
                     {scanDate(event.occurred_at)} ·{' '}
-                    {event.snapshot.decision.replaceAll('_', ' ')} ·{' '}
+                    {tr(event.snapshot.decision.replaceAll('_', ' '))} ·{' '}
                     {event.snapshot.decision === 'issue'
-                      ? event.snapshot.severity + ' · '
+                      ? tr(event.snapshot.severity) + ' · '
                       : ''}
                     {event.policy_version}
                   </p>
-                  <p>{event.snapshot.reason}</p>
+                  <p>{tr(event.snapshot.reason)}</p>
                   {event.source_scan_available ? (
                     <Link
                       to={`/app/assets/${finding.asset_id}/scans/${event.source_scan_id}`}
                     >
-                      Source scan for this event
+                      <T text={'Source scan for this event'} />
                     </Link>
                   ) : (
-                    <p>Original scan pruned; saved lineage retained.</p>
+                    <p>
+                      <T
+                        text={'Original scan pruned; saved lineage retained.'}
+                      />
+                    </p>
                   )}
                   {technical && (
                     <details>
-                      <summary>Event evidence</summary>
+                      <summary>
+                        <T text={'Event evidence'} />
+                      </summary>
                       <EvidenceList evidence={event.snapshot.evidence} />
                     </details>
                   )}
@@ -161,8 +215,11 @@ function DetailRecord({ findingId }: { findingId: string }) {
             </ol>
           </section>
           <p>
-            Record human work in the linked task. Only a later conclusive
-            authorized check can resolve this finding.
+            <T
+              text={
+                'Record human work in the linked task. Only a later conclusive authorized check can resolve this finding.'
+              }
+            />
           </p>
         </>
       )}

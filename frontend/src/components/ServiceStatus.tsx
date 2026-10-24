@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { useEffect, useState } from 'react';
 import { Button } from './ui/Primitives';
 
@@ -43,14 +44,16 @@ export function ServiceStatus() {
   }, [attempt]);
 
   return (
-    <aside className="service-status" aria-label="Local service status">
+    <aside className="service-status" aria-label={tr('Local service status')}>
       <p role="status">
-        <span className="eyebrow">Local API</span>
+        <span className="eyebrow">
+          <T text={'Local API'} />
+        </span>
         <span className={`status-value status-${status}`}>
-          {status === 'loading' && 'Checking connection…'}
-          {status === 'ready' && 'Responding'}
+          {status === 'loading' && tr('Checking connection…')}
+          {status === 'ready' && tr('Responding')}
           {status === 'unavailable' &&
-            'Unavailable — start the backend, then retry.'}
+            tr('Unavailable — start the backend, then retry.')}
         </span>
       </p>
       {status === 'unavailable' && (
@@ -61,11 +64,11 @@ export function ServiceStatus() {
             setAttempt((value) => value + 1);
           }}
         >
-          Retry connection
+          <T text={'Retry connection'} />
         </Button>
       )}
       <p className="text-sm">
-        Connection status only. No domain checks are running.
+        <T text={'Connection status only. No domain checks are running.'} />
       </p>
     </aside>
   );

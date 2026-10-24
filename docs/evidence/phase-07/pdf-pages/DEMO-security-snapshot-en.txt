@@ -1,0 +1,314 @@
+SHIELDMATE SME
+
+SAMPLE DATA / DEMO - NOT A LIVE ASSESSMENT
+
+
+
+
+ Security Snapshot
+ Sample Merchant KZ
+ Generated at: 2026-10-01 00:02 UTC
+
+ Report ID: bfae4767-df1f-5497-94b9-5a4ad0f02617
+
+ Policy: starter-risk-1
+
+ Limited external configuration assessment
+
+ This is a limited external configuration assessment, not a penetration test, compliance audit or guarantee of
+ safety. Missing, failed or stale checks do not prove security. Human task completion is not technical resolution.
+
+
+ Scope
+   Enrolled domains                                                                            1
+
+   Currently authorized domains                                                                0
+
+   Unverified or expired domains                                                               1
+
+   Domains with stale evidence                                                                 0
+
+   Domains with usable saved evidence                                                          1
+
+   Domains without usable evidence                                                             0
+
+   Historical findings excluded from assessed scope                                            0
+ ready
+
+
+ Finding and work summary
+ open · high: 1
+
+ open · medium: 2
+
+ Task status · done: 1
+
+ Task status · in_progress: 1
+
+ Task status · todo: 1
+
+
+ Top priorities
+
+ 1. Certificate renewal was due within 7 days
+ merchant.example · high · open
+
+ Why this matters: Certificate problems can stop customers or staff reaching this exact website over trusted
+ HTTPS.
+
+
+
+Limited external configuration assessment                                                                       Page 1
+SHIELDMATE SME
+
+SAMPLE DATA / DEMO - NOT A LIVE ASSESSMENT
+
+
+ Recommended next step: Ask the hosting contact to check renewal, the certificate names and full trusted chain.
+ Install the correct certificate, then run an authorized scan again.
+
+ An explicit trust error or a measured renewal deadline supports a transport maintenance priority.
+
+ Observed at: 2026-10-01 00:00 UTC · TLS_CERTIFICATE_ACTION
+
+
+
+ 2. Multiple SPF policies were observed
+ merchant.example · medium · open
+
+ Why this matters: Multiple SPF policies at the same name can cause mail-authentication evaluation errors if this
+ domain sends mail.
+
+ Recommended next step: Ask the mail administrator to consolidate intended senders into one SPF policy at this
+ exact name. Do not overwrite the DNS ownership challenge. Rerun the authorized DNS check.
+
+ The persisted exact v=spf1 record count identifies multiplicity; medium priority reflects configuration correctness, not compromise.
+
+ Observed at: 2026-10-01 00:00 UTC · DNS_SPF_MULTIPLE
+
+
+
+ 3. Review a basic DMARC policy format problem
+ merchant.example · medium · open
+
+ Why this matters: The saved basic DMARC observation warrants a mail-policy review; it does not establish email
+ compromise.
+
+ Recommended next step: Ask the mail administrator to confirm whether this exact domain sends mail, review
+ DMARC syntax and alignment, and stage enforcement after monitoring legitimate senders. Rerun the authorized
+ DNS check.
+
+ Missing or monitor-only policy with inbound-mail context is low priority. A single basic malformed policy is medium priority for
+ configuration review.
+
+ Observed at: 2026-10-01 00:00 UTC · DNS_DMARC_POLICY
+
+
+
+ Findings and evidence
+
+ Certificate renewal was due within 7 days
+ merchant.example · open · high
+
+ Certificate problems can stop customers or staff reaching this exact website over trusted HTTPS.
+
+ Ask the hosting contact to check renewal, the certificate names and full trusted chain. Install the correct
+ certificate, then run an authorized scan again.
+
+ One exact hostname and pinned endpoint was checked. This does not enumerate every certificate, cipher or supported protocol.
+
+ Source: /app/findings/08401bf3-a1c3-5431-a338-16adb991324f
+
+ TLS_CERTIFICATE_ACTION · starter-risk-1 · 2026-10-01 00:00 UTC
+
+ TLS_CERTIFICATE · f09cd973-261e-5801-a0a0-18f00a75dec4 · 2026-10-01 00:00 UTC · pass
+
+ not_before: 1790726400 | not_after: 1791244800 | protocol: TLSv1.3
+
+
+
+
+Limited external configuration assessment                                                                                           Page 2
+SHIELDMATE SME
+
+SAMPLE DATA / DEMO - NOT A LIVE ASSESSMENT
+
+
+
+ Multiple SPF policies were observed
+ merchant.example · open · medium
+
+ Multiple SPF policies at the same name can cause mail-authentication evaluation errors if this domain sends
+ mail.
+
+ Ask the mail administrator to consolidate intended senders into one SPF policy at this exact name. Do not
+ overwrite the DNS ownership challenge. Rerun the authorized DNS check.
+
+ Outbound email use and SPF mechanisms/includes are unknown. One record or no record is not proof that outbound email is correctly
+ authorized.
+
+ Source: /app/findings/d32bf355-8e59-5707-a3b1-3bc4adb27c87
+
+ DNS_SPF_MULTIPLE · starter-risk-1 · 2026-10-01 00:00 UTC
+
+ DNS_SPF_PRESENT · 321ac53b-5c68-571e-bdee-db33c8b8d451 · 2026-10-01 00:00 UTC · attention
+
+ record_count: 2
+
+
+
+ Review a basic DMARC policy format problem
+ merchant.example · open · medium
+
+ The saved basic DMARC observation warrants a mail-policy review; it does not establish email compromise.
+
+ Ask the mail administrator to confirm whether this exact domain sends mail, review DMARC syntax and
+ alignment, and stage enforcement after monitoring legitimate senders. Rerun the authorized DNS check.
+
+ MX suggests inbound handling only. Outbound email, alignment, reporting and full DMARC syntax were not assessed; p=none can be
+ intentional.
+
+ Source: /app/findings/a24d209f-4525-5061-9faa-578b8e307c09
+
+ DNS_DMARC_POLICY · starter-risk-1 · 2026-10-01 00:00 UTC
+
+ DNS_DMARC_PRESENT · fe0db278-4018-547b-afbd-8a83c3938b22 · 2026-10-01 00:00 UTC · attention
+
+ policy: malformed | record_count: 1
+
+
+
+ Remediation work
+
+ Certificate renewal was due within 7 days
+ merchant.example · Task status: todo · Finding status: open
+
+ Owner label: Sample IT contact
+
+ Ask the hosting contact to check renewal, the certificate names and full trusted chain. Install the correct
+ certificate, then run an authorized scan again.
+
+ Updated: 2026-10-01 00:01 UTC · /app/tasks/6e12c76a-13b3-53b5-b8de-d6cc4fe20e5c
+
+
+
+ Multiple SPF policies were observed
+ merchant.example · Task status: in_progress · Finding status: open
+
+ Owner label: Sample IT contact
+
+
+
+Limited external configuration assessment                                                                                   Page 3
+SHIELDMATE SME
+
+SAMPLE DATA / DEMO - NOT A LIVE ASSESSMENT
+
+
+ Ask the mail administrator to consolidate intended senders into one SPF policy at this exact name. Do not
+ overwrite the DNS ownership challenge. Rerun the authorized DNS check.
+
+ Updated: 2026-10-01 00:01 UTC · /app/tasks/f7116199-7d7b-5099-b20e-69a5a2774233
+
+
+
+ Review a basic DMARC policy format problem
+ merchant.example · Task status: done · Finding status: open
+
+ Owner label: Sample IT contact
+
+ Ask the mail administrator to confirm whether this exact domain sends mail, review DMARC syntax and
+ alignment, and stage enforcement after monitoring legitimate senders. Rerun the authorized DNS check.
+
+ Updated: 2026-10-01 00:01 UTC · /app/tasks/fab71d09-0ec8-5e51-b14a-da9103378486
+
+ Task marked done - remediation not yet verified
+
+
+ Domain and check details
+
+ merchant.example
+ Synthetic scenario only; no ownership proof or network check
+
+ Ownership proof valid until: —
+
+ attention: 2 · informational: 7 · pass: 4
+
+ completed · 2026-10-01 00:00 UTC
+
+ Source: 16186d10-e134-5544-8ed9-182199d92d26
+
+ /app/assets#asset-22f7307f-8dff-5b1f-86d3-219004a2bd05
+
+ DNS_ADDRESS · informational · 2026-10-01 00:00 UTC
+
+ 928ddfa9-d4f1-5f4e-aaa1-c43cf96e55a4 ·
+
+ DNS_MX_PRESENT · informational · 2026-10-01 00:00 UTC
+
+ 7eb57edf-7cc2-53b0-aa57-942d3ccf6388 · record_count: 1
+
+ DNS_SPF_PRESENT · attention · 2026-10-01 00:00 UTC
+
+ 321ac53b-5c68-571e-bdee-db33c8b8d451 · record_count: 2
+
+ DNS_DMARC_PRESENT · attention · 2026-10-01 00:00 UTC
+
+ fe0db278-4018-547b-afbd-8a83c3938b22 · policy: malformed | record_count: 1
+
+ TLS_CERTIFICATE · pass · 2026-10-01 00:00 UTC
+
+ f09cd973-261e-5801-a0a0-18f00a75dec4 · not_before: 1790726400 | not_after: 1791244800 | protocol: TLSv1.3
+
+ HTTPS_RESPONSE · informational · 2026-10-01 00:00 UTC
+
+ 2c0ff13a-7e5b-5c3d-9150-03307e6c454e · status: 200 | method: HEAD | path: /
+
+ HTTP_REDIRECT · informational · 2026-10-01 00:00 UTC
+
+ 8aa528a8-d812-53b5-a303-1b806c69c55d · status: 301 | method: HEAD | path: / | redirect: same_host_https_not_followed
+
+ HTTPS_HSTS · pass · 2026-10-01 00:00 UTC
+
+ 4486899f-adb7-566b-8d34-7eaacd97cfe3 · header: strict-transport-security | observation: positive max-age
+
+
+
+
+Limited external configuration assessment                                                                               Page 4
+SHIELDMATE SME
+
+SAMPLE DATA / DEMO - NOT A LIVE ASSESSMENT
+
+
+ HTTPS_NOSNIFF · pass · 2026-10-01 00:00 UTC
+
+ 5f3e2343-5441-5870-b716-c5f24eb099f6 · header: x-content-type-options | observation: nosniff
+
+ HTTPS_CSP · informational · 2026-10-01 00:00 UTC
+
+ a67b3e06-a720-59ba-8f9e-a383d4793461 ·
+
+ HTTPS_FRAME · pass · 2026-10-01 00:00 UTC
+
+ 4dc900d5-ab41-521c-970f-52e17eb25744 ·
+
+ HTTPS_REFERRER · informational · 2026-10-01 00:00 UTC
+
+ 221280f7-70ed-568e-b65e-e09dd8f787ce ·
+
+ HTTPS_PERMISSIONS · informational · 2026-10-01 00:00 UTC
+
+ ce54fc6c-f997-5b37-9d61-32e78deed24f ·
+
+
+
+ Scope and limitations
+ This is a limited external configuration assessment, not a penetration test, compliance audit or guarantee of
+ safety. Missing, failed or stale checks do not prove security. Human task completion is not technical resolution.
+
+
+
+
+Limited external configuration assessment                                                                       Page 5
+

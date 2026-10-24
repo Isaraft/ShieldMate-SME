@@ -178,3 +178,16 @@ views and preserves drafts during conflicts. Source links degrade honestly under
 asset removal cascades derived task history with explicit confirmation copy. See
 [workflow semantics, exact queries and limits](remediation-workflow.md) and
 [Phase 06 actual verification](phase-06-results.md). No Phase 07 work is implemented.
+
+## Phase 07 current reporting and presentation
+
+Phase 07 supersedes the earlier statements that reports/demo/localization are absent.
+The protected report aggregator scopes current verified proof and persisted observations,
+then calls the Phase 05 finding service for unchanged priorities and lifecycle states.
+Snapshot JSON and generated PDF bytes are atomically persisted together in SQLite;
+customer downloads always check the current session and organization. ReportLab renders
+escaped local text and embedded Cyrillic fonts without network access. A separate public
+read-only demo uses one canonical synthetic fixture and no customer storage. EN/RU
+controlled text shares one catalog between React and PDF rendering. See [reports](reports.md),
+[demo isolation](demo.md), [localization](localization.md) and [verification](phase-07-results.md).
+No Phase 08 deployment or Phase 09 beta testing has been implemented.

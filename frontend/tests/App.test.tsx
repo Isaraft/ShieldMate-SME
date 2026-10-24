@@ -57,12 +57,21 @@ describe('public site and preserved foundation routes', () => {
     ['/preview/findings', 'Findings'],
     ['/preview/tasks', 'Action plan'],
     ['/preview/reports', 'Reports'],
-    ['/demo', 'Sample Demo'],
   ])('labels %s as a future feature', (path, title) => {
     renderRoute(path);
     expect(screen.getByRole('heading', { name: title })).toBeInTheDocument();
     expect(screen.getByText('Coming in a later phase')).toBeInTheDocument();
     expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
+  });
+
+  it('exposes a clearly labeled isolated demo instead of a planned feature', () => {
+    renderRoute('/demo');
+    expect(
+      screen.getByRole('heading', { name: 'From evidence to action' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByText('SAMPLE DATA / DEMO — NOT A LIVE ASSESSMENT'),
+    ).toHaveLength(2);
   });
 
   it('provides a 404 and a working return link', async () => {

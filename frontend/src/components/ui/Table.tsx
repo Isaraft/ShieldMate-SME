@@ -1,3 +1,4 @@
+import { tr } from '../../i18n';
 import type { ReactNode } from 'react';
 type Column<T> = { key: string; title: string; render: (row: T) => ReactNode };
 export function Table<T>({
@@ -16,12 +17,12 @@ export function Table<T>({
   return (
     <div className="table-wrap">
       <table>
-        <caption>{caption}</caption>
+        <caption>{tr(caption)}</caption>
         <thead>
           <tr>
             {columns.map((column) => (
               <th key={column.key} scope="col">
-                {column.title}
+                {tr(column.title)}
               </th>
             ))}
           </tr>
@@ -31,7 +32,7 @@ export function Table<T>({
             rows.map((row) => (
               <tr key={rowKey(row)}>
                 {columns.map((column) => (
-                  <td key={column.key} data-label={column.title}>
+                  <td key={column.key} data-label={tr(column.title)}>
                     {column.render(row)}
                   </td>
                 ))}

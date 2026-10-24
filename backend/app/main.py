@@ -26,6 +26,8 @@ from app.errors import (
     validation_error,
 )
 from app.findings.api import router as findings_router
+from app.reports.api import router as reports_router
+from app.reports.demo import router as demo_router
 from app.scanner.service import router as scans_router
 from app.tasks.api import router as tasks_router
 
@@ -73,17 +75,23 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             if not length.isdigit() or int(length) > 16384:
                 return error_response(413, "body_too_large", "Request body must be at most 16 KiB.")
         response = await call_next(request)
+        private = response.headers.get("Cache-Control") == "private, no-store"
         response.headers.update(SECURITY_HEADERS)
+        if private:
+            response.headers["Cache-Control"] = "private, no-store"
         return response
 
     app.state.settings = settings
     app.state.check_txt = check_txt
     app.state.domain_limiter = DomainLimiter()
     app.state.task_limiter = DomainLimiter()
+    app.state.report_limiter = DomainLimiter()
     app.include_router(domains_router, prefix="/api/v1")
     app.include_router(scans_router, prefix="/api/v1")
     app.include_router(findings_router, prefix="/api/v1")
     app.include_router(tasks_router, prefix="/api/v1")
+    app.include_router(reports_router, prefix="/api/v1")
+    app.include_router(demo_router, prefix="/api/v1")
     app.include_router(dashboard_router, prefix="/api/v1")
     app.include_router(auth_router, prefix="/api/v1")
     app.include_router(health_router, prefix="/api/v1")

@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Button } from './ui/Primitives';
 export function FindingFilters({
@@ -9,7 +10,7 @@ export function FindingFilters({
   return (
     <form
       className="finding-filters"
-      aria-label="Filter findings"
+      aria-label={tr('Filter findings')}
       onSubmit={(event) => {
         event.preventDefault();
         const form = new FormData(event.currentTarget);
@@ -21,28 +22,38 @@ export function FindingFilters({
       }}
     >
       <label>
-        Status
+        <T text={'Status'} />
         <select name="status" defaultValue={params.get('status') ?? 'all'}>
-          <option value="all">All statuses</option>
-          <option value="open">Open</option>
-          <option value="resolved">Resolved</option>
+          <option value="all">
+            <T text={'All statuses'} />
+          </option>
+          <option value="open">
+            <T text={'Open'} />
+          </option>
+          <option value="resolved">
+            <T text={'Resolved'} />
+          </option>
         </select>
       </label>
       <label>
-        Priority
+        <T text={'Priority '} />
         <select name="severity" defaultValue={params.get('severity') ?? 'all'}>
-          <option value="all">All priorities</option>
+          <option value="all">
+            <T text={'All priorities'} />
+          </option>
           {['high', 'medium', 'low', 'info'].map((v) => (
-            <option key={v} value={v}>
-              {v}
+            <option key={tr(v)} value={tr(v)}>
+              {tr(v)}
             </option>
           ))}
         </select>
       </label>
       <label>
-        Domain
+        <T text={'Domain'} />
         <select name="domain_id" defaultValue={params.get('domain_id') ?? ''}>
-          <option value="">All owned domains</option>
+          <option value="">
+            <T text={'All owned domains'} />
+          </option>
           {domains.map((domain) => (
             <option key={domain.id} value={domain.id}>
               {domain.hostname}
@@ -51,38 +62,58 @@ export function FindingFilters({
         </select>
       </label>
       <label>
-        Category
+        <T text={'Category'} />
         <select name="category" defaultValue={params.get('category') ?? 'all'}>
-          <option value="all">All categories</option>
+          <option value="all">
+            <T text={'All categories'} />
+          </option>
           {['tls', 'https', 'http_headers', 'dns_email'].map((v) => (
-            <option key={v} value={v}>
-              {v.replaceAll('_', ' ')}
+            <option key={tr(v)} value={tr(v)}>
+              {tr(v)}
             </option>
           ))}
         </select>
       </label>
       <label>
-        Evidence freshness
+        <T text={'Evidence freshness'} />
         <select
           name="freshness"
           defaultValue={params.get('freshness') ?? 'all'}
         >
-          <option value="all">All evidence</option>
-          <option value="stale">Stale</option>
-          <option value="not_rechecked">Not rechecked</option>
+          <option value="all">
+            <T text={'All evidence'} />
+          </option>
+          <option value="stale">
+            <T text={'Stale'} />
+          </option>
+          <option value="not_rechecked">
+            <T text={'Not rechecked'} />
+          </option>
         </select>
       </label>
       <label>
-        Sort
+        <T text={'Sort'} />
         <select name="sort" defaultValue={params.get('sort') ?? 'priority'}>
-          <option value="priority">Priority order</option>
-          <option value="newest">Newest issue evidence</option>
-          <option value="oldest">First detected</option>
-          <option value="domain">Domain name</option>
+          <option value="priority">
+            <T text={'Priority order'} />
+          </option>
+          <option value="newest">
+            <T text={'Newest issue evidence'} />
+          </option>
+          <option value="oldest">
+            <T text={'First detected'} />
+          </option>
+          <option value="domain">
+            <T text={'Domain name'} />
+          </option>
         </select>
       </label>
-      <Button type="submit">Apply filters</Button>
-      <Link to="/app/findings">Reset filters</Link>
+      <Button type="submit">
+        <T text={'Apply filters'} />
+      </Button>
+      <Link to="/app/findings">
+        <T text={'Reset filters'} />
+      </Link>
     </form>
   );
 }

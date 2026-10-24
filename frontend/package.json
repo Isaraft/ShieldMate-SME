@@ -15,7 +15,8 @@
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "i18n:check": "node ../scripts/check-locales.cjs"
   },
   "dependencies": {
     "@fontsource/anton": "~5.2.0",

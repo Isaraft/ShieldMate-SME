@@ -1,0 +1,483 @@
+{
+  "schema_version": "security-snapshot-1",
+  "id": "bfae4767-df1f-5497-94b9-5a4ad0f02617",
+  "kind": "demo",
+  "organization_id": "045d5f4d-0eb1-5e87-9cf4-3fa32fb1e70c",
+  "organization_name": "Sample Merchant KZ",
+  "created_at": 1790812920,
+  "locale": "en",
+  "policy_version": "starter-risk-1",
+  "readiness": "ready",
+  "can_generate": false,
+  "counts": {
+    "enrolled_domains": 1,
+    "authorized_domains": 0,
+    "assessed_domains": 1,
+    "without_usable_evidence": 0,
+    "unverified_domains": 1,
+    "stale_domains": 0,
+    "excluded_historical_findings": 0
+  },
+  "finding_counts": {
+    "open:high": 1,
+    "open:medium": 2
+  },
+  "task_counts": {
+    "todo": 1,
+    "in_progress": 1,
+    "done": 1
+  },
+  "assets": [
+    {
+      "id": "22f7307f-8dff-5b1f-86d3-219004a2bd05",
+      "hostname": "merchant.example",
+      "currently_authorized": false,
+      "verification_valid_until": null,
+      "assessed": true,
+      "reason": "Synthetic scenario only; no ownership proof or network check",
+      "stale": false,
+      "scan_id": "16186d10-e134-5544-8ed9-182199d92d26",
+      "scan_status": "completed",
+      "scan_finished_at": 1790812802,
+      "observation_counts": {
+        "informational": 7,
+        "attention": 2,
+        "pass": 4
+      },
+      "observations": [
+        {
+          "id": "928ddfa9-d4f1-5f4e-aaa1-c43cf96e55a4",
+          "check_id": "DNS_ADDRESS",
+          "outcome": "informational",
+          "observed_at": 1790812800,
+          "values": {}
+        },
+        {
+          "id": "7eb57edf-7cc2-53b0-aa57-942d3ccf6388",
+          "check_id": "DNS_MX_PRESENT",
+          "outcome": "informational",
+          "observed_at": 1790812800,
+          "values": {
+            "record_count": 1
+          }
+        },
+        {
+          "id": "321ac53b-5c68-571e-bdee-db33c8b8d451",
+          "check_id": "DNS_SPF_PRESENT",
+          "outcome": "attention",
+          "observed_at": 1790812800,
+          "values": {
+            "record_count": 2
+          }
+        },
+        {
+          "id": "fe0db278-4018-547b-afbd-8a83c3938b22",
+          "check_id": "DNS_DMARC_PRESENT",
+          "outcome": "attention",
+          "observed_at": 1790812800,
+          "values": {
+            "policy": "malformed",
+            "record_count": 1
+          }
+        },
+        {
+          "id": "f09cd973-261e-5801-a0a0-18f00a75dec4",
+          "check_id": "TLS_CERTIFICATE",
+          "outcome": "pass",
+          "observed_at": 1790812800,
+          "values": {
+            "not_before": 1790726400,
+            "not_after": 1791244800,
+            "protocol": "TLSv1.3"
+          }
+        },
+        {
+          "id": "2c0ff13a-7e5b-5c3d-9150-03307e6c454e",
+          "check_id": "HTTPS_RESPONSE",
+          "outcome": "informational",
+          "observed_at": 1790812800,
+          "values": {
+            "status": 200,
+            "method": "HEAD",
+            "path": "/"
+          }
+        },
+        {
+          "id": "8aa528a8-d812-53b5-a303-1b806c69c55d",
+          "check_id": "HTTP_REDIRECT",
+          "outcome": "informational",
+          "observed_at": 1790812800,
+          "values": {
+            "status": 301,
+            "method": "HEAD",
+            "path": "/",
+            "redirect": "same_host_https_not_followed"
+          }
+        },
+        {
+          "id": "4486899f-adb7-566b-8d34-7eaacd97cfe3",
+          "check_id": "HTTPS_HSTS",
+          "outcome": "pass",
+          "observed_at": 1790812800,
+          "values": {
+            "header": "strict-transport-security",
+            "observation": "positive max-age"
+          }
+        },
+        {
+          "id": "5f3e2343-5441-5870-b716-c5f24eb099f6",
+          "check_id": "HTTPS_NOSNIFF",
+          "outcome": "pass",
+          "observed_at": 1790812800,
+          "values": {
+            "header": "x-content-type-options",
+            "observation": "nosniff"
+          }
+        },
+        {
+          "id": "a67b3e06-a720-59ba-8f9e-a383d4793461",
+          "check_id": "HTTPS_CSP",
+          "outcome": "informational",
+          "observed_at": 1790812800,
+          "values": {}
+        },
+        {
+          "id": "4dc900d5-ab41-521c-970f-52e17eb25744",
+          "check_id": "HTTPS_FRAME",
+          "outcome": "pass",
+          "observed_at": 1790812800,
+          "values": {}
+        },
+        {
+          "id": "221280f7-70ed-568e-b65e-e09dd8f787ce",
+          "check_id": "HTTPS_REFERRER",
+          "outcome": "informational",
+          "observed_at": 1790812800,
+          "values": {}
+        },
+        {
+          "id": "ce54fc6c-f997-5b37-9d61-32e78deed24f",
+          "check_id": "HTTPS_PERMISSIONS",
+          "outcome": "informational",
+          "observed_at": 1790812800,
+          "values": {}
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "08401bf3-a1c3-5431-a338-16adb991324f",
+      "asset_id": "22f7307f-8dff-5b1f-86d3-219004a2bd05",
+      "hostname": "merchant.example",
+      "fingerprint": "877470c4-810a-5459-804c-b4d315d8fcba",
+      "rule_id": "TLS_CERTIFICATE_ACTION",
+      "policy_version": "starter-risk-1",
+      "category": "tls",
+      "status": "open",
+      "severity": "high",
+      "urgency": 2,
+      "relevance": 2,
+      "confidence": "conclusive",
+      "title": "Certificate renewal was due within 7 days",
+      "impact": "Certificate problems can stop customers or staff reaching this exact website over trusted HTTPS.",
+      "recommendation": "Ask the hosting contact to check renewal, the certificate names and full trusted chain. Install the correct certificate, then run an authorized scan again.",
+      "rationale": "An explicit trust error or a measured renewal deadline supports a transport maintenance priority.",
+      "limitation": "One exact hostname and pinned endpoint was checked. This does not enumerate every certificate, cipher or supported protocol.",
+      "first_seen_at": 1790812800,
+      "last_seen_at": 1790812800,
+      "observed_at": 1790812800,
+      "resolved_at": null,
+      "last_evaluation_at": 1790812803,
+      "recheck_status": "confirmed",
+      "stale": false,
+      "history_truncated": false,
+      "source_scan_id": "16186d10-e134-5544-8ed9-182199d92d26",
+      "source_scan_available": false,
+      "evidence": [
+        {
+          "observation_id": "f09cd973-261e-5801-a0a0-18f00a75dec4",
+          "check_id": "TLS_CERTIFICATE",
+          "observed_at": 1790812800,
+          "outcome": "pass",
+          "source": "TLS 443",
+          "values": {
+            "not_before": 1790726400,
+            "not_after": 1791244800,
+            "protocol": "TLSv1.3"
+          }
+        }
+      ],
+      "task_id": "6e12c76a-13b3-53b5-b8de-d6cc4fe20e5c",
+      "task_status": "todo",
+      "ranking_reason": "Synthetic scenario uses the documented Phase 05 ordering; no security score."
+    },
+    {
+      "id": "d32bf355-8e59-5707-a3b1-3bc4adb27c87",
+      "asset_id": "22f7307f-8dff-5b1f-86d3-219004a2bd05",
+      "hostname": "merchant.example",
+      "fingerprint": "ab63d4ae-b746-55b5-82e0-355293e78802",
+      "rule_id": "DNS_SPF_MULTIPLE",
+      "policy_version": "starter-risk-1",
+      "category": "dns_email",
+      "status": "open",
+      "severity": "medium",
+      "urgency": 1,
+      "relevance": 1,
+      "confidence": "conclusive",
+      "title": "Multiple SPF policies were observed",
+      "impact": "Multiple SPF policies at the same name can cause mail-authentication evaluation errors if this domain sends mail.",
+      "recommendation": "Ask the mail administrator to consolidate intended senders into one SPF policy at this exact name. Do not overwrite the DNS ownership challenge. Rerun the authorized DNS check.",
+      "rationale": "The persisted exact v=spf1 record count identifies multiplicity; medium priority reflects configuration correctness, not compromise.",
+      "limitation": "Outbound email use and SPF mechanisms/includes are unknown. One record or no record is not proof that outbound email is correctly authorized.",
+      "first_seen_at": 1790812800,
+      "last_seen_at": 1790812800,
+      "observed_at": 1790812800,
+      "resolved_at": null,
+      "last_evaluation_at": 1790812803,
+      "recheck_status": "confirmed",
+      "stale": false,
+      "history_truncated": false,
+      "source_scan_id": "16186d10-e134-5544-8ed9-182199d92d26",
+      "source_scan_available": false,
+      "evidence": [
+        {
+          "observation_id": "321ac53b-5c68-571e-bdee-db33c8b8d451",
+          "check_id": "DNS_SPF_PRESENT",
+          "observed_at": 1790812800,
+          "outcome": "attention",
+          "source": "DNS TXT",
+          "values": {
+            "record_count": 2
+          }
+        }
+      ],
+      "task_id": "f7116199-7d7b-5099-b20e-69a5a2774233",
+      "task_status": "in_progress",
+      "ranking_reason": "Synthetic scenario uses the documented Phase 05 ordering; no security score."
+    },
+    {
+      "id": "a24d209f-4525-5061-9faa-578b8e307c09",
+      "asset_id": "22f7307f-8dff-5b1f-86d3-219004a2bd05",
+      "hostname": "merchant.example",
+      "fingerprint": "00e52f3d-a472-571b-9478-61d9d2a7b7e4",
+      "rule_id": "DNS_DMARC_POLICY",
+      "policy_version": "starter-risk-1",
+      "category": "dns_email",
+      "status": "open",
+      "severity": "medium",
+      "urgency": 1,
+      "relevance": 1,
+      "confidence": "contextual",
+      "title": "Review a basic DMARC policy format problem",
+      "impact": "The saved basic DMARC observation warrants a mail-policy review; it does not establish email compromise.",
+      "recommendation": "Ask the mail administrator to confirm whether this exact domain sends mail, review DMARC syntax and alignment, and stage enforcement after monitoring legitimate senders. Rerun the authorized DNS check.",
+      "rationale": "Missing or monitor-only policy with inbound-mail context is low priority. A single basic malformed policy is medium priority for configuration review.",
+      "limitation": "MX suggests inbound handling only. Outbound email, alignment, reporting and full DMARC syntax were not assessed; p=none can be intentional.",
+      "first_seen_at": 1790812800,
+      "last_seen_at": 1790812800,
+      "observed_at": 1790812800,
+      "resolved_at": null,
+      "last_evaluation_at": 1790812803,
+      "recheck_status": "confirmed",
+      "stale": false,
+      "history_truncated": false,
+      "source_scan_id": "16186d10-e134-5544-8ed9-182199d92d26",
+      "source_scan_available": false,
+      "evidence": [
+        {
+          "observation_id": "fe0db278-4018-547b-afbd-8a83c3938b22",
+          "check_id": "DNS_DMARC_PRESENT",
+          "observed_at": 1790812800,
+          "outcome": "attention",
+          "source": "DNS TXT _dmarc",
+          "values": {
+            "policy": "malformed",
+            "record_count": 1
+          }
+        }
+      ],
+      "task_id": "fab71d09-0ec8-5e51-b14a-da9103378486",
+      "task_status": "done",
+      "ranking_reason": "Synthetic scenario uses the documented Phase 05 ordering; no security score."
+    }
+  ],
+  "priorities": [
+    {
+      "id": "08401bf3-a1c3-5431-a338-16adb991324f",
+      "asset_id": "22f7307f-8dff-5b1f-86d3-219004a2bd05",
+      "hostname": "merchant.example",
+      "fingerprint": "877470c4-810a-5459-804c-b4d315d8fcba",
+      "rule_id": "TLS_CERTIFICATE_ACTION",
+      "policy_version": "starter-risk-1",
+      "category": "tls",
+      "status": "open",
+      "severity": "high",
+      "urgency": 2,
+      "relevance": 2,
+      "confidence": "conclusive",
+      "title": "Certificate renewal was due within 7 days",
+      "impact": "Certificate problems can stop customers or staff reaching this exact website over trusted HTTPS.",
+      "recommendation": "Ask the hosting contact to check renewal, the certificate names and full trusted chain. Install the correct certificate, then run an authorized scan again.",
+      "rationale": "An explicit trust error or a measured renewal deadline supports a transport maintenance priority.",
+      "limitation": "One exact hostname and pinned endpoint was checked. This does not enumerate every certificate, cipher or supported protocol.",
+      "first_seen_at": 1790812800,
+      "last_seen_at": 1790812800,
+      "observed_at": 1790812800,
+      "resolved_at": null,
+      "last_evaluation_at": 1790812803,
+      "recheck_status": "confirmed",
+      "stale": false,
+      "history_truncated": false,
+      "source_scan_id": "16186d10-e134-5544-8ed9-182199d92d26",
+      "source_scan_available": false,
+      "evidence": [
+        {
+          "observation_id": "f09cd973-261e-5801-a0a0-18f00a75dec4",
+          "check_id": "TLS_CERTIFICATE",
+          "observed_at": 1790812800,
+          "outcome": "pass",
+          "source": "TLS 443",
+          "values": {
+            "not_before": 1790726400,
+            "not_after": 1791244800,
+            "protocol": "TLSv1.3"
+          }
+        }
+      ],
+      "task_id": "6e12c76a-13b3-53b5-b8de-d6cc4fe20e5c",
+      "task_status": "todo",
+      "ranking_reason": "Synthetic scenario uses the documented Phase 05 ordering; no security score."
+    },
+    {
+      "id": "d32bf355-8e59-5707-a3b1-3bc4adb27c87",
+      "asset_id": "22f7307f-8dff-5b1f-86d3-219004a2bd05",
+      "hostname": "merchant.example",
+      "fingerprint": "ab63d4ae-b746-55b5-82e0-355293e78802",
+      "rule_id": "DNS_SPF_MULTIPLE",
+      "policy_version": "starter-risk-1",
+      "category": "dns_email",
+      "status": "open",
+      "severity": "medium",
+      "urgency": 1,
+      "relevance": 1,
+      "confidence": "conclusive",
+      "title": "Multiple SPF policies were observed",
+      "impact": "Multiple SPF policies at the same name can cause mail-authentication evaluation errors if this domain sends mail.",
+      "recommendation": "Ask the mail administrator to consolidate intended senders into one SPF policy at this exact name. Do not overwrite the DNS ownership challenge. Rerun the authorized DNS check.",
+      "rationale": "The persisted exact v=spf1 record count identifies multiplicity; medium priority reflects configuration correctness, not compromise.",
+      "limitation": "Outbound email use and SPF mechanisms/includes are unknown. One record or no record is not proof that outbound email is correctly authorized.",
+      "first_seen_at": 1790812800,
+      "last_seen_at": 1790812800,
+      "observed_at": 1790812800,
+      "resolved_at": null,
+      "last_evaluation_at": 1790812803,
+      "recheck_status": "confirmed",
+      "stale": false,
+      "history_truncated": false,
+      "source_scan_id": "16186d10-e134-5544-8ed9-182199d92d26",
+      "source_scan_available": false,
+      "evidence": [
+        {
+          "observation_id": "321ac53b-5c68-571e-bdee-db33c8b8d451",
+          "check_id": "DNS_SPF_PRESENT",
+          "observed_at": 1790812800,
+          "outcome": "attention",
+          "source": "DNS TXT",
+          "values": {
+            "record_count": 2
+          }
+        }
+      ],
+      "task_id": "f7116199-7d7b-5099-b20e-69a5a2774233",
+      "task_status": "in_progress",
+      "ranking_reason": "Synthetic scenario uses the documented Phase 05 ordering; no security score."
+    },
+    {
+      "id": "a24d209f-4525-5061-9faa-578b8e307c09",
+      "asset_id": "22f7307f-8dff-5b1f-86d3-219004a2bd05",
+      "hostname": "merchant.example",
+      "fingerprint": "00e52f3d-a472-571b-9478-61d9d2a7b7e4",
+      "rule_id": "DNS_DMARC_POLICY",
+      "policy_version": "starter-risk-1",
+      "category": "dns_email",
+      "status": "open",
+      "severity": "medium",
+      "urgency": 1,
+      "relevance": 1,
+      "confidence": "contextual",
+      "title": "Review a basic DMARC policy format problem",
+      "impact": "The saved basic DMARC observation warrants a mail-policy review; it does not establish email compromise.",
+      "recommendation": "Ask the mail administrator to confirm whether this exact domain sends mail, review DMARC syntax and alignment, and stage enforcement after monitoring legitimate senders. Rerun the authorized DNS check.",
+      "rationale": "Missing or monitor-only policy with inbound-mail context is low priority. A single basic malformed policy is medium priority for configuration review.",
+      "limitation": "MX suggests inbound handling only. Outbound email, alignment, reporting and full DMARC syntax were not assessed; p=none can be intentional.",
+      "first_seen_at": 1790812800,
+      "last_seen_at": 1790812800,
+      "observed_at": 1790812800,
+      "resolved_at": null,
+      "last_evaluation_at": 1790812803,
+      "recheck_status": "confirmed",
+      "stale": false,
+      "history_truncated": false,
+      "source_scan_id": "16186d10-e134-5544-8ed9-182199d92d26",
+      "source_scan_available": false,
+      "evidence": [
+        {
+          "observation_id": "fe0db278-4018-547b-afbd-8a83c3938b22",
+          "check_id": "DNS_DMARC_PRESENT",
+          "observed_at": 1790812800,
+          "outcome": "attention",
+          "source": "DNS TXT _dmarc",
+          "values": {
+            "policy": "malformed",
+            "record_count": 1
+          }
+        }
+      ],
+      "task_id": "fab71d09-0ec8-5e51-b14a-da9103378486",
+      "task_status": "done",
+      "ranking_reason": "Synthetic scenario uses the documented Phase 05 ordering; no security score."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "6e12c76a-13b3-53b5-b8de-d6cc4fe20e5c",
+      "finding_id": "08401bf3-a1c3-5431-a338-16adb991324f",
+      "title": "Certificate renewal was due within 7 days",
+      "hostname": "merchant.example",
+      "status": "todo",
+      "owner_label": "Sample IT contact",
+      "updated_at": 1790812900,
+      "completed_at": null,
+      "finding_status": "open",
+      "finding_stale": false,
+      "recommendation": "Ask the hosting contact to check renewal, the certificate names and full trusted chain. Install the correct certificate, then run an authorized scan again."
+    },
+    {
+      "id": "f7116199-7d7b-5099-b20e-69a5a2774233",
+      "finding_id": "d32bf355-8e59-5707-a3b1-3bc4adb27c87",
+      "title": "Multiple SPF policies were observed",
+      "hostname": "merchant.example",
+      "status": "in_progress",
+      "owner_label": "Sample IT contact",
+      "updated_at": 1790812900,
+      "completed_at": null,
+      "finding_status": "open",
+      "finding_stale": false,
+      "recommendation": "Ask the mail administrator to consolidate intended senders into one SPF policy at this exact name. Do not overwrite the DNS ownership challenge. Rerun the authorized DNS check."
+    },
+    {
+      "id": "fab71d09-0ec8-5e51-b14a-da9103378486",
+      "finding_id": "a24d209f-4525-5061-9faa-578b8e307c09",
+      "title": "Review a basic DMARC policy format problem",
+      "hostname": "merchant.example",
+      "status": "done",
+      "owner_label": "Sample IT contact",
+      "updated_at": 1790812900,
+      "completed_at": 1790812900,
+      "finding_status": "open",
+      "finding_stale": false,
+      "recommendation": "Ask the mail administrator to confirm whether this exact domain sends mail, review DMARC syntax and alignment, and stage enforcement after monitoring legitimate senders. Rerun the authorized DNS check."
+    }
+  ]
+}

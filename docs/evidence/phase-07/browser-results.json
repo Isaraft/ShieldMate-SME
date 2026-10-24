@@ -1,0 +1,612 @@
+{
+  "browser": "151.0.7922.34",
+  "fixtures": "LOCAL QA — injected TXT and saved synthetic observations; real API, database, sessions, worker and PDFs. No external scans.",
+  "flows": [
+    "Real report generation EN/RU, authenticated browser download, immutable bytes after findings change, DB/container restart/session durability",
+    "Reports empty/normal/incomplete/error/retry; language persistence; keyboard outline; reduced motion; second-tab access",
+    "Demo while signed in accesses only public synthetic endpoints, four read-only steps EN/RU, no customer writes or network scans"
+  ],
+  "views": [
+    {
+      "name": "reports-empty",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-empty",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-empty",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-empty",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-ready",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-ready",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-ready",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-ready",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-history-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-history-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-history-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-history-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "dashboard-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "dashboard-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "dashboard-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "dashboard-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "assets-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "assets-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "assets-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "assets-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "findings-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "findings-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "findings-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "findings-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "finding-detail-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "finding-detail-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "finding-detail-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "finding-detail-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "tasks-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "tasks-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "tasks-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "tasks-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "task-detail-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "task-detail-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "task-detail-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "task-detail-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "workspace-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "workspace-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "workspace-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "workspace-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "scans-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "scans-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "scans-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "scans-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-history-en",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-history-en",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-history-en",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-history-en",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-error",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-error",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-error",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-error",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-incomplete",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-incomplete",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-incomplete",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "reports-incomplete",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-1",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-1",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-1",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-1",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-2",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-2",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-2",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-2",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-3",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-3",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-3",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-3",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-4",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-4",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-4",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-en-4",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-1",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-1",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-1",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-1",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-2",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-2",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-2",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-2",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-3",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-3",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-3",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-3",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-4",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-4",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-4",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "demo-ru-4",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "login-en",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "login-en",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "login-en",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "login-en",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "login-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "login-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "login-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "login-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "not-found-ru",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "not-found-ru",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "not-found-ru",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "name": "not-found-ru",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    }
+  ],
+  "errors": []
+}

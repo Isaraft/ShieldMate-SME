@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { api, ApiError } from '../authApi';
@@ -25,72 +26,99 @@ function TaskRecord({ id }: { id: string }) {
   );
   return (
     <section className="task-detail findings-page">
-      <p className="eyebrow">Company workspace / Remediation task</p>
-      <Link to="/app/tasks">Back to action plan</Link>
-      <h1>{data?.finding.title ?? 'Task record'}</h1>
+      <p className="eyebrow">
+        <T text={'Company workspace / Remediation task'} />
+      </p>
+      <Link to="/app/tasks">
+        <T text={'Back to action plan'} />
+      </Link>
+      <h1>{tr(data?.finding.title ?? 'Task record')}</h1>
       {error && (
-        <Alert title="Task unavailable" tone="error">
-          {error}
-          <Button onClick={refresh}>Retry task</Button>
+        <Alert title={tr('Task unavailable')} tone="error">
+          {tr(error)}
+          <Button onClick={refresh}>
+            <T text={'Retry task'} />
+          </Button>
         </Alert>
       )}
-      {!data && !error && <LoadingState label="Loading saved task…" />}
+      {!data && !error && <LoadingState label={tr('Loading saved task…')} />}
       {data && (
         <>
           <p>{data.finding.hostname}</p>
           <TaskContext task={data} />
           <section>
-            <h2>Evidence & next action</h2>
-            <p>{data.finding.impact}</p>
-            <p>{data.finding.recommendation}</p>
+            <h2>
+              <T text={'Evidence & next action'} />
+            </h2>
+            <p>{tr(data.finding.impact)}</p>
+            <p>{tr(data.finding.recommendation)}</p>
             <div className="button-row">
               <Link to={`/app/findings/${data.finding_id}`}>
-                Review finding & technical history
+                <T text={'Review finding & technical history'} />
               </Link>
               <SourceLink finding={data.finding} />
               <Link to={`/app/assets#asset-${data.finding.asset_id}`}>
-                Recheck ownership & scan controls
+                <T text={'Recheck ownership & scan controls'} />
               </Link>
             </div>
             <p>
-              New checks require current authorization and fresh ownership
-              proof. Existing quotas and network controls apply.
+              <T
+                text={
+                  'New checks require current authorization and fresh ownership proof. Existing quotas and network controls apply.'
+                }
+              />
             </p>
           </section>
           <TaskEditor key={data.id} task={data} onSaved={refresh} />
           <p>
-            Created {scanDate(data.created_at)} · Updated{' '}
-            {scanDate(data.updated_at)} · Work completed{' '}
-            {scanDate(data.completed_at)}.
+            <T text={'Created '} />
+            {scanDate(data.created_at)}
+            <T text={' · Updated'} /> {scanDate(data.updated_at)}
+            <T text={' · Work completed'} /> {scanDate(data.completed_at)}.
           </p>
           <section>
-            <h2>Work history</h2>
+            <h2>
+              <T text={'Work history'} />
+            </h2>
             {data.history_truncated && (
               <p>
-                History compacted: first creation and the latest 99 changes are
-                retained.
+                <T
+                  text={
+                    'History compacted: first creation and the latest 99 changes are retained.'
+                  }
+                />
               </p>
             )}
             <ol className="finding-history">
               {data.history.map((e) => (
                 <li key={e.id}>
                   <h3>
-                    {e.kind} · revision {e.version}
+                    {tr(e.kind)}
+                    <T text={' · revision '} />
+                    {e.version}
                   </h3>
                   <p>
-                    {e.actor_label} · {scanDate(e.created_at)}
+                    {tr(e.actor_label)} · {scanDate(e.created_at)}
                   </p>
                   <dl>
                     {Object.entries(e.changes).map(([field, change]) => (
                       <div key={field}>
-                        <dt>{field.replaceAll('_', ' ')}</dt>
+                        <dt>{tr(field.replaceAll('_', ' '))}</dt>
                         <dd>
                           <span className="note-text">
-                            {change.old || '(empty)'}
+                            {change.old
+                              ? field === 'status'
+                                ? tr(change.old)
+                                : change.old
+                              : tr('(empty)')}
                           </span>{' '}
                           →{' '}
                           <span className="note-text">
-                            {change.new || '(empty)'}
+                            {change.new
+                              ? field === 'status'
+                                ? tr(change.new)
+                                : change.new
+                              : tr('(empty)')}
                           </span>
                         </dd>
                       </div>
@@ -101,9 +129,11 @@ function TaskRecord({ id }: { id: string }) {
             </ol>
           </section>
           <p>
-            Tasks cannot be deleted or archived in this MVP; move work back to
-            To do or In progress to correct it. Removing its domain deletes the
-            linked task and work history.
+            <T
+              text={
+                'Tasks cannot be deleted or archived in this MVP; move work back to To do or In progress to correct it. Removing its domain deletes the linked task and work history.'
+              }
+            />
           </p>
         </>
       )}
@@ -142,7 +172,7 @@ function TaskEditor({ task, onSaved }: { task: Detail; onSaved: () => void }) {
         return;
       if (
         link.href !== window.location.href &&
-        !window.confirm('Discard unsaved work changes and leave this task?')
+        !window.confirm(tr('Discard unsaved work changes and leave this task?'))
       ) {
         e.preventDefault();
         e.stopPropagation();
@@ -159,7 +189,9 @@ function TaskEditor({ task, onSaved }: { task: Detail; onSaved: () => void }) {
   }, [dirty]);
   return (
     <section>
-      <h2>Record the work</h2>
+      <h2>
+        <T text={'Record the work'} />
+      </h2>
       <form
         className="task-form"
         onSubmit={async (e) => {
@@ -196,7 +228,9 @@ function TaskEditor({ task, onSaved }: { task: Detail; onSaved: () => void }) {
           }
         }}
       >
-        <label htmlFor="task-status">Work status</label>
+        <label htmlFor="task-status">
+          <T text={'Work status'} />
+        </label>
         <select
           id="task-status"
           value={status}
@@ -204,18 +238,22 @@ function TaskEditor({ task, onSaved }: { task: Detail; onSaved: () => void }) {
         >
           {Object.entries(statusLabel).map(([value, label]) => (
             <option key={value} value={value}>
-              {label}
+              {tr(label)}
             </option>
           ))}
         </select>
         <Field
-          label="Owner label"
-          help="Descriptive responsibility, not a user account or permission. Up to 80 characters."
+          label={tr('Owner label')}
+          help={tr(
+            'Descriptive responsibility, not a user account or permission. Up to 80 characters.',
+          )}
           maxLength={80}
           value={owner}
           onChange={(e) => setOwner(e.target.value)}
         />
-        <label htmlFor="task-note">Work note</label>
+        <label htmlFor="task-note">
+          <T text={'Work note'} />
+        </label>
         <textarea
           id="task-note"
           maxLength={2000}
@@ -225,19 +263,27 @@ function TaskEditor({ task, onSaved }: { task: Detail; onSaved: () => void }) {
           aria-describedby="note-help"
         />
         <p id="note-help" className="field-help">
-          {note.length}/2000 characters. Do not store passwords, tokens or
-          customer personal data.
+          {note.length}
+          <T
+            text={
+              '/2000 characters. Do not store passwords, tokens or customer personal data.'
+            }
+          />
         </p>
-        {dirty && <p role="status">Unsaved work changes.</p>}
+        {dirty && (
+          <p role="status">
+            <T text={'Unsaved work changes.'} />
+          </p>
+        )}
         {error && (
-          <Alert title="Unable to save task" tone="error">
-            {error}
+          <Alert title={tr('Unable to save task')} tone="error">
+            {tr(error)}
           </Alert>
         )}
-        {message && <p role="status">{message}</p>}
+        {message && <p role="status">{tr(message)}</p>}
         <div className="button-row">
           <Button type="submit" pending={pending} disabled={!dirty || conflict}>
-            Save work changes
+            <T text={'Save work changes'} />
           </Button>
           <Button
             variant="quiet"
@@ -250,7 +296,7 @@ function TaskEditor({ task, onSaved }: { task: Detail; onSaved: () => void }) {
               setConflict(false);
             }}
           >
-            Discard draft
+            <T text={'Discard draft'} />
           </Button>
           {conflict && (
             <Button
@@ -273,7 +319,7 @@ function TaskEditor({ task, onSaved }: { task: Detail; onSaved: () => void }) {
                 }
               }}
             >
-              Reload latest and discard draft
+              <T text={'Reload latest and discard draft'} />
             </Button>
           )}
         </div>

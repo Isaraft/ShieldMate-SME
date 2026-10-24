@@ -1,3 +1,4 @@
+import { dateTime, T, tr } from '../i18n';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { api, ApiError } from '../authApi';
@@ -37,11 +38,7 @@ const messages: Record<string, string> = {
     'This challenge has expired. Generate a new challenge and replace the old TXT value.',
 };
 function date(value: number | null) {
-  return value
-    ? new Date(value * 1000).toLocaleString(undefined, {
-        timeZoneName: 'short',
-      })
-    : 'Not verified';
+  return dateTime(value);
 }
 export function Assets() {
   const [assets, setAssets] = useState<Asset[]>();
@@ -126,25 +123,34 @@ export function Assets() {
   }
   return (
     <section className="assets-page">
-      <p className="eyebrow">Company workspace / Authorized assets</p>
-      <h1>Assets</h1>
-      <p>
-        Add only domains you control or have written authorization to assess.
-        DNS proof confirms control at a specific name and time; it does not
-        authorize every host or service behind it.
+      <p className="eyebrow">
+        <T text={'Company workspace / Authorized assets'} />
       </p>
-      <Alert title="Limited checks, exact domain only">
-        ShieldMate Starter performs limited external configuration checks. It
-        does not guarantee security or detect all vulnerabilities.
+      <h1>
+        <T text={'Assets'} />
+      </h1>
+      <p>
+        <T
+          text={
+            'Add only domains you control or have written authorization to assess. DNS proof confirms control at a specific name and time; it does not authorize every host or service behind it.'
+          }
+        />
+      </p>
+      <Alert title={tr('Limited checks, exact domain only')}>
+        <T
+          text={
+            'ShieldMate Starter performs limited external configuration checks. It does not guarantee security or detect all vulnerabilities.'
+          }
+        />
       </Alert>
       {error && (
-        <Alert title="Unable to complete request" tone="error">
-          {error}
+        <Alert title={tr('Unable to complete request')} tone="error">
+          {tr(error)}
         </Alert>
       )}
       {assets === undefined ? (
         <>
-          {!error && <LoadingState label="Loading your domains…" />}
+          {!error && <LoadingState label={tr('Loading your domains…')} />}
           {error && (
             <Button
               onClick={async () => {
@@ -156,7 +162,7 @@ export function Assets() {
                 }
               }}
             >
-              Retry loading domains
+              <T text={'Retry loading domains'} />
             </Button>
           )}
         </>
@@ -195,10 +201,14 @@ export function Assets() {
               }
             }}
           >
-            <h2>Add an authorized domain</h2>
+            <h2>
+              <T text={'Add an authorized domain'} />
+            </h2>
             <Field
-              label="Domain name"
-              help="Domain only, such as shop.example.com. ASCII or valid Punycode; no URL or whitespace."
+              label={tr('Domain name')}
+              help={tr(
+                'Domain only, such as shop.example.com. ASCII or valid Punycode; no URL or whitespace.',
+              )}
               required
               maxLength={254}
               autoComplete="off"
@@ -213,24 +223,29 @@ export function Assets() {
                 required
               />{' '}
               <span>
-                I control this domain or have written permission to request
-                ShieldMate’s limited external checks. I understand DNS control
-                does not prove authorization for every underlying service.
+                <T
+                  text={
+                    'I control this domain or have written permission to request ShieldMate’s limited external checks. I understand DNS control does not prove authorization for every underlying service.'
+                  }
+                />
               </span>
             </label>
             <Button type="submit" pending={pending}>
-              Add domain
+              <T text={'Add domain'} />
             </Button>
           </form>
           {assets.length === 0 ? (
-            <EmptyState title="Your domain list starts here.">
+            <EmptyState title={tr('Your domain list starts here.')}>
               <p>
-                Enroll a domain and publish its unique TXT challenge. Nothing
-                becomes verified until the server finds a valid matching record.
+                <T
+                  text={
+                    'Enroll a domain and publish its unique TXT challenge. Nothing becomes verified until the server finds a valid matching record.'
+                  }
+                />
               </p>
             </EmptyState>
           ) : (
-            <div className="asset-list" aria-label="Your domains">
+            <div className="asset-list" aria-label={tr('Your domains')}>
               {assets.map((asset) => (
                 <article key={asset.id} id={`asset-${asset.id}`} tabIndex={-1}>
                   <div>
@@ -238,11 +253,14 @@ export function Assets() {
                     <Badge
                       tone={asset.status === 'verified' ? 'success' : 'neutral'}
                     >
-                      {asset.status}
+                      {tr(asset.status)}
                     </Badge>
-                    <p>Added {date(asset.created_at)}</p>
                     <p>
-                      Verification valid until:{' '}
+                      <T text={'Added '} />
+                      {date(asset.created_at)}
+                    </p>
+                    <p>
+                      <T text={'Verification valid until:'} />{' '}
                       {date(asset.verification_valid_until)}
                     </p>
                   </div>
@@ -266,24 +284,29 @@ export function Assets() {
                         }
                       }}
                     >
-                      Run security checks
+                      <T text={'Run security checks'} />
                     </Button>
                     {!asset.scan_available && (
                       <p className="field-help">
-                        {asset.status === 'stale'
-                          ? 'DNS proof is stale. Generate a new challenge and verify again.'
-                          : asset.status === 'expired'
-                            ? 'The DNS challenge expired. Generate a new challenge and verify ownership.'
-                            : asset.status === 'verified'
-                              ? 'Recorded scan authorization is missing or no longer valid.'
-                              : 'Ownership is not verified. Publish the TXT challenge and verify ownership.'}
+                        <T
+                          text={
+                            asset.status === 'stale'
+                              ? 'DNS proof is stale. Generate a new challenge and verify again.'
+                              : asset.status === 'expired'
+                                ? 'The DNS challenge expired. Generate a new challenge and verify ownership.'
+                                : asset.status === 'verified'
+                                  ? 'Recorded scan authorization is missing or no longer valid.'
+                                  : 'Ownership is not verified. Publish the TXT challenge and verify ownership.'
+                          }
+                        />
                       </p>
                     )}
                     <Link
                       className="button button-quiet"
                       to={`/app/assets/${asset.id}/scans`}
                     >
-                      Scan history for {asset.canonical_fqdn}
+                      <T text={'Scan history for '} />
+                      {asset.canonical_fqdn}
                     </Link>
                   </div>
                   <Button
@@ -294,7 +317,8 @@ export function Assets() {
                       setCopy('');
                     }}
                   >
-                    DNS instructions for {asset.canonical_fqdn}
+                    <T text={'DNS instructions for '} />
+                    {asset.canonical_fqdn}
                   </Button>
                 </article>
               ))}
@@ -302,66 +326,97 @@ export function Assets() {
           )}
         </>
       )}
-      {feedback && <Alert title="Verification update">{feedback}</Alert>}
+      {feedback && (
+        <Alert title={tr('Verification update')}>{tr(feedback)}</Alert>
+      )}
       {active && (
         <section className="dns-instructions" aria-labelledby="dns-title">
           <h2 id="dns-title" ref={heading} tabIndex={-1}>
-            DNS TXT instructions: {active.canonical_fqdn}
+            <T text={'DNS TXT instructions: '} />
+            {active.canonical_fqdn}
           </h2>
           <Badge tone={active.status === 'verified' ? 'success' : 'neutral'}>
             {active.status}
           </Badge>
           <p>
-            Record type: <strong>TXT</strong>
+            <T text={'Record type: '} />
+            <strong>
+              <T text={'TXT'} />
+            </strong>
           </p>
           <p>
-            Issued {date(active.challenge_issued_at)} · Generation{' '}
-            {active.challenge_generation}
+            <T text={'Issued '} />
+            {date(active.challenge_issued_at)}
+            <T text={' · Generation'} /> {active.challenge_generation}
           </p>
-          <p>Challenge expires {date(active.challenge_expires_at)}</p>
-          <p>Domain control verified at: {date(active.verified_at)}</p>
           <p>
-            Verification freshness ends: {date(active.verification_valid_until)}
+            <T text={'Challenge expires '} />
+            {date(active.challenge_expires_at)}
+          </p>
+          <p>
+            <T text={'Domain control verified at: '} />
+            {date(active.verified_at)}
+          </p>
+          <p>
+            <T text={'Verification freshness ends: '} />
+            {date(active.verification_valid_until)}
           </p>
           <dl>
-            <dt>Full record hostname</dt>
+            <dt>
+              <T text={'Full record hostname'} />
+            </dt>
             <dd>
               <code>{active.record_hostname}</code>
               <Button
                 variant="quiet"
                 onClick={() => copyValue(active.record_hostname, 'Hostname')}
               >
-                Copy hostname
+                <T text={'Copy hostname'} />
               </Button>
             </dd>
-            <dt>Exact TXT value</dt>
+            <dt>
+              <T text={'Exact TXT value'} />
+            </dt>
             <dd>
               <code>{active.record_value}</code>
               <Button
                 variant="quiet"
                 onClick={() => copyValue(active.record_value, 'TXT value')}
               >
-                Copy TXT value
+                <T text={'Copy TXT value'} />
               </Button>
             </dd>
           </dl>
-          <p role="status">{copy}</p>
+          <p role="status">{tr(copy)}</p>
           <p>
-            Your DNS provider may append the selected zone automatically. In the
-            zone for this exact domain the relative name is{' '}
-            <code>_shieldmate-challenge</code>. For a subdomain asset in its
-            parent zone, include that subdomain in the relative name. Check the
-            resulting full hostname to avoid duplicating the zone. Create a
-            separate TXT record; do not edit SPF or DMARC.
+            <T
+              text={
+                'Your DNS provider may append the selected zone automatically. In the zone for this exact domain the relative name is'
+              }
+            />{' '}
+            <code>
+              <T text={'_shieldmate-challenge'} />
+            </code>
+            <T
+              text={
+                '. For a subdomain asset in its parent zone, include that subdomain in the relative name. Check the resulting full hostname to avoid duplicating the zone. Create a separate TXT record; do not edit SPF or DMARC.'
+              }
+            />
           </p>
           <p>
-            DNS caching can delay visibility. No propagation time is guaranteed.
-            TXT challenges are public DNS data, never account credentials.
+            <T
+              text={
+                'DNS caching can delay visibility. No propagation time is guaranteed. TXT challenges are public DNS data, never account credentials.'
+              }
+            />
           </p>
           {active.status === 'stale' && (
-            <Alert title="Verification is stale" tone="warning">
-              Generate a new challenge, publish it and verify again. Freshness
-              is separate from the challenge expiry.
+            <Alert title={tr('Verification is stale')} tone="warning">
+              <T
+                text={
+                  'Generate a new challenge, publish it and verify again. Freshness is separate from the challenge expiry.'
+                }
+              />
             </Alert>
           )}
           <div className="button-row">
@@ -369,7 +424,7 @@ export function Assets() {
               pending={pending}
               onClick={() => action(`/domains/${active.id}/verification/check`)}
             >
-              Verify ownership
+              <T text={'Verify ownership'} />
             </Button>
             <Button
               variant="secondary"
@@ -378,7 +433,7 @@ export function Assets() {
                 action(`/domains/${active.id}/verification/request`)
               }
             >
-              Generate new challenge
+              <T text={'Generate new challenge'} />
             </Button>
 
             <Button
@@ -389,13 +444,15 @@ export function Assets() {
                 dialog.current?.showModal();
               }}
             >
-              Remove domain
+              <T text={'Remove domain'} />
             </Button>
           </div>
           <p className="field-help">
-            Generating a new challenge immediately revokes previous verification
-            and invalidates the old TXT value. You can delete obsolete records
-            from your DNS provider yourself.
+            <T
+              text={
+                'Generating a new challenge immediately revokes previous verification and invalidates the old TXT value. You can delete obsolete records from your DNS provider yourself.'
+              }
+            />
           </p>
         </section>
       )}
@@ -405,16 +462,21 @@ export function Assets() {
         aria-labelledby="remove-title"
         onClose={() => setRemove(undefined)}
       >
-        <h2 id="remove-title">Remove domain?</h2>
+        <h2 id="remove-title">
+          <T text={'Remove domain?'} />
+        </h2>
         <p>
-          Remove {remove?.canonical_fqdn} from this workspace and revoke its
-          verification. Derived findings, remediation tasks and their histories
-          are also removed. This cannot be undone and does not remove records at
-          your DNS provider.
+          <T text={'Remove '} />
+          {remove?.canonical_fqdn}
+          <T
+            text={
+              ' from this workspace and revoke its verification. Derived findings, remediation tasks and their histories are also removed. This cannot be undone and does not remove records at your DNS provider.'
+            }
+          />
         </p>
         <div className="button-row">
           <Button variant="secondary" onClick={() => dialog.current?.close()}>
-            Cancel
+            <T text={'Cancel'} />
           </Button>
           <Button
             pending={pending}
@@ -434,7 +496,7 @@ export function Assets() {
               }
             }}
           >
-            Confirm removal
+            <T text={'Confirm removal'} />
           </Button>
         </div>
       </dialog>

@@ -7,6 +7,7 @@ from sqlalchemy import (
     ForeignKey,
     ForeignKeyConstraint,
     Index,
+    LargeBinary,
     String,
     UniqueConstraint,
     text,
@@ -234,3 +235,44 @@ class TaskEvent(Base):
     kind: Mapped[str] = mapped_column(String(16))
     created_at: Mapped[int]
     changes: Mapped[dict[str, dict[str, str]]] = mapped_column(JSON)
+
+
+class SecurityReport(Base):
+    __tablename__ = "security_reports"
+    __table_args__ = (
+        UniqueConstraint("organization_id", "request_key"),
+        CheckConstraint("status IN ('generating','ready','failed')"),
+        Index("report_org_created", "organization_id", "created_at"),
+        Index(
+            "one_report_generation_per_org",
+            "organization_id",
+            unique=True,
+            sqlite_where=text("status = 'generating'"),
+        ),
+    )
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    organization_id: Mapped[str] = mapped_column(ForeignKey("organizations.id"))
+    created_by: Mapped[str] = mapped_column(ForeignKey("users.id"), index=True)
+    request_key: Mapped[str] = mapped_column(String(36))
+    locale: Mapped[str] = mapped_column(String(2))
+    created_at: Mapped[int]
+    status: Mapped[str] = mapped_column(String(12))
+    schema_version: Mapped[str] = mapped_column(String(32))
+    snapshot: Mapped[dict[str, object]] = mapped_column(JSON)
+    byte_count: Mapped[int] = mapped_column(default=0)
+    sha256: Mapped[str | None] = mapped_column(String(64))
+    error_code: Mapped[str | None] = mapped_column(String(32))
+    pdf: Mapped[bytes | None] = mapped_column(LargeBinary, deferred=True)
+
+
+class ReportEvent(Base):
+    __tablename__ = "report_events"
+    __table_args__ = (Index("report_event_org_time", "organization_id", "created_at"),)
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    organization_id: Mapped[str] = mapped_column(ForeignKey("organizations.id"))
+    report_id: Mapped[str] = mapped_column(
+        ForeignKey("security_reports.id", ondelete="CASCADE"), index=True
+    )
+    actor_id: Mapped[str] = mapped_column(ForeignKey("users.id"))
+    kind: Mapped[str] = mapped_column(String(24))
+    created_at: Mapped[int]

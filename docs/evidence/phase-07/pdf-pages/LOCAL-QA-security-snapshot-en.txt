@@ -1,0 +1,379 @@
+SHIELDMATE SME
+
+
+
+
+ Security Snapshot
+ LOCAL QA — Phase 07 ТОО ӘҒҚҢӨҰҮҺІ
+ Generated at: 2026-10-24 00:16 UTC
+
+ Report ID: 8e6da608-b827-4b96-85f5-432fc74cf9b0
+
+ Policy: starter-risk-1
+
+ Limited external configuration assessment
+
+ This is a limited external configuration assessment, not a penetration test, compliance audit or guarantee of
+ safety. Missing, failed or stale checks do not prove security. Human task completion is not technical resolution.
+
+
+ Scope
+   Enrolled domains                                                                            1
+
+   Currently authorized domains                                                                1
+
+   Unverified or expired domains                                                               0
+
+   Domains with stale evidence                                                                 0
+
+   Domains with usable saved evidence                                                          1
+
+   Domains without usable evidence                                                             0
+
+   Historical findings excluded from assessed scope                                            0
+ ready
+
+
+ Finding and work summary
+ open · high: 1
+
+ open · low: 3
+
+ open · medium: 2
+
+ Task status · done: 1
+
+
+ Top priorities
+
+ 1. Certificate renewal was due within 7 days
+ qa-reports.example.com · high · open
+
+ Why this matters: Certificate problems can stop customers or staff reaching this exact website over trusted
+ HTTPS.
+
+
+
+
+Limited external configuration assessment                                                                       Page 1
+SHIELDMATE SME
+
+
+
+
+ Recommended next step: Ask the hosting contact to check renewal, the certificate names and full trusted chain.
+ Install the correct certificate, then run an authorized scan again.
+
+ An explicit trust error or a measured renewal deadline supports a transport maintenance priority.
+
+ Observed at: 2026-10-24 00:16 UTC · TLS_CERTIFICATE_ACTION
+
+
+
+ 2. Multiple SPF policies were observed
+ qa-reports.example.com · medium · open
+
+ Why this matters: Multiple SPF policies at the same name can cause mail-authentication evaluation errors if this
+ domain sends mail.
+
+ Recommended next step: Ask the mail administrator to consolidate intended senders into one SPF policy at this
+ exact name. Do not overwrite the DNS ownership challenge. Rerun the authorized DNS check.
+
+ The persisted exact v=spf1 record count identifies multiplicity; medium priority reflects configuration correctness, not compromise.
+
+ Observed at: 2026-10-24 00:16 UTC · DNS_SPF_MULTIPLE
+
+
+
+ 3. Review a basic DMARC policy format problem
+ qa-reports.example.com · medium · open
+
+ Why this matters: The saved basic DMARC observation warrants a mail-policy review; it does not establish email
+ compromise.
+
+ Recommended next step: Ask the mail administrator to confirm whether this exact domain sends mail, review
+ DMARC syntax and alignment, and stage enforcement after monitoring legitimate senders. Rerun the authorized
+ DNS check.
+
+ Missing or monitor-only policy with inbound-mail context is low priority. A single basic malformed policy is medium priority for
+ configuration review.
+
+ Observed at: 2026-10-24 00:16 UTC · DNS_DMARC_POLICY
+
+
+
+ Findings and evidence
+
+ Certificate renewal was due within 7 days
+ qa-reports.example.com · open · high
+
+ Certificate problems can stop customers or staff reaching this exact website over trusted HTTPS.
+
+ Ask the hosting contact to check renewal, the certificate names and full trusted chain. Install the correct
+ certificate, then run an authorized scan again.
+
+ One exact hostname and pinned endpoint was checked. This does not enumerate every certificate, cipher or supported protocol.
+
+ Source: /app/findings/7a16e211-bfe0-4e8b-a2a2-befeefb3e390
+
+ TLS_CERTIFICATE_ACTION · starter-risk-1 · 2026-10-24 00:16 UTC
+
+ TLS_CERTIFICATE · 4ceab6be-9b65-417b-be41-46b8a11a7e34 · 2026-10-24 00:16 UTC · pass
+
+ not_before: 1792714599 | not_after: 1793232999 | protocol: TLSv1.3
+
+
+
+
+Limited external configuration assessment                                                                                           Page 2
+SHIELDMATE SME
+
+
+
+
+ Multiple SPF policies were observed
+ qa-reports.example.com · open · medium
+
+ Multiple SPF policies at the same name can cause mail-authentication evaluation errors if this domain sends
+ mail.
+
+ Ask the mail administrator to consolidate intended senders into one SPF policy at this exact name. Do not
+ overwrite the DNS ownership challenge. Rerun the authorized DNS check.
+
+ Outbound email use and SPF mechanisms/includes are unknown. One record or no record is not proof that outbound email is correctly
+ authorized.
+
+ Source: /app/findings/789ee845-0a60-46f9-b026-617bcd17912c
+
+ DNS_SPF_MULTIPLE · starter-risk-1 · 2026-10-24 00:16 UTC
+
+ DNS_SPF_PRESENT · a9a5758a-688f-46bc-aa59-7e4c3ee4ede2 · 2026-10-24 00:16 UTC · attention
+
+ record_count: 2
+
+
+
+ Review a basic DMARC policy format problem
+ qa-reports.example.com · open · medium
+
+ The saved basic DMARC observation warrants a mail-policy review; it does not establish email compromise.
+
+ Ask the mail administrator to confirm whether this exact domain sends mail, review DMARC syntax and
+ alignment, and stage enforcement after monitoring legitimate senders. Rerun the authorized DNS check.
+
+ MX suggests inbound handling only. Outbound email, alignment, reporting and full DMARC syntax were not assessed; p=none can be
+ intentional.
+
+ Source: /app/findings/0ebe9deb-8b1d-4685-8971-f9af53514a6f
+
+ DNS_DMARC_POLICY · starter-risk-1 · 2026-10-24 00:16 UTC
+
+ DNS_DMARC_PRESENT · e9b852d8-bcf0-4bdd-86c7-8c068ac1aa0d · 2026-10-24 00:16 UTC · attention
+
+ policy: malformed | record_count: 1
+
+
+
+ Review the response content-type safeguard
+ qa-reports.example.com · open · low
+
+ The inspected response did not demonstrate nosniff, a browser content-type hardening control.
+
+ Ask the application contact to review MIME types and set X-Content-Type-Options: nosniff where appropriate,
+ then rerun an authorized scan.
+
+ Response content type and body were not collected. Browser applicability needs review; API or non-browser services may have
+ different requirements.
+
+ Source: /app/findings/65e8fbf1-959d-42a7-8ed4-6a223e90da81
+
+ HTTPS_NOSNIFF · starter-risk-1 · 2026-10-24 00:16 UTC
+
+ TLS_CERTIFICATE · 4ceab6be-9b65-417b-be41-46b8a11a7e34 · 2026-10-24 00:16 UTC · pass
+
+ not_before: 1792714599 | not_after: 1793232999 | protocol: TLSv1.3
+
+ HTTPS_RESPONSE · 28b46034-fae1-43ae-9b9d-abe7866b03d5 · 2026-10-24 00:16 UTC · informational
+
+ status: 200 | method: HEAD | path: /
+
+
+
+Limited external configuration assessment                                                                                      Page 3
+SHIELDMATE SME
+
+
+
+
+ HTTPS_NOSNIFF · fb848bbf-8154-4650-895b-6e7403d49f09 · 2026-10-24 00:16 UTC · attention
+
+ header: x-content-type-options | observation: missing
+
+
+
+ Review the HTTPS transport policy
+ qa-reports.example.com · open · low
+
+ The inspected HTTPS root did not demonstrate the limited HSTS condition used by this policy.
+
+ Have the hosting contact review Strict-Transport-Security and deploy a suitable positive max-age after checking
+ HTTPS coverage. Do not enable includeSubDomains or preload without checking their scope. Rerun the
+ authorized check.
+
+ Only the root response and a simple max-age condition were checked. No exploitation or whole-origin coverage is established.
+
+ Source: /app/findings/40eeda99-f8d7-41de-9558-f3c71ddb19a7
+
+ HTTPS_HSTS · starter-risk-1 · 2026-10-24 00:16 UTC
+
+ TLS_CERTIFICATE · 4ceab6be-9b65-417b-be41-46b8a11a7e34 · 2026-10-24 00:16 UTC · pass
+
+ not_before: 1792714599 | not_after: 1793232999 | protocol: TLSv1.3
+
+ HTTPS_RESPONSE · 28b46034-fae1-43ae-9b9d-abe7866b03d5 · 2026-10-24 00:16 UTC · informational
+
+ status: 200 | method: HEAD | path: /
+
+ HTTPS_HSTS · 7cc78cf2-8c50-4b40-875b-7884d09ee882 · 2026-10-24 00:16 UTC · attention
+
+ header: strict-transport-security | observation: missing
+
+
+
+ HTTP root does not immediately redirect to HTTPS
+ qa-reports.example.com · open · low
+
+ The observed HTTP root can be reached without the HTTPS redirect expected for this site's public entry point.
+
+ Ask the hosting contact to redirect the HTTP root to HTTPS on the same exact hostname. Recheck both root
+ responses with an authorized scan.
+
+ Only HEAD/GET at / was observed. No credentials, other paths or later redirect hops were tested; this is not proof of interception.
+
+ Source: /app/findings/898cc4bd-583a-4bec-8532-4020e817c538
+
+ HTTP_ROOT_REDIRECT · starter-risk-1 · 2026-10-24 00:16 UTC
+
+ TLS_CERTIFICATE · 4ceab6be-9b65-417b-be41-46b8a11a7e34 · 2026-10-24 00:16 UTC · pass
+
+ not_before: 1792714599 | not_after: 1793232999 | protocol: TLSv1.3
+
+ HTTPS_RESPONSE · 28b46034-fae1-43ae-9b9d-abe7866b03d5 · 2026-10-24 00:16 UTC · informational
+
+ status: 200 | method: HEAD | path: /
+
+ HTTP_REDIRECT · 5d418403-e823-4e88-9ead-6655335e8527 · 2026-10-24 00:16 UTC · informational
+
+ status: 200 | method: HEAD | path: /
+
+
+
+
+Limited external configuration assessment                                                                                          Page 4
+SHIELDMATE SME
+
+
+
+
+ Remediation work
+
+ Certificate renewal was due within 7 days
+ qa-reports.example.com · Task status: done · Finding status: open
+
+ Owner label: QA ИТ-провайдер
+
+ Ask the hosting contact to check renewal, the certificate names and full trusted chain. Install the correct
+ certificate, then run an authorized scan again.
+
+ Updated: 2026-10-24 00:16 UTC · /app/tasks/bb2925ee-410f-4c08-89a5-66dda1cfda2f
+
+ Task marked done - remediation not yet verified
+
+
+ Domain and check details
+
+ qa-reports.example.com
+ Evidence available
+
+ Ownership proof valid until: 2026-11-23 00:16 UTC
+
+ attention: 8 · informational: 4 · not_checked: 0 · pass: 1
+
+ completed · 2026-10-24 00:16 UTC
+
+ Source: 3e61ef4b-4acb-4e18-880a-b4000b73de54
+
+ /app/assets#asset-6172e372-508a-43e6-b96b-2aab07038102
+
+ DNS_ADDRESS · informational · 2026-10-24 00:16 UTC
+
+ b9463f5a-ea2b-4d84-9c6e-25c9e6c6b3a3 ·
+
+ DNS_DMARC_PRESENT · attention · 2026-10-24 00:16 UTC
+
+ e9b852d8-bcf0-4bdd-86c7-8c068ac1aa0d · policy: malformed | record_count: 1
+
+ DNS_MX_PRESENT · informational · 2026-10-24 00:16 UTC
+
+ 85e4516c-3a9a-4e03-bed8-10a4541a3c06 · record_count: 1
+
+ DNS_SPF_PRESENT · attention · 2026-10-24 00:16 UTC
+
+ a9a5758a-688f-46bc-aa59-7e4c3ee4ede2 · record_count: 2
+
+ HTTPS_CSP · attention · 2026-10-24 00:16 UTC
+
+ 13148b2f-dd17-42d2-890e-a60ffc731582 ·
+
+ HTTPS_FRAME · attention · 2026-10-24 00:16 UTC
+
+ c5c486eb-688d-4642-a5cd-457de5505d0f ·
+
+ HTTPS_HSTS · attention · 2026-10-24 00:16 UTC
+
+ 7cc78cf2-8c50-4b40-875b-7884d09ee882 · header: strict-transport-security | observation: missing
+
+ HTTPS_NOSNIFF · attention · 2026-10-24 00:16 UTC
+
+ fb848bbf-8154-4650-895b-6e7403d49f09 · header: x-content-type-options | observation: missing
+
+ HTTPS_PERMISSIONS · attention · 2026-10-24 00:16 UTC
+
+
+
+
+Limited external configuration assessment                                                                      Page 5
+SHIELDMATE SME
+
+
+
+
+ 625efb0a-66d9-469c-af93-ed79144bddc5 ·
+
+ HTTPS_REFERRER · attention · 2026-10-24 00:16 UTC
+
+ ac40344c-4c3d-4060-8961-cbf68f5866a2 ·
+
+ HTTPS_RESPONSE · informational · 2026-10-24 00:16 UTC
+
+ 28b46034-fae1-43ae-9b9d-abe7866b03d5 · status: 200 | method: HEAD | path: /
+
+ HTTP_REDIRECT · informational · 2026-10-24 00:16 UTC
+
+ 5d418403-e823-4e88-9ead-6655335e8527 · status: 200 | method: HEAD | path: /
+
+ TLS_CERTIFICATE · pass · 2026-10-24 00:16 UTC
+
+ 4ceab6be-9b65-417b-be41-46b8a11a7e34 · not_before: 1792714599 | not_after: 1793232999 | protocol: TLSv1.3
+
+
+
+ Scope and limitations
+ This is a limited external configuration assessment, not a penetration test, compliance audit or guarantee of
+ safety. Missing, failed or stale checks do not prove security. Human task completion is not technical resolution.
+
+
+
+
+Limited external configuration assessment                                                                       Page 6
+

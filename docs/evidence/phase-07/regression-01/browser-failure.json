@@ -1,0 +1,22 @@
+{
+  "base": "http://127.0.0.1:5173",
+  "viewports": [],
+  "interactions": [],
+  "errors": [],
+  "apiRequests": [
+    "/api/v1/auth/me"
+  ],
+  "contrast": {
+    "ink/canvas": 15.24,
+    "ink/raised": 16.48,
+    "raised/burgundy": 13.94,
+    "raised/red": 5.09,
+    "raised/crimson": 8.24,
+    "crimson/canvas": 7.62,
+    "success/raised": 7.06,
+    "success/canvas": 6.53,
+    "warning/raised": 6.83
+  },
+  "browser": "151.0.7922.34",
+  "failure": "page.screenshot: Protocol error (Page.captureScreenshot): Unable to capture screenshot\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n"
+}

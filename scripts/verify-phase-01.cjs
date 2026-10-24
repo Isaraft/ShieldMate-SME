@@ -170,6 +170,10 @@ for (const [a, b] of [
     await page.getByRole("navigation", { name: "Main navigation" }).isVisible(),
   );
   await page.keyboard.press("Tab");
+  assert.equal(await page.locator(":focus").innerText(), "EN");
+  await page.keyboard.press("Tab");
+  assert.equal(await page.locator(":focus").innerText(), "RU");
+  await page.keyboard.press("Tab");
   assert.equal(await page.locator(":focus").innerText(), "Product");
   await page.keyboard.press("Escape");
   assert.equal(
@@ -181,6 +185,10 @@ for (const [a, b] of [
       .getByRole("navigation", { name: "Main navigation" })
       .isVisible()),
   );
+  await page.keyboard.press("Tab");
+  assert.equal(await page.locator(":focus").innerText(), "EN");
+  await page.keyboard.press("Tab");
+  assert.equal(await page.locator(":focus").innerText(), "RU");
   await page.keyboard.press("Tab");
   assert.match(await page.locator(":focus").innerText(), /See how it works/);
   await page.getByRole("button", { name: "Menu", exact: true }).click();

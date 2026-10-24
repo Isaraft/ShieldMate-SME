@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { Link } from 'react-router-dom';
 import { Badge } from '../components/ui/Primitives';
 import { LandingHero } from './LandingHero';
@@ -35,41 +36,67 @@ export function Landing() {
         aria-labelledby="product-title"
       >
         <div className="section-index">
-          <span>01 / The problem</span>
-          <span>From information to a decision</span>
+          <span>
+            <T text={'01 / The problem'} />
+          </span>
+          <span>
+            <T text={'From information to a decision'} />
+          </span>
         </div>
         <div className="product-grid">
           <h2 id="product-title" className="display-heading">
-            More signals. <br />
+            <T text={'More signals. '} />
+            <br />
             <span className="text-red">
-              Still no <br />
-              clear priority.
+              <T text={'Still no '} />
+              <br />
+              <T text={'clear priority.'} />
             </span>
           </h2>
           <div className="product-detail">
             <p className="lead">
-              A certificate warning. A DNS setting. Another report in your
-              inbox.
+              <T
+                text={
+                  'A certificate warning. A DNS setting. Another report in your inbox.'
+                }
+              />
             </p>
             <p>
-              When one person looks after the website, the laptops and
-              everything in between, security work competes with keeping the
-              business running.
+              <T
+                text={
+                  'When one person looks after the website, the laptops and everything in between, security work competes with keeping the business running.'
+                }
+              />
             </p>
             <p>
-              ShieldMate’s aim is simple: give owners a clear next decision and
-              give IT the evidence behind it.
+              <T
+                text={
+                  'ShieldMate’s aim is simple: give owners a clear next decision and give IT the evidence behind it.'
+                }
+              />
             </p>
             <div className="perspective">
               <div>
-                <span className="eyebrow">For the business owner</span>
-                <h3>Understand the impact.</h3>
-                <p>What deserves attention, and why?</p>
+                <span className="eyebrow">
+                  <T text={'For the business owner'} />
+                </span>
+                <h3>
+                  <T text={'Understand the impact.'} />
+                </h3>
+                <p>
+                  <T text={'What deserves attention, and why?'} />
+                </p>
               </div>
               <div>
-                <span className="eyebrow">For the IT generalist</span>
-                <h3>Follow the evidence.</h3>
-                <p>What was observed, and what can I change?</p>
+                <span className="eyebrow">
+                  <T text={'For the IT generalist'} />
+                </span>
+                <h3>
+                  <T text={'Follow the evidence.'} />
+                </h3>
+                <p>
+                  <T text={'What was observed, and what can I change?'} />
+                </p>
               </div>
             </div>
           </div>
@@ -82,35 +109,47 @@ export function Landing() {
         aria-labelledby="workflow-title"
       >
         <div className="section-index">
-          <span>02 / How it is intended to work</span>
-          <Badge>Planned Starter workflow</Badge>
+          <span>
+            <T text={'02 / How it is intended to work'} />
+          </span>
+          <Badge>
+            <T text={'Planned Starter workflow'} />
+          </Badge>
         </div>
         <div className="section-intro">
           <h2 id="workflow-title" className="display-heading">
-            Less guesswork. <br />A clearer next step.
+            <T text={'Less guesswork. '} />
+            <br />
+            <T text={'A clearer next step.'} />
           </h2>
           <p>
-            Four connected steps, built around a domain you control. This
-            workflow is in development and is not available yet.
+            <T
+              text={
+                'Four connected steps, built around a domain you control. This workflow is in development and is not available yet.'
+              }
+            />
           </p>
         </div>
         <ol className="workflow-list">
           {steps.map(([title, description, detail], index) => (
-            <li key={title}>
+            <li key={tr(title)}>
               <span className="step-number" aria-hidden="true">
                 0{index + 1}
               </span>
               <div>
-                <h3>{title}</h3>
-                <p>{description}</p>
+                <h3>{tr(title)}</h3>
+                <p>{tr(description)}</p>
               </div>
-              <span className="step-detail">{detail}</span>
+              <span className="step-detail">{tr(detail)}</span>
             </li>
           ))}
         </ol>
         <p className="scope-note">
-          A bounded configuration review. Not a penetration test, continuous
-          monitoring or a guarantee of security.
+          <T
+            text={
+              'A bounded configuration review. Not a penetration test, continuous monitoring or a guarantee of security.'
+            }
+          />
         </p>
       </section>
       <section
@@ -120,52 +159,78 @@ export function Landing() {
         aria-labelledby="audience-title"
       >
         <div className="section-index">
-          <span>03 / Who it’s for</span>
-          <span>Kazakhstan first</span>
+          <span>
+            <T text={'03 / Who it’s for'} />
+          </span>
+          <span>
+            <T text={'Kazakhstan first'} />
+          </span>
         </div>
         <div className="audience-grid">
           <div>
             <h2 id="audience-title" className="display-heading">
-              Small team. <br />
-              Real stakes.
+              <T text={'Small team. '} />
+              <br />
+              <T text={'Real stakes.'} />
             </h2>
             <p>
-              Designed with businesses of roughly 10–100 employees in mind.
-              Digitally dependent. Short on time. Without a dedicated security
-              team.
+              <T
+                text={
+                  'Designed with businesses of roughly 10–100 employees in mind. Digitally dependent. Short on time. Without a dedicated security team.'
+                }
+              />
             </p>
             <p className="audience-caption">
-              Your size shouldn’t decide whether security makes sense.
+              <T
+                text={
+                  'Your size shouldn’t decide whether security makes sense.'
+                }
+              />
             </p>
           </div>
           <ul className="audience-list">
             <li>
               <span>01</span>
               <div>
-                <h3>E-commerce</h3>
+                <h3>
+                  <T text={'E-commerce'} />
+                </h3>
                 <p>
-                  Your storefront is your business. Make sense of the
-                  configuration behind it.
+                  <T
+                    text={
+                      'Your storefront is your business. Make sense of the configuration behind it.'
+                    }
+                  />
                 </p>
               </div>
             </li>
             <li>
               <span>02</span>
               <div>
-                <h3>Accounting & outsourcing</h3>
+                <h3>
+                  <T text={'Accounting & outsourcing'} />
+                </h3>
                 <p>
-                  Client relationships depend on trust. Give everyday IT
-                  decisions a clearer basis.
+                  <T
+                    text={
+                      'Client relationships depend on trust. Give everyday IT decisions a clearer basis.'
+                    }
+                  />
                 </p>
               </div>
             </li>
             <li>
               <span>03</span>
               <div>
-                <h3>Private clinics</h3>
+                <h3>
+                  <T text={'Private clinics'} />
+                </h3>
                 <p>
-                  A practical starting point for your public website, without
-                  implying a clinical systems or compliance assessment.
+                  <T
+                    text={
+                      'A practical starting point for your public website, without implying a clinical systems or compliance assessment.'
+                    }
+                  />
                 </p>
               </div>
             </li>
@@ -177,19 +242,24 @@ export function Landing() {
         className="closing-section page-pad"
         aria-labelledby="closing-title"
       >
-        <p className="eyebrow">Take a look at what’s taking shape</p>
+        <p className="eyebrow">
+          <T text={'Take a look at what’s taking shape'} />
+        </p>
         <div>
           <h2 id="closing-title" className="display-heading">
-            Clarity <br />
-            before action.
+            <T text={'Clarity '} />
+            <br />
+            <T text={'before action.'} />
           </h2>
           <div className="closing-action">
             <p>
-              Explore the interface foundation. <br />
-              No account. No scan. No invented results.
+              <T text={'Explore the interface foundation. '} />
+              <br />
+              <T text={'No account. No scan. No invented results.'} />
             </p>
             <Link className="button button-light" to="/preview">
-              Explore workspace preview <span aria-hidden="true">↗</span>
+              <T text={'Explore workspace preview '} />
+              <span aria-hidden="true">↗</span>
             </Link>
           </div>
         </div>

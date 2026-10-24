@@ -102,3 +102,18 @@ priority → task → edit → reload → done/unverified → conflict → evide
 [Phase 06 results](phase-06-results.md) for exact commands and actual evidence. A live
 team-owned DNS/provider scan, real assistive technology and SME beta users remain separate
 manual work; fixture QA does not establish those outcomes.
+
+## Phase 07 report, demo and language verification
+
+`backend/tests/test_reports.py` covers evidence scope, immutable bytes, PDF extraction and
+font glyphs, renderer limits/failure, report quotas/concurrency, tenant/CSRF/session guards,
+logout during rendering, recovery, migration and synthetic-demo isolation. Frontend tests
+extend the existing suites with reports/demo/language interactions. Run the regular full
+backend/frontend commands plus `npm run i18n:check --prefix frontend`.
+
+The isolated `scripts/qa/phase07.compose.yaml` stack and
+`scripts/verify-phase-07.cjs` verify actual Docker-backed APIs/downloads/restarts, EN/RU,
+100 responsive/axe views and synthetic-demo separation. They inject DNS proof and saved
+observations; they never establish live owned-domain E2E. `scripts/verify-pdfs.py` extracts
+and rasterizes all four downloaded QA/demo PDFs; visual inspection is still required.
+See [the Phase 07 results](phase-07-results.md) for actual commands/counts and limitations.

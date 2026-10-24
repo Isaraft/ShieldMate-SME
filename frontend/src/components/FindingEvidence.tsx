@@ -1,3 +1,4 @@
+import { T, tr, localeName } from '../i18n';
 import { Link } from 'react-router-dom';
 import type { Evidence, Finding } from '../findingApi';
 import { Badge } from './ui/Primitives';
@@ -15,13 +16,17 @@ export function FindingState({ finding }: { finding: Finding }) {
               : 'neutral'
         }
       >
-        {finding.status} · {finding.severity}
+        {tr(finding.status)} · {tr(finding.severity)}
       </Badge>
       {finding.stale && (
-        <Badge tone="warning">Historical evidence — stale</Badge>
+        <Badge tone="warning">
+          <T text={'Historical evidence — stale'} />
+        </Badge>
       )}
       {finding.recheck_status === 'not_rechecked' && (
-        <Badge tone="warning">Not rechecked</Badge>
+        <Badge tone="warning">
+          <T text={'Not rechecked'} />
+        </Badge>
       )}
     </div>
   );
@@ -33,8 +38,8 @@ export function EvidenceList({ evidence }: { evidence: Evidence[] }) {
         <section key={item.observation_id}>
           <h3>{item.check_id}</h3>
           <p>
-            {item.source} · {scanDate(item.observed_at)} · Collection outcome:{' '}
-            {item.outcome}
+            {item.source} · {scanDate(item.observed_at)}
+            <T text={' · Collection outcome:'} /> {item.outcome}
           </p>
           <dl>
             {Object.entries(item.values).map(([key, value]) => (
@@ -45,12 +50,16 @@ export function EvidenceList({ evidence }: { evidence: Evidence[] }) {
                   ['not_before', 'not_after'].includes(key) ? (
                     <>
                       <time dateTime={new Date(value * 1000).toISOString()}>
-                        {new Date(value * 1000).toLocaleString(undefined, {
+                        {new Date(value * 1000).toLocaleString(localeName(), {
+                          timeZone: 'Asia/Almaty',
                           timeZoneName: 'short',
                         })}
                       </time>
                       <br />
-                      <code>UTC epoch {value}</code>
+                      <code>
+                        <T text={'UTC epoch '} />
+                        {value}
+                      </code>
                     </>
                   ) : (
                     <code>{String(value)}</code>
@@ -59,7 +68,10 @@ export function EvidenceList({ evidence }: { evidence: Evidence[] }) {
               </div>
             ))}
           </dl>
-          <p className="field-help">Observation ID: {item.observation_id}</p>
+          <p className="field-help">
+            <T text={'Observation ID: '} />
+            {item.observation_id}
+          </p>
         </section>
       ))}
     </div>
@@ -70,12 +82,15 @@ export function SourceLink({ finding }: { finding: Finding }) {
     <Link
       to={`/app/assets/${finding.asset_id}/scans/${finding.source_scan_id}`}
     >
-      Open source scan
+      <T text={'Open source scan'} />
     </Link>
   ) : (
     <p>
-      Source scan was pruned under retention. The saved evidence snapshot
-      remains available.
+      <T
+        text={
+          'Source scan was pruned under retention. The saved evidence snapshot remains available.'
+        }
+      />
     </p>
   );
 }

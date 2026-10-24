@@ -1,0 +1,72 @@
+[
+  {
+    "file": "DEMO-security-snapshot-en.pdf",
+    "bytes": 50045,
+    "sha256": "61ad15e33f46ad9ca2c6d59819423fa21a6f24648fb978e33d5ec7658027657b",
+    "pages": 5,
+    "locale": "en",
+    "kind": "demo",
+    "selectable_text": true,
+    "demo_every_page": true,
+    "rendered_pages": [
+      "pdf-pages/DEMO-security-snapshot-en-1.png",
+      "pdf-pages/DEMO-security-snapshot-en-2.png",
+      "pdf-pages/DEMO-security-snapshot-en-3.png",
+      "pdf-pages/DEMO-security-snapshot-en-4.png",
+      "pdf-pages/DEMO-security-snapshot-en-5.png"
+    ]
+  },
+  {
+    "file": "DEMO-security-snapshot-ru.pdf",
+    "bytes": 61865,
+    "sha256": "4080cce426083253084db257dbd03ba100aca7a7828535ca9ef1f889e1ff7ecb",
+    "pages": 5,
+    "locale": "ru",
+    "kind": "demo",
+    "selectable_text": true,
+    "demo_every_page": true,
+    "rendered_pages": [
+      "pdf-pages/DEMO-security-snapshot-ru-1.png",
+      "pdf-pages/DEMO-security-snapshot-ru-2.png",
+      "pdf-pages/DEMO-security-snapshot-ru-3.png",
+      "pdf-pages/DEMO-security-snapshot-ru-4.png",
+      "pdf-pages/DEMO-security-snapshot-ru-5.png"
+    ]
+  },
+  {
+    "file": "LOCAL-QA-security-snapshot-en.pdf",
+    "bytes": 53757,
+    "sha256": "f2d61d232a0226cea8260f24215f289e3b891a8d78f9f3a05c227fb9d0cc9fbd",
+    "pages": 6,
+    "locale": "en",
+    "kind": "local_qa",
+    "selectable_text": true,
+    "demo_every_page": false,
+    "rendered_pages": [
+      "pdf-pages/LOCAL-QA-security-snapshot-en-1.png",
+      "pdf-pages/LOCAL-QA-security-snapshot-en-2.png",
+      "pdf-pages/LOCAL-QA-security-snapshot-en-3.png",
+      "pdf-pages/LOCAL-QA-security-snapshot-en-4.png",
+      "pdf-pages/LOCAL-QA-security-snapshot-en-5.png",
+      "pdf-pages/LOCAL-QA-security-snapshot-en-6.png"
+    ]
+  },
+  {
+    "file": "LOCAL-QA-security-snapshot-ru.pdf",
+    "bytes": 63991,
+    "sha256": "184555c53de84d50e55862d113639ea034354f174b472834c0f0caf3485c4438",
+    "pages": 6,
+    "locale": "ru",
+    "kind": "local_qa",
+    "selectable_text": true,
+    "demo_every_page": false,
+    "rendered_pages": [
+      "pdf-pages/LOCAL-QA-security-snapshot-ru-1.png",
+      "pdf-pages/LOCAL-QA-security-snapshot-ru-2.png",
+      "pdf-pages/LOCAL-QA-security-snapshot-ru-3.png",
+      "pdf-pages/LOCAL-QA-security-snapshot-ru-4.png",
+      "pdf-pages/LOCAL-QA-security-snapshot-ru-5.png",
+      "pdf-pages/LOCAL-QA-security-snapshot-ru-6.png"
+    ]
+  }
+]

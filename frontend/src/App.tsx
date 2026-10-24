@@ -1,3 +1,6 @@
+import { Reports } from './pages/Reports';
+import { Demo } from './pages/Demo';
+import { useLocale, T, tr } from './i18n';
 import { useEffect, useRef } from 'react';
 import {
   Link,
@@ -8,7 +11,6 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { Header, Footer } from './components/SiteChrome';
-import { PlannedState } from './components/PlannedState';
 import { Landing } from './pages/Landing';
 import { WorkspaceLayout, WorkspacePage } from './pages/Workspace';
 import { workspaceRoutes } from './pages/workspaceRoutes';
@@ -31,7 +33,7 @@ const titles: Record<string, string> = {
   '/': 'Know what to fix first',
   '/login': 'Sign in',
   '/register': 'Create account',
-  '/demo': 'Sample Demo — planned',
+  '/demo': 'Sample Demo',
   '/preview/ui-kit': 'UI foundation',
   '/app/settings': 'Organization settings',
   ...Object.fromEntries(
@@ -44,10 +46,11 @@ const titles: Record<string, string> = {
 
 function Shell() {
   const { pathname, hash, key } = useLocation();
+  const language = useLocale();
   const previousKey = useRef(key);
   const main = useRef<HTMLElement>(null);
   useEffect(() => {
-    document.title = `${titles[pathname] ?? (pathname.includes('/scans') ? 'Security check records' : pathname.startsWith('/app/findings/') ? 'Finding evidence' : pathname.startsWith('/app/tasks/') ? 'Remediation task' : 'Page not found')} · ShieldMate SME`;
+    document.title = `${tr(titles[pathname] ?? (pathname.includes('/scans') ? 'Security check records' : pathname.startsWith('/app/findings/') ? 'Finding evidence' : pathname.startsWith('/app/tasks/') ? 'Remediation task' : 'Page not found'))} · ShieldMate SME`;
     if (hash) {
       const target = document.getElementById(hash.slice(1));
       target?.scrollIntoView?.();
@@ -57,11 +60,11 @@ function Shell() {
       window.scrollTo?.(0, 0);
     }
     previousKey.current = key;
-  }, [pathname, hash, key]);
+  }, [pathname, hash, key, language]);
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main">
-        Skip to content
+        <T text={'Skip to content'} />
       </a>
       <Header />
       <main id="main" ref={main} tabIndex={-1}>
@@ -75,22 +78,32 @@ function Shell() {
 function NotFound() {
   return (
     <section className="not-found page-pad">
-      <p className="eyebrow">404 / Page not found</p>
+      <p className="eyebrow">
+        <T text={'404 / Page not found'} />
+      </p>
       <span className="error-number" aria-hidden="true">
         404
       </span>
-      <h1>This path ends here.</h1>
+      <h1>
+        <T text={'This path ends here.'} />
+      </h1>
       <p>
-        The page you requested does not exist. There’s a clearer route back.
+        <T
+          text={
+            'The page you requested does not exist. There’s a clearer route back.'
+          }
+        />
       </p>
       <Link className="button button-primary" to="/">
-        Return to home <span aria-hidden="true">↗</span>
+        <T text={'Return to home '} />
+        <span aria-hidden="true">↗</span>
       </Link>
     </section>
   );
 }
 
 export function App() {
+  useLocale();
   return (
     <Routes>
       <Route element={<Shell />}>
@@ -114,6 +127,7 @@ export function App() {
         <Route element={<PrivateWorkspace />}>
           <Route path="/app" element={<Dashboard />} />
           <Route path="/app/assets" element={<Assets />} />
+          <Route path="/app/reports" element={<Reports />} />
           <Route path="/app/tasks" element={<Tasks />} />
           <Route path="/app/tasks/:taskId" element={<TaskDetail />} />
           <Route path="/app/findings" element={<Findings />} />
@@ -129,7 +143,8 @@ export function App() {
                 route.path !== '/app' &&
                 route.path !== '/app/assets' &&
                 route.path !== '/app/findings' &&
-                route.path !== '/app/tasks',
+                route.path !== '/app/tasks' &&
+                route.path !== '/app/reports',
             )
             .map((route) => (
               <Route
@@ -140,17 +155,7 @@ export function App() {
             ))}
           <Route path="/app/settings" element={<OrganizationSettings />} />
         </Route>
-        <Route
-          path="/demo"
-          element={
-            <PlannedState title="Sample Demo" phase="Phase 07">
-              <p>
-                The isolated, clearly labeled sample workspace is planned. No
-                sample security results are available in Phase 01.
-              </p>
-            </PlannedState>
-          }
-        />
+        <Route path="/demo" element={<Demo />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

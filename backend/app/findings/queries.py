@@ -208,8 +208,19 @@ def attach_tasks(db: Session, org: str, records: list[FindingOut]) -> list[Findi
     return records
 
 
-def finding_page(db: Session, org: str, filters: Filters, stale: int) -> FindingPage:
+def finding_page(
+    db: Session,
+    org: str,
+    filters: Filters,
+    stale: int,
+    asset_ids: list[str] | None = None,
+    evidence_scan_ids: list[str] | None = None,
+) -> FindingPage:
     query = scopes(db, org, filters)
+    if asset_ids is not None:
+        query = query.where(Finding.asset_id.in_(asset_ids))
+    if evidence_scan_ids is not None:
+        query = query.where(Finding.source_scan_id.in_(evidence_scan_ids))
     if filters.freshness == "stale":
         query = query.where(Finding.observed_at < int(time.time()) - stale)
     subquery = query.subquery()

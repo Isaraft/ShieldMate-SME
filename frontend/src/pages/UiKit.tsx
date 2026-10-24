@@ -1,3 +1,4 @@
+import { tr } from '../i18n';
 import { useRef, useState } from 'react';
 import {
   Alert,
@@ -58,7 +59,7 @@ export function UiKit() {
               maxLength={40}
               required
               value={value}
-              error={error}
+              error={tr(error)}
               onChange={(event) => {
                 setValue(event.target.value);
                 setError('');

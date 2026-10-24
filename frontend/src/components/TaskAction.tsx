@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../authApi';
@@ -12,11 +13,16 @@ export function TaskAction({ finding }: { finding: Finding }) {
   if (finding.task_id)
     return (
       <Link to={`/app/tasks/${finding.task_id}`}>
-        Open task · {finding.task_status?.replaceAll('_', ' ')}
+        <T text={'Open task · '} />
+        {finding.task_status && tr(finding.task_status).replaceAll('_', ' ')}
       </Link>
     );
   if (finding.status !== 'open')
-    return <p>No new task needed for this resolved condition.</p>;
+    return (
+      <p>
+        <T text={'No new task needed for this resolved condition.'} />
+      </p>
+    );
   return (
     <div className="task-action">
       <Button
@@ -45,9 +51,9 @@ export function TaskAction({ finding }: { finding: Finding }) {
           }
         }}
       >
-        Create task
+        <T text={'Create task'} />
       </Button>
-      {error && <p role="alert">{error}</p>}
+      {error && <p role="alert">{tr(error)}</p>}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { T, tr } from '../i18n';
 import { ReviewMode } from '../components/ReviewMode';
 import { AssessmentSummary } from '../components/AssessmentSummary';
 import { PrioritySummary } from '../components/PrioritySummary';
@@ -21,11 +22,18 @@ export function Findings() {
   const [technical, setTechnical] = useState(false);
   return (
     <section className="findings-page">
-      <p className="eyebrow">Company workspace / Evidence to action</p>
-      <h1>Findings & priorities</h1>
+      <p className="eyebrow">
+        <T text={'Company workspace / Evidence to action'} />
+      </p>
+      <h1>
+        <T text={'Findings & priorities'} />
+      </h1>
       <p>
-        Decide what to review first from the checks actually performed. These
-        observations do not measure whole-company security.
+        <T
+          text={
+            'Decide what to review first from the checks actually performed. These observations do not measure whole-company security.'
+          }
+        />
       </p>
       <ReviewMode technical={technical} setTechnical={setTechnical} />
       <FindingRecords key={params.toString()} technical={technical} />
@@ -77,8 +85,8 @@ function FindingRecords({ technical }: { technical: boolean }) {
   return (
     <>
       {error && (
-        <Alert title="Unable to load findings" tone="error">
-          {error}
+        <Alert title={tr('Unable to load findings')} tone="error">
+          {tr(error)}
           <div className="button-row">
             <Button
               onClick={() => {
@@ -86,13 +94,17 @@ function FindingRecords({ technical }: { technical: boolean }) {
                 setRetry(retry + 1);
               }}
             >
-              Retry findings
+              <T text={'Retry findings'} />
             </Button>
-            <Link to="/app/findings">Reset filters</Link>
+            <Link to="/app/findings">
+              <T text={'Reset filters'} />
+            </Link>
           </div>
         </Alert>
       )}
-      {!data && !error && <LoadingState label="Loading persisted findings…" />}
+      {!data && !error && (
+        <LoadingState label={tr('Loading persisted findings…')} />
+      )}
       {data && coverage && (
         <>
           <AssessmentSummary coverage={coverage} technical={technical} />
@@ -101,19 +113,24 @@ function FindingRecords({ technical }: { technical: boolean }) {
           <FindingFilters domains={data.domains} />
 
           <p role="status">
-            {data.total} {data.total === 1 ? 'finding' : 'findings'} in this
-            selection · {data.summary.counts_by_status.open ?? 0} open ·{' '}
-            {data.summary.counts_by_status.resolved ?? 0} resolved.
+            {data.total} <T text={data.total === 1 ? 'finding' : 'findings'} />
+            <T text={' in this selection · '} />
+            {data.summary.counts_by_status.open ?? 0}
+            <T text={' open ·'} /> {data.summary.counts_by_status.resolved ?? 0}
+            <T text={' resolved.'} />
           </p>
           {params.has('scan_id') && (
             <p>
-              Showing findings with lineage to the selected scan. Lifecycle
-              status may reflect newer evidence.
+              <T
+                text={
+                  'Showing findings with lineage to the selected scan. Lifecycle status may reflect newer evidence.'
+                }
+              />
             </p>
           )}
           {data.items.length ? (
             <Table<Finding>
-              caption="Persisted findings"
+              caption={tr('Persisted findings')}
               rows={data.items}
               rowKey={(row) => row.id}
               columns={[
@@ -122,7 +139,9 @@ function FindingRecords({ technical }: { technical: boolean }) {
                   title: 'Finding / affected domain',
                   render: (row) => (
                     <>
-                      <Link to={`/app/findings/${row.id}`}>{row.title}</Link>
+                      <Link to={`/app/findings/${row.id}`}>
+                        {tr(row.title)}
+                      </Link>
                       <p>{row.hostname}</p>
                       {technical && <code>{row.rule_id}</code>}
                     </>
@@ -134,7 +153,7 @@ function FindingRecords({ technical }: { technical: boolean }) {
                   render: (row) => (
                     <>
                       <FindingState finding={row} />
-                      <p>{row.category.replaceAll('_', ' ')}</p>
+                      <p>{tr(row.category.replaceAll('_', ' '))}</p>
                     </>
                   ),
                 },
@@ -145,7 +164,10 @@ function FindingRecords({ technical }: { technical: boolean }) {
                     <>
                       <p>{scanDate(row.last_seen_at)}</p>
                       {row.resolved_at && (
-                        <p>Resolved by evidence {scanDate(row.resolved_at)}</p>
+                        <p>
+                          <T text={'Resolved by evidence '} />
+                          {scanDate(row.resolved_at)}
+                        </p>
                       )}
                     </>
                   ),
@@ -154,22 +176,28 @@ function FindingRecords({ technical }: { technical: boolean }) {
             />
           ) : (
             <EmptyState
-              title={
+              title={tr(
                 coverage.source_scans === 0
                   ? 'No assessments yet'
                   : coverage.pending_evaluations || coverage.in_flight_scans
                     ? 'Waiting for assessment'
-                    : 'No supported issues in this selection'
-              }
+                    : 'No supported issues in this selection',
+              )}
             >
               <p>
-                {coverage.source_scans === 0
-                  ? 'Enroll and verify an authorized domain, then run its limited checks.'
-                  : coverage.rule_counts.not_evaluable
-                    ? 'Some checks could not be assessed. Unknown evidence is not a pass.'
-                    : 'The evaluated conditions did not support issues matching these filters. This does not mean no security risks exist.'}
+                <T
+                  text={
+                    coverage.source_scans === 0
+                      ? 'Enroll and verify an authorized domain, then run its limited checks.'
+                      : coverage.rule_counts.not_evaluable
+                        ? 'Some checks could not be assessed. Unknown evidence is not a pass.'
+                        : 'The evaluated conditions did not support issues matching these filters. This does not mean no security risks exist.'
+                  }
+                />
               </p>
-              <Link to="/app/assets">Review authorized assets</Link>
+              <Link to="/app/assets">
+                <T text={'Review authorized assets'} />
+              </Link>
             </EmptyState>
           )}
           <div className="button-row">
@@ -178,14 +206,14 @@ function FindingRecords({ technical }: { technical: boolean }) {
               disabled={data.offset === 0}
               onClick={() => paginate(Math.max(0, data.offset - data.limit))}
             >
-              Previous findings
+              <T text={'Previous findings'} />
             </Button>
             <Button
               variant="quiet"
               disabled={data.offset + data.limit >= data.total}
               onClick={() => paginate(data.offset + data.limit)}
             >
-              Next findings
+              <T text={'Next findings'} />
             </Button>
           </div>
         </>

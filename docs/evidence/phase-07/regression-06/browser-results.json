@@ -1,0 +1,160 @@
+{
+  "browser": "151.0.7922.34",
+  "fixtures": "LOCAL QA: synthetic saved observations and injected TXT verification; real app/session/task APIs and worker. No external scans.",
+  "flow": [
+    "real account/session/onboarding and truthful empty overview",
+    "verified fixture asset -> persisted observations -> dashboard exact counts and unchanged Phase05 Top3",
+    "create-or-open task; owner/note/status/history persist after reload; escaped XSS text, keyboard focus and reduced motion",
+    "manual done leaves finding open; concurrent edit conflict retains draft; incomplete preserves state; valid clean resolves; recurrence leaves human work/history intact",
+    "backend/worker container restart preserves task, actor/history, notes and authenticated session",
+    "bidirectional dashboard/finding/task/source-scan navigation uses real resources",
+    "stale coverage and controlled API failure/retry remain honest"
+  ],
+  "viewports": [
+    {
+      "page": "empty-dashboard",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "empty-dashboard",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "empty-dashboard",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "empty-dashboard",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "dashboard",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "dashboard",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "dashboard",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "dashboard",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "task-detail",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "task-detail",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "task-detail",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "task-detail",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "done-unverified",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "done-unverified",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "done-unverified",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "done-unverified",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "task-list",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "task-list",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "task-list",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "task-list",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "stale-dashboard",
+      "width": 360,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "stale-dashboard",
+      "width": 768,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "stale-dashboard",
+      "width": 1280,
+      "overflow": false,
+      "violations": []
+    },
+    {
+      "page": "stale-dashboard",
+      "width": 1920,
+      "overflow": false,
+      "violations": []
+    }
+  ],
+  "errors": []
+}
