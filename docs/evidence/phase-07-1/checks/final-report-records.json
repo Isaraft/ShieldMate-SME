@@ -1,0 +1,68 @@
+[
+  {
+    "kind": "complex",
+    "id": "d63f1281-8cc3-4b69-a410-6f7fdad75dc4",
+    "locale": "en",
+    "created_at": 1792863329,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 78793,
+    "sha256": "e35d9d24882f7ce05c8cea1ace31d853ec90245e555397e989d89cc5ad206682",
+    "error_code": null
+  },
+  {
+    "kind": "complex",
+    "id": "5861e14f-d406-4965-95c3-3d1c03cd06fe",
+    "locale": "ru",
+    "created_at": 1792863329,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 102793,
+    "sha256": "ca2a26132d1f589a555d54b8982852eb385660c7b47083bb9a2e75e3de39288a",
+    "error_code": null
+  },
+  {
+    "kind": "complex",
+    "id": "a3f1693f-c344-4824-a1c7-b3c2913ab661",
+    "locale": "kk",
+    "created_at": 1792863329,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 103607,
+    "sha256": "e8114c734d2eb924312a8c7bc6d8d39b5ee96e665b0b05889b06602a29543dd0",
+    "error_code": null
+  },
+  {
+    "kind": "partial",
+    "id": "dac4dc32-267a-4f48-8129-b8aa4dacef2f",
+    "locale": "en",
+    "created_at": 1792863332,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 25618,
+    "sha256": "81136f990d582a09c907ecc273c0a451892ffe40c05f20a9079a4b40e5d08f66",
+    "error_code": null
+  },
+  {
+    "kind": "partial",
+    "id": "cc70bcc0-7302-48c4-a4ba-9728df21874c",
+    "locale": "ru",
+    "created_at": 1792863332,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 31232,
+    "sha256": "85eb31dba78ebb412b48e5173208b1e3ac17c9be167b63d46e723e9fd7ca9825",
+    "error_code": null
+  },
+  {
+    "kind": "partial",
+    "id": "b1777297-ba97-4673-903b-1da378d3d99f",
+    "locale": "kk",
+    "created_at": 1792863332,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 31496,
+    "sha256": "7b1378e566c294136ad54135af81f6232ebe47e28fc4d1481e32258967bb5233",
+    "error_code": null
+  }
+]

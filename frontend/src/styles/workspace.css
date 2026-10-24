@@ -313,6 +313,10 @@
   border: 1px solid var(--color-stroke);
 }
 .confirm-dialog {
+  margin: auto;
+  inset: 0;
+  max-height: calc(100dvh - 48px);
+  overflow: auto;
   max-width: min(560px, calc(100vw - 48px));
   padding: 32px;
   border: 2px solid var(--color-burgundy-900);
@@ -428,6 +432,7 @@
   padding-inline: 0.5rem;
 }
 .review-mode label {
+  min-height: 44px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -620,7 +625,7 @@
 }
 .operating-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-block: 1px solid var(--color-burgundy-950);
   margin-block: 2rem;
 }
@@ -732,9 +737,10 @@
 }
 .language-switch {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.25rem;
   padding: 0;
-  margin: 0 0.75rem;
+  margin: 0;
   border: 0;
 }
 .language-switch button {
@@ -742,9 +748,10 @@
   color: var(--color-burgundy-950);
   border: 1px solid var(--color-burgundy-950);
   font: inherit;
-  font-size: 0.8rem;
-  padding: 0.35rem 0.5rem;
-  cursor: pointer;
+  font-size: 0.8125rem;
+  padding: 0.5rem 0.65rem;
+  min-height: 44px;
+  transition: border-color 180ms ease;
 }
 .language-switch button[aria-pressed='true'] {
   background: var(--color-burgundy-900);
@@ -793,4 +800,42 @@
 /* Text/background must switch together; interpolated colors can lose contrast. */
 .language-switch button {
   transition: border-color 180ms ease;
+}
+
+/* Shared content constraints for translated and user-supplied long strings. */
+.findings-page h1,
+.assets-page h1,
+.scans-page h1,
+.account-page h1 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  overflow-wrap: anywhere;
+}
+.operating-strip > div,
+.coverage-counts > div,
+.asset-list article > div,
+.review-mode > *,
+.scan-summary > * {
+  min-width: 0;
+}
+.button,
+.badge {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+.task-form select,
+.finding-filters select {
+  min-height: 48px;
+  max-width: 100%;
+}
+.findings-page dt,
+.scans-page dt {
+  overflow-wrap: anywhere;
+}
+.preview-banner > *,
+.private-nav > * {
+  min-width: 0;
+}
+.demo-steps .button {
+  text-align: start;
 }

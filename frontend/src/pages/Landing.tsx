@@ -45,12 +45,9 @@ export function Landing() {
         </div>
         <div className="product-grid">
           <h2 id="product-title" className="display-heading">
-            <T text={'More signals. '} />
-            <br />
+            <T text="landing.product.lead" />{' '}
             <span className="text-red">
-              <T text={'Still no '} />
-              <br />
-              <T text={'clear priority.'} />
+              <T text="landing.product.accent" />
             </span>
           </h2>
           <div className="product-detail">
@@ -118,21 +115,15 @@ export function Landing() {
         </div>
         <div className="section-intro">
           <h2 id="workflow-title" className="display-heading">
-            <T text={'Less guesswork. '} />
-            <br />
-            <T text={'A clearer next step.'} />
+            <T text="landing.workflow.title" />
           </h2>
           <p>
-            <T
-              text={
-                'Four connected steps, built around a domain you control. This workflow is in development and is not available yet.'
-              }
-            />
+            <T text={'landing.workflow.description'} />
           </p>
         </div>
         <ol className="workflow-list">
           {steps.map(([title, description, detail], index) => (
-            <li key={tr(title)}>
+            <li key={title}>
               <span className="step-number" aria-hidden="true">
                 0{index + 1}
               </span>
@@ -169,9 +160,7 @@ export function Landing() {
         <div className="audience-grid">
           <div>
             <h2 id="audience-title" className="display-heading">
-              <T text={'Small team. '} />
-              <br />
-              <T text={'Real stakes.'} />
+              <T text="landing.audience.title" />
             </h2>
             <p>
               <T
@@ -247,9 +236,7 @@ export function Landing() {
         </p>
         <div>
           <h2 id="closing-title" className="display-heading">
-            <T text={'Clarity '} />
-            <br />
-            <T text={'before action.'} />
+            <T text="landing.closing.title" />
           </h2>
           <div className="closing-action">
             <p>

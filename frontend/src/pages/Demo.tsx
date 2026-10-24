@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLocale, tr, T } from '../i18n';
+import { useLocale, tr, T, format } from '../i18n';
 import { downloadPdf, type Snapshot } from '../reportApi';
 import { Alert, Button, LoadingState } from '../components/ui/Primitives';
 import { scanDate } from '../scanApi';
@@ -82,8 +82,10 @@ export function Demo() {
       {data && (
         <>
           <p>
-            {data.organization_name}
-            <T text={' · Fixed scenario:'} /> {scanDate(data.created_at)}
+            {format('demo.scenario', {
+              company: data.organization_name,
+              date: scanDate(data.created_at),
+            })}
           </p>
           <nav className="demo-steps" aria-label={tr('Sample journey')}>
             {['assets', 'findings', 'tasks', 'report'].map((name, index) => (
@@ -124,8 +126,9 @@ export function Demo() {
                     <T text={'Fictional domain — ownership not verified'} />
                   </p>
                   <p>
-                    {a.observations.length}
-                    <T text={' synthetic observations'} />
+                    {format('demo.observations', {
+                      count: a.observations.length,
+                    })}
                   </p>
                   <details>
                     <summary>

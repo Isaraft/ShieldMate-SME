@@ -1,4 +1,4 @@
-import { tr } from '../i18n';
+import { T, tr } from '../i18n';
 import { useRef, useState } from 'react';
 import {
   Alert,
@@ -25,18 +25,30 @@ export function UiKit() {
   const form = useRef<HTMLFormElement>(null);
   return (
     <section className="workspace-page ui-kit">
-      <p className="eyebrow">Design system / Interactive reference</p>
-      <h1>UI foundation</h1>
+      <p className="eyebrow">
+        <T text={'Design system / Interactive reference'} />
+      </p>
+      <h1>
+        <T text={'UI foundation'} />
+      </h1>
       <p className="prose">
-        A working reference for the interface’s shared controls. These examples
-        run locally in this page; nothing is saved or sent.
+        <T
+          text={
+            'A working reference for the interface’s shared controls. These examples run locally in this page; nothing is saved or sent.'
+          }
+        />
       </p>
       <div className="kit-grid">
         <section className="kit-section">
-          <h2>Actions & feedback</h2>
+          <h2>
+            <T text={'Actions & feedback'} />
+          </h2>
           <p>
-            Try the field to inspect validation, focus and success feedback. Use
-            any non-sensitive example label.
+            <T
+              text={
+                'Try the field to inspect validation, focus and success feedback. Use any non-sensitive example label.'
+              }
+            />
           </p>
           <form
             ref={form}
@@ -54,8 +66,8 @@ export function UiKit() {
             }}
           >
             <Field
-              label="Example label"
-              help="Component example only. 3–40 characters."
+              label={tr('Example label')}
+              help={tr('Component example only. 3–40 characters.')}
               maxLength={40}
               required
               value={value}
@@ -67,7 +79,9 @@ export function UiKit() {
               }}
             />
             <div className="button-row">
-              <Button type="submit">Try validation</Button>
+              <Button type="submit">
+                <T text={'Try validation'} />
+              </Button>
               <Button
                 variant="secondary"
                 onClick={() => {
@@ -76,51 +90,73 @@ export function UiKit() {
                   setSuccess(false);
                 }}
               >
-                Reset
+                <T text={'Reset'} />
               </Button>
             </div>
           </form>
           {success && (
-            <Alert title="Example validated" tone="success">
-              <p>The local input passed validation. Nothing was saved.</p>
+            <Alert title={tr('Example validated')} tone="success">
+              <p>
+                <T
+                  text={'The local input passed validation. Nothing was saved.'}
+                />
+              </p>
             </Alert>
           )}
           <div className="button-row">
-            <Button disabled>Unavailable</Button>
+            <Button disabled>
+              <T text={'Unavailable'} />
+            </Button>
             <Button variant="quiet" pending>
-              Pending
+              <T text={'Pending'} />
             </Button>
           </div>
           <p className="field-help">
-            Disabled and pending states above are visual references.
+            <T
+              text={'Disabled and pending states above are visual references.'}
+            />
           </p>
         </section>
         <section className="kit-section">
-          <h2>Status has a name.</h2>
+          <h2>
+            <T text={'Status has a name.'} />
+          </h2>
           <p>
-            Color reinforces a written label. These are component examples, not
-            security findings.
+            <T
+              text={
+                'Color reinforces a written label. These are component examples, not security findings.'
+              }
+            />
           </p>
           <Table
-            caption="Semantic status reference"
+            caption={tr('Semantic status reference')}
             columns={[
               {
                 key: 'label',
                 title: 'Status',
                 render: (row: (typeof statuses)[number]) => (
-                  <Badge tone={row.tone}>{row.label}</Badge>
+                  <Badge tone={row.tone}>{tr(row.label)}</Badge>
                 ),
               },
-              { key: 'meaning', title: 'Use', render: (row) => row.meaning },
+              {
+                key: 'meaning',
+                title: 'Use',
+                render: (row) => tr(row.meaning),
+              },
             ]}
             rows={[...statuses]}
             rowKey={(row) => row.label}
           />
-          <LoadingState label="Loading state example — no request in progress" />
-          <Alert title="Permission pattern" tone="warning">
+          <LoadingState
+            label={tr('Loading state example — no request in progress')}
+          />
+          <Alert title={tr('Permission pattern')} tone="warning">
             <p>
-              Explain what permission is required and how to obtain it. No
-              protected resources exist in this preview.
+              <T
+                text={
+                  'Explain what permission is required and how to obtain it. No protected resources exist in this preview.'
+                }
+              />
             </p>
           </Alert>
         </section>

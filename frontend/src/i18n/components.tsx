@@ -10,24 +10,24 @@ export function LanguageSwitch() {
   return (
     <fieldset className="language-switch">
       <legend className="sr-only">{tr('Language')}</legend>
-      <button
-        type="button"
-        lang="en"
-        aria-label="English"
-        aria-pressed={locale === 'en'}
-        onClick={() => setLocale('en')}
-      >
-        EN
-      </button>
-      <button
-        type="button"
-        lang="ru"
-        aria-label="Русский"
-        aria-pressed={locale === 'ru'}
-        onClick={() => setLocale('ru')}
-      >
-        RU
-      </button>
+      {(
+        [
+          ['en', 'English'],
+          ['ru', 'Русский'],
+          ['kk', 'Қазақша'],
+        ] as const
+      ).map(([code, name]) => (
+        <button
+          key={code}
+          type="button"
+          lang={code}
+          aria-label={name}
+          aria-pressed={locale === code}
+          onClick={() => setLocale(code)}
+        >
+          {name}
+        </button>
+      ))}
     </fieldset>
   );
 }

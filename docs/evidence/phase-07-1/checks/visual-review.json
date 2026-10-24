@@ -1,0 +1,18 @@
+{
+  "pdf_pages_reviewed_in_contact_sheets": 105,
+  "pdfs": 9,
+  "full_size_examples": [
+    "pdf-pages/complex-kk-01.png",
+    "pdf-pages/demo-en-5.png",
+    "pdf-pages/complex-ru-27.png"
+  ],
+  "screenshots_reviewed": [
+    "after/hero-en-1247.png",
+    "after/steps-ru-1082.png",
+    "after/landing-kk-360.png",
+    "after/dashboard-ru-1280.png"
+  ],
+  "method": "Actual Poppler rasters and actual Chromium PNGs opened for visual review; no generated interface mockups.",
+  "native_speaker_certification": "NOT TESTED",
+  "screen_reader": "NOT TESTED"
+}

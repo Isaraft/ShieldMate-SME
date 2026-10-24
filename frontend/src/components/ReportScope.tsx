@@ -1,5 +1,5 @@
 import type { Snapshot } from '../reportApi';
-import { tr, T } from '../i18n';
+import { tr, T, format } from '../i18n';
 import { scanDate } from '../scanApi';
 export const limitations =
   'This is a limited external configuration assessment, not a penetration test, compliance audit or guarantee of safety. Missing, failed or stale checks do not prove security. Human task completion is not technical resolution.';
@@ -44,12 +44,9 @@ export function ReportScope({ snapshot }: { snapshot: Snapshot }) {
         />
       </p>
       <p>
-        {snapshot.counts.excluded_historical_findings}
-        <T
-          text={
-            ' historical findings excluded from assessed scope. Dashboard may retain those historical records with their original state.'
-          }
-        />
+        {format('report.excluded', {
+          count: snapshot.counts.excluded_historical_findings,
+        })}
       </p>
       <ul className="work-queue">
         {snapshot.assets.map((a) => (

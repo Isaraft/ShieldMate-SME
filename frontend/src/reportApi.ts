@@ -35,6 +35,7 @@ export type ReportTask = {
   recommendation: string;
 };
 export type Snapshot = {
+  template_version?: string;
   schema_version: string;
   id: string;
   kind: 'real' | 'demo';

@@ -1,0 +1,9 @@
+{
+  "source": "@fontsource/ibm-plex-sans",
+  "version": "5.2.8",
+  "files": {
+    "IBMPlexSans-Regular.ttf": "e92d795b5c1caf9652b47f13771a9d32e921eba730c12171e1de4e7cb46bd3c1",
+    "IBMPlexSans-SemiBold.ttf": "1dcaa4757619a9c8b2727ed8a91b819f11fb3764024ae50a2904cf6f2ab603f0"
+  },
+  "modification": "Merged licensed subsets; right arrow rotated from Plex up arrow; derivative print family renamed ShieldMate Plex Print."
+}

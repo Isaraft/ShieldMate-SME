@@ -1,0 +1,1180 @@
+{
+  "views": [
+    {
+      "name": "login",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "en",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "en",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "en",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "en",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "en",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "en",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "en",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "en",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "en",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "en",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "en",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "en",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "mobile-menu",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "reports-error",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "ru",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "ru",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "ru",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "ru",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "ru",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "ru",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "ru",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "ru",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "ru",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "ru",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "ru",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "ru",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "mobile-menu",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "reports-error",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "kk",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "kk",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "kk",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "kk",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "kk",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "login",
+      "lang": "kk",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "kk",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "kk",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "kk",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "kk",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "kk",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "register",
+      "lang": "kk",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "mobile-menu",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "reports-error",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "en",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "en",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "en",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "en",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "en",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "en",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "ru",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "ru",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "ru",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "ru",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "ru",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "ru",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "kk",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "kk",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "kk",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "kk",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "kk",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "onboarding",
+      "lang": "kk",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "en",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "en",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "en",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "en",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "en",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "en",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "en",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "en",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "en",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "en",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "en",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "en",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "en",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "en",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "en",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "en",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "en",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "en",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "en",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "en",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "en",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "en",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "en",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "en",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "en",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "en",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "en",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "en",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "en",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "en",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "ru",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "ru",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "ru",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "ru",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "ru",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "ru",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "ru",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "ru",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "ru",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "ru",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "ru",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "ru",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "ru",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "ru",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "ru",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "ru",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "ru",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "ru",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "ru",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "ru",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "ru",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "ru",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "ru",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "ru",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "ru",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "ru",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "ru",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "ru",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "ru",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "ru",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "kk",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "kk",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "kk",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "kk",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "kk",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-app",
+      "lang": "kk",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "kk",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "kk",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "kk",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "kk",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "kk",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-assets",
+      "lang": "kk",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "kk",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "kk",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "kk",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "kk",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "kk",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-findings",
+      "lang": "kk",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "kk",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "kk",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "kk",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "kk",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "kk",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-tasks",
+      "lang": "kk",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "kk",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "kk",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "kk",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "kk",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "kk",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "empty-reports",
+      "lang": "kk",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "en",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "en",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "en",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "en",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "en",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "en",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "en",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "ru",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "ru",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "ru",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "ru",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "ru",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "ru",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "ru",
+      "width": 1920,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "kk",
+      "width": 360,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "kk",
+      "width": 390,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "kk",
+      "width": 768,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "kk",
+      "width": 1024,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "kk",
+      "width": 1280,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "kk",
+      "width": 1440,
+      "axe": []
+    },
+    {
+      "name": "domain-dialog",
+      "lang": "kk",
+      "width": 1920,
+      "axe": []
+    }
+  ],
+  "flows": [
+    "en: form preservation, canonical filters, dialog keyboard focus, mobile menu, report error",
+    "ru: form preservation, canonical filters, dialog keyboard focus, mobile menu, report error",
+    "kk: form preservation, canonical filters, dialog keyboard focus, mobile menu, report error",
+    "Empty organization and real authenticated onboarding across 3 locales and 7 widths"
+  ]
+}

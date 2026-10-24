@@ -37,7 +37,7 @@ def data(filters: Annotated[DemoQuery, Query()]) -> Snapshot:
     return sample(filters.locale)
 
 
-@lru_cache(maxsize=2)
+@lru_cache(maxsize=3)
 def cached_pdf(locale: Locale) -> bytes:
     return render(sample(locale))
 

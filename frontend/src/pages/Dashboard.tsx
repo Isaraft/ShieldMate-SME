@@ -1,4 +1,4 @@
-import { T, tr } from '../i18n';
+import { T, tr, format } from '../i18n';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useWorkspaceResource } from '../hooks/useWorkspaceResource';
@@ -24,7 +24,7 @@ export function Dashboard() {
       <p className="eyebrow">
         <T text={'Company workspace / Decisions & action'} />
       </p>
-      <h1>{data?.organization.name ?? 'Your workspace'}</h1>
+      <h1>{data?.organization.name ?? tr('Your workspace')}</h1>
       <p className="dashboard-intro">
         <T
           text={
@@ -68,8 +68,10 @@ export function Dashboard() {
               </dt>
               <dd>
                 <Link to="/app/assets">
-                  {data.verified_assets} / {data.asset_count}
-                  <T text={' domains'} />
+                  {format('dashboard.proofs', {
+                    verified: data.verified_assets,
+                    total: data.asset_count,
+                  })}
                 </Link>
               </dd>
             </div>
@@ -131,12 +133,7 @@ export function Dashboard() {
             </Alert>
           ) : data.recent_scan_count === 0 ? (
             <Alert title={tr('Ready for the first assessment')}>
-              {data.eligible_assets}
-              <T
-                text={
-                  ' domains meet ownership requirements. No scans are recorded.'
-                }
-              />{' '}
+              {format('dashboard.ready', { count: data.eligible_assets })}{' '}
               <Link to="/app/assets">
                 <T text={'Open authorized scan controls'} />
               </Link>
@@ -148,12 +145,9 @@ export function Dashboard() {
               title={tr('Human work is not technical resolution')}
               tone="warning"
             >
-              {data.done_unverified}
-              <T
-                text={
-                  ' tasks are marked done while their findings remain open.'
-                }
-              />{' '}
+              {format('dashboard.awaiting_evidence', {
+                count: data.done_unverified,
+              })}{' '}
               <Link to="/app/tasks?status=done">
                 <T text={'Review work awaiting verification'} />
               </Link>
@@ -196,12 +190,11 @@ export function Dashboard() {
                 </Link>
               </div>
               <p>
-                <T text={'To do: '} />
-                {data.task_counts.todo ?? 0}
-                <T text={' · In progress:'} />{' '}
-                {data.task_counts.in_progress ?? 0}
-                <T text={' · Done by a person:'} /> {data.task_counts.done ?? 0}
-                <T text={'. Up to five recently changed tasks.'} />
+                {format('dashboard.task_counts', {
+                  todo: data.task_counts.todo ?? 0,
+                  progress: data.task_counts.in_progress ?? 0,
+                  done: data.task_counts.done ?? 0,
+                })}
               </p>
               {data.tasks.length ? (
                 <TaskRows tasks={data.tasks} />
@@ -225,12 +218,9 @@ export function Dashboard() {
                 </Link>
               </div>
               <p>
-                {data.recent_scan_count}
-                <T
-                  text={
-                    ' retained runs for current assets. Showing up to five latest.'
-                  }
-                />
+                {format('dashboard.scan_count', {
+                  count: data.recent_scan_count,
+                })}
               </p>
               {data.scans.length ? (
                 <ul className="work-queue">
@@ -240,8 +230,10 @@ export function Dashboard() {
                         {s.hostname}
                       </Link>
                       <p>
-                        {s.status} · {s.completed_checks}
-                        <T text={' collected observations'} />
+                        {tr(s.status)} ·{' '}
+                        {format('dashboard.observation_count', {
+                          count: s.completed_checks,
+                        })}
                         <br />
                         {scanDate(s.finished_at ?? s.created_at)}
                       </p>

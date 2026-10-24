@@ -1,0 +1,2190 @@
+{
+  "browser": "151.0.7922.34",
+  "views": [
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "en",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "en",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "en",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "en",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "en",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "ru",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "ru",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "ru",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/",
+      "name": "landing",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app",
+      "name": "dashboard",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets",
+      "name": "assets",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/assets/9e2230c5-4d55-4f86-b871-72fa5d720465/scans",
+      "name": "scans",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings",
+      "name": "findings",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/findings/92701438-cf2a-410b-bf88-131cbd3061e7",
+      "name": "finding-detail",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks",
+      "name": "tasks",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/tasks/075de54c-30c9-46b2-9aa9-02356e84b0a3",
+      "name": "task-detail",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/reports",
+      "name": "reports",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/app/settings",
+      "name": "settings",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/demo",
+      "name": "demo",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/preview/ui-kit",
+      "name": "ui-kit",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "kk",
+      "width": 390,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "kk",
+      "width": 1024,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "kk",
+      "width": 1440,
+      "overflow": false,
+      "axe": []
+    },
+    {
+      "route": "/not-a-route",
+      "name": "404",
+      "lang": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe": []
+    }
+  ],
+  "errors": []
+}

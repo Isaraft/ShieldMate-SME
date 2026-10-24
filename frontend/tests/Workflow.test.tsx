@@ -166,7 +166,7 @@ it('opens an existing task without a write request', () => {
     </MemoryRouter>,
   );
   expect(
-    screen.getByRole('link', { name: 'Open task · done' }),
+    screen.getByRole('link', { name: 'Open task · Done' }),
   ).toHaveAttribute('href', '/app/tasks/task-id');
   expect(fetch).not.toHaveBeenCalled();
 });

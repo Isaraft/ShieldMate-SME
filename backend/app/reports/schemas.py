@@ -5,7 +5,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from app.findings.schemas import FindingOut
 
-Locale = Literal["en", "ru"]
+Locale = Literal["en", "ru", "kk"]
 SCHEMA = "security-snapshot-1"
 
 
@@ -59,6 +59,7 @@ class ReportTask(BaseModel):
 
 
 class Snapshot(BaseModel):
+    template_version: str = "assessment-2"
     schema_version: str = SCHEMA
     id: str
     kind: Literal["real", "demo"] = "real"

@@ -140,3 +140,13 @@ The UI remains Anton/IBM Plex Sans. Locally served Plex Cyrillic faces cover Rus
 Russian display headings use Plex because Anton lacks Cyrillic. ReportLab embeds the
 licensed Liberation Sans regular/bold TTFs for selectable Cyrillic PDFs. That PDF-only
 font is a technical Unicode requirement, not a change to the website's design identity.
+
+## Phase 07.1 editorial and multilingual refinement
+
+The hero is now an intrinsic two-row text composition with an in-flow red accent. Its padded highlight occupies its own measured line box. Russian/Kazakh phrases have deliberate contextual compositions rather than English word-count constraints. Inline-size container typography sizes against available message space. Marketing grids use zero minimum tracks; long headings and enlarged text wrap rather than widening the page. The supplied hero reference appears cropped on the right: the local baseline at 1247px had no matching page-level overflow. The actual highlight overlap was reproduced independently.
+
+Workflow numerals span and center against the complete content row, including the longer description and detail. Other numbered lists follow the same centering rule. Native-name language controls have 44px targets and responsive header rows. Header navigation wraps at intermediate desktop widths. The same burgundy/red/ivory tokens remain; no gradients, pink identity or replacement UI framework was introduced.
+
+Plex supports Cyrillic-ext explicitly for Kazakh. Anton remains Latin display; Plex provides readable Russian/Kazakh headings, UI and print. At 200% text size, single-column grid tracks and content wrapping preserve access. Tables retain labeled horizontal scrolling inside their region where required, rather than widening the entire page. Dialogs, long domains, IDs, owner labels and evidence use intrinsic sizing. Before/after captures and the exact tested browser matrix are in the Phase 07.1 evidence directory.
+
+The Phase 07 Liberation Sans print implementation described above is historical: new `assessment-2` reports embed the same licensed Plex source as the UI. Existing saved PDFs retain embedded original fonts and immutable bytes.

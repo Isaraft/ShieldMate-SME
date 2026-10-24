@@ -1,0 +1,97 @@
+ Image shieldmate-frontend Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.22kB done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 447B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:24-bookworm-slim
+#3 DONE 0.8s
+
+#4 [internal] load metadata for docker.io/nginxinc/nginx-unprivileged:1.28-alpine
+#4 DONE 0.8s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 209B done
+#5 DONE 0.0s
+
+#6 [build 1/7] FROM docker.io/library/node:24-bookworm-slim@sha256:55fb5f5a527ea2c5c4a95f963e48ef90aa38c7b346054fdc8ee9957a2b55d205
+#6 resolve docker.io/library/node:24-bookworm-slim@sha256:55fb5f5a527ea2c5c4a95f963e48ef90aa38c7b346054fdc8ee9957a2b55d205 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-1 1/3] FROM docker.io/nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8
+#7 resolve docker.io/nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8 0.0s done
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 20.77kB done
+#8 DONE 0.0s
+
+#9 [build 2/7] WORKDIR /app/frontend
+#9 CACHED
+
+#10 [build 3/7] COPY frontend/package.json frontend/package-lock.json ./
+#10 CACHED
+
+#11 [build 4/7] RUN npm ci --no-fund
+#11 CACHED
+
+#12 [build 5/7] COPY frontend/ ./
+#12 DONE 0.0s
+
+#13 [build 6/7] COPY backend/app/locales /app/backend/app/locales
+#13 DONE 0.0s
+
+#14 [build 7/7] RUN npm run build
+#14 0.216
+#14 0.216 > shieldmate-frontend@0.0.0 build
+#14 0.216 > tsc --noEmit && vite build
+#14 0.216
+#14 2.470 vite v7.3.7 building client environment for production...
+#14 2.523 transforming...
+#14 3.276 ✓ 80 modules transformed.
+#14 3.412 rendering chunks...
+#14 3.421 computing gzip size...
+#14 3.444 dist/index.html                                                     1.15 kB │ gzip:   0.58 kB
+#14 3.444 dist/assets/ibm-plex-sans-cyrillic-ext-400-normal-g30qAdWV.woff2   12.15 kB
+#14 3.444 dist/assets/ibm-plex-sans-cyrillic-ext-600-normal-DUMzJB7m.woff2   12.30 kB
+#14 3.444 dist/assets/ibm-plex-sans-cyrillic-ext-500-normal-Cs5J6C77.woff2   12.31 kB
+#14 3.444 dist/assets/ibm-plex-sans-cyrillic-400-normal-DZqxrq2p.woff2       14.80 kB
+#14 3.444 dist/assets/ibm-plex-sans-cyrillic-500-normal-CocWQlwt.woff2       15.00 kB
+#14 3.444 dist/assets/ibm-plex-sans-cyrillic-600-normal-71GNu3SW.woff2       15.04 kB
+#14 3.444 dist/assets/anton-latin-400-normal-Byf51wtH.woff2                  18.61 kB
+#14 3.444 dist/assets/ibm-plex-sans-latin-400-normal-CDDApCn2.woff2          22.59 kB
+#14 3.444 dist/assets/ibm-plex-sans-latin-500-normal-6ng42L7E.woff2          24.18 kB
+#14 3.444 dist/assets/ibm-plex-sans-latin-600-normal-CuJfVYMP.woff2          24.25 kB
+#14 3.444 dist/assets/index-C85McXXr.css                                     37.06 kB │ gzip:   8.23 kB
+#14 3.444 dist/assets/index-B3u6iLO-.js                                     647.20 kB │ gzip: 183.50 kB
+#14 3.444
+#14 3.444 (!) Some chunks are larger than 500 kB after minification. Consider:
+#14 3.444 - Using dynamic import() to code-split the application
+#14 3.444 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+#14 3.444 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+#14 3.444 ✓ built in 951ms
+#14 DONE 3.5s
+
+#15 [stage-1 2/3] COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
+#15 CACHED
+
+#16 [stage-1 3/3] COPY --from=build /app/frontend/dist /usr/share/nginx/html
+#16 DONE 0.0s
+
+#17 exporting to image
+#17 exporting layers 0.1s done
+#17 exporting manifest sha256:440ffff5eed0b7f2e08dee657ebcb1bc2c186e92b2edde6d02207206ff539488 done
+#17 exporting config sha256:88244b9509ff98c2b4457ec414e8cd5d7d4fdc3c7770c5815508bbeb2a8fa180 done
+#17 exporting attestation manifest sha256:ed82019677a752ca41d222e371c391f087b269ba1885321c0f86ebf9f58fb21f
+#17 exporting attestation manifest sha256:ed82019677a752ca41d222e371c391f087b269ba1885321c0f86ebf9f58fb21f 0.0s done
+#17 exporting manifest list sha256:de4eaa3c65f1f420d109dd000639cf9c2ffa8acd0b853393373885eb89e6201d done
+#17 naming to docker.io/library/shieldmate-frontend:latest done
+#17 unpacking to docker.io/library/shieldmate-frontend:latest 0.0s done
+#17 DONE 0.2s
+
+#18 resolving provenance for metadata file
+#18 DONE 0.0s
+ Image shieldmate-frontend Built

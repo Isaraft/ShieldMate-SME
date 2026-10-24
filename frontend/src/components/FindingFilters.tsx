@@ -42,7 +42,7 @@ export function FindingFilters({
             <T text={'All priorities'} />
           </option>
           {['high', 'medium', 'low', 'info'].map((v) => (
-            <option key={tr(v)} value={tr(v)}>
+            <option key={v} value={v}>
               {tr(v)}
             </option>
           ))}
@@ -68,7 +68,7 @@ export function FindingFilters({
             <T text={'All categories'} />
           </option>
           {['tls', 'https', 'http_headers', 'dns_email'].map((v) => (
-            <option key={tr(v)} value={tr(v)}>
+            <option key={v} value={v}>
               {tr(v)}
             </option>
           ))}

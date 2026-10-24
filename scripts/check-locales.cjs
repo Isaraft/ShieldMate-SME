@@ -1,67 +1,97 @@
+// Catalog parity and named-template parity are independent of UI runtime fallback.
 const fs = require("node:fs"),
   path = require("node:path"),
   ts = require("../frontend/node_modules/typescript");
-const catalog = JSON.parse(
-  fs.readFileSync(
-    path.join(__dirname, "../backend/app/locales/ru.json"),
-    "utf8",
-  ),
+const catalogs = Object.fromEntries(
+  ["en", "ru", "kk"].map((locale) => [
+    locale,
+    JSON.parse(
+      fs.readFileSync(
+        path.join(__dirname, `../backend/app/locales/${locale}.json`),
+        "utf8",
+      ),
+    ),
+  ]),
 );
-const missing = new Set();
+const keys = Object.keys(catalogs.en),
+  issues = new Set();
+const fields = (value) =>
+  [...value.matchAll(/\{([a-zA-Z_]+)\}/g)]
+    .map((m) => m[1])
+    .sort()
+    .join(",");
+for (const [locale, catalog] of Object.entries(catalogs)) {
+  for (const key of keys) {
+    if (typeof catalog[key] !== "string" || !catalog[key].trim())
+      issues.add(`${locale}: missing ${key}`);
+    else if (fields(catalog[key]) !== fields(catalogs.en[key]))
+      issues.add(`${locale}: placeholder mismatch ${key}`);
+  }
+  for (const key of Object.keys(catalog))
+    if (!(key in catalogs.en)) issues.add(`${locale}: unexpected ${key}`);
+}
 let checked = 0;
 function message(value) {
   const key = value.replace(/\s+/g, " ").trim();
   if (!key || !/[A-Za-z]/.test(key)) return;
   checked++;
-  if (!catalog[key]) missing.add(key);
+  if (!(key in catalogs.en)) issues.add("UI: " + key);
 }
-function literals(n) {
-  if (ts.isStringLiteral(n)) message(n.text);
-  else if (ts.isConditionalExpression(n)) {
-    literals(n.whenTrue);
-    literals(n.whenFalse);
+function literals(node) {
+  if (ts.isStringLiteral(node)) message(node.text);
+  else if (ts.isConditionalExpression(node)) {
+    literals(node.whenTrue);
+    literals(node.whenFalse);
   }
 }
 function scan(dir) {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const f = path.join(dir, e.name);
-    if (e.isDirectory()) {
-      if (e.name !== "i18n") scan(f);
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const file = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (entry.name !== "i18n") scan(file);
       continue;
     }
-    if (!f.endsWith(".tsx")) continue;
-    const s = fs.readFileSync(f, "utf8"),
-      a = ts.createSourceFile(
-        f,
-        s,
-        ts.ScriptTarget.Latest,
-        true,
-        ts.ScriptKind.TSX,
-      );
-    function walk(n) {
+    if (!/\.tsx?$/.test(file)) continue;
+    const ast = ts.createSourceFile(
+      file,
+      fs.readFileSync(file, "utf8"),
+      ts.ScriptTarget.Latest,
+      true,
+      file.endsWith("tsx") ? ts.ScriptKind.TSX : ts.ScriptKind.TS,
+    );
+    function walk(node) {
       if (
-        ts.isCallExpression(n) &&
-        n.expression.getText(a) === "tr" &&
-        n.arguments[0]
+        ts.isCallExpression(node) &&
+        ["tr", "format"].includes(node.expression.getText(ast)) &&
+        node.arguments[0]
       )
-        literals(n.arguments[0]);
-      if (ts.isJsxSelfClosingElement(n) && n.tagName.getText(a) === "T") {
-        const item = n.attributes.properties.find(
-          (p) => p.name?.getText(a) === "text",
+        literals(node.arguments[0]);
+      if (
+        ts.isJsxSelfClosingElement(node) &&
+        node.tagName.getText(ast) === "T"
+      ) {
+        const text = node.attributes.properties.find(
+          (p) => p.name?.getText(ast) === "text",
         );
-        if (item?.initializer?.expression)
-          literals(item.initializer.expression);
+        if (text?.initializer) {
+          const initializer = text.initializer;
+          literals(
+            ts.isJsxExpression(initializer)
+              ? initializer.expression
+              : initializer,
+          );
+        }
       }
-      ts.forEachChild(n, walk);
+      ts.forEachChild(node, walk);
     }
-    walk(a);
+    walk(ast);
   }
 }
 scan(path.join(__dirname, "../frontend/src"));
-if (missing.size) {
-  console.error("Missing Russian catalog keys:\n" + [...missing].join("\n"));
+if (issues.size) {
+  console.error([...issues].join("\n"));
   process.exitCode = 1;
 } else
   console.log(
-    `Localization coverage: ${checked} explicit static references, no missing keys.`,
+    `Localization: ${keys.length} keys × 3 locales; ${checked} UI references; no missing keys or placeholder mismatches.`,
   );

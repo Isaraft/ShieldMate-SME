@@ -173,7 +173,7 @@ export function PrivateWorkspace() {
   return (
     <div>
       <div className="preview-banner">
-        <strong>{identity.organization?.name ?? 'Your account'}</strong>
+        <strong>{identity.organization?.name ?? tr('Your account')}</strong>
         <span>{identity.email}</span>
         <Link to="/app/settings">
           <T text={'Organization settings'} />

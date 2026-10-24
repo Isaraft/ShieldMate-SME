@@ -1,0 +1,13 @@
+{
+  "hero_overlap": "PASS",
+  "step_centers_within_2px": "PASS",
+  "demo_steps": 12,
+  "text_zoom_200": [
+    "en",
+    "ru",
+    "kk"
+  ],
+  "reduced_motion": "PASS",
+  "visible_keyboard_focus": "PASS",
+  "page_errors": []
+}

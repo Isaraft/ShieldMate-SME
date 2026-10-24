@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { api, ApiError } from '../authApi';
 import { useWorkspaceResource } from '../hooks/useWorkspaceResource';
-import { useLocale, tr, T, localeName, type Locale } from '../i18n';
+import { useLocale, tr, T, localeName, type Locale, format } from '../i18n';
 import {
   downloadPdf,
   type ReportHistory,
@@ -197,8 +197,7 @@ export function Reports() {
         {history.data && (
           <>
             <p role="status">
-              {history.data.total}
-              <T text={' saved snapshots.'} />
+              {format('report.count', { count: history.data.total })}
             </p>
             {history.data.items.length ? (
               <ul className="work-queue">

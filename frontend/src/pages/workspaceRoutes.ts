@@ -5,7 +5,7 @@ export const workspaceRoutes = [
     phase: 'Phase 06',
     action: 'Run a check',
     description:
-      'Priorities will appear here once authorized checks and the finding engine are implemented.',
+      'This public preview shows structure only. Sign in to review your organization’s saved priorities.',
     empty: 'A clear starting point. Soon.',
   },
   {
@@ -14,7 +14,7 @@ export const workspaceRoutes = [
     phase: 'Phase 03',
     action: 'Add domain',
     description:
-      'Domain ownership verification will be required before any external checks become available.',
+      'Domain enrollment and DNS ownership verification are available in your signed-in workspace. This preview cannot send verification requests.',
     empty: 'Your domains will start here.',
   },
   {
@@ -23,7 +23,7 @@ export const workspaceRoutes = [
     phase: 'Phase 05',
     action: 'Run a check',
     description:
-      'Evidence-backed findings and recommended actions will be available after the checking and prioritization phases.',
+      'Findings in your workspace use saved authorized evidence. No assessment data is loaded in this preview.',
     empty: 'Evidence comes before findings.',
   },
   {
@@ -32,7 +32,7 @@ export const workspaceRoutes = [
     phase: 'Phase 06',
     action: 'Create action',
     description:
-      'Remediation tasks, owner labels and progress tracking are planned. There are no saved tasks yet.',
+      'Sign in to create and track remediation tasks. This screen is a read-only layout preview.',
     empty: 'Room for your next action.',
   },
   {
@@ -41,7 +41,7 @@ export const workspaceRoutes = [
     phase: 'Phase 07',
     action: 'Generate report',
     description:
-      'Management PDF reports will use stored evidence. Report generation is not available yet.',
+      'Sign in to generate reports from persisted evidence. This preview cannot generate customer PDFs.',
     empty: 'A report starts with real evidence.',
   },
 ];

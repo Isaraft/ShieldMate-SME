@@ -20,16 +20,46 @@
   gap: 40px;
   padding-block: 48px;
 }
+.hero-message {
+  min-width: 0;
+  container-type: inline-size;
+}
 .hero h1 {
-  font-size: clamp(3.75rem, 8.8vw, 10rem);
-  line-height: 1.06;
+  display: grid;
+  gap: 0.08em;
+  font-size: clamp(3.25rem, 16cqi, 10rem);
+  line-height: 1.08;
   text-transform: uppercase;
   letter-spacing: -0.025em;
+  text-wrap: initial;
+  overflow-wrap: anywhere;
 }
-.hero h1 span {
+.hero-line {
+  display: block;
+  max-width: 100%;
+}
+.hero-action {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.12em;
+}
+.hero-action > span {
+  min-width: 0;
+  max-width: 100%;
+}
+.hero-accent {
+  display: block;
+  max-width: 100%;
   color: var(--color-surface-raised);
   background: var(--color-red-500);
-  padding-inline: 8px;
+  font: inherit;
+  padding: 0.06em 0.09em 0.12em;
+}
+html:not([lang='en']) .hero h1 {
+  font-size: clamp(2rem, 10cqi, 6.5rem);
+  letter-spacing: -0.025em;
+  font-weight: 600;
 }
 .hero-copy {
   display: flex;
@@ -135,7 +165,7 @@
 .workflow-section,
 .audience-section,
 .scope-section {
-  padding-block: 64px;
+  padding-block: 48px;
 }
 .section-index {
   display: flex;
@@ -154,14 +184,19 @@
 .display-heading {
   font: 400 clamp(2.5rem, 5.2vw, 5.5rem)/1.08 var(--font-display);
   letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+  min-width: 0;
   text-transform: uppercase;
 }
 .product-grid,
 .audience-grid {
+  grid-template-columns: minmax(0, 1fr);
   display: grid;
   gap: 40px;
 }
 .product-detail {
+  min-width: 0;
+  overflow-wrap: anywhere;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -173,6 +208,7 @@
   max-width: 30ch;
 }
 .perspective {
+  grid-template-columns: minmax(0, 1fr);
   display: grid;
   gap: 24px;
   border-top: 1px solid var(--color-stroke);
@@ -190,6 +226,7 @@
   background: var(--color-surface-raised);
 }
 .section-intro {
+  grid-template-columns: minmax(0, 1fr);
   display: grid;
   gap: 24px;
   margin-bottom: 40px;
@@ -205,13 +242,19 @@
 }
 .workflow-list li {
   display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 8px 20px;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 12px 20px;
+  align-items: center;
   padding-block: 28px;
   border-top: 1px solid var(--color-stroke);
 }
 .step-number {
-  font: 400 2rem/1 var(--font-display);
+  font:
+    400 2rem/1 'Anton',
+    sans-serif;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: center;
   color: var(--color-red-700);
 }
 .workflow-list h3 {
@@ -219,6 +262,7 @@
   margin-bottom: 8px;
 }
 .workflow-list p {
+  overflow-wrap: anywhere;
   max-width: 65ch;
   font-size: 0.9375rem;
 }
@@ -266,7 +310,11 @@
 }
 .audience-list > li > span {
   font-size: 0.75rem;
-  padding-top: 8px;
+  align-self: center;
+}
+.audience-list li > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .audience-list h3 {
   font-size: 1.5rem;
@@ -277,12 +325,15 @@
   max-width: 50ch;
 }
 .scope-grid {
+  grid-template-columns: minmax(0, 1fr);
   margin-top: 40px;
   display: grid;
   border: 1px solid var(--color-stroke);
 }
 .starter-scope,
 .future-scope {
+  min-width: 0;
+  overflow-wrap: anywhere;
   padding: 28px;
 }
 .starter-scope {
@@ -301,6 +352,8 @@
   margin-bottom: 16px;
 }
 .scope-heading h3 {
+  min-width: 0;
+  overflow-wrap: anywhere;
   font: 400 2.5rem/1 var(--font-display);
   text-transform: uppercase;
 }
@@ -348,6 +401,7 @@
   padding-block: 48px;
 }
 .closing-section > div {
+  grid-template-columns: minmax(0, 1fr);
   display: grid;
   gap: 32px;
   margin-top: 32px;
@@ -366,10 +420,7 @@
   .hero-main {
     grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
     gap: 32px;
-    padding-block: 64px;
-  }
-  .hero h1 {
-    font-size: clamp(4rem, 8.8vw, 10rem);
+    padding-block: 48px;
   }
   .hero-copy {
     margin-top: 40px;
@@ -385,22 +436,22 @@
   }
   .product-grid,
   .audience-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 64px;
   }
   .section-intro {
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     gap: 64px;
   }
   .scope-grid {
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   }
   .future-scope {
     border-top: 4px solid var(--color-stroke);
     border-left: 1px solid var(--color-stroke);
   }
   .closing-section > div {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: end;
   }
   .closing-action {
@@ -410,7 +461,7 @@
 @media (min-width: 1100px) {
   .hero-main {
     grid-template-columns: minmax(0, 1.85fr) minmax(300px, 1fr);
-    padding-block: 64px;
+    padding-block: 48px;
   }
   .hero-message {
     padding-bottom: 24px;
@@ -424,17 +475,20 @@
     justify-content: end;
   }
   .perspective {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
   .workflow-list li {
-    grid-template-columns: 80px 1fr 240px;
+    grid-template-columns: 80px minmax(0, 1fr) 240px;
     gap: 24px;
-    align-items: start;
+    align-items: center;
+  }
+  .step-number {
+    grid-row: 1;
   }
   .step-detail {
     grid-column: auto;
     text-align: right;
-    padding-top: 4px;
+    align-self: center;
   }
   .starter-scope,
   .future-scope {

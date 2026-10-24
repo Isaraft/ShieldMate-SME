@@ -1,0 +1,27 @@
+{
+  "reports": 5,
+  "session_valid": true,
+  "bytes_unchanged": true,
+  "artifacts": [
+    {
+      "id": "24cca429-2290-4ff8-9542-f91fbf1d6138",
+      "sha256": "bae435588c942a891855ff905b90dc060b5069179291a33f7e7ff4d2da8ce3e4"
+    },
+    {
+      "id": "9148476b-beb3-4c16-81f8-954ba4869d04",
+      "sha256": "d65a2a24b7a357d4d5e98b436466dc4069c46507e2d6bde285b3f12f3e424645"
+    },
+    {
+      "id": "f7bc80fc-aa8a-4c54-be11-06d6e64095c9",
+      "sha256": "546542851008537a4bd276d07495e0877fc6284b5e2ed6113d3c2e62babe775c"
+    },
+    {
+      "id": "743261dd-d392-4286-9d73-7c401b6faeb1",
+      "sha256": "df5add6e100f8a8d4e8f33abbbce26ff7736fc6b9f4021c2c29836e66f465294"
+    },
+    {
+      "id": "a7669391-b858-48cc-ba7c-3e1ce2af3e2c",
+      "sha256": "f74ffa5ecf05d5245fd74f09fde53917e620ac3c92250e6c8c487453e02af371"
+    }
+  ]
+}

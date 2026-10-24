@@ -1,0 +1,9 @@
+{
+  "views": 195,
+  "flows": [
+    "en: form preservation, canonical filters, dialog keyboard focus, mobile menu, report error",
+    "ru: form preservation, canonical filters, dialog keyboard focus, mobile menu, report error",
+    "kk: form preservation, canonical filters, dialog keyboard focus, mobile menu, report error",
+    "Empty organization and real authenticated onboarding across 3 locales and 7 widths"
+  ]
+}

@@ -1,4 +1,4 @@
-import { T, tr } from '../i18n';
+import { T, tr, format } from '../i18n';
 import { ReviewMode } from '../components/ReviewMode';
 import { AssessmentSummary } from '../components/AssessmentSummary';
 import { PrioritySummary } from '../components/PrioritySummary';
@@ -113,11 +113,16 @@ function FindingRecords({ technical }: { technical: boolean }) {
           <FindingFilters domains={data.domains} />
 
           <p role="status">
-            {data.total} <T text={data.total === 1 ? 'finding' : 'findings'} />
-            <T text={' in this selection · '} />
-            {data.summary.counts_by_status.open ?? 0}
-            <T text={' open ·'} /> {data.summary.counts_by_status.resolved ?? 0}
-            <T text={' resolved.'} />
+            {format(
+              data.total === 1
+                ? 'finding.selection.one'
+                : 'finding.selection.many',
+              {
+                count: data.total,
+                open: data.summary.counts_by_status.open ?? 0,
+                resolved: data.summary.counts_by_status.resolved ?? 0,
+              },
+            )}
           </p>
           {params.has('scan_id') && (
             <p>

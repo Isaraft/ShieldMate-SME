@@ -1,0 +1,37 @@
+{
+  "backend": {
+    "passed": 314,
+    "failed": 0
+  },
+  "frontend": {
+    "passed": 93,
+    "failed": 0
+  },
+  "localization": {
+    "keys": 974,
+    "locales": [
+      "en",
+      "ru",
+      "kk"
+    ],
+    "literal_references": 575
+  },
+  "browser": {
+    "main_views": 273,
+    "additional_views": 195,
+    "widths": [
+      360,
+      390,
+      768,
+      1024,
+      1280,
+      1440,
+      1920
+    ]
+  },
+  "pdf": {
+    "files": 9,
+    "pages": 105
+  },
+  "scope": "Phase 07.1 only; no push, public deployment or Phase 08."
+}

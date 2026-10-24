@@ -51,6 +51,13 @@ function Shell() {
   const main = useRef<HTMLElement>(null);
   useEffect(() => {
     document.title = `${tr(titles[pathname] ?? (pathname.includes('/scans') ? 'Security check records' : pathname.startsWith('/app/findings/') ? 'Finding evidence' : pathname.startsWith('/app/tasks/') ? 'Remediation task' : 'Page not found'))} · ShieldMate SME`;
+    const description = document.querySelector('meta[name="description"]');
+    description?.setAttribute('content', tr('meta.description'));
+    document
+      .querySelector('meta[property="og:description"]')
+      ?.setAttribute('content', tr('meta.description'));
+  }, [pathname, language]);
+  useEffect(() => {
     if (hash) {
       const target = document.getElementById(hash.slice(1));
       target?.scrollIntoView?.();
@@ -60,7 +67,7 @@ function Shell() {
       window.scrollTo?.(0, 0);
     }
     previousKey.current = key;
-  }, [pathname, hash, key, language]);
+  }, [pathname, hash, key]);
   return (
     <div className="site-shell">
       <a className="skip-link" href="#main">

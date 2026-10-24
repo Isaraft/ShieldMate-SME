@@ -1,0 +1,4 @@
+NAME                    IMAGE                 COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+shieldmate-backend-1    shieldmate-backend    "sh -c '.venv/bin/al…"   backend    58 seconds ago   Up 56 seconds (healthy)   127.0.0.1:8000->8000/tcp
+shieldmate-frontend-1   shieldmate-frontend   "/docker-entrypoint.…"   frontend   7 seconds ago    Up 5 seconds (healthy)    127.0.0.1:5173->8080/tcp
+shieldmate-worker-1     shieldmate-worker     "/app/.venv/bin/pyth…"   worker     57 seconds ago   Up 50 seconds             8000/tcp

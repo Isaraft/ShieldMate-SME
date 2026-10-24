@@ -33,7 +33,7 @@ describe('public site and preserved foundation routes', () => {
     ).toHaveAttribute('href', '/register');
     expect(fetch).toHaveBeenCalledWith('/api/v1/auth/me', expect.any(Object));
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
-    expect(screen.getByText('Planned Starter workflow')).toBeInTheDocument();
+    expect(screen.getByText('Starter workflow')).toBeInTheDocument();
   });
 
   it('supports navigation and moves focus to the new content', async () => {
@@ -57,10 +57,12 @@ describe('public site and preserved foundation routes', () => {
     ['/preview/findings', 'Findings'],
     ['/preview/tasks', 'Action plan'],
     ['/preview/reports', 'Reports'],
-  ])('labels %s as a future feature', (path, title) => {
+  ])('labels %s as a read-only preview', (path, title) => {
     renderRoute(path);
     expect(screen.getByRole('heading', { name: title })).toBeInTheDocument();
-    expect(screen.getByText('Coming in a later phase')).toBeInTheDocument();
+    expect(
+      screen.getByText('Sign in to use this feature in your workspace.'),
+    ).toBeInTheDocument();
     expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
   });
 

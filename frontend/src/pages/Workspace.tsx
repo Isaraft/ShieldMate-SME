@@ -35,9 +35,9 @@ export function WorkspaceLayout() {
                 <span className="nav-index" aria-hidden="true">
                   0{index + 1}
                 </span>
-                {route.title}
+                {tr(route.title)}
                 <span className="nav-planned">
-                  <T text={'Planned'} />
+                  <T text={'Design preview'} />
                 </span>
               </NavLink>
             ))}
@@ -50,7 +50,7 @@ export function WorkspaceLayout() {
             <p>
               <T text={'Built for clearer decisions. '} />
               <br />
-              <T text={'Product workflows come later.'} />
+              <T text={'Sign in to use your workspace.'} />
             </p>
           </div>
         </aside>
@@ -68,22 +68,22 @@ export function WorkspacePage({ route }: { route: WorkspaceRoute }) {
         <div>
           <p className="eyebrow">
             <T text={'Workspace / '} />
-            {route.title}
+            {tr(route.title)}
           </p>
-          <h1 id="page-title">{route.title}</h1>
+          <h1 id="page-title">{tr(route.title)}</h1>
         </div>
         <Button disabled aria-describedby="availability">
-          {route.action}
+          {tr(route.action)}
         </Button>
       </div>
       <div className="availability-row">
-        <Badge>{route.phase}</Badge>
+        <Badge>{tr(route.phase)}</Badge>
         <p id="availability">
-          <T text={'Coming in a later phase'} />
+          <T text={'Sign in to use this feature in your workspace.'} />
         </p>
       </div>
-      <EmptyState title={route.empty}>
-        <p>{route.description}</p>
+      <EmptyState title={tr(route.empty)}>
+        <p>{tr(route.description)}</p>
         <p>
           <T
             text={'No workspace data is collected or stored in this preview.'}
@@ -100,7 +100,9 @@ export function WorkspacePage({ route }: { route: WorkspaceRoute }) {
           ]}
           rows={[]}
           rowKey={(row) => row.id}
-          empty="No checks have run. An empty table is not evidence of a secure domain."
+          empty={tr(
+            'No checks have run. An empty table is not evidence of a secure domain.',
+          )}
         />
       ) : (
         <Alert title={tr('Permission comes first')}>

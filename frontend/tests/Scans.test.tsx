@@ -72,10 +72,10 @@ it('polls active scans, then stops on terminal completion', async () => {
   vi.stubGlobal('fetch', fetcher);
   show();
   await act(() => vi.advanceTimersByTimeAsync(0));
-  expect(screen.getByText('running')).toBeInTheDocument();
+  expect(screen.getByText('Running')).toBeInTheDocument();
   expect(screen.getAllByText(/Not checked/)).toHaveLength(3);
   await act(() => vi.advanceTimersByTimeAsync(2000));
-  expect(screen.getByText('completed')).toBeInTheDocument();
+  expect(screen.getByText('Completed')).toBeInTheDocument();
   await act(() => vi.advanceTimersByTimeAsync(10000));
   expect(fetcher).toHaveBeenCalledTimes(2);
 });

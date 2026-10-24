@@ -279,7 +279,7 @@ def test_history_limit_and_pdf_audit_are_bounded(workspace):
 
 def test_pdf_unicode_escaping_pages_and_demo_separation(auth_client, monkeypatch):
     c = auth_client
-    for locale in ["en", "ru"]:
+    for locale in ["en", "ru", "kk"]:
         snapshot = sample(locale)
         snapshot.organization_name = (
             'ТОО «ӘҒҚҢӨҰҮҺІ» <img src="https://evil.example"> \u202e' + "ДлинноеНазвание" * 25
@@ -290,10 +290,14 @@ def test_pdf_unicode_escaping_pages_and_demo_separation(auth_client, monkeypatch
         texts = [p.extract_text() for p in reader.pages]
         assert 3 <= len(texts) <= 80
         assert "https://evil.example" in "\n".join(texts)
-        assert all(("ДЕМО" if locale == "ru" else "DEMO") in text for text in texts)
+        assert all("DEMO" in text for text in texts)
         assert (
-            "Снимок состояния безопасности" if locale == "ru" else "Security Snapshot"
-        ) in texts[0]
+            {
+                "en": "External Security Configuration Assessment",
+                "ru": "Проверка внешних настроек безопасности",
+                "kk": "Сыртқы қауіпсіздік баптауларын бағалау",
+            }[locale]
+        ) in " ".join(texts[0].split())
         assert "ӘҒҚҢӨҰҮҺІ" in texts[0] and "\u202e" not in "\n".join(texts)
         assert len(data) <= pdf.MAX_BYTES
     # Public routes cannot touch real sessions, tenant records or sockets.
@@ -480,3 +484,19 @@ def test_report_controlled_error_messages_have_russian_entries():
             value = node.args[argument]
             if isinstance(value, ast.Constant) and isinstance(value.value, str):
                 assert " ".join(value.value.split()) in RU, (source.name, value.value)
+
+
+def test_kazakh_api_locale_and_template_metadata_preserve_download(workspace):
+    c, _, _ = workspace
+    prepared(workspace)
+    assert make(c, "kz").status_code == 422
+    record = make(c, "kk").json()
+    assert record["status"] == "ready" and record["locale"] == "kk"
+    with c.app.state.database.sessions() as db:
+        saved_report = db.get(SecurityReport, record["id"])
+        assert saved_report.snapshot["template_version"] == "assessment-2"
+        assert saved_report.snapshot["schema_version"] == "security-snapshot-1"
+    body = c.get(f"/api/v1/reports/{record['id']}/download").content
+    text = "\n".join(page.extract_text() for page in PdfReader(io.BytesIO(body)).pages)
+    assert "қауіпсіздік" in text and "assessment-2" in text
+    assert hashlib.sha256(body).hexdigest() == record["sha256"]

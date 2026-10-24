@@ -82,7 +82,7 @@ it('shows actual assessed scope and generates through a session-bound CSRF reque
   const fetcher = transport();
   vi.stubGlobal('fetch', fetcher);
   showReports();
-  await screen.findByText('ready', { exact: true });
+  await screen.findByText('Ready', { exact: true });
   await userEvent.click(
     screen.getByRole('button', { name: 'Generate PDF Snapshot' }),
   );
@@ -133,7 +133,7 @@ it('keeps incomplete/stale evidence visible with its actual scope', async () => 
     }),
   );
   showReports();
-  await screen.findByText('stale', { exact: true });
+  await screen.findByText('Stale', { exact: true });
   expect(
     screen.getByText(/3 historical findings excluded/),
   ).toBeInTheDocument();
@@ -236,15 +236,17 @@ it('switches report language without losing route or data', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'Русский' }));
   expect(document.documentElement.lang).toBe('ru');
   expect(
-    screen.getByRole('heading', { name: 'Снимки состояния безопасности' }),
+    screen.getByRole('heading', { name: 'Отчёты о безопасности' }),
   ).toBeInTheDocument();
   expect(
-    screen.getByRole('button', { name: 'Создать PDF-снимок' }),
+    screen.getByRole('button', { name: 'Создать PDF-отчёт' }),
   ).toBeEnabled();
   await userEvent.click(
-    screen.getByRole('button', { name: 'Создать PDF-снимок' }),
+    screen.getByRole('button', { name: 'Создать PDF-отчёт' }),
   );
-  await screen.findByText('PDF-снимок сохранён. Скачайте его из истории.');
+  await screen.findByText(
+    'PDF-отчёт сохранён. Скачайте его из списка отчётов.',
+  );
   expect(fetcher).toHaveBeenCalledWith(
     '/api/v1/reports',
     expect.objectContaining({ body: expect.stringContaining('"locale":"ru"') }),

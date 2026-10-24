@@ -1,0 +1,5 @@
+ Container shieldmate-phase071-qa-worker-1 Restarting
+ Container shieldmate-phase071-qa-backend-1 Restarting
+ Container shieldmate-phase071-qa-worker-1 Started
+ Container shieldmate-phase071-qa-backend-1 Started
+Restart retained session, history and 5 report checksums.

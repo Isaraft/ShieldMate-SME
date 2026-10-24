@@ -26,7 +26,7 @@ All customer routes require the existing authenticated owner and organization ch
 
 - `GET /api/v1/reports/overview`: current readiness and scoped snapshot.
 - `GET /api/v1/reports?offset=0&limit=10`: own metadata history, bounded pagination.
-- `POST /api/v1/reports`: strict `{locale: "en"|"ru", request_key: UUID}`; existing CSRF and Origin checks.
+- `POST /api/v1/reports`: strict `{locale: "en"|"ru"|"kk", request_key: UUID}`; existing CSRF and Origin checks.
 - `GET /api/v1/reports/{UUID}`: own metadata.
 - `GET /api/v1/reports/{UUID}/download`: own saved PDF, checked size/SHA-256, attachment, `private, no-store`, `nosniff`.
 
@@ -36,7 +36,7 @@ Limits: 20 enrolled domains, 120 findings, 120 tasks, 1,000 retained scan rows (
 
 ## PDF implementation
 
-ReportLab renders selectable text into A4 pages with burgundy rules, restrained red, wrapped paragraphs and page numbers. Embedded, licensed Liberation Sans regular/bold supports Cyrillic and Kazakhstan company-name characters; the license is in `app/reports/fonts/`. The UI retains its established typography. The renderer HTML-escapes text, removes bidi/control characters and never loads remote images/URLs, executes HTML, invokes a browser/subprocess or calls the scanner. Evidence values come through the existing allowlisting normalizer; raw DNS proof, cookies, session material and work notes never enter the PDF.
+ReportLab renders selectable text into A4 pages with burgundy rules, restrained red, wrapped paragraphs and page numbers. Embedded, licensed Plex-derived print regular/semibold supports Cyrillic and Kazakhstan company-name characters; the license is in `app/reports/fonts/`. Both UI and print retain the same Plex typography, with Anton reserved for Latin display text. The renderer HTML-escapes text, removes bidi/control characters and never loads remote images/URLs, executes HTML, invokes a browser/subprocess or calls the scanner. Evidence values come through the existing allowlisting normalizer; raw DNS proof, cookies, session material and work notes never enter the PDF.
 
 Contents: organization/report/version/timestamps, limitations, explicit denominators/coverage, lifecycle/severity and task counts, authoritative Top 3 with rationale, all scoped findings/evidence, remediation work and asset/check detail. Source IDs and app-relative references contain no tokens. These are readable references rather than externally hosted access links.
 
@@ -45,3 +45,13 @@ Contents: organization/report/version/timestamps, limitations, explicit denomina
 Run `docker compose up --build -d --wait`, open `http://localhost:5173`, register/sign in and create a workspace. Enroll only a domain you control, publish its exact current TXT challenge, verify it, run the bounded checks and wait for evaluation. Open `/app/reports`, review coverage, choose EN/RU, generate and download from history. Refresh/restart and download again: the checksum and bytes must match.
 
 A genuinely owned-domain assessment remains **NOT TESTED** until the owner provides a domain and authorization. `scripts/verify-phase-07.cjs` instead uses an isolated QA stack with injected TXT and persisted synthetic observations, visibly labeled in screenshots; it is not live security-assessment evidence.
+
+## Phase 07.1 print template
+
+Newly generated snapshots carry `template_version: assessment-2`; the evidence schema remains `security-snapshot-1`. This optional metadata field requires no schema migration. Existing database rows, immutable JSON and PDF BLOBs are never rewritten. Downloads continue returning the stored bytes. The old-template EN/RU artifacts were downloaded before and after the new images started, and after a database/container restart; SHA-256 comparisons are recorded under `evidence/phase-07-1/checks/`.
+
+The renderer uses an A4 frame with zero implicit padding and explicit 18mm side / 27mm top / 23mm bottom margins. Print styles separate narrative, labels, evidence and tables. Section headings stay with introductory content; tables repeat headings across page breaks. Executive coverage, authoritative Top 3, methodology, finding evidence, remediation work, definitions and the observation appendix form one reading sequence. Ordering and finding lifecycles remain Phase 05 service outputs. UTC is printed explicitly; no CVSS, certification or new security score is computed.
+
+Every DEMO page retains the DEMO marker; explicitly named LOCAL QA organizations receive a visible test-data header. Other reports carry confidentiality/authorized-scope context. Raw evidence values and identifiers wrap without truncation. User notes remain excluded. The bounded offline renderer still enforces 80 pages / 2MiB, strips unsafe controls and escapes markup. It cannot fetch remote resources. Font binaries stay inside the repository and application image, accompanied by OFL and source hashes. Print TTFs are reproducibly assembled from locked Plex subsets; the missing right arrow is rotated from Plex's own vertical-arrow outline and the derivative is internally renamed ShieldMate Plex Print.
+
+`verify-phase-071-pdfs.py` uses Poppler to rasterize all nine final API-generated fixtures and check text extraction, page bounds and context on every page. Visual contact-sheet/full-page review supplements those checks. This is not PDF/UA certification; screen reader reading order and non-Chromium viewers require manual follow-up.

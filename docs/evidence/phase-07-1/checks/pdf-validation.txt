@@ -1,0 +1,83 @@
+[
+  {
+    "file": "docs/evidence/phase-07-1/pdfs/complex-en.pdf",
+    "pages": 24,
+    "sha256": "e35d9d24882f7ce05c8cea1ace31d853ec90245e555397e989d89cc5ad206682",
+    "words": 6140,
+    "bounds": "PASS",
+    "context_each_page": "LOCAL QA",
+    "text_extractable": true
+  },
+  {
+    "file": "docs/evidence/phase-07-1/pdfs/complex-kk.pdf",
+    "pages": 27,
+    "sha256": "e8114c734d2eb924312a8c7bc6d8d39b5ee96e665b0b05889b06602a29543dd0",
+    "words": 6018,
+    "bounds": "PASS",
+    "context_each_page": "LOCAL QA",
+    "text_extractable": true
+  },
+  {
+    "file": "docs/evidence/phase-07-1/pdfs/complex-ru.pdf",
+    "pages": 27,
+    "sha256": "ca2a26132d1f589a555d54b8982852eb385660c7b47083bb9a2e75e3de39288a",
+    "words": 5780,
+    "bounds": "PASS",
+    "context_each_page": "LOCAL QA",
+    "text_extractable": true
+  },
+  {
+    "file": "docs/evidence/phase-07-1/pdfs/demo-en.pdf",
+    "pages": 6,
+    "sha256": "fc489436c1728958b0ff95855d4abb9f0ef282f0e9f7f20b5467c8ccd8f6c998",
+    "words": 1359,
+    "bounds": "PASS",
+    "context_each_page": "DEMO",
+    "text_extractable": true
+  },
+  {
+    "file": "docs/evidence/phase-07-1/pdfs/demo-kk.pdf",
+    "pages": 6,
+    "sha256": "164dd3c6bfec902703c93259d9b4e211602d576f57f645d3e23d7dc4a13fe635",
+    "words": 1325,
+    "bounds": "PASS",
+    "context_each_page": "DEMO",
+    "text_extractable": true
+  },
+  {
+    "file": "docs/evidence/phase-07-1/pdfs/demo-ru.pdf",
+    "pages": 6,
+    "sha256": "2c65ad7f542d9de83d1b97f10fa42570f71446754cc4f67ffdd1da73cc171dfa",
+    "words": 1305,
+    "bounds": "PASS",
+    "context_each_page": "DEMO",
+    "text_extractable": true
+  },
+  {
+    "file": "docs/evidence/phase-07-1/pdfs/partial-en.pdf",
+    "pages": 3,
+    "sha256": "81136f990d582a09c907ecc273c0a451892ffe40c05f20a9079a4b40e5d08f66",
+    "words": 594,
+    "bounds": "PASS",
+    "context_each_page": "LOCAL QA",
+    "text_extractable": true
+  },
+  {
+    "file": "docs/evidence/phase-07-1/pdfs/partial-kk.pdf",
+    "pages": 3,
+    "sha256": "7b1378e566c294136ad54135af81f6232ebe47e28fc4d1481e32258967bb5233",
+    "words": 619,
+    "bounds": "PASS",
+    "context_each_page": "LOCAL QA",
+    "text_extractable": true
+  },
+  {
+    "file": "docs/evidence/phase-07-1/pdfs/partial-ru.pdf",
+    "pages": 3,
+    "sha256": "85eb31dba78ebb412b48e5173208b1e3ac17c9be167b63d46e723e9fd7ca9825",
+    "words": 631,
+    "bounds": "PASS",
+    "context_each_page": "LOCAL QA",
+    "text_extractable": true
+  }
+]

@@ -164,7 +164,7 @@ it('shows stale and not-rechecked annotations separately from resolution', async
   expect(
     screen.getByText('Not rechecked', { selector: 'span' }),
   ).toBeInTheDocument();
-  expect(screen.getByText('open · high')).toBeInTheDocument();
+  expect(screen.getByText('Open · High')).toBeInTheDocument();
 });
 it('polls pending evaluation and stops after terminal assessment', async () => {
   vi.useFakeTimers();

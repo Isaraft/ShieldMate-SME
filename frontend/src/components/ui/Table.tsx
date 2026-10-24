@@ -41,7 +41,7 @@ export function Table<T>({
           ) : (
             <tr>
               <td className="table-empty" colSpan={columns.length}>
-                {empty ?? 'No records available.'}
+                {empty ?? tr('No records available.')}
               </td>
             </tr>
           )}

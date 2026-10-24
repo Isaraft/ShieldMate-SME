@@ -141,7 +141,7 @@ function ScanRecords() {
                   <div>
                     <h2>{row.hostname}</h2>
                     <p>{scanDate(row.created_at)}</p>
-                    <Badge>{row.status}</Badge>
+                    <Badge>{tr(row.status)}</Badge>
                     <p>
                       {row.completed_checks}
                       <T text={' of '} />
@@ -244,7 +244,7 @@ function ScanRecords() {
                 {observations.map((row) => (
                   <article className="observation" key={row.check_id}>
                     <p className="eyebrow">{row.check_id}</p>
-                    <h3>{row.summary}</h3>
+                    <h3>{tr(row.summary)}</h3>
                     <Badge
                       tone={
                         row.outcome === 'pass'
@@ -256,7 +256,7 @@ function ScanRecords() {
                     >
                       {tr(labels[row.outcome])}
                     </Badge>
-                    <p>{row.explanation}</p>
+                    <p>{tr(row.explanation)}</p>
                     <details>
                       <summary>
                         <T text={'Technical evidence'} />

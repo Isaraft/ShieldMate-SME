@@ -1,4 +1,4 @@
-import { T, tr } from '../i18n';
+import { T, tr, format } from '../i18n';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useWorkspaceResource } from '../hooks/useWorkspaceResource';
 import type { TaskPage } from '../workflowApi';
@@ -102,7 +102,7 @@ function TaskRecords() {
                   <T text={'All priorities'} />
                 </option>
                 {['high', 'medium', 'low', 'info'].map((s) => (
-                  <option key={tr(s)} value={tr(s)}>
+                  <option key={s} value={s}>
                     {tr(s)}
                   </option>
                 ))}
@@ -149,10 +149,10 @@ function TaskRecords() {
             </Link>
           </form>
           <p role="status">
-            {data.total}
-            <T text={' saved '} />
-            <T text={data.total === 1 ? 'task' : 'tasks'} />
-            <T text={' in this selection.'} />
+            {format(
+              data.total === 1 ? 'task.selection.one' : 'task.selection.many',
+              { count: data.total },
+            )}
           </p>
           {data.items.length ? (
             <TaskRows tasks={data.items} />

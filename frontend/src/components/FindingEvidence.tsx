@@ -39,7 +39,7 @@ export function EvidenceList({ evidence }: { evidence: Evidence[] }) {
           <h3>{item.check_id}</h3>
           <p>
             {item.source} · {scanDate(item.observed_at)}
-            <T text={' · Collection outcome:'} /> {item.outcome}
+            <T text={' · Collection outcome:'} /> {tr(item.outcome)}
           </p>
           <dl>
             {Object.entries(item.values).map(([key, value]) => (

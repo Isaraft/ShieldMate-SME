@@ -50,7 +50,7 @@ function DetailRecord({ findingId }: { findingId: string }) {
       <Link to="/app/findings">
         <T text={'Back to findings'} />
       </Link>
-      <h1>{finding?.title ?? 'Finding evidence'}</h1>
+      <h1>{tr(finding?.title ?? 'Finding evidence')}</h1>
       {!finding && !error && (
         <LoadingState label={tr('Loading finding evidence…')} />
       )}

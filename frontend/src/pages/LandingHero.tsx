@@ -15,11 +15,16 @@ export function LandingHero() {
       <div className="hero-main">
         <div className="hero-message">
           <h1 id="hero-title">
-            <T text={'Know what '} />
-            <br />
-            <T text={'to fix '} />
-            <span>
-              <T text={'first.'} />
+            <span className="hero-line">
+              <T text="landing.hero.lead" />
+            </span>{' '}
+            <span className="hero-line hero-action">
+              <span>
+                <T text="landing.hero.action" />
+              </span>{' '}
+              <strong className="hero-accent">
+                <T text="landing.hero.accent" />
+              </strong>
             </span>
           </h1>
           <div className="hero-copy">
