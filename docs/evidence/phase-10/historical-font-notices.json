@@ -1,0 +1,22 @@
+[
+  {
+    "object": "402b02ea8b8508c3f06a65cfed0d5bdf80c977a5",
+    "path": "backend/app/reports/fonts/IBMPlexSans-Regular.ttf",
+    "adjacent_history_ofl_notices": true
+  },
+  {
+    "object": "d450ce55017c870396ce89811af75958c9935213",
+    "path": "backend/app/reports/fonts/IBMPlexSans-SemiBold.ttf",
+    "adjacent_history_ofl_notices": true
+  },
+  {
+    "object": "c6f2ce3a63eddc184f72a4e1ca2eff9562d77689",
+    "path": "backend/app/reports/fonts/LiberationSans-Bold.ttf",
+    "adjacent_history_ofl_notices": true
+  },
+  {
+    "object": "adb89475fd7766ace28a4b224b94b55f3d7ff9c2",
+    "path": "backend/app/reports/fonts/LiberationSans-Regular.ttf",
+    "adjacent_history_ofl_notices": true
+  }
+]

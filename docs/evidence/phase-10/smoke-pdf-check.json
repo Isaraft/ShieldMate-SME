@@ -1,0 +1,26 @@
+[
+  {
+    "locale": "en",
+    "pages": 6,
+    "every_page_demo": true,
+    "extractable_text": true,
+    "sha256": "ed014063f76020e75b84a3f82a7fc4de5ac629a72250fcd463a18e0a3b78021a",
+    "classification": "SYNTHETIC DEMO / ENGINEERING CHECK"
+  },
+  {
+    "locale": "ru",
+    "pages": 6,
+    "every_page_demo": true,
+    "extractable_text": true,
+    "sha256": "cafcadf7a68cb1d9550f0e0a7104347992d2854b95624e62cd8f7c6613646b12",
+    "classification": "SYNTHETIC DEMO / ENGINEERING CHECK"
+  },
+  {
+    "locale": "kk",
+    "pages": 6,
+    "every_page_demo": true,
+    "extractable_text": true,
+    "sha256": "78086b7ed05856168e6aa2c7f242df41d5164f1114c8678fa3ead04836b3fd09",
+    "classification": "SYNTHETIC DEMO / ENGINEERING CHECK"
+  }
+]

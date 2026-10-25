@@ -1,0 +1,1 @@
+Localization: 976 keys × 3 locales; 576 UI references; no missing keys or placeholder mismatches.

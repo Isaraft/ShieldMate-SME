@@ -1,0 +1,12 @@
+{
+  "commits": 17,
+  "objects": 2107,
+  "unique_blobs": 1814,
+  "blob_bytes": 151378643,
+  "binary_objects": {
+    "png": 1051,
+    "pdf": 37,
+    "jpeg": 29,
+    "other_binary": 4
+  }
+}

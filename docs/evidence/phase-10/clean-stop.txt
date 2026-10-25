@@ -1,0 +1,3 @@
+shieldmate-phase10-clean-worker-1
+shieldmate-phase10-clean-frontend-1
+shieldmate-phase10-clean-backend-1

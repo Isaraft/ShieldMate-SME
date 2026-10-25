@@ -1,0 +1,172 @@
+[
+  {
+    "document": "README.md",
+    "target": "docs/phase-10-release-readiness.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/evidence/phase-09/screenshots/captions.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/evidence/phase-09/screenshots/01-landing-en.png",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/evidence/phase-09/screenshots/06-demo-kk.png",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/architecture.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/scanner.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/risk-methodology.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/local-release-runbook.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": ".github/workflows/ci.yml",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/testing.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/phase-10-results.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/phase-09-results.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/scanner.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "SECURITY.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/phase-08-risk-register.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/testing/README.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/testing/assignment-05-mapping.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "THIRD_PARTY_NOTICES.md",
+    "exists": true
+  },
+  {
+    "document": "README.md",
+    "target": "docs/phase-10-publication-audit.md",
+    "exists": true
+  },
+  {
+    "document": "SECURITY.md",
+    "target": "docs/scanner.md",
+    "exists": true
+  },
+  {
+    "document": "SECURITY.md",
+    "target": "docs/phase-08-risk-register.md",
+    "exists": true
+  },
+  {
+    "document": "SECURITY.md",
+    "target": "docs/local-release-runbook.md",
+    "exists": true
+  },
+  {
+    "document": "SECURITY.md",
+    "target": "docs/phase-10-publication-audit.md",
+    "exists": true
+  },
+  {
+    "document": "CHANGELOG.md",
+    "target": "docs/phase-10-release-readiness.md",
+    "exists": true
+  },
+  {
+    "document": "docs/phase-10-results.md",
+    "target": "phase-10-publication-audit.md",
+    "exists": true
+  },
+  {
+    "document": "docs/phase-10-results.md",
+    "target": "evidence/phase-10/history-audit-packaging-candidate.json",
+    "exists": true
+  },
+  {
+    "document": "docs/phase-10-results.md",
+    "target": "phase-10-release-readiness.md",
+    "exists": true
+  },
+  {
+    "document": "docs/phase-10-results.md",
+    "target": "local-release-runbook.md",
+    "exists": true
+  },
+  {
+    "document": "docs/phase-10-release-readiness.md",
+    "target": "phase-10-results.md",
+    "exists": true
+  },
+  {
+    "document": "docs/phase-10-release-readiness.md",
+    "target": "phase-10-publication-audit.md",
+    "exists": true
+  },
+  {
+    "document": "docs/phase-10-release-readiness.md",
+    "target": "../THIRD_PARTY_NOTICES.md",
+    "exists": true
+  },
+  {
+    "document": "docs/phase-10-publication-audit.md",
+    "target": "phase-10-results.md",
+    "exists": true
+  },
+  {
+    "document": "docs/phase-10-publication-audit.md",
+    "target": "../scripts/publication/audit.py",
+    "exists": true
+  },
+  {
+    "document": "docs/phase-10-publication-audit.md",
+    "target": "../THIRD_PARTY_NOTICES.md",
+    "exists": true
+  }
+]

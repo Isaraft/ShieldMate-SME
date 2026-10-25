@@ -1,0 +1,26 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from frontend-context-probe.Dockerfile
+#1 transferring dockerfile: 128B done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 522B done
+#2 DONE 0.0s
+
+#3 [internal] load build context
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/1] COPY frontend/.env.phase10-probe /must-not-enter-image
+#4 ERROR: failed to calculate checksum of ref kgpetg8xnmqel8rgvosaglmdn::wr8lmppkq0icojxh936bob6cn: "/frontend/.env.phase10-probe": not found
+------
+ > [1/1] COPY frontend/.env.phase10-probe /must-not-enter-image:
+------
+frontend-context-probe.Dockerfile:2
+--------------------
+   1 |     FROM scratch
+   2 | >>> COPY frontend/.env.phase10-probe /must-not-enter-image
+   3 |
+--------------------
+ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref kgpetg8xnmqel8rgvosaglmdn::wr8lmppkq0icojxh936bob6cn: "/frontend/.env.phase10-probe": not found

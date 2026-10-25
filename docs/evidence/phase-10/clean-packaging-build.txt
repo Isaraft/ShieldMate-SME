@@ -1,0 +1,157 @@
+ Image shieldmate-frontend Building
+ Image shieldmate-backend Building
+ Image shieldmate-worker Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.91kB done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 447B done
+#2 DONE 0.0s
+
+#3 [worker internal] load build definition from Dockerfile
+#3 transferring dockerfile: 1.09kB done
+#3 DONE 0.0s
+
+#4 [backend internal] load metadata for docker.io/library/python:3.13-slim-bookworm
+#4 DONE 0.0s
+
+#5 [backend internal] load .dockerignore
+#5 transferring context: 462B done
+#5 DONE 0.0s
+
+#6 [worker  1/10] FROM docker.io/library/python:3.13-slim-bookworm@sha256:e32be0e55814a08977501ca863271d9bd02443710db8f2afaf8372e2c4508530
+#6 resolve docker.io/library/python:3.13-slim-bookworm@sha256:e32be0e55814a08977501ca863271d9bd02443710db8f2afaf8372e2c4508530 0.0s done
+#6 DONE 0.0s
+
+#7 [worker internal] load build context
+#7 transferring context: 965.49kB 0.0s done
+#7 DONE 0.0s
+
+#8 [worker  9/10] COPY deploy/entrypoint.sh /app/entrypoint.sh
+#8 CACHED
+
+#9 [worker  4/10] COPY pyproject.toml uv.lock ./
+#9 CACHED
+
+#10 [worker  7/10] COPY migrations ./migrations
+#10 CACHED
+
+#11 [worker  8/10] COPY alembic.ini ./
+#11 CACHED
+
+#12 [worker  3/10] RUN pip install --no-cache-dir uv==0.13.5
+#12 CACHED
+
+#13 [worker  5/10] RUN uv export --frozen --no-dev --output-file /tmp/requirements.txt     && python -m venv .venv     && .venv/bin/pip install --no-cache-dir --require-hashes -r /tmp/requirements.txt     && rm /tmp/requirements.txt
+#13 CACHED
+
+#14 [worker  6/10] COPY app ./app
+#14 CACHED
+
+#15 [worker  2/10] WORKDIR /app
+#15 CACHED
+
+#16 [worker 10/10] RUN groupadd --gid 10001 shieldmate     && useradd --uid 10001 --gid shieldmate --no-create-home shieldmate     && mkdir /app/storage /app/backups     && chown shieldmate:shieldmate /app/storage /app/backups     && chmod 700 /app/storage /app/backups     && chmod 555 /app/entrypoint.sh
+#16 CACHED
+
+#17 [backend] exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:7b07832103584cdf4d8846ecdbffbd3223661aa5247a41af56f2f75904a5182b done
+#17 exporting config sha256:78e96cb7f6c76a2c37de94eb795418aa03c65cfa50487ef1fb265656e2cc0c8e done
+#17 exporting attestation manifest sha256:bf31ff492dc99b7090fdafa8c86bc81832f1466c9469c665a3007f8716aaaccb done
+#17 exporting manifest list sha256:53b3af7d75a84b4c855b31f4a20cfd97b60aaabf99c08ecdf26ccdb25c4e7d35 done
+#17 naming to docker.io/library/shieldmate-backend:latest done
+#17 unpacking to docker.io/library/shieldmate-backend:latest done
+#17 DONE 0.0s
+
+#18 [worker] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:8fe3b78c95df3d29fe4eb791d89668e862046a68a57faba087fccd73050e1099 done
+#18 exporting config sha256:e1979f139b95da7e9899e83b6724765282d8b92834439aa87cbe1bac4ca98151 done
+#18 exporting attestation manifest sha256:dd6c034e6519c8b843e2ba35a0f814ca243ee067e1a1815e51a1986a32823b3a done
+#18 exporting manifest list sha256:b3437fe1e8c375c3cfbc79923c1bca0d4c19951bfbb7f21d9a117f9c4f82db30 done
+#18 naming to docker.io/library/shieldmate-worker:latest done
+#18 unpacking to docker.io/library/shieldmate-worker:latest done
+#18 DONE 0.0s
+
+#19 [worker] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [backend] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [frontend internal] load metadata for docker.io/library/node:24-bookworm-slim
+#21 DONE 1.4s
+
+#22 [frontend internal] load metadata for docker.io/nginxinc/nginx-unprivileged:1.28-alpine
+#22 DONE 1.4s
+
+#23 [frontend internal] load .dockerignore
+#23 transferring context: 522B done
+#23 DONE 0.0s
+
+#24 [frontend build 1/7] FROM docker.io/library/node:24-bookworm-slim@sha256:55fb5f5a527ea2c5c4a95f963e48ef90aa38c7b346054fdc8ee9957a2b55d205
+#24 resolve docker.io/library/node:24-bookworm-slim@sha256:55fb5f5a527ea2c5c4a95f963e48ef90aa38c7b346054fdc8ee9957a2b55d205 0.0s done
+#24 DONE 0.0s
+
+#25 [frontend stage-1 1/3] FROM docker.io/nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8
+#25 resolve docker.io/nginxinc/nginx-unprivileged:1.28-alpine@sha256:7377697a821c131a924a7105fafbe7414db4e9fcc77a6f08f776f33f141ec3f8 0.0s done
+#25 DONE 0.0s
+
+#26 [frontend internal] load build context
+#26 transferring context: 4.78kB done
+#26 DONE 0.0s
+
+#27 [frontend build 3/7] COPY frontend/package.json frontend/package-lock.json ./
+#27 CACHED
+
+#28 [frontend stage-1 2/3] COPY frontend/nginx.conf /etc/nginx/conf.d/default.conf
+#28 CACHED
+
+#29 [frontend build 5/7] COPY frontend/ ./
+#29 CACHED
+
+#30 [frontend build 6/7] COPY backend/app/locales /app/backend/app/locales
+#30 CACHED
+
+#31 [frontend build 4/7] RUN npm ci --no-fund
+#31 CACHED
+
+#32 [frontend build 2/7] WORKDIR /app/frontend
+#32 CACHED
+
+#33 [frontend build 7/7] RUN npm run build
+#33 CACHED
+
+#34 [frontend stage-1 3/3] COPY --from=build /app/frontend/dist /usr/share/nginx/html
+#34 CACHED
+
+#35 [frontend] exporting to image
+#35 exporting layers done
+#35 exporting manifest sha256:bc9c28fd9f7b7d1e3ba6d0fc83df6c35f47f2896703ad9786943f31459e5b5be done
+#35 exporting config sha256:7613ce3c35e7c5008e908a0c1a4c7c6abea691af3562e62df86b3659d777166b done
+#35 exporting attestation manifest sha256:b84e6aa09c9e552a2d672788dd87e7fe3248c19f34b6ddd43109793ba912f13f done
+#35 exporting manifest list sha256:5f7003edd6efaf4100caf1d3bb236f0fde307e28c35691fc93e95aa61a210d04 done
+#35 naming to docker.io/library/shieldmate-frontend:latest done
+#35 unpacking to docker.io/library/shieldmate-frontend:latest done
+#35 DONE 0.0s
+
+#36 [frontend] resolving provenance for metadata file
+#36 DONE 0.0s
+ Image shieldmate-worker Built
+ Image shieldmate-backend Built
+ Image shieldmate-frontend Built
+ Container shieldmate-phase10-clean-backend-1 Running
+ Container shieldmate-phase10-clean-worker-1 Running
+ Container shieldmate-phase10-clean-frontend-1 Running
+ Container shieldmate-phase10-clean-backend-1 Waiting
+ Container shieldmate-phase10-clean-backend-1 Waiting
+ Container shieldmate-phase10-clean-backend-1 Healthy
+ Container shieldmate-phase10-clean-backend-1 Healthy
+ Container shieldmate-phase10-clean-frontend-1 Waiting
+ Container shieldmate-phase10-clean-backend-1 Waiting
+ Container shieldmate-phase10-clean-worker-1 Waiting
+ Container shieldmate-phase10-clean-frontend-1 Healthy
+ Container shieldmate-phase10-clean-backend-1 Healthy
+ Container shieldmate-phase10-clean-worker-1 Healthy

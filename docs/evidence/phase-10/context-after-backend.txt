@@ -1,0 +1,30 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from backend-context-probe.Dockerfile
+#1 transferring dockerfile: 122B done
+#1 WARN: CopyIgnoredFile: Attempting to Copy file "app/.env.phase10-probe" that is excluded by .dockerignore (line 2)
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 462B done
+#2 DONE 0.0s
+
+#3 [internal] load build context
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/1] COPY app/.env.phase10-probe /must-not-enter-image
+#4 ERROR: failed to calculate checksum of ref kgpetg8xnmqel8rgvosaglmdn::pdbs17pylsir1x9t3su1c69ct: "/app/.env.phase10-probe": not found
+------
+ > [1/1] COPY app/.env.phase10-probe /must-not-enter-image:
+------
+
+ 1 warning found (use docker --debug to expand):
+ - CopyIgnoredFile: Attempting to Copy file "app/.env.phase10-probe" that is excluded by .dockerignore (line 2)
+backend-context-probe.Dockerfile:2
+--------------------
+   1 |     FROM scratch
+   2 | >>> COPY app/.env.phase10-probe /must-not-enter-image
+   3 |
+--------------------
+ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref kgpetg8xnmqel8rgvosaglmdn::pdbs17pylsir1x9t3su1c69ct: "/app/.env.phase10-probe": not found

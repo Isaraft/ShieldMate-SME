@@ -1,0 +1,19 @@
+[
+  {
+    "file": "IBMPlexSans-Regular.ttf",
+    "sha256_matches": true,
+    "internal_names": [
+      "ShieldMate Plex Print",
+      "ShieldMate Plex Print Regular",
+      "ShieldMatePlexPrint-Regular"
+    ]
+  },
+  {
+    "file": "IBMPlexSans-SemiBold.ttf",
+    "sha256_matches": true,
+    "internal_names": [
+      "ShieldMate Plex Print SemiBold",
+      "ShieldMatePlexPrint-SemiBold"
+    ]
+  }
+]

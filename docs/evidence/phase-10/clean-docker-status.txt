@@ -1,0 +1,4 @@
+NAME                                  IMAGE                 COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+shieldmate-phase10-clean-backend-1    shieldmate-backend    "/app/entrypoint.sh …"   backend    12 seconds ago   Up 11 seconds (healthy)   8000/tcp
+shieldmate-phase10-clean-frontend-1   shieldmate-frontend   "/docker-entrypoint.…"   frontend   11 seconds ago   Up 5 seconds (healthy)    127.0.0.1:16273->8080/tcp
+shieldmate-phase10-clean-worker-1     shieldmate-worker     "/app/entrypoint.sh …"   worker     11 seconds ago   Up 5 seconds              8000/tcp

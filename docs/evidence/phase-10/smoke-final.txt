@@ -1,0 +1,1 @@
+PASS: 12 localized responsive axe views, 3 demo PDFs, private redirect and unauthenticated denial

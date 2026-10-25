@@ -1,0 +1,86 @@
+[
+  {
+    "path": ".env",
+    "ignored": true
+  },
+  {
+    "path": ".env.local",
+    "ignored": true
+  },
+  {
+    "path": "backend/storage/app.db",
+    "ignored": true
+  },
+  {
+    "path": "backup.sqlite-wal",
+    "ignored": true
+  },
+  {
+    "path": "backup.sqlite-shm",
+    "ignored": true
+  },
+  {
+    "path": "research-private/consent.csv",
+    "ignored": true
+  },
+  {
+    "path": "publication-private/audit.json",
+    "ignored": true
+  },
+  {
+    "path": "reports-private/report.pdf",
+    "ignored": true
+  },
+  {
+    "path": "backups/account.sqlite",
+    "ignored": true
+  },
+  {
+    "path": "qa-private/storage-state.json",
+    "ignored": true
+  },
+  {
+    "path": "frontend/node_modules/cache",
+    "ignored": true
+  },
+  {
+    "path": "frontend/dist/index.html",
+    "ignored": true
+  },
+  {
+    "path": "frontend/coverage/report.html",
+    "ignored": true
+  },
+  {
+    "path": "trace.har",
+    "ignored": true
+  },
+  {
+    "path": ".env.example",
+    "ignored": false
+  },
+  {
+    "path": ".env.local.example",
+    "ignored": false
+  },
+  {
+    "path": "backend/app/main.py",
+    "ignored": false
+  },
+  {
+    "path": "frontend/src/App.tsx",
+    "ignored": false
+  },
+  {
+    "path": "docs/testing/beta-results-template.csv",
+    "ignored": false
+  },
+  {
+    "path": "private-client.p12",
+    "ignored": true
+  },
+  {
+    "path": "private-client.pfx",
+    "ignored": true
+  }
+]

@@ -1,0 +1,552 @@
+[
+  {
+    "object": "01bc513ec2917ed9a610308bfc4fc3c91639d735",
+    "first_commit": "a3713ddbcd9976e2f7a9d0130842a0b50cc24739",
+    "paths": [
+      "backend/tests/test_config_and_database.py"
+    ],
+    "categories": [
+      "credential_url",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "0a9ff9e166971b03f1bee10258307470ce9ad2a8",
+    "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+    "paths": [
+      "frontend/tests/Assets.test.tsx"
+    ],
+    "categories": [
+      "dns_challenge_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "0ed255ead1c741ac79c98b11a07f716b02c79173",
+    "first_commit": "8f295fa769414b106c63e7847d3d1d8ffadcf9ab",
+    "paths": [
+      "backend/tests/test_config_and_database.py"
+    ],
+    "categories": [
+      "credential_url",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "11a0daa96fe3f195203ddc3332ae91e13eb0d23d",
+    "first_commit": "8f295fa769414b106c63e7847d3d1d8ffadcf9ab",
+    "paths": [
+      "frontend/src/pages/Account.tsx"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "136cc7e0cfa11847d0aa6fca5f8564ed426dc7a8",
+    "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+    "paths": [
+      "frontend/tests/ReportsDemo.test.tsx"
+    ],
+    "categories": [
+      "credential_literal",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "1431b1262731f8181c565fc1514cb48e3157788c",
+    "first_commit": "a3713ddbcd9976e2f7a9d0130842a0b50cc24739",
+    "paths": [
+      "frontend/tests/Workflow.test.tsx"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "19fad030aeaa02f8d3e15ec2f8873b28932d3340",
+    "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+    "paths": [
+      "scripts/verify-phase-071-interactions.cjs"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "21396660511eb6a6a76745c4ea4ee1545ad0c1b9",
+    "first_commit": "a40e4be6a0ee1ebca530d1ef6c35e6a134f334a1",
+    "paths": [
+      "backend/tests/test_scans.py"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "24cc6cc788d3e29c7f8ade8a5c213ebdc4c8770a",
+    "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+    "paths": [
+      "scripts/verify-phase-08.cjs"
+    ],
+    "categories": [
+      "email_candidate",
+      "home_or_temp_path"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "31d59262b43fba08a3f93f156bde42640b824495",
+    "first_commit": "8f295fa769414b106c63e7847d3d1d8ffadcf9ab",
+    "paths": [
+      "backend/tests/test_reports.py"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "392970af9caf88142415b36c1b60afc533ab5982",
+    "first_commit": "a40e4be6a0ee1ebca530d1ef6c35e6a134f334a1",
+    "paths": [
+      "backend/tests/test_domains.py"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "471529490376c836c209845773bc95ccc2496d17",
+    "first_commit": "398c544130f80b2bde15820a64f8e8839427406d",
+    "paths": [
+      "backend/tests/test_config_and_database.py"
+    ],
+    "categories": [
+      "credential_url",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "4ed5d3950248d485b1607035cf4bbd1957fad7d6",
+    "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+    "paths": [
+      "scripts/verify-phase08-interactions.cjs"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "58f99c4c30ed2c42ee48dcd2e55da6022fca8fdb",
+    "first_commit": "580c4cbc3714f5df46c62803c060366043d06396",
+    "paths": [
+      "scripts/tests/test_publication_audit.py"
+    ],
+    "categories": [
+      "credential_url",
+      "email_candidate",
+      "home_or_temp_path",
+      "private_key"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "5a7bb5d79f8fe4a9cf07e695ebc4dc944456110d",
+    "first_commit": "804075596e05a968643d125ed47f3a8df7ff838a",
+    "paths": [
+      "scripts/verify-phase08-interactions.cjs"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "5e79159601b8f7e7ede9f31601dec6565f2bf20e",
+    "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+    "paths": [
+      "backend/tests/test_reports.py"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "5fa4f2e51c87da3561075a7d9e386a87ab02dae8",
+    "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+    "paths": [
+      "backend/app/locales/ru.json"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "612131bb0cc42b758d81fd11f4252c2b99c89531",
+    "first_commit": "a3713ddbcd9976e2f7a9d0130842a0b50cc24739",
+    "paths": [
+      "frontend/tests/Account.test.tsx"
+    ],
+    "categories": [
+      "credential_literal",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "74d3cc1e1d03f828838564a6dfc873fc4bc406eb",
+    "first_commit": "3b9cc26904efb7f9f2b027028816d7b3cabfa6b4",
+    "paths": [
+      "scripts/tests/test_publication_audit.py"
+    ],
+    "categories": [
+      "credential_literal",
+      "credential_url",
+      "email_candidate",
+      "home_or_temp_path",
+      "private_key"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "79183fbc147c9e7c1ee28aeff5e46a54cca0946a",
+    "first_commit": "a40e4be6a0ee1ebca530d1ef6c35e6a134f334a1",
+    "paths": [
+      "frontend/tests/Assets.test.tsx"
+    ],
+    "categories": [
+      "dns_challenge_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "7c6c4c031b3195d128dba2c75b049f50ffe6fa5b",
+    "first_commit": "a40e4be6a0ee1ebca530d1ef6c35e6a134f334a1",
+    "paths": [
+      "backend/tests/test_config_and_database.py"
+    ],
+    "categories": [
+      "credential_url",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "8531588878b20a1b4b828679dd684bed999f16c7",
+    "first_commit": "b1b9b36eed6ffc9cdf17a0a3a3ae9a1661cb34cc",
+    "paths": [
+      "frontend/src/pages/Account.tsx"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "947627d3101fadfa22fc80b6cfc3695d69e8c1ec",
+    "first_commit": "f7f33b29c7e6ad81c27a3078b28db42a485e9be1",
+    "paths": [
+      "backend/tests/test_domains.py"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "94fa1288ab075fe764c3f91d6b69cb03cb2aeec1",
+    "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+    "paths": [
+      "frontend/tests/LocalizationPolish.test.tsx"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "9643f8b15de14b4d887e5e1a5fbff82641d14b47",
+    "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+    "paths": [
+      "backend/app/locales/kk.json"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "96b945a949c7483d47141e437d0394382eb596dc",
+    "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+    "paths": [
+      "backend/app/locales/en.json"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "9a01716414e9ceff90e905cb34503f08731b4c8b",
+    "first_commit": "b1b9b36eed6ffc9cdf17a0a3a3ae9a1661cb34cc",
+    "paths": [
+      "backend/tests/test_auth.py"
+    ],
+    "categories": [
+      "credential_literal",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "a2293b2f90f841f9b9e3d9e4e3c5fe44e077ec30",
+    "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+    "paths": [
+      "frontend/tests/Workflow.test.tsx"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "a28ce412fff66675d744b1b1684f46ce6ab8827c",
+    "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+    "paths": [
+      "frontend/src/pages/Account.tsx"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "a658abb414a04b298be33a87f8fb708f3f3f6aa1",
+    "first_commit": "8f295fa769414b106c63e7847d3d1d8ffadcf9ab",
+    "paths": [
+      "backend/app/locales/ru.json"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "ae5479ac00dc8480f33aeb39489300a4498ed685",
+    "first_commit": "8f295fa769414b106c63e7847d3d1d8ffadcf9ab",
+    "paths": [
+      "frontend/tests/ReportsDemo.test.tsx"
+    ],
+    "categories": [
+      "credential_literal",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "af12bc62ca50bc7d709bc70809b4f8ced1846347",
+    "first_commit": "b1b9b36eed6ffc9cdf17a0a3a3ae9a1661cb34cc",
+    "paths": [
+      "frontend/tests/Account.test.tsx"
+    ],
+    "categories": [
+      "credential_literal",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "af934f4ea6bece4a97d8e85415d98319a1e46597",
+    "first_commit": "f7f33b29c7e6ad81c27a3078b28db42a485e9be1",
+    "paths": [
+      "frontend/tests/Assets.test.tsx"
+    ],
+    "categories": [
+      "dns_challenge_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "b53be23a43798407681dfe7e108d0fce3f92dfeb",
+    "first_commit": "f7f33b29c7e6ad81c27a3078b28db42a485e9be1",
+    "paths": [
+      "backend/tests/test_config_and_database.py"
+    ],
+    "categories": [
+      "credential_url",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "bb3869da0adf14a20c5f5bb5145e538bce7b7370",
+    "first_commit": "804075596e05a968643d125ed47f3a8df7ff838a",
+    "paths": [
+      "scripts/verify-phase-08.cjs"
+    ],
+    "categories": [
+      "email_candidate",
+      "home_or_temp_path"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "bbd5ab2ac573439517e456c1b9a88afab72ae2c5",
+    "first_commit": "398c544130f80b2bde15820a64f8e8839427406d",
+    "paths": [
+      "backend/tests/test_findings.py"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "c5d4edbf820c49b25c1a89188cadc2bfea6c4c81",
+    "first_commit": "b1b9b36eed6ffc9cdf17a0a3a3ae9a1661cb34cc",
+    "paths": [
+      "backend/tests/test_config_and_database.py"
+    ],
+    "categories": [
+      "credential_url",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "ca8016d5986667d7f682042d23187961b291beea",
+    "first_commit": "a3713ddbcd9976e2f7a9d0130842a0b50cc24739",
+    "paths": [
+      "frontend/src/pages/Account.tsx"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "cd89f5f118136ef255dca39daca8667be456735b",
+    "first_commit": "a3713ddbcd9976e2f7a9d0130842a0b50cc24739",
+    "paths": [
+      "backend/tests/test_tasks.py"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "d3b67365a40a629fdb4e78ba8b49dcf4c807c792",
+    "first_commit": "a40e4be6a0ee1ebca530d1ef6c35e6a134f334a1",
+    "paths": [
+      "backend/tests/test_scan_network.py"
+    ],
+    "categories": [
+      "credential_url",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "dbf8ae0119bdf3df5d4855c9ec512fa9b3457a6e",
+    "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+    "paths": [
+      "backend/app/locales/en.json"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "dc20d46a8da5fe01abc868ae33b01f83e9b50a7e",
+    "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+    "paths": [
+      "backend/app/locales/ru.json"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "e038bf3b97e33f06495dd4719a94661e006055ae",
+    "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+    "paths": [
+      "backend/app/locales/kk.json"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "e07b06ae91ca34dd1d00df329a98c71db3b680b0",
+    "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+    "paths": [
+      "frontend/src/pages/Account.tsx"
+    ],
+    "categories": [
+      "credential_literal"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "e36e55225b1ae7c25dc2ad79d51f33a90ad5c732",
+    "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+    "paths": [
+      "backend/tests/test_tasks.py"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "e9d22ea394c046c68f0efa0c37c071d1be6686aa",
+    "first_commit": "45c7036cd83fdcf64593c2c1b380425fb36a014b",
+    "paths": [
+      "backend/tests/test_config_and_database.py"
+    ],
+    "categories": [
+      "credential_url",
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "f012c103b380b26cb8994059d76815dda6e40681",
+    "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+    "paths": [
+      "frontend/tests/SessionBoundary.test.tsx"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  },
+  {
+    "object": "f250738d13193046d25ef726b68b7d807bd0382b",
+    "first_commit": "3b9cc26904efb7f9f2b027028816d7b3cabfa6b4",
+    "paths": [
+      "frontend/public/licenses/third-party-runtime.txt"
+    ],
+    "categories": [
+      "email_candidate"
+    ],
+    "classification": "INTERNAL FIXTURE OR UI LABEL; manual source review, no external credential confirmed"
+  }
+]

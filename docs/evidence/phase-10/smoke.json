@@ -1,0 +1,83 @@
+{
+  "classification": "AUTOMATED ENGINEERING ONLY",
+  "origin": "http://127.0.0.1:16273",
+  "cases": [
+    {
+      "locale": "en",
+      "width": 360,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "en",
+      "width": 1920,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "ru",
+      "width": 360,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "ru",
+      "width": 768,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "ru",
+      "width": 1280,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "ru",
+      "width": 1920,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "kk",
+      "width": 360,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "kk",
+      "width": 768,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "kk",
+      "width": 1280,
+      "overflow": false,
+      "axe_violations": 0
+    },
+    {
+      "locale": "kk",
+      "width": 1920,
+      "overflow": false,
+      "axe_violations": 0
+    }
+  ],
+  "page_errors": [],
+  "axe_violations": [],
+  "private_redirect": true,
+  "foreign_private_no_session": 401,
+  "demo_pdfs": 3
+}

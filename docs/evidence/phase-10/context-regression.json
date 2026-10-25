@@ -1,0 +1,16 @@
+[
+  {
+    "context": ".",
+    "before": "harmless .env marker included (reproduced)",
+    "after": "marker excluded; expected build denial",
+    "after_exit": 1,
+    "secret_values_used": false
+  },
+  {
+    "context": "backend",
+    "before": "harmless .env marker included (reproduced)",
+    "after": "marker excluded; expected build denial",
+    "after_exit": 1,
+    "secret_values_used": false
+  }
+]

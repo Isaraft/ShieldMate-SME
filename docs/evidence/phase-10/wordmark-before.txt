@@ -1,0 +1,65 @@
+npm notice run shieldmate-frontend@0.0.0 test
+npm notice run vitest run --run tests/Wordmark.test.tsx
+
+ RUN  v4.1.12 <checkout>/frontend
+
+ ❯ tests/Wordmark.test.tsx (3 tests | 3 failed) 143ms
+   × includes the visible brand words in the accessible name in en 122ms
+   × includes the visible brand words in the accessible name in ru 13ms
+   × includes the visible brand words in the accessible name in kk 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/Wordmark.test.tsx > includes the visible brand words in the accessible name in en
+AssertionError: expected 'shieldmate sme home' to contain 'shieldmatesme'
+
+Expected: "shieldmatesme"
+Received: "shieldmate sme home"
+
+ ❯ tests/Wordmark.test.tsx:23:60
+     21|     const visibleText = visible.textContent?.replace(/\s+/g, ' ').trim…
+     22|     expect(visibleText).toBeTruthy();
+     23|     expect(link.getAttribute('aria-label')?.toLowerCase()).toContain(v…
+       |                                                            ^
+     24|   },
+     25| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/Wordmark.test.tsx > includes the visible brand words in the accessible name in ru
+AssertionError: expected 'shieldmate sme — главная' to contain 'shieldmatesme'
+
+Expected: "shieldmatesme"
+Received: "shieldmate sme — главная"
+
+ ❯ tests/Wordmark.test.tsx:23:60
+     21|     const visibleText = visible.textContent?.replace(/\s+/g, ' ').trim…
+     22|     expect(visibleText).toBeTruthy();
+     23|     expect(link.getAttribute('aria-label')?.toLowerCase()).toContain(v…
+       |                                                            ^
+     24|   },
+     25| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/Wordmark.test.tsx > includes the visible brand words in the accessible name in kk
+AssertionError: expected 'shieldmate sme басты беті' to contain 'shieldmatesme'
+
+Expected: "shieldmatesme"
+Received: "shieldmate sme басты беті"
+
+ ❯ tests/Wordmark.test.tsx:23:60
+     21|     const visibleText = visible.textContent?.replace(/\s+/g, ' ').trim…
+     22|     expect(visibleText).toBeTruthy();
+     23|     expect(link.getAttribute('aria-label')?.toLowerCase()).toContain(v…
+       |                                                            ^
+     24|   },
+     25| );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed (3)
+   Start at  18:30:08
+   Duration  787ms (transform 110ms, setup 89ms, import 123ms, tests 143ms, environment 324ms)

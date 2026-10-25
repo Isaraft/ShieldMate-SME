@@ -1,0 +1,86 @@
+[
+  {
+    "object": "7f1cc6382b39b4341d06cddbfaa50bab2d31c480",
+    "path": "docs/evidence/phase-02/settings-1280.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "f3906ea13cf285afc9a8e56d8d854fb0b561a996",
+    "path": "docs/evidence/phase-05/detail-1920.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "4b23df3f6579986d6729228331b3fc7c37bbae56",
+    "path": "docs/evidence/phase-05/empty-768.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "6764cd98ff192c02d67a244b77d2876981b301ce",
+    "path": "docs/evidence/phase-06/dashboard-1280.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "02d0a77852210840f97adf6b7b6032f1f8aad8f4",
+    "path": "docs/evidence/phase-06/done-unverified-1280.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "c4ee020675a2bd7de7631b1e5525b24a980cff45",
+    "path": "docs/evidence/phase-06/findings-regression/detail-1280.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "953fccd67154770ad3b76118ea829b95d9a16632",
+    "path": "docs/evidence/phase-07-1/after/empty-assets-ru-1280.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "18294f36ace6a84f9c9ec6d4fee4837a802463c1",
+    "path": "docs/evidence/phase-07-1/after/onboarding-ru-1280.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "3eb38ee8504eaff881721559a49afb188df01d95",
+    "path": "docs/evidence/phase-07/regression-02/settings-1280.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "82691266b346f73ced3da4cbac6553a60a45d791",
+    "path": "docs/evidence/phase-07/regression-05/detail-1920.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "0dfe51b1a6e3c43bbaa319894b97fe2c4f6de443",
+    "path": "docs/evidence/phase-07/regression-06/dashboard-1280.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  },
+  {
+    "object": "4e3386f9b370891150d4f519fed8fea9c0e97fc6",
+    "path": "docs/evidence/phase-07/regression-06/done-unverified-1280.png",
+    "candidate_count": 1,
+    "all_domains_reserved": true,
+    "values": "WITHHELD"
+  }
+]

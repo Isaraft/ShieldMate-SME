@@ -1,0 +1,24 @@
+{
+  "method": "Current documentation/evidence text: replace checkout root and personal home prefix only; original reachable history untouched",
+  "files": [
+    "docs/evidence/phase-01/frontend-checks.txt",
+    "docs/evidence/phase-07-1/checks/backend-tests.txt",
+    "docs/evidence/phase-07-1/checks/frontend-tests.json",
+    "docs/evidence/phase-07-1/checks/frontend-tests.txt",
+    "docs/evidence/phase-07-1/checks/locale-regression.txt",
+    "docs/evidence/phase-08/checks/backend-tests.txt",
+    "docs/evidence/phase-08/checks/baseline/backend-tests.txt",
+    "docs/evidence/phase-08/checks/baseline/frontend-tests.json",
+    "docs/evidence/phase-08/checks/frontend-tests.json",
+    "docs/evidence/phase-09/checks/backend-tests.txt",
+    "docs/evidence/phase-09/checks/baseline/backend-tests.txt",
+    "docs/evidence/phase-09/checks/baseline/frontend-tests.json",
+    "docs/evidence/phase-09/checks/baseline/frontend-tests.txt",
+    "docs/evidence/phase-09/checks/frontend-tests.json",
+    "docs/evidence/phase-09/checks/frontend-tests.txt",
+    "docs/phase-01-results.md",
+    "docs/phase-02-results.md",
+    "docs/phase-04-results.md",
+    "docs/testing/assignment-05-mapping.md"
+  ]
+}
