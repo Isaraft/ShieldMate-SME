@@ -1,64 +1,68 @@
-# ShieldMate SME Starter — Phase 09 validation readiness
+# ShieldMate SME
 
-**Phase 02: real accounts and one company workspace per owner.** Register, sign in,
-create/rename your organization, reload with a persistent cookie session and sign out.
-Domain enrollment and DNS TXT ownership proof are implemented. Authorized, bounded DNS/TLS/HTTP configuration checks now run through a durable worker.
-Evidence-backed findings, contextual priorities and finding history are now available. A connected dashboard and persistent remediation tasks are available. Immutable server-generated Security Snapshot PDFs, persistent report history, an isolated Sample Demo and English/Russian/Kazakh localization are now available. Payments remain out of scope.
+ShieldMate helps small teams turn a limited set of external security observations into understandable priorities and practical remediation work. It is a Kazakhstan-focused university **Starter MVP**, with an English, Russian and Kazakh interface and PDF reports.
 
-The Phase 01 burgundy/red landing and public design preview are preserved at `/preview`;
-`/app` is private and `/app/settings` edits your actual company. See
-[Phase 02 implementation and security details](docs/phase-02-results.md).
+**Status:** locally verified MVP; proposed release `v0.1.0-mvp` is not tagged or published. There is no hosted instance, verified commercial adoption or completed human beta study. Phase 09 engineering gates passed; human research gates H13–H18 remain pending. [Publication readiness](docs/phase-10-release-readiness.md) records unresolved rights/privacy approvals.
 
-## Report and sample journeys
+## What works
 
-Open `/app/reports` after sign-in. Reports require currently authorized domains with usable persisted observations and completed evaluation; ownership alone is not an assessment. Review coverage/exclusions, choose EN, RU or KK, generate a snapshot, then download the immutable saved artifact from history. Source findings/tasks can change later without changing that PDF. Human work completion never proves technical resolution. Raw work notes are omitted from exports.
+- Cookie-based authentication, persistent sessions and one isolated organization per owner.
+- Domain authorization and expiring server-side DNS TXT ownership verification.
+- A persistent scan queue and bounded DNS, TLS, HTTPS-header and HTTP-redirect observations for currently verified, explicitly authorized public hostnames.
+- Deterministic evidence-backed findings, explainable Top 3 priorities, confirmed resolution and reopening.
+- Connected dashboard and persistent remediation tasks with owner labels, notes and activity history. **Completing a task does not resolve a technical finding.**
+- Immutable server-generated PDF snapshots and private report history.
+- An isolated, read-only **Sample Demo**, including PDFs marked DEMO. It never scans or accesses customer records.
 
-Open [Sample Demo](http://127.0.0.1:5173/demo) for a **fictional, read-only** reserved-domain scenario and PDFs marked DEMO on every page. It accesses no customer records or scanners. `/preview` remains the design preview. The global English / Русский / Қазақша selector preserves route/form values and stores only language preference.
+ShieldMate performs limited external configuration checks. It does not guarantee security, enumerate CVEs or replace a SOC, SIEM, EDR or penetration test. Payments, phishing campaigns, integrations, automatic remediation, password recovery, email verification and MFA are not implemented.
 
-See [reports](docs/reports.md), [synthetic demo](docs/demo.md), [localization](docs/localization.md) and [Phase 07 verification](docs/phase-07-results.md). The outstanding real owned-domain E2E requires a domain owner's authorization; isolated QA fixtures are not live assessment evidence. Phase 08 hardening and a localhost-only release profile are implemented. Phase 09 engineering validation tooling is prepared; real human alpha/beta evidence remains pending.
+## Interface
 
-For the compiled same-origin release candidate, run `docker compose -f compose.local.yaml up --build -d --wait` and open <http://127.0.0.1:8080>. See [local release / backup recovery](docs/local-release-runbook.md), [defense walkthrough](docs/defense-demo-runbook.md), [Phase 08 results](docs/phase-08-results.md) and [risk register](docs/phase-08-risk-register.md). No public deployment is configured or authorized.
+The original burgundy/red design uses condensed display typography and a quieter evidence-focused workspace. These are actual prototype captures with **synthetic LOCAL QA / DEMO data**, not real customers or live assessment results. [Capture provenance and captions](docs/evidence/phase-09/screenshots/captions.md).
 
-## Alpha/beta and Assignment 5 readiness
+![English landing page](docs/evidence/phase-09/screenshots/01-landing-en.png)
+![Kazakh read-only synthetic demo](docs/evidence/phase-09/screenshots/06-demo-kk.png)
 
-The [Phase 09 evidence kit](docs/testing/README.md) provides EN/RU/KK consent/task/survey sheets, blank CSVs and an offline validator. [Alpha plan](docs/testing/alpha-plan.md), [beta protocol](docs/testing/beta-protocol.md), [Assignment 5 mapping](docs/testing/assignment-05-mapping.md) and [defense checklist](docs/testing/defense-checklist.md) separate engineering QA from real participants. **No human alpha/beta sessions or hypothesis result are claimed.** The numeric80%/120-second target and five-person plan require team adoption before testing. See [actual Phase 09 results](docs/phase-09-results.md) for engineering gates and pending human work. Keep real evidence in ignored `research-private/`; do not commit it.
+## Architecture
 
-## Run with Docker
-
-Requirements: Docker Engine and Docker Compose v2 or newer, working registry access, free
-loopback ports 5173 and 8000. From this project directory:
-
-```sh
-docker compose config --quiet
-docker compose up --build --wait
-docker compose ps
-curl --fail http://127.0.0.1:8000/api/v1/health
+```mermaid
+flowchart LR
+    Browser[React / TypeScript browser] --> Nginx[Local Nginx: 127.0.0.1:8080]
+    Nginx --> API[FastAPI / SQLAlchemy API]
+    API --> DB[(Private SQLite volume)]
+    Worker[Single bounded scanner worker] --> DB
+    Worker --> Target[Authorized public DNS / TCP 80 and 443]
+    API --> PDF[Local ReportLab renderer]
+    PDF --> DB
 ```
 
-Open <http://127.0.0.1:5173>. Expected health body: `{"status":"ok"}`. Compose runs migrations
-before starting the backend and waits for its health before starting the frontend and worker.
-All containers run as non-root and have read-only roots. A standard bridge network supports
-the loopback port mappings. Application probes are pinned to vetted public IPs; no network-level
-egress firewall is supplied for this local setup. The named
-`database` volume stores SQLite at `/app/storage/shieldmate.db`.
-Compose supplies fixed local settings; it does not import `.env` into containers.
+Frontend: React 19, TypeScript, Vite, Tailwind CSS, React Router, Vitest and Testing Library. Backend: Python 3.13–3.14, FastAPI, Pydantic, SQLAlchemy, Alembic, Argon2id, dnspython, tldextract and ReportLab. SQLite stores accounts, proof state, scans, observations, findings, tasks and PDF bytes. A separate single worker consumes the database queue. There is no Redis, Celery, cloud service or LLM runtime. [Current architecture](docs/architecture.md), [scanner boundaries](docs/scanner.md), [risk methodology](docs/risk-methodology.md).
+
+## Start locally with Docker
+
+Prerequisites: Docker Engine, Compose v2 with `--wait` support, package/registry connectivity for the first build, and free loopback port 8080. From a clean checkout:
 
 ```sh
-docker compose logs backend frontend worker
-docker compose down
+docker compose -f compose.local.yaml config --quiet
+docker compose -f compose.local.yaml up --build -d --wait
+curl --fail http://127.0.0.1:8080/api/v1/health/ready
 ```
 
-`down` preserves the database volume. Do not add `--volumes` unless you intend to erase it.
-This is a local HTTP setup, not an approved production deployment.
+Open **<http://127.0.0.1:8080>** on the same computer. Expected readiness: `{"status":"ready"}`. Compose supplies explicit local settings; no account, secret `.env`, API key or seed database is required. Migrations run automatically before API startup. A fresh named database volume starts empty; register your own credentials in the UI. Only Nginx is host-published, on loopback. HTTPS production settings remain separate; this HTTP profile is unsuitable for public exposure.
 
-## Run without Docker
+For review without domain access, open **<http://127.0.0.1:8080/demo>**. Its reserved-domain scenario is synthetic and read-only; refresh resets the presentation. Language preference persists locally. To exercise the real workflow, register → create organization → add an exact authorized domain → acknowledge permission → publish the displayed DNS TXT challenge → verify → run bounded checks → inspect findings → manage tasks → generate a report. Never scan a third party without explicit permission. DNS proof alone does not grant permission to test every underlying server.
 
-Requirements: Node 24 LTS recommended (22.12+ supported), Python 3.13 or 3.14, and
-[uv](https://docs.astral.sh/uv/getting-started/installation/). Tested lock tooling is uv 0.13.5.
-Install uv separately if needed: `python3 -m pip install --user uv==0.13.5` in an environment
-that allows user installs, or use the official installer. Do not use system-wide sudo pip.
+```sh
+docker compose -f compose.local.yaml ps
+docker compose -f compose.local.yaml logs --tail=100 backend worker frontend
+docker compose -f compose.local.yaml down
+```
 
-From the project root, copy local settings only if `.env` does not already exist:
+`down` preserves data. **Do not add `-v` or delete volumes containing valuable data.** The `shieldmate-rc_database` and `shieldmate-rc_backups` volumes are separate from the development profile. See the [local release runbook](docs/local-release-runbook.md) for alternative ports, verified online backup, no-overwrite restore into a new volume, failure recovery and privacy precautions. Backup files contain sensitive data; never commit them.
+
+## Manual development
+
+Use Node 24 (supported frontend range: 22.12–26), Python 3.13 or 3.14 and uv 0.13.5. Safe settings are documented in `.env.example`; copy it only if `.env` does not already exist. From the root:
 
 ```sh
 cp -n .env.example .env
@@ -68,18 +72,7 @@ uv run alembic upgrade head
 uv run uvicorn app.main:app --host 127.0.0.1 --port 8000 --no-access-log --no-server-header
 ```
 
-In a second terminal, starting at the project root:
-
-```sh
-cd frontend
-npm ci
-npm run dev
-```
-
-Open <http://127.0.0.1:5173>. Vite proxies `/api` to port 8000, so no browser CORS
-allowlist is needed. Stop each process with Ctrl+C. Local SQLite is in `backend/storage/`
-and is ignored by Git. No secrets, credentials or cloud accounts are required for this preview.
-On `/app`, if the API is stopped, the UI reports unavailable and provides a connection retry.
+In separate terminals, run `cd backend && uv run python -m app.scanner.worker` and `cd frontend && npm ci && npm run dev`. Open <http://127.0.0.1:5173>; Vite proxies API requests to loopback 8000. Manual data lives in ignored `backend/storage/`. The static `preview` command alone does not provide the API.
 
 ## Verify
 
@@ -87,7 +80,7 @@ From `backend/`:
 
 ```sh
 uv sync --locked
-uv run pytest
+uv run pytest -q
 uv run ruff check .
 uv run ruff format --check .
 uv run mypy app
@@ -109,143 +102,27 @@ npm run build
 npm audit
 ```
 
-From the project root: `docker compose config --quiet`. See
-[testing](docs/testing.md) for scope and manual checks, and
-[Phase 01 results](docs/phase-01-results.md) for current outcomes and limitations.
-[Phase 00 results](docs/phase-00-results.md) remain as historical evidence.
-The `preview` script serves static build output only; use the dev server or Compose for
-the same-origin backend connection.
-
-## Layout and next steps
-
-- `frontend/src/`: layout, routing, planned pages, connection state and centralized tokens.
-- `frontend/tests/`: render, routing and connection-state smoke tests.
-- `backend/app/`: versioned health/auth/organization routes, validated settings, models and safe errors.
-- `backend/migrations/`: foundation plus user, organization and session schema.
-- `backend/tests/`: API contract, safe errors/configuration and migration tests.
-- `docs/`: architecture, review evidence, test guidance and original design references.
-- `AGENTS.md`, `SHIELDMATE_MVP_SPEC.md`, `PHASES.md`, `PROMPTS/PHASE_00.md`: supplied rules.
-
-Read [architecture and decisions](docs/architecture.md) before extending the app.
-See [the design system](docs/design-system.md) for tokens, component patterns and SEO
-limits. `/` is the public landing page, `/app` the private workspace, and `/preview/ui-kit`
-the public interactive component reference. `/preview` holds the public design shell.
-
-Phase 07 has NOT started. Do not implement it without explicit owner approval.
-
-## Domain ownership (Phase 03)
-
-Open `/app/assets`. Enter a domain only, such as `shop.example.com`, with no URL, whitespace,
-port or path. ASCII and valid Punycode are supported; direct Unicode input is rejected.
-A public registrable domain is required; public suffixes and internal/special names are rejected.
-Acknowledge that you control it or have written authorization. Enrollment makes no DNS request.
-
-Create the displayed separate TXT record at your own DNS provider, then choose Verify ownership.
-Check whether your provider appends the zone to avoid duplicating the hostname. Do not modify
-SPF/DMARC. DNS propagation has no guaranteed time; missing records stay pending and resolver
-failures remain inconclusive. Challenges expire after 48 hours; a successful proof is fresh for
-30 days. Generate new challenge revokes previous proof and requires replacing the TXT value.
-TXT values are public domain-control proofs, never login credentials. DNS control alone does
-not authorize tests against every underlying server. Only the exact eligible hostname can be checked.
-
-Default quota is five domains. `.env.example` documents limits and lifetimes. Restarting
-`docker compose restart backend` preserves domains/challenges; `docker compose down` preserves
-the database volume. See [Phase 03 results](docs/phase-03-results.md) for commands, state rules,
-manual DNS setup, security tests and the explicit absence of live DNS-provider E2E evidence.
-
-## Authorized security checks (Phase 04)
-
-In a third terminal for manual development, from `backend/`, run:
+From the root:
 
 ```sh
-uv run python -m app.scanner.worker
+backend/.venv/bin/pytest scripts/tests -q
+backend/.venv/bin/mypy --strict scripts/research scripts/research_evidence.py scripts/publication
+node --test --test-reporter=tap scripts/tests/qa-runtime.test.cjs
+python -S scripts/research_evidence.py scenario
 ```
 
-Compose starts this worker automatically. After enrolling an **actually authorized, team-controlled**
-domain, publish and verify the real TXT proof. Choose **Run security checks** in Assets.
-The scan record polls while queued/running and stops on completion, partial completion, failure
-or interruption. Open **Scan history** for persisted records. Status is execution status,
-not a whole-site safety verdict. Findings now interpret these saved observations offline; no security score is calculated.
+The [CI workflow](.github/workflows/ci.yml) runs portable synthetic-fixture checks with read-only permissions and pinned actions. A hosted GitHub run has not occurred. [Testing guide](docs/testing.md), [Phase 10 results and exact commands](docs/phase-10-results.md), [prior regression evidence](docs/phase-09-results.md).
 
-Defaults: 6 scans/user/hour, 6/org/hour, 2/domain/hour; one active scan/domain;
-20 queued/running jobs globally; one worker slot, sequential checks; 45s network budget,
-3s individual I/O timeout, 90s worker lease and 15m queue expiry. `.env.example` applies
-to manual execution; edit matching service environment values to change Compose settings.
-History retains up to 100 runs/org, evicting an oldest terminal run older than one hour
-when a new run needs space. Deleted assets revoke execution; their minimal scan snapshots
-remain under that bounded organization retention policy, inaccessible through deleted-asset routes.
+## Security, evidence and maturity
 
-DNS A/AAAA, MX, SPF and basic DMARC context; trusted TLS hostname/certificate validity;
-root HTTPS status/security-header observations; optional HTTP80 redirect observation are checked.
-Every application connection re-resolves all A/AAAA answers, rejects mixed/nonpublic answers,
-and connects to one pinned public numeric IP with the correct Host/SNI/trust validation.
-No redirects, proxies, crawling, response bodies, cookie collection, arbitrary ports or paths.
-CNAME-only, truncated/ambiguous DNS, unsupported names, TLS failures and timeouts are inconclusive.
-The configured OS recursive DNS resolver is the trusted DNS infrastructure boundary.
+Only exact, currently verified public hostnames are eligible. The scanner revalidates authorization, rejects nonpublic/mixed DNS answers, pins vetted numeric destinations, preserves Host/SNI and certificate validation, rejects peer changes, never follows redirects and does not collect response bodies. Bounds and exclusions are documented in [scanner design](docs/scanner.md). Failed/inconclusive observations never prove safety or automatically resolve findings.
 
-See [Phase 04 implementation, threat model and actual evidence](docs/phase-04-results.md)
-and [the scanner design](docs/scanner.md). No real owned-domain live scan has been exercised
-in the supplied environment; browser screenshots use an isolated, visibly labeled QA fixture stack.
-Never run the `scripts/qa/` harness as the application or present it as live security evidence.
+Tenant isolation, session/CSRF checks, report access and network safety have automated adversarial tests. These are engineering evidence, not independent security certification. SQLite, one worker, process-local abuse budgets, no deployment-level egress firewall and mutable base-image tags remain limitations. Real owned-domain DNS-provider/external TLS end-to-end verification, independent native RU/KK review, non-Chromium/assistive-device review and human research remain outstanding. No public deployment is configured. See [SECURITY.md](SECURITY.md) and the [risk register](docs/phase-08-risk-register.md).
 
-## Evidence-backed findings (Phase 05)
+The [EN/RU/KK research kit](docs/testing/README.md) includes alpha/beta protocols, consent/task sheets, blank templates and an offline analysis CLI. The proposed 80%/120-second usability criterion and five-person plan require team adoption before testing. No human result is claimed. Keep actual consent, responses, notes and media in ignored private storage; checksums cannot authenticate participants or consent.
 
-Open `/app/findings` after an authorized scan. The existing worker evaluates retained
-terminal scans offline and persists six versioned rule decisions. The list includes a
-Limited External Configuration Assessment, a server-ranked Top 3 of actual open findings,
-filters, pagination and a Business/Technical presentation toggle. Each detail shows impact,
-action, sanitized evidence, source time, severity reasoning and lifecycle history. Scan
-history links directly to its related findings.
+## Team and rights
 
-Only comparable conclusive evidence resolves a finding. Failed, missing or inapplicable
-checks preserve the previous state with a Not rechecked label; fresh evidence can reopen
-the same finding. Old evidence is labeled stale (default seven days). No fabricated CVEs,
-security score, task completion or whole-company security verdict is provided.
+The supplied university materials identify **Muratbay Bekzat, Aisagaliev Islam and Taubayeva Aina**. Roles and publication permissions require team confirmation; commit authorship alone does not establish sole ownership. Coding/documentation assistance by Codex is disclosed in the [Assignment 5 mapping](docs/testing/assignment-05-mapping.md); actual human contributions remain to be confirmed.
 
-The worker automatically backfills existing eligible Phase 04 scans. For an explicit,
-organization-scoped local maintenance pass (from `backend/`):
-
-```sh
-uv run python -m app.findings.backfill --organization-id YOUR_ORGANIZATION_UUID
-```
-
-For Compose, run from the project root:
-
-```sh
-docker compose exec -T backend .venv/bin/python -m app.findings.backfill --organization-id YOUR_ORGANIZATION_UUID
-```
-
-Repeating the command returns zero new evaluations.
-It makes no network requests and never accepts user-supplied findings. Start the normal
-scanner worker even if only backfilling; API reads do not evaluate scans.
-
-Revision `9752376ee8f2` adds findings/evaluations/events after the Phase 04 migration.
-Source scan retention remains bounded; sanitized finding snapshots survive source pruning.
-History retains at most 50 events per finding, visibly disclosing compaction. Removing an
-asset deletes its derived findings/history, as disclosed by the confirmation dialog.
-See [risk methodology](docs/risk-methodology.md), [Phase 05 results](docs/phase-05-results.md)
-and [architecture](docs/architecture.md) for rule caveats, API contracts and actual checks.
-
-## Dashboard and action workflow (Phase 06)
-
-Open `/app` for your organization overview: current ownership scope, saved findings and
-Phase 05 Top 3, human task workload, coverage, recent scans and real work activity. Counts
-come from scoped persisted records; no global security score is calculated. Create a task
-from a supported open finding, then use `/app/tasks` to filter work or edit its owner label,
-note and status. Work history records actual changes and survives reload/restart.
-
-**Done by a person is not technical resolution.** An open finding remains open until a
-later authorized, conclusive check resolves that exact condition. Stale/incomplete evidence
-and recurrence are labeled. Recheck links lead to existing asset controls; fresh DNS proof,
-authorization, quotas and network safety still apply. No automatic scans or remediation occur.
-
-Additive migration `e53b215e4b66` follows Phase 05. Compose applies it on startup; manual
-execution remains `cd backend && uv run alembic upgrade head`. No seeding or new credentials
-are required. Existing local data remains in the same volume. Never use the isolated QA
-harness as the ordinary app or present its screenshots as live assessments.
-
-See [remediation workflow/API/retention](docs/remediation-workflow.md) and
-[Phase 06 verification and screenshots](docs/phase-06-results.md). Phase 07 reports/demo
-remain unimplemented and require explicit approval.
-
-Phase 07.1 adds responsive multilingual layout fixes and the `assessment-2` print template. See `docs/phase-07-1-results.md` for exact verification, before/after screenshots and LOCAL QA / DEMO PDFs. Existing saved reports retain their original bytes. Phase 08 has not started.
+**License: not yet selected; all rights reserved unless otherwise specified.** No permission to redistribute project contributions or supplied reference slides is inferred. Fonts and third-party software retain their own licenses; see [third-party notices](THIRD_PARTY_NOTICES.md). Private-first GitHub upload still requires explicit approval and resolution of the [publication blockers](docs/phase-10-publication-audit.md). No remote URL, hosted demo, release or badge is claimed.

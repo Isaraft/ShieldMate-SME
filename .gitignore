@@ -29,3 +29,14 @@ playwright-report/
 
 # Human alpha/beta consent, notes, answers, media and analysis (never commit).
 /research-private/
+
+# Local publication/research audits and transient release artifacts.
+/publication-private/
+/work/
+/artifacts/
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.bak
+*.dump
+*.har
