@@ -15,7 +15,7 @@ export function Wordmark() {
       <span className="brand-mark" aria-hidden="true">
         ↗
       </span>
-      <T text={'SHIELDMATE'} />
+      <T text={'SHIELDMATE'} />{' '}
       <span className="wordmark-suffix">
         <T text={'SME'} />
       </span>
