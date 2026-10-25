@@ -1,0 +1,23 @@
+{
+  "baseline": "ce2f8df6c897633e6de877d15534b0498aa54267",
+  "bundle_verified": true,
+  "restored_clone_head_matches": true,
+  "reachable_object_set_matches": true,
+  "restored_clone_fsck": true,
+  "files": {
+    "original-gitdir.tar.gz": {
+      "sha256": "f5ee16c6aea127a6acfbbd948a8e990149eef6e4011a8df926f8d9489a1f45c7",
+      "bytes": 142669854
+    },
+    "bundle-verify-private.txt": {
+      "sha256": "8165237863b6253367a39b54281a6d11154a43c7926f4c9dd1486ff42d1d37e8",
+      "bytes": 278
+    },
+    "original-ce2f8df.bundle": {
+      "sha256": "2a59ff217100ae39f17a339ccfabe40cde15118052a76c6706b712be83d6c264",
+      "bytes": 133375770
+    }
+  },
+  "limits": "Private unencrypted backup, same host; full .git snapshot plus all reachable Git objects. Does not back up live Docker volumes, ignored worktree files or dependencies. Original worktree remains intact.",
+  "git_directory_archive_files_byte_verified": 2227
+}

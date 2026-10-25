@@ -1,3 +1,5 @@
+> Publication-copy note: the five original reference images are retained only in the private original repository/backups and excluded from this history. Use `docs/design-system.md` and the existing UI for visual guidance. Historical reference-file mentions below describe the original supplied materials. See `docs/publication/sanitization-results.md`.
+
 # ShieldMate SME — Phased Implementation Roadmap
 
 Source of truth: `SHIELDMATE_MVP_SPEC.md` for product behavior and safety, `AGENTS.md` for engineering/design rules, the three `docs/design-references/` screenshots for visual *style only*. This roadmap controls the order of execution.

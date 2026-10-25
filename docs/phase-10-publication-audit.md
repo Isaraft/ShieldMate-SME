@@ -1,3 +1,5 @@
+> Historical Phase 10 assessment from the original private lineage. Its email/path/reference-image blockers have since been addressed in this isolated copy; team/IP/upload approval remains pending. See [current sanitization status](publication/sanitization-results.md). Old commit IDs refer to the preserved private original.
+
 # Phase 10 publication audit — upload blocked pending decisions
 
 Baseline: clean `main` at `8040755`, 13 reachable commits, only `refs/heads/main`, no tags/remote refs/remotes. No upload, remote creation, tag/release, history rewrite, author rewrite, ref deletion or credential rotation was performed. See [results](phase-10-results.md) for final local commits and reproducible checks.

@@ -1,0 +1,18 @@
+{
+  "original_head": "ce2f8df6c897633e6de877d15534b0498aa54267",
+  "sanitized_head": "cffeb58b1a7f224df878f0856c74e74504c04e93",
+  "milestones_preserved": 18,
+  "messages_dates_parent_order_preserved": true,
+  "all_author_committer_noreply": true,
+  "reachable_objects_scanned": 2136,
+  "excluded_image_objects_reachable": 0,
+  "original_commit_objects_reachable": 0,
+  "old_personal_email_and_home_prefix_occurrences": 0,
+  "all_5_paths_absent_in_every_commit": true,
+  "all_other_HEAD_files_byte_identical": true,
+  "git_fsck_full_strict": "PASS",
+  "refs": [
+    "refs/heads/main"
+  ],
+  "remotes": []
+}

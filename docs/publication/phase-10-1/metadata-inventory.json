@@ -1,0 +1,321 @@
+{
+  "baseline": "ce2f8df6c897633e6de877d15534b0498aa54267",
+  "commits": 18,
+  "author_email_identities": 1,
+  "identity_roles": [
+    {
+      "identity": "IDENTITY_01",
+      "role": "author",
+      "commit_count": 18
+    },
+    {
+      "identity": "IDENTITY_01",
+      "role": "committer",
+      "commit_count": 18
+    }
+  ],
+  "commit_messages_with_email_or_home_candidates": [],
+  "ref_names": [
+    "refs/heads/main"
+  ],
+  "remote_count": 0,
+  "historical_home_path_blobs": 20,
+  "historical_home_path_files": 19,
+  "home_path_locations": [
+    {
+      "object": "26030a53420b20830ee2fed56e840c533b71ae49",
+      "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+      "paths": [
+        "docs/evidence/phase-07-1/checks/locale-regression.txt"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "2db5f28d6b0124a92740331e11c8cd6acd509022",
+      "first_commit": "a2fca5dd31c90e23d0b52b6e7789d32d2aa3e5e0",
+      "paths": [
+        "docs/evidence/phase-01/frontend-checks.txt"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "3a3f90a995455fa51d274996a4979d1358cd718d",
+      "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+      "paths": [
+        "docs/evidence/phase-07-1/checks/backend-tests.txt"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "433ebf313e16b679c4f7e5629fdfa68347421872",
+      "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+      "paths": [
+        "docs/evidence/phase-07-1/checks/frontend-tests.json"
+      ],
+      "identifying_home_occurrences": 10
+    },
+    {
+      "object": "4d8d0cfb2b6b3a803db204af429d06deceee8db5",
+      "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+      "paths": [
+        "docs/evidence/phase-08/checks/baseline/frontend-tests.json"
+      ],
+      "identifying_home_occurrences": 10
+    },
+    {
+      "object": "537522d16aa3e1c0715a4388ad6e7b4dd89082e8",
+      "first_commit": "804075596e05a968643d125ed47f3a8df7ff838a",
+      "paths": [
+        "docs/evidence/phase-09/checks/baseline/frontend-tests.json"
+      ],
+      "identifying_home_occurrences": 11
+    },
+    {
+      "object": "5ca27b0c3d4826a808b8359380f22db822a9ef78",
+      "first_commit": "804075596e05a968643d125ed47f3a8df7ff838a",
+      "paths": [
+        "docs/evidence/phase-09/checks/baseline/frontend-tests.txt"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "6b6b94f7b78130a409931dc8c260156c46f5e8e1",
+      "first_commit": "a2fca5dd31c90e23d0b52b6e7789d32d2aa3e5e0",
+      "paths": [
+        "docs/phase-01-results.md"
+      ],
+      "identifying_home_occurrences": 4
+    },
+    {
+      "object": "82f7dffa6bfb13986cbd2ede553b6710f2a85d88",
+      "first_commit": "a40e4be6a0ee1ebca530d1ef6c35e6a134f334a1",
+      "paths": [
+        "docs/phase-04-results.md"
+      ],
+      "identifying_home_occurrences": 3
+    },
+    {
+      "object": "9059ff1fc87de6d3b0569f6377933976cfeb5f0d",
+      "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+      "paths": [
+        "docs/evidence/phase-08/checks/frontend-tests.json"
+      ],
+      "identifying_home_occurrences": 11
+    },
+    {
+      "object": "ac02e8eca45367cfe2ebdb34546a0d76f02acfdf",
+      "first_commit": "804075596e05a968643d125ed47f3a8df7ff838a",
+      "paths": [
+        "docs/evidence/phase-09/checks/backend-tests.txt"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "b5be9b71efbec64e0c214caaa2d4be2aaaa15107",
+      "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+      "paths": [
+        "docs/phase-02-results.md"
+      ],
+      "identifying_home_occurrences": 3
+    },
+    {
+      "object": "bc2857a0938dd73341955ecd6c534232725e83cf",
+      "first_commit": "804075596e05a968643d125ed47f3a8df7ff838a",
+      "paths": [
+        "docs/evidence/phase-09/checks/frontend-tests.txt"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "befc74e4fbf7d688e172f0c384ee25c3081cbfdd",
+      "first_commit": "804075596e05a968643d125ed47f3a8df7ff838a",
+      "paths": [
+        "docs/testing/assignment-05-mapping.md"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "dbdca852ded7bed50e078370c92f18d531211558",
+      "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+      "paths": [
+        "docs/evidence/phase-08/checks/backend-tests.txt"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "dfacf96f5bca77327f9e53cb6dd7ec68df955a91",
+      "first_commit": "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+      "paths": [
+        "docs/evidence/phase-07-1/checks/frontend-tests.txt"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "e71fe99aa8e8444dae9e0466c23cd05e9f9ae030",
+      "first_commit": "804075596e05a968643d125ed47f3a8df7ff838a",
+      "paths": [
+        "docs/evidence/phase-09/checks/baseline/backend-tests.txt"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "f808f12d69a426b3cb7620acba59a3e1879817c5",
+      "first_commit": "804075596e05a968643d125ed47f3a8df7ff838a",
+      "paths": [
+        "docs/evidence/phase-09/checks/frontend-tests.json"
+      ],
+      "identifying_home_occurrences": 11
+    },
+    {
+      "object": "f8248467b69f81d0de5966b53e8914729ef8ac53",
+      "first_commit": "b1b9b36eed6ffc9cdf17a0a3a3ae9a1661cb34cc",
+      "paths": [
+        "docs/phase-02-results.md"
+      ],
+      "identifying_home_occurrences": 3
+    },
+    {
+      "object": "f929e97c16ef52710a4fcf2c14bd5145f17a36b6",
+      "first_commit": "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+      "paths": [
+        "docs/evidence/phase-08/checks/baseline/backend-tests.txt"
+      ],
+      "identifying_home_occurrences": 1
+    }
+  ],
+  "unconfirmed_assets": [
+    {
+      "path": "docs/design-references/brand-slide-01.png",
+      "commits": [
+        "ce2f8df6c897633e6de877d15534b0498aa54267",
+        "4964696998c8d4cfbbfc7cc5643ccc8a1bac2855",
+        "532dd796f10bbe5edae4e76e04b728db89de72e7",
+        "3b9cc26904efb7f9f2b027028816d7b3cabfa6b4",
+        "580c4cbc3714f5df46c62803c060366043d06396",
+        "804075596e05a968643d125ed47f3a8df7ff838a",
+        "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+        "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+        "8f295fa769414b106c63e7847d3d1d8ffadcf9ab",
+        "a3713ddbcd9976e2f7a9d0130842a0b50cc24739",
+        "398c544130f80b2bde15820a64f8e8839427406d",
+        "a40e4be6a0ee1ebca530d1ef6c35e6a134f334a1",
+        "f7f33b29c7e6ad81c27a3078b28db42a485e9be1",
+        "b1b9b36eed6ffc9cdf17a0a3a3ae9a1661cb34cc",
+        "a2fca5dd31c90e23d0b52b6e7789d32d2aa3e5e0",
+        "cdd59d034b070332e0c321068d0699feb335d640",
+        "45c7036cd83fdcf64593c2c1b380425fb36a014b",
+        "60c1b2b4ae031da9cd66b5f88df8c83384a712e8"
+      ],
+      "objects": [
+        "a376bde9e60ffc34aef2045b086fdd7078ee4f7c"
+      ],
+      "present_commit_count": 18
+    },
+    {
+      "path": "docs/design-references/brand-slide-02.png",
+      "commits": [
+        "ce2f8df6c897633e6de877d15534b0498aa54267",
+        "4964696998c8d4cfbbfc7cc5643ccc8a1bac2855",
+        "532dd796f10bbe5edae4e76e04b728db89de72e7",
+        "3b9cc26904efb7f9f2b027028816d7b3cabfa6b4",
+        "580c4cbc3714f5df46c62803c060366043d06396",
+        "804075596e05a968643d125ed47f3a8df7ff838a",
+        "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+        "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+        "8f295fa769414b106c63e7847d3d1d8ffadcf9ab",
+        "a3713ddbcd9976e2f7a9d0130842a0b50cc24739",
+        "398c544130f80b2bde15820a64f8e8839427406d",
+        "a40e4be6a0ee1ebca530d1ef6c35e6a134f334a1",
+        "f7f33b29c7e6ad81c27a3078b28db42a485e9be1",
+        "b1b9b36eed6ffc9cdf17a0a3a3ae9a1661cb34cc",
+        "a2fca5dd31c90e23d0b52b6e7789d32d2aa3e5e0",
+        "cdd59d034b070332e0c321068d0699feb335d640",
+        "45c7036cd83fdcf64593c2c1b380425fb36a014b",
+        "60c1b2b4ae031da9cd66b5f88df8c83384a712e8"
+      ],
+      "objects": [
+        "42a624d9676b7c01fd11afcae0326201d7c42ab4"
+      ],
+      "present_commit_count": 18
+    },
+    {
+      "path": "docs/design-references/brand-slide-03.png",
+      "commits": [
+        "ce2f8df6c897633e6de877d15534b0498aa54267",
+        "4964696998c8d4cfbbfc7cc5643ccc8a1bac2855",
+        "532dd796f10bbe5edae4e76e04b728db89de72e7",
+        "3b9cc26904efb7f9f2b027028816d7b3cabfa6b4",
+        "580c4cbc3714f5df46c62803c060366043d06396",
+        "804075596e05a968643d125ed47f3a8df7ff838a",
+        "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+        "e2c58b64275f22f1d4dac4868ba2b75676035fee",
+        "8f295fa769414b106c63e7847d3d1d8ffadcf9ab",
+        "a3713ddbcd9976e2f7a9d0130842a0b50cc24739",
+        "398c544130f80b2bde15820a64f8e8839427406d",
+        "a40e4be6a0ee1ebca530d1ef6c35e6a134f334a1",
+        "f7f33b29c7e6ad81c27a3078b28db42a485e9be1",
+        "b1b9b36eed6ffc9cdf17a0a3a3ae9a1661cb34cc",
+        "a2fca5dd31c90e23d0b52b6e7789d32d2aa3e5e0",
+        "cdd59d034b070332e0c321068d0699feb335d640",
+        "45c7036cd83fdcf64593c2c1b380425fb36a014b",
+        "60c1b2b4ae031da9cd66b5f88df8c83384a712e8"
+      ],
+      "objects": [
+        "c47d1cf34b874c48196fb1a41cee0bb268c68e91"
+      ],
+      "present_commit_count": 18
+    },
+    {
+      "path": "docs/qa-references/hero-overlap.png",
+      "commits": [
+        "ce2f8df6c897633e6de877d15534b0498aa54267",
+        "4964696998c8d4cfbbfc7cc5643ccc8a1bac2855",
+        "532dd796f10bbe5edae4e76e04b728db89de72e7",
+        "3b9cc26904efb7f9f2b027028816d7b3cabfa6b4",
+        "580c4cbc3714f5df46c62803c060366043d06396",
+        "804075596e05a968643d125ed47f3a8df7ff838a",
+        "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+        "e2c58b64275f22f1d4dac4868ba2b75676035fee"
+      ],
+      "objects": [
+        "c87e3c29b0c20ae72ea11bbc11c6ce02f86ccead"
+      ],
+      "present_commit_count": 8
+    },
+    {
+      "path": "docs/qa-references/russian-steps-alignment.png",
+      "commits": [
+        "ce2f8df6c897633e6de877d15534b0498aa54267",
+        "4964696998c8d4cfbbfc7cc5643ccc8a1bac2855",
+        "532dd796f10bbe5edae4e76e04b728db89de72e7",
+        "3b9cc26904efb7f9f2b027028816d7b3cabfa6b4",
+        "580c4cbc3714f5df46c62803c060366043d06396",
+        "804075596e05a968643d125ed47f3a8df7ff838a",
+        "e9c7db45c9f2aa62295ff37048c3487c4c202481",
+        "e2c58b64275f22f1d4dac4868ba2b75676035fee"
+      ],
+      "objects": [
+        "49fb22da490da3be64b2e8503ae9e6bb632484d6"
+      ],
+      "present_commit_count": 8
+    }
+  ],
+  "synthetic_home_fixture_locations": [
+    {
+      "object": "58f99c4c30ed2c42ee48dcd2e55da6022fca8fdb",
+      "first_commit": "580c4cbc3714f5df46c62803c060366043d06396",
+      "paths": [
+        "scripts/tests/test_publication_audit.py"
+      ],
+      "identifying_home_occurrences": 1
+    },
+    {
+      "object": "74d3cc1e1d03f828838564a6dfc873fc4bc406eb",
+      "first_commit": "3b9cc26904efb7f9f2b027028816d7b3cabfa6b4",
+      "paths": [
+        "scripts/tests/test_publication_audit.py"
+      ],
+      "identifying_home_occurrences": 1
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "baseline": "ce2f8df6c897633e6de877d15534b0498aa54267",
+  "author_and_committer": "Isaraft <147975507+Isaraft@users.noreply.github.com>",
+  "old_identity_count": 1,
+  "literal_replacement_count": 3,
+  "excluded_paths": [
+    "docs/design-references/brand-slide-01.png",
+    "docs/design-references/brand-slide-02.png",
+    "docs/design-references/brand-slide-03.png",
+    "docs/qa-references/hero-overlap.png",
+    "docs/qa-references/russian-steps-alignment.png"
+  ],
+  "excluded_blob_ids": [
+    "42a624d9676b7c01fd11afcae0326201d7c42ab4",
+    "49fb22da490da3be64b2e8503ae9e6bb632484d6",
+    "a376bde9e60ffc34aef2045b086fdd7078ee4f7c",
+    "c47d1cf34b874c48196fb1a41cee0bb268c68e91",
+    "c87e3c29b0c20ae72ea11bbc11c6ce02f86ccead"
+  ],
+  "preserve_empty_commits": true,
+  "original_config_unchanged": true
+}

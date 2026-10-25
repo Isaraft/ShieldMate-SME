@@ -1,0 +1,41 @@
+{
+  "shell_blocks": [
+    {
+      "document": "commands.md",
+      "block": 1,
+      "syntax": "PASS; bash -n only; commands unexecuted"
+    },
+    {
+      "document": "commands.md",
+      "block": 2,
+      "syntax": "PASS; bash -n only; commands unexecuted"
+    },
+    {
+      "document": "commands.md",
+      "block": 3,
+      "syntax": "PASS; bash -n only; commands unexecuted"
+    },
+    {
+      "document": "commands.md",
+      "block": 4,
+      "syntax": "PASS; bash -n only; commands unexecuted"
+    },
+    {
+      "document": "commands.md",
+      "block": 5,
+      "syntax": "PASS; bash -n only; commands unexecuted"
+    },
+    {
+      "document": "commands.md",
+      "block": 6,
+      "syntax": "PASS; bash -n only; commands unexecuted"
+    },
+    {
+      "document": "commands.md",
+      "block": 7,
+      "syntax": "PASS; bash -n only; commands unexecuted"
+    }
+  ],
+  "local_links": "PASS",
+  "limits": "Syntax/link verification does not execute or approve any rewrite/push operation"
+}

@@ -1,5 +1,7 @@
 # ShieldMate SME
 
+**Publication-copy status:** history privacy sanitization is complete in this local copy. The 18 development milestones are preserved under new commit IDs; original reference images are excluded. [Sanitization verification and upload gate](docs/publication/sanitization-results.md). Team/rights-holder permission and explicit private GitHub upload approval remain pending. No repository has been created or pushed.
+
 ShieldMate helps small teams turn a limited set of external security observations into understandable priorities and practical remediation work. It is a Kazakhstan-focused university **Starter MVP**, with an English, Russian and Kazakh interface and PDF reports.
 
 **Status:** locally verified MVP; proposed release `v0.1.0-mvp` is not tagged or published. There is no hosted instance, verified commercial adoption or completed human beta study. Phase 09 engineering gates passed; human research gates H13–H18 remain pending. [Publication readiness](docs/phase-10-release-readiness.md) records unresolved rights/privacy approvals.

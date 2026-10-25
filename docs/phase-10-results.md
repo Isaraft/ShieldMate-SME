@@ -1,3 +1,5 @@
+> Historical Phase 10 assessment from the original private lineage. Its email/path/reference-image blockers have since been addressed in this isolated copy; team/IP/upload approval remains pending. See [current sanitization status](publication/sanitization-results.md). Old commit IDs refer to the preserved private original.
+
 # Phase 10 — local preparation complete; upload blocked
 
 **Date:** 25 October 2026 (Asia/Almaty). **Baseline:** clean `main` at `8040755`;13 commits; one reachable ref (`refs/heads/main`);no remote/tag. **Final tested code/packaging candidate:** `4964696`. The ending local commit is the handoff commit containing this report (`git log -1 --format='%h %s'`); final status is checked after committing. No push, GitHub repository creation, tag/release publication, external deployment, tunnel, ref deletion or history rewrite occurred.

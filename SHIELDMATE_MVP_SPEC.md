@@ -1,3 +1,5 @@
+> Publication-copy note: the five original reference images are retained only in the private original repository/backups and excluded from this history. Use `docs/design-system.md` and the existing UI for visual guidance. Historical reference-file mentions below describe the original supplied materials. See `docs/publication/sanitization-results.md`.
+
 # ShieldMate SME — Technical Specification for Starter MVP
 
 **Project:** ShieldMate SME  

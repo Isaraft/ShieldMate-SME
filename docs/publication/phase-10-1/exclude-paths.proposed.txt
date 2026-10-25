@@ -1,0 +1,5 @@
+docs/design-references/brand-slide-01.png
+docs/design-references/brand-slide-02.png
+docs/design-references/brand-slide-03.png
+docs/qa-references/hero-overlap.png
+docs/qa-references/russian-steps-alignment.png

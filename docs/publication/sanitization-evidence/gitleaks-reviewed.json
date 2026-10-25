@@ -1,0 +1,44 @@
+[
+  {
+    "mode": "history",
+    "exit_code": 10,
+    "findings": [
+      {
+        "RuleID": "private-key",
+        "File": "scripts/tests/test_publication_audit.py",
+        "StartLine": 15,
+        "EndLine": 37,
+        "Commit": "4e6fa04541179d242a89a726953f2d8ff2fa8432"
+      },
+      {
+        "RuleID": "generic-api-key",
+        "File": "PROMPTS/PHASE_07.md",
+        "StartLine": 18,
+        "EndLine": 18,
+        "Commit": "d98ceb10f59fa342cf4f00120d184645bc7ec67f"
+      }
+    ],
+    "classification": "Reviewed internal test marker and architecture prose; no confirmed real credential"
+  },
+  {
+    "mode": "tree",
+    "exit_code": 10,
+    "findings": [
+      {
+        "RuleID": "generic-api-key",
+        "File": "PROMPTS/PHASE_07.md",
+        "StartLine": 18,
+        "EndLine": 18,
+        "Commit": ""
+      },
+      {
+        "RuleID": "private-key",
+        "File": "scripts/tests/test_publication_audit.py",
+        "StartLine": 15,
+        "EndLine": 38,
+        "Commit": ""
+      }
+    ],
+    "classification": "Reviewed internal test marker and architecture prose; no confirmed real credential"
+  }
+]

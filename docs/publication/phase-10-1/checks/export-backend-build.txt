@@ -1,0 +1,57 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.09kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-slim-bookworm
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 462B done
+#3 DONE 0.0s
+
+#4 [ 1/10] FROM docker.io/library/python:3.13-slim-bookworm@sha256:e32be0e55814a08977501ca863271d9bd02443710db8f2afaf8372e2c4508530
+#4 resolve docker.io/library/python:3.13-slim-bookworm@sha256:e32be0e55814a08977501ca863271d9bd02443710db8f2afaf8372e2c4508530 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 965.49kB 0.0s done
+#5 DONE 0.0s
+
+#6 [ 2/10] WORKDIR /app
+#6 CACHED
+
+#7 [ 4/10] COPY pyproject.toml uv.lock ./
+#7 CACHED
+
+#8 [ 6/10] COPY app ./app
+#8 CACHED
+
+#9 [ 9/10] COPY deploy/entrypoint.sh /app/entrypoint.sh
+#9 CACHED
+
+#10 [ 5/10] RUN uv export --frozen --no-dev --output-file /tmp/requirements.txt     && python -m venv .venv     && .venv/bin/pip install --no-cache-dir --require-hashes -r /tmp/requirements.txt     && rm /tmp/requirements.txt
+#10 CACHED
+
+#11 [ 8/10] COPY alembic.ini ./
+#11 CACHED
+
+#12 [ 3/10] RUN pip install --no-cache-dir uv==0.13.5
+#12 CACHED
+
+#13 [ 7/10] COPY migrations ./migrations
+#13 CACHED
+
+#14 [10/10] RUN groupadd --gid 10001 shieldmate     && useradd --uid 10001 --gid shieldmate --no-create-home shieldmate     && mkdir /app/storage /app/backups     && chown shieldmate:shieldmate /app/storage /app/backups     && chmod 700 /app/storage /app/backups     && chmod 555 /app/entrypoint.sh
+#14 CACHED
+
+#15 exporting to image
+#15 exporting layers done
+#15 exporting manifest sha256:420f83dcdafb349137438c023b5b16d885a17c95630fab8757a9fbcf8dc7eae5 done
+#15 exporting config sha256:b5a5cee8f04c2118cbe0fe5418d9f4d2afd9b8bcdb331e7d9ea5ed4375483fa1 done
+#15 exporting attestation manifest sha256:6cd4f04a55631a08b55b2122f09256e2f97ca479caf9de870b006b86f9fca01c done
+#15 exporting manifest list sha256:f61dd6728667e862ca1a0e1231b56b536e19dc655aa4b99c93f844029347e3b7 done
+#15 naming to docker.io/library/shieldmate-phase101-probe-backend:latest done
+#15 unpacking to docker.io/library/shieldmate-phase101-probe-backend:latest done
+#15 DONE 0.1s

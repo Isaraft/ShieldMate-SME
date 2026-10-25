@@ -1,3 +1,5 @@
+> Publication-copy note: the five original reference images are retained only in the private original repository/backups and excluded from this history. Use `docs/design-system.md` and the existing UI for visual guidance. Historical reference-file mentions below describe the original supplied materials. See `docs/publication/sanitization-results.md`.
+
 # ShieldMate SME — Repository-wide Engineering Instructions
 
 You are a senior software engineer, security engineer and thoughtful product designer building a genuine university-stage MVP, not a fake demo or a generic AI-generated website. Read `SHIELDMATE_MVP_SPEC.md` and `PHASES.md` before changing code. `PROMPTS/PHASE_00.md` starts the execution sequence. Preserve this project identity through every phase. If an existing repository already contains working equivalents, inspect and reuse them rather than rebuilding unnecessarily.

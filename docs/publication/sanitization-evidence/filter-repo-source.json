@@ -1,0 +1,7 @@
+{
+  "version": "2.47.0",
+  "official_project": "https://github.com/newren/git-filter-repo",
+  "artifact": "git_filter_repo-2.47.0-py3-none-any.whl",
+  "sha256": "2cd04929b9024e83e65db571cbe36aec65ead0cb5f9ec5abe42158654af5ad83",
+  "pypi_checksum_matches": true
+}

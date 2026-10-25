@@ -1,3 +1,5 @@
+> Historical Phase 10 assessment from the original private lineage. Its email/path/reference-image blockers have since been addressed in this isolated copy; team/IP/upload approval remains pending. See [current sanitization status](publication/sanitization-results.md). Old commit IDs refer to the preserved private original.
+
 # Phase 10 — local release / publication decision
 
 Proposed version: **v0.1.0-mvp**, unreleased and untagged. Baseline `8040755`; final tested application/packaging candidate `4964696`. The subsequent handoff commit adds documentation and redacted evidence. [Exact results](phase-10-results.md), [publication audit](phase-10-publication-audit.md), [third-party notices](../THIRD_PARTY_NOTICES.md).
