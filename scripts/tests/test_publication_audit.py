@@ -15,6 +15,7 @@ from publication.audit import audit, detect
         (b"-----BEGIN PRIVATE KEY-----", "private_key"),
         (b"https://fixture:fixture@example.invalid", "credential_url"),
         (b"/home/fixture/checkout", "home_or_temp_path"),
+        (b'password = "INTERNAL TEST ONLY"', "credential_literal"),
     ],
 )
 def test_detectors_return_locations_without_input(data: bytes, category: str) -> None:

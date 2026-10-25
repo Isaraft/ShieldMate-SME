@@ -1,6 +1,6 @@
 # Third-party materials and licensing review
 
-Project license is **not selected**. The university team's agreement and redistribution decisions are pending. This notice does not assign ownership, license project code or authorize publication. Exact installed/locked metadata inventories are in `docs/evidence/phase-10/python-licenses.json` and `npm-licenses.json`; automated metadata is not legal clearance.
+Project license is **not selected**. The university team's agreement and redistribution decisions are pending. This notice does not assign ownership, license project code or authorize publication. Full installed notices for all nine npm runtime packages are copied to `frontend/public/licenses/third-party-runtime.txt` and served with compiled assets. Exact installed/locked metadata inventories are in `docs/evidence/phase-10/python-licenses.json` and `npm-licenses.json`; automated metadata is not legal clearance.
 
 | Material | Source and license evidence | Distribution treatment / remaining work |
 |---|---|---|

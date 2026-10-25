@@ -40,3 +40,6 @@ playwright-report/
 *.bak
 *.dump
 *.har
+/reports-private/
+/backups/
+/qa-private/

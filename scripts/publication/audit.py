@@ -20,6 +20,10 @@ PATTERNS = {
     "slack_token": rb"\bxox[baprs]-[A-Za-z0-9-]{20,}\b",
     "openai_key": rb"\bsk-proj-[A-Za-z0-9_-]{40,}\b",
     "credential_url": rb"https?://[^\s/:@]+:[^\s/@]+@",
+    "credential_literal": (
+        rb"(?i)(?:password|secret|api[_-]?key|csrf[_-]?token|session[_-]?token)"
+        rb"[\"']?\s*[:=]\s*[\"'][^\r\n\"']{8,}[\"']"
+    ),
     "argon2_hash": rb"\$argon2(?:id|i|d)\$v=\d+\$[^\s\"']{20,}",
     "jwt": rb"\beyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]{15,}",
     "cookie_or_auth_header": (

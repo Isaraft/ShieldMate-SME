@@ -17,7 +17,7 @@ Proposed version: **v0.1.0-mvp**, unreleased and untagged. Baseline `8040755`. L
 | G09 Security/scanner guidance | PASS | SECURITY.md and existing scanner/risk/recovery boundaries |
 | G10 Portable documentation | PASS | Current personal home/checkout prefixes redacted; history exposure separately blocked |
 | G11 Restricted reproducible CI | NOT TESTED | Read-only pinned workflow prepared; portable commands/definition verification pending; hosted GitHub run not performed |
-| G12 Regression/build/i18n/tools | PASS |325 backend,98 frontend,54 internal tooling,3 Node; static/build/catalog checks logged |
+| G12 Regression/build/i18n/tools | PASS |325 backend,98 frontend,55 internal tooling,3 Node; static/build/catalog checks logged |
 | G13 Migration/Docker/smoke | NOT TESTED | Await clean isolated local release check |
 | G14 Dependency/supply-chain review | PASS | App advisories/lock metadata/OFL/action SHAs reviewed; mutable image/CVE/legal limits explicit |
 | G15 Clean committed checkout | NOT TESTED | Await local-only clone of candidate commit |
