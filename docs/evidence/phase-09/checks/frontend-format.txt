@@ -1,0 +1,4 @@
+npm notice run shieldmate-frontend@0.0.0 format:check
+npm notice run prettier --check .
+Checking formatting...
+All matched files use Prettier code style!

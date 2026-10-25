@@ -1,0 +1,31 @@
+{
+  "scenario_id": "shieldmate-demo-usability-1",
+  "classification": "SYNTHETIC SCENARIO — MODERATOR ANSWER KEY, NOT USER RESEARCH",
+  "snapshot_sha256": "04056eebae33ba6c3c420886fd65beb20837d1f6b334d8ada5a5bfa0da5e074d",
+  "fixture_path": "backend/app/reports/demo_snapshot.json",
+  "scenario_observed_at": 1790812920,
+  "top_finding_id": "08401bf3-a1c3-5431-a338-16adb991324f",
+  "top_rule_id": "TLS_CERTIFICATE_ACTION",
+  "source_recommendation": "Ask the hosting contact to check renewal, the certificate names and full trusted chain. Install the correct certificate, then run an authorized scan again.",
+  "primary_time_limit_seconds": 120,
+  "threshold_percent": 80,
+  "proposed_minimum_distinct_beta": 5,
+  "minimum_is_course_requirement": false,
+  "grading": {
+    "correct_issue": "Identify HTTPS/TLS certificate renewal/expiry maintenance for merchant.example, which is Top 1 at the fixed scenario observation time. Accept plain equivalent language; do not require the rule ID or exact day count. Record confusion about dates separately; never infer compromise from this example.",
+    "sensible_next_action": "Accept asking the hosting/IT contact to check or renew/install the HTTPS certificate. One sensible next step is sufficient; do not require every technical detail or exact wording. An authorized recheck is recommended. Mark task done alone, SPF/DMARC alone, or a claim that the site is safe is not sufficient.",
+    "grading_method": "Moderator records answer before grading; team checks rubric. No automated/LLM grading. No clues before the timed answer."
+  },
+  "participant_materials_sha256": {
+    "en": "7b030d8928b28016fe01c2174af8368f5ee6a1ae1d8e2ef9740dda917030be8c",
+    "ru": "50ba20d580aa55229697fee29ed78a641681965c8492c27fe2c2c73a12dfce9f",
+    "kk": "4fbe50be163d3026aaa149847e1b165e487f117f6db34545f069b3a5e47a0778"
+  },
+  "protocol_sha256": "cb401e0a64c8f16e5da88bb79689628dd68d6a564294e12e919e5f1e8419119d",
+  "application_files_sha256": {
+    "frontend/src/pages/Demo.tsx": "560d1accccb5ad1d6e1c7e0bb0ad395f824171e1bcfbf13a99b728ccf521efa4",
+    "backend/app/locales/en.json": "a01c62090ccdea5680bf9a2c189df322e64fbddbbd326ab4a4f8bbaf46eb2646",
+    "backend/app/locales/ru.json": "4a754d13e380b54597e3d306307c8b4de144592b7c2b981e3226ca2c32a70240",
+    "backend/app/locales/kk.json": "c4d1c5f5c09713c90753cb348e3b134c1ff48abb8e3fd05dd79e2f9a20ddc82a"
+  }
+}

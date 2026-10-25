@@ -1,0 +1,9 @@
+shieldmate-phase09-qa-worker-1
+shieldmate-phase09-qa-frontend-1
+shieldmate-phase09-qa-backend-1
+shieldmate-phase09-restored-worker-1
+shieldmate-phase09-restored-frontend-1
+shieldmate-phase09-restored-backend-1
+shieldmate-phase08-qa-worker-1
+shieldmate-phase08-qa-frontend-1
+shieldmate-phase08-qa-backend-1

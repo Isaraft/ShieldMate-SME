@@ -2,18 +2,14 @@
 // Requires compose.local.yaml + scripts/qa/phase08.override.yaml, never the normal worker.
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
 const fs = require("node:fs"),
-  path = require("node:path"),
   assert = require("node:assert/strict");
 const crypto = require("node:crypto"),
   { execFileSync } = require("node:child_process");
-const root = path.resolve(__dirname, ".."),
-  work = path.resolve(root, "../../work/phase08");
-const out = path.join(root, "docs/evidence/phase-08"),
-  base = "http://127.0.0.1:15873";
+const { root, work, out, base, project } = require("./qa/runtime.cjs");
 const compose = [
   "compose",
   "-p",
-  "shieldmate-phase08-qa",
+  project,
   "-f",
   "compose.local.yaml",
   "-f",
@@ -25,7 +21,7 @@ const docker = (...args) =>
   execFileSync("docker", [...compose, ...args], {
     cwd: root,
     encoding: "utf8",
-    env: { ...process.env, SHIELDMATE_RC_PORT: "15873" },
+    env: { ...process.env, SHIELDMATE_RC_PORT: new URL(base).port },
   });
 const save = (name, value) =>
   fs.writeFileSync(
@@ -99,8 +95,16 @@ const save = (name, value) =>
     await c.detach();
   }
   async function newAccount(kind, ui = false) {
-    const ctx = await browser.newContext({ acceptDownloads: true }),
-      page = await ctx.newPage();
+    const ctx = await browser.newContext({ acceptDownloads: true });
+    await ctx.route("**/*", (route) => {
+      const url = new URL(route.request().url());
+      if (["http:", "https:"].includes(url.protocol) && url.origin !== base) {
+        errors.push("Unexpected external browser request blocked");
+        return route.abort();
+      }
+      return route.continue();
+    });
+    const page = await ctx.newPage();
     page.on("pageerror", (e) => errors.push(e.message));
     const email = "qa-phase08-" + crypto.randomUUID() + "@example.com",
       password = crypto.randomBytes(24).toString("base64url");

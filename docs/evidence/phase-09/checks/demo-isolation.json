@@ -1,0 +1,82 @@
+{
+  "classification": "AUTOMATED ENGINEERING — NOT HUMAN RESEARCH",
+  "cases": [
+    {
+      "locale": "en",
+      "width": 360,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "en",
+      "width": 1280,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "en",
+      "width": 1920,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "ru",
+      "width": 360,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "ru",
+      "width": 768,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "ru",
+      "width": 1280,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "ru",
+      "width": 1920,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "kk",
+      "width": 360,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "kk",
+      "width": 768,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "kk",
+      "width": 1280,
+      "reset_to_assets": true,
+      "read_only": true
+    },
+    {
+      "locale": "kk",
+      "width": 1920,
+      "reset_to_assets": true,
+      "read_only": true
+    }
+  ],
+  "unexpected_requests": [],
+  "page_errors": [],
+  "guest_cookies": 0,
+  "local_storage": "language only",
+  "fixture_matches": true
+}

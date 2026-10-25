@@ -1,0 +1,23 @@
+{
+  "classification": "AUTOMATED ENGINEERING QA — NOT HUMAN RESEARCH",
+  "baseline": "e9c7db4",
+  "backend_tests_passed": 325,
+  "frontend_tests_passed": 98,
+  "research_internal_tests_passed": 49,
+  "qa_config_tests_passed": 3,
+  "automated_accessibility_layout_views": 531,
+  "fresh_guest_cases": 12,
+  "generated_validated_pdfs": 12,
+  "pdf_pages_validated": 135,
+  "manually_reviewed_screenshots": 6,
+  "manually_reviewed_pdf_pages": 18,
+  "known_app_dependency_advisories": 0,
+  "human_alpha_status": "NOT CONDUCTED",
+  "human_beta_status": "NOT CONDUCTED",
+  "human_hypothesis": "PROPOSED; PENDING MANUAL EVIDENCE",
+  "human_success_percentage": null,
+  "engineering_gates": "E01–E12 PASS",
+  "human_gates": "H13–H18 PENDING",
+  "preview": "http://127.0.0.1:8080",
+  "temporary_qa_containers": "STOPPED; VOLUMES RETAINED"
+}

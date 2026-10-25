@@ -1,0 +1,3 @@
+npm notice run shieldmate-frontend@0.0.0 i18n:check
+npm notice run node ../scripts/check-locales.cjs
+Localization: 976 keys × 3 locales; 576 UI references; no missing keys or placeholder mismatches.

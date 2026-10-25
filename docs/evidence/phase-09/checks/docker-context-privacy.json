@@ -1,0 +1,5 @@
+{
+  "classification": "AUTOMATED ENGINEERING \u2014 no human data present",
+  "existing_docker_allowlist_excludes_research_private": true,
+  "expected_copy_denial_exit": 1
+}

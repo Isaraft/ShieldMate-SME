@@ -1,13 +1,20 @@
 // Isolated local backup/recovery and real compiled-runtime checks. Never overwrites a DB.
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
 const fs = require("node:fs"),
-  path = require("node:path"),
   assert = require("node:assert/strict"),
   crypto = require("node:crypto");
 const { execFileSync, spawnSync } = require("node:child_process");
-const root = path.resolve(__dirname, ".."),
-  work = path.resolve(root, "../../work/phase08"),
-  out = root + "/docs/evidence/phase-08/checks";
+const {
+  root,
+  work,
+  out: evidenceOut,
+  base,
+  restoredBase,
+  project,
+  restoredProject,
+  backup: backupName,
+} = require("./qa/runtime.cjs");
+const out = evidenceOut + "/checks";
 const files = [
   "-f",
   "compose.local.yaml",
@@ -20,7 +27,7 @@ const docker = (args, env = {}) =>
     encoding: "utf8",
     env: { ...process.env, ...env },
   });
-const qa = ["compose", "-p", "shieldmate-phase08-qa", ...files];
+const qa = ["compose", "-p", project, ...files];
 const hash = (b) => crypto.createHash("sha256").update(b).digest("hex");
 (async () => {
   const backup = JSON.parse(
@@ -33,7 +40,7 @@ const hash = (b) => crypto.createHash("sha256").update(b).digest("hex");
       "-m",
       "app.maintenance",
       "backup",
-      "/app/backups/phase08.sqlite",
+      "/app/backups/" + backupName,
     ]),
   );
   const restore = JSON.parse(
@@ -46,15 +53,15 @@ const hash = (b) => crypto.createHash("sha256").update(b).digest("hex");
       "--tmpfs",
       "/tmp",
       "--mount",
-      "source=shieldmate-phase08-qa_backups,target=/backups,readonly",
+      "source=" + project + "_backups,target=/backups,readonly",
       "--mount",
-      "source=shieldmate-phase08-restored_database,target=/app/storage",
+      "source=" + restoredProject + "_database,target=/app/storage",
       "shieldmate-backend",
       ".venv/bin/python",
       "-m",
       "app.maintenance",
       "restore",
-      "/backups/phase08.sqlite",
+      "/backups/" + backupName,
       "/app/storage/shieldmate.db",
     ]),
   );
@@ -71,23 +78,14 @@ const hash = (b) => crypto.createHash("sha256").update(b).digest("hex");
       "-m",
       "app.maintenance",
       "backup",
-      "/app/backups/phase08.sqlite",
+      "/app/backups/" + backupName,
     ],
     { cwd: root, encoding: "utf8" },
   );
   assert.notEqual(refusal.status, 0);
-  docker(
-    [
-      "compose",
-      "-p",
-      "shieldmate-phase08-restored",
-      ...files,
-      "up",
-      "-d",
-      "--wait",
-    ],
-    { SHIELDMATE_RC_PORT: "15973" },
-  );
+  docker(["compose", "-p", restoredProject, ...files, "up", "-d", "--wait"], {
+    SHIELDMATE_RC_PORT: new URL(restoredBase).port,
+  });
   const browser = await chromium.launch(),
     ctx = await browser.newContext({
       storageState: work + "/golden-state.json",
@@ -109,8 +107,8 @@ const hash = (b) => crypto.createHash("sha256").update(b).digest("hex");
     "/reports",
     "/dashboard/summary",
   ]) {
-    const original = await get("http://127.0.0.1:15873", p),
-      restored = await get("http://127.0.0.1:15973", p);
+    const original = await get(base, p),
+      restored = await get(restoredBase, p);
     if (p === "/dashboard/summary") {
       delete original.generated_at;
       delete restored.generated_at;
@@ -120,7 +118,7 @@ const hash = (b) => crypto.createHash("sha256").update(b).digest("hex");
   }
   for (const r of records.filter((r) => r.kind === "short")) {
     const response = await ctx.request.get(
-      "http://127.0.0.1:15973/api/v1/reports/" + r.id + "/download",
+      restoredBase + "/api/v1/reports/" + r.id + "/download",
     );
     assert(response.ok());
     assert.equal(hash(await response.body()), r.sha256);
@@ -160,7 +158,7 @@ const hash = (b) => crypto.createHash("sha256").update(b).digest("hex");
     413,
   );
   const deep = await ctx.newPage();
-  await deep.goto("http://127.0.0.1:15973/app/tasks/" + ids.task);
+  await deep.goto(restoredBase + "/app/tasks/" + ids.task);
   await deep.bringToFront();
   await deep.locator(".private-nav:visible").waitFor();
   await deep.locator("#task-status").waitFor();
@@ -171,7 +169,7 @@ const hash = (b) => crypto.createHash("sha256").update(b).digest("hex");
       fromSurface: true,
     });
   fs.writeFileSync(
-    root + "/docs/evidence/phase-08/screenshots/restored-task-en.png",
+    evidenceOut + "/screenshots/restored-task-en.png",
     Buffer.from(s.data, "base64"),
   );
   await c.detach();

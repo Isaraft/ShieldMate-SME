@@ -1,0 +1,9 @@
+# Developer visual review — not participant research
+
+The six committed prototype PNGs were opened and inspected directly: intentional burgundy/red identity retained, readable navigation/headings/alerts, no overlap or clipping in the selected views, and honest synthetic/task/finding/report labels. Literal hostile-looking company text is escaped source test data. No new application CSS, locale catalog or renderer was changed in this phase.
+
+All12 actual server-generated PDF samples were extracted, checked and rasterized (135 pages) by the validator. A manageable representative selection of **18 pages** was visually inspected, using `pdf-pages/review-en.jpg`, `review-ru.jpg`, `review-kk.jpg` and a full-size Kazakh page: short1, long1/last, edge1/last, demo1 in each language. They show readable embedded Cyrillic/Kazakh, correct context headers/footers, concise summary/Top3, table wrapping and inconclusive/excluded evidence. No visible tofu, overlap or lost markers was seen. Long reports are24/26/26 pages EN/RU/KK; full supporting evidence was retained. Natural whitespace on final partial appendices is accepted. All135 pages had automated bounds/word-overlap/context checks; **not every page was manually reviewed** in Phase09.
+
+The full generated PDFs are in `../pdfs/`; selected full-size PNGs and three review sheets are in `../pdf-pages/`. Raw capture/render output remains outside Git in `../../work/phase09/engineering` relative to repository root. Public DEMO is fixed/read-only; private LOCAL QA has injected network answers around real persistent application workflows. Neither is a real owned-domain assessment or genuine human alpha/beta evidence.
+
+Independent native-language, screen-reader, physical-device and non-Chromium review were not performed. Engineering parity/axe checks and AI-assisted study translations do not certify those outcomes.

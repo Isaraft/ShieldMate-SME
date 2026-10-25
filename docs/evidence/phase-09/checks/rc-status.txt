@@ -1,0 +1,4 @@
+NAME                       IMAGE                                                                     COMMAND                  SERVICE    CREATED        STATUS                  PORTS
+shieldmate-rc-backend-1    sha256:246c7d29eacd2a3990d9b329b96d171fe0854709f9c37465678b69b6166a9d1d   "/app/entrypoint.sh …"   backend    17 hours ago   Up 17 hours (healthy)   8000/tcp
+shieldmate-rc-frontend-1   sha256:3ee8c20a74b891e710737030a5f924dfb9816de398bef32e611b78062237b259   "/docker-entrypoint.…"   frontend   17 hours ago   Up 17 hours (healthy)   127.0.0.1:8080->8080/tcp
+shieldmate-rc-worker-1     sha256:18c627d467cbdc768c4d2f750776cdd5e5c37b432dc6d0a6aad4616170ac0cec   "/app/entrypoint.sh …"   worker     17 hours ago   Up 17 hours             8000/tcp

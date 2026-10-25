@@ -3,9 +3,8 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
 const fs = require("node:fs"),
   crypto = require("node:crypto"),
   assert = require("node:assert/strict");
-const base = "http://127.0.0.1:15873",
-  out = "docs/evidence/phase-08",
-  sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const { base, out } = require("./qa/runtime.cjs");
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 (async () => {
   const browser = await chromium.launch(),
     context = await browser.newContext({ acceptDownloads: true }),

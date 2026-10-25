@@ -1,0 +1,60 @@
+time="2026-10-25T17:23:08+05:00" level=warning msg="volume \"shieldmate-phase09-restored_database\" already exists but was not created by Docker Compose. Use `external: true` to use an existing volume"
+ Volume shieldmate-phase09-restored_backups Creating
+ Volume shieldmate-phase09-restored_backups Creating
+ Network shieldmate-phase09-restored_local Creating
+ Network shieldmate-phase09-restored_local Creating
+ Volume shieldmate-phase09-restored_backups Created
+ Volume shieldmate-phase09-restored_backups Created
+ Network shieldmate-phase09-restored_local Created
+ Network shieldmate-phase09-restored_local Created
+ Container shieldmate-phase09-restored-backend-1 Creating
+ Container shieldmate-phase09-restored-backend-1 Created
+ Container shieldmate-phase09-restored-worker-1 Creating
+ Container shieldmate-phase09-restored-frontend-1 Creating
+ Container shieldmate-phase09-restored-worker-1 Created
+ Container shieldmate-phase09-restored-frontend-1 Created
+ Container shieldmate-phase09-restored-backend-1 Starting
+ Container shieldmate-phase09-restored-backend-1 Started
+ Container shieldmate-phase09-restored-backend-1 Waiting
+ Container shieldmate-phase09-restored-backend-1 Waiting
+ Container shieldmate-phase09-restored-backend-1 Healthy
+ Container shieldmate-phase09-restored-frontend-1 Starting
+ Container shieldmate-phase09-restored-backend-1 Healthy
+ Container shieldmate-phase09-restored-worker-1 Starting
+ Container shieldmate-phase09-restored-frontend-1 Started
+ Container shieldmate-phase09-restored-worker-1 Started
+ Container shieldmate-phase09-restored-frontend-1 Waiting
+ Container shieldmate-phase09-restored-backend-1 Waiting
+ Container shieldmate-phase09-restored-worker-1 Waiting
+ Container shieldmate-phase09-restored-worker-1 Healthy
+ Container shieldmate-phase09-restored-backend-1 Healthy
+ Container shieldmate-phase09-restored-frontend-1 Healthy
+{
+  "backup_rows": {
+    "alembic_version": 1,
+    "check_observations": 108,
+    "domain_events": 42,
+    "domains": 9,
+    "finding_evaluations": 9,
+    "finding_events": 40,
+    "findings": 34,
+    "organizations": 4,
+    "remediation_tasks": 1,
+    "report_events": 33,
+    "scan_runs": 9,
+    "security_reports": 9,
+    "sessions": 12,
+    "task_events": 2,
+    "users": 4
+  },
+  "restored_api_checks": [
+    "/auth/me",
+    "/domains",
+    "/domains/b5a550f5-3367-44e5-a4d4-3a70006e30f1/scans",
+    "/findings",
+    "/tasks/54c5f4d8-4cdb-4821-a194-4aad4dbe3785",
+    "/reports",
+    "/dashboard/summary"
+  ],
+  "checks": "PASS"
+}

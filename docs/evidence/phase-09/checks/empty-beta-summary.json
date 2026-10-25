@@ -1,0 +1,56 @@
+{
+  "status": "NO REAL BETA RESULTS YET",
+  "scenario_id": "shieldmate-demo-usability-1",
+  "scenario_sha256": "43f06509d0f65a756feb3f2bec6dd8886089ec62a684fc201269f8d1bb80b802",
+  "hypothesis_state": "PROPOSED",
+  "criterion": "PENDING_MANUAL_EVIDENCE",
+  "planned_sample_minimum": 5,
+  "minimum_is_course_requirement": false,
+  "primary": {
+    "successes": 0,
+    "denominator": 0,
+    "percent": null,
+    "threshold_reached": null
+  },
+  "denominator_policy": "All eligible consented primary starts, including incomplete/aborted. Withdrawn excluded explicitly; sensitivity includes their counts only.",
+  "conservative_with_withdrawn": {
+    "successes": 0,
+    "denominator": 0,
+    "percent": null,
+    "threshold_reached": null
+  },
+  "dispositions": {},
+  "withdrawn_started": 0,
+  "hinted_primary_failures": 0,
+  "paused_primary_failures": 0,
+  "protocol_variant_counts": {},
+  "relationship_counts": {},
+  "missing_time_primary_failures": 0,
+  "language_counts": {},
+  "time_summary_seconds": {
+    "observed_n": 0,
+    "median": null,
+    "min": null,
+    "max": null
+  },
+  "observed_error_counts": {
+    "trials_with_recorded_count": 0,
+    "total": null
+  },
+  "secondary": {
+    "evidence_navigation_unaided": {
+      "recorded": 0,
+      "yes": 0
+    },
+    "done_vs_resolved_correct": {
+      "recorded": 0,
+      "yes": 0
+    }
+  },
+  "rating_distributions": {
+    "clarity_rating": {},
+    "usefulness_rating": {}
+  },
+  "verified_evidence_files": 0,
+  "limitations": "Small nonrandom sample; declared records and checksums do not authenticate people or prove security, risk reduction, ROI, NPS, or willingness to pay. No qualitative responses exported."
+}

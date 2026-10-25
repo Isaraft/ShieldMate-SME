@@ -1,0 +1,69 @@
+{
+  "classification": "AUTOMATED ENGINEERING BASELINE — NOT HUMAN RESEARCH",
+  "browser": "151.0.7922.34",
+  "views": [
+    {
+      "lang": "en",
+      "route": "/demo",
+      "heading": "From evidence to action"
+    },
+    {
+      "lang": "en",
+      "route": "/login",
+      "heading": "Sign in"
+    },
+    {
+      "lang": "en",
+      "route": "/app",
+      "heading": "Your workspace"
+    },
+    {
+      "lang": "en",
+      "route": "/app/reports",
+      "heading": "Security snapshots"
+    },
+    {
+      "lang": "ru",
+      "route": "/demo",
+      "heading": "От данных к действиям"
+    },
+    {
+      "lang": "ru",
+      "route": "/login",
+      "heading": "Войти"
+    },
+    {
+      "lang": "ru",
+      "route": "/app",
+      "heading": "LOCAL QA — Golden path / ӘҒҚҢӨҰҮҺІ <script> & \"ТОО\""
+    },
+    {
+      "lang": "ru",
+      "route": "/app/reports",
+      "heading": "Отчёты о безопасности"
+    },
+    {
+      "lang": "kk",
+      "route": "/demo",
+      "heading": "Деректен әрекетке"
+    },
+    {
+      "lang": "kk",
+      "route": "/login",
+      "heading": "Кіру"
+    },
+    {
+      "lang": "kk",
+      "route": "/app",
+      "heading": "LOCAL QA — Golden path / ӘҒҚҢӨҰҮҺІ <script> & \"ТОО\""
+    },
+    {
+      "lang": "kk",
+      "route": "/app/reports",
+      "heading": "Қауіпсіздік күйінің есептері"
+    }
+  ],
+  "readiness": {
+    "status": "ready"
+  }
+}

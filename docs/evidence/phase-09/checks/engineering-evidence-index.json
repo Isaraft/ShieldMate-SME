@@ -1,0 +1,56 @@
+[
+  {
+    "id": "ENG01",
+    "classification": "AUTOMATED_ENGINEERING — NOT HUMAN TESTING",
+    "file": "screenshots/01-landing-en.png",
+    "caption": "Public landing / EN",
+    "viewport": "1280x1000 CSS pixels",
+    "capture_file_time": "2026-10-25T17:18:12+05:00",
+    "sha256": "1c1fbb2315b521f6e5223fa5348be7b1975d715b35fc926ee04501daae1ed1a9"
+  },
+  {
+    "id": "ENG02",
+    "classification": "AUTOMATED_ENGINEERING — NOT HUMAN TESTING",
+    "file": "screenshots/02-dashboard-en.png",
+    "caption": "Authenticated dashboard / EN — LOCAL QA synthetic data",
+    "viewport": "1280x1000 CSS pixels",
+    "capture_file_time": "2026-10-25T17:18:17+05:00",
+    "sha256": "ac16f38a154b5b44f7487fdd10348d0a63bc0a8606a4caff34ddb26abcaef872"
+  },
+  {
+    "id": "ENG03",
+    "classification": "AUTOMATED_ENGINEERING — NOT HUMAN TESTING",
+    "file": "screenshots/03-finding-ru.png",
+    "caption": "Finding detail / RU — LOCAL QA synthetic data",
+    "viewport": "1280x1000 CSS pixels",
+    "capture_file_time": "2026-10-25T17:18:52+05:00",
+    "sha256": "3d5ab71f296b09bd388d168806e9c7ad8ed9a79d865a42432f1089e2dded2b1b"
+  },
+  {
+    "id": "ENG04",
+    "classification": "AUTOMATED_ENGINEERING — NOT HUMAN TESTING",
+    "file": "screenshots/04-task-ru.png",
+    "caption": "Task detail / RU — LOCAL QA, Done is not technical resolution",
+    "viewport": "1280x1000 CSS pixels",
+    "capture_file_time": "2026-10-25T17:18:55+05:00",
+    "sha256": "a85a31974307ae04474834831924cf5adf8496090cf7dcd375a2509fe569e883"
+  },
+  {
+    "id": "ENG05",
+    "classification": "AUTOMATED_ENGINEERING — NOT HUMAN TESTING",
+    "file": "screenshots/05-reports-kk.png",
+    "caption": "Report workspace / KK — LOCAL QA synthetic data",
+    "viewport": "1280x1000 CSS pixels",
+    "capture_file_time": "2026-10-25T17:19:24+05:00",
+    "sha256": "47e48ff24cd04aac06570ebe64771eb4ca8c108f6c84edef058b8e8d107f2b5c"
+  },
+  {
+    "id": "ENG06",
+    "classification": "AUTOMATED_ENGINEERING — NOT HUMAN TESTING",
+    "file": "screenshots/06-demo-kk.png",
+    "caption": "Public read-only sample / KK — DEMO",
+    "viewport": "1280x1000 CSS pixels",
+    "capture_file_time": "2026-10-25T17:19:28+05:00",
+    "sha256": "8ed96dd379a8823733d88c77ca80bb97553c57b31045a6496d90d44381aa3a21"
+  }
+]

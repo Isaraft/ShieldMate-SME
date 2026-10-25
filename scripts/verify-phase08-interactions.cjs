@@ -1,15 +1,12 @@
 // Additional real-browser auth, empty/error/modal, filters, language and keyboard checks.
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright"),
   fs = require("node:fs"),
-  assert = require("node:assert/strict"),
-  crypto = require("node:crypto");
-const base = "http://127.0.0.1:15873",
-  out = "docs/evidence/phase-08",
-  work = "../../work";
+  assert = require("node:assert/strict");
+const { base, out, work } = require("./qa/runtime.cjs");
 (async () => {
   const browser = await chromium.launch(),
     context = await browser.newContext({
-      storageState: work + "/phase08/golden-state.json",
+      storageState: work + "/golden-state.json",
     }),
     anon = await browser.newContext(),
     page = await context.newPage(),

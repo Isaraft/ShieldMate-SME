@@ -1,0 +1,29 @@
+Matrix completed: 294 rendered views
+ Container shieldmate-phase09-qa-worker-1 Killing
+ Container shieldmate-phase09-qa-worker-1 Killed
+Worker killed; waiting for actual lease expiry (up to 100 seconds)
+ Container shieldmate-phase09-qa-backend-1 Running
+ Container shieldmate-phase09-qa-backend-1 Waiting
+ Container shieldmate-phase09-qa-backend-1 Healthy
+ Container shieldmate-phase09-qa-worker-1 Starting
+ Container shieldmate-phase09-qa-worker-1 Started
+ Container shieldmate-phase09-qa-worker-1 Waiting
+ Container shieldmate-phase09-qa-backend-1 Waiting
+ Container shieldmate-phase09-qa-backend-1 Healthy
+ Container shieldmate-phase09-qa-worker-1 Healthy
+ Container shieldmate-phase09-qa-backend-1 Restarting
+ Container shieldmate-phase09-qa-worker-1 Restarting
+ Container shieldmate-phase09-qa-worker-1 Started
+ Container shieldmate-phase09-qa-backend-1 Started
+{
+  "flows": [
+    "Browser registration/login/onboarding/consent/TXT/queued scan/finding/task done; finding remains open; shared Top 3 and real PDF API",
+    "Eight cross-tenant resource denials; CSRF/Origin rejection; stable CSRF reads; isolated demo leaves tenant reports unchanged",
+    "Conclusive clean fixture scan resolves findings; done task alone did not; stored report bytes remain unchanged",
+    "Actual same-browser two-tab logout/account transition removes tenant A draft and denies old task under tenant B",
+    "SIGKILL worker, real lease expiry, interrupted persistence/no automatic retry; unsafe destination fixture fails closed"
+  ],
+  "views": 399,
+  "reports": 12,
+  "errors": []
+}

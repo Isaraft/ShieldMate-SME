@@ -1,0 +1,101 @@
+[
+  {
+    "id": "4b60743d-3469-4059-a32b-734ec5f9b68d",
+    "locale": "en",
+    "created_at": 1792930683,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 37687,
+    "sha256": "4a1959c32d0f4d163aef4b56eca7da63c6a9822c9598f3daeef7fea4bee1d2a8",
+    "error_code": null,
+    "kind": "short"
+  },
+  {
+    "id": "6019baab-2b8d-4afd-b048-1ec539e24a50",
+    "locale": "ru",
+    "created_at": 1792930684,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 48973,
+    "sha256": "94fb639b534a4ddd53ba8eef5c71a555f2842e3a4c849bcd432ef2ed51c81d20",
+    "error_code": null,
+    "kind": "short"
+  },
+  {
+    "id": "187f2ebe-b0f3-44b4-a97c-598ae138f4a8",
+    "locale": "kk",
+    "created_at": 1792930684,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 49018,
+    "sha256": "534d7e76c412fafc7ee3b46f5fbed9d41f27f3ce5463f73573cbd9221af88d8f",
+    "error_code": null,
+    "kind": "short"
+  },
+  {
+    "id": "14c02040-dfb7-45d6-b158-309ed762866b",
+    "locale": "en",
+    "created_at": 1792930687,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 77318,
+    "sha256": "c6067fbba97c17c90c285d2eead7a38684b25e36e5f92ce8404bf76090ae9c86",
+    "error_code": null,
+    "kind": "long"
+  },
+  {
+    "id": "51377ad9-919d-4f35-9cce-61a414d06d77",
+    "locale": "ru",
+    "created_at": 1792930687,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 99399,
+    "sha256": "6ab54aa711f2c370f4e3cab6346af9d9e5359da8e09350ae1346ddc9393fe739",
+    "error_code": null,
+    "kind": "long"
+  },
+  {
+    "id": "f17cdcbe-2a36-4837-9b64-4126dd1133f1",
+    "locale": "kk",
+    "created_at": 1792930688,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 100290,
+    "sha256": "314cd9f80c6f85bd9948f277aade543098e9b63b8ad9f232eae2e2abb55826fe",
+    "error_code": null,
+    "kind": "long"
+  },
+  {
+    "id": "b8da9adb-c436-4d55-9ee5-ed47c014bff4",
+    "locale": "en",
+    "created_at": 1792930689,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 29710,
+    "sha256": "b4a582d24fe38655f1510a8a89b1616bfc8c40b876a5b00e96aa2b62a9f8d8e0",
+    "error_code": null,
+    "kind": "edge"
+  },
+  {
+    "id": "aaa09b29-4637-4195-a748-a6319944c223",
+    "locale": "ru",
+    "created_at": 1792930689,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 37433,
+    "sha256": "4e4da142271f886ae31763e56f6810e481254000dee9dd048ed3353c2a2c3e14",
+    "error_code": null,
+    "kind": "edge"
+  },
+  {
+    "id": "180e3af9-f00f-46b5-9dff-00ebe6b1e1b2",
+    "locale": "kk",
+    "created_at": 1792930689,
+    "status": "ready",
+    "schema_version": "security-snapshot-1",
+    "byte_count": 37556,
+    "sha256": "55a17955217984efe0fa188bf548b13d2b07315654ae12fbb35c32d1923cb833",
+    "error_code": null,
+    "kind": "edge"
+  }
+]

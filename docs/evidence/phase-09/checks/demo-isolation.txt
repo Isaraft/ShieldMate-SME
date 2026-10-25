@@ -1,0 +1,6 @@
+{
+  "cases": 12,
+  "unexpected_requests": [],
+  "page_errors": [],
+  "fixture_matches": true
+}

@@ -2,13 +2,19 @@
 
 import hashlib
 import json
+import os
 import subprocess
 import xml.etree.ElementTree as ET
 from itertools import pairwise
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
-folder = root / "docs/evidence/phase-08"
+phase = os.environ.get("SHIELDMATE_QA_PHASE", "08")
+assert phase in {"08", "09"}
+folder = (
+    root / "docs/evidence/phase-08" if phase == "08" else root / "../../work/phase09/engineering"
+)
+folder = folder.resolve()
 rendered = folder / "pdf-pages"
 rendered.mkdir(exist_ok=True)
 results = []
@@ -66,7 +72,7 @@ for file in sorted((folder / "pdfs").glob("*.pdf")):
         assert "ӘҒҚҢӨҰҮҺІ" in text
     results.append(
         {
-            "file": str(file.relative_to(root)),
+            "file": str(file.relative_to(root if phase == "08" else folder)),
             "pages": len(pages),
             "sha256": hashlib.sha256(file.read_bytes()).hexdigest(),
             "words": len(words),

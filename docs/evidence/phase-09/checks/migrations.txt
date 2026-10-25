@@ -1,0 +1,9 @@
+f34f9df9b6a4 (head)
+e53b215e4b66 -> f34f9df9b6a4 (head), security_reports
+9752376ee8f2 -> e53b215e4b66, remediation_workflow
+1806ce4b7076 -> 9752376ee8f2, finding_engine
+90bff5eabc24 -> 1806ce4b7076, scan_engine
+6b5520d9fa5d -> 90bff5eabc24, domain_ownership
+0001_foundation -> 6b5520d9fa5d, authentication_workspace
+<base> -> 0001_foundation, Establish migration history without introducing business entities.
+No new upgrade operations detected.

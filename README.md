@@ -1,4 +1,4 @@
-# ShieldMate SME Starter — Phase 08 local RC
+# ShieldMate SME Starter — Phase 09 validation readiness
 
 **Phase 02: real accounts and one company workspace per owner.** Register, sign in,
 create/rename your organization, reload with a persistent cookie session and sign out.
@@ -15,9 +15,13 @@ Open `/app/reports` after sign-in. Reports require currently authorized domains 
 
 Open [Sample Demo](http://127.0.0.1:5173/demo) for a **fictional, read-only** reserved-domain scenario and PDFs marked DEMO on every page. It accesses no customer records or scanners. `/preview` remains the design preview. The global English / Русский / Қазақша selector preserves route/form values and stores only language preference.
 
-See [reports](docs/reports.md), [synthetic demo](docs/demo.md), [localization](docs/localization.md) and [Phase 07 verification](docs/phase-07-results.md). The outstanding real owned-domain E2E requires a domain owner's authorization; isolated QA fixtures are not live assessment evidence. Phase 08 hardening and a localhost-only release profile are implemented. Phase 09 has not started.
+See [reports](docs/reports.md), [synthetic demo](docs/demo.md), [localization](docs/localization.md) and [Phase 07 verification](docs/phase-07-results.md). The outstanding real owned-domain E2E requires a domain owner's authorization; isolated QA fixtures are not live assessment evidence. Phase 08 hardening and a localhost-only release profile are implemented. Phase 09 engineering validation tooling is prepared; real human alpha/beta evidence remains pending.
 
 For the compiled same-origin release candidate, run `docker compose -f compose.local.yaml up --build -d --wait` and open <http://127.0.0.1:8080>. See [local release / backup recovery](docs/local-release-runbook.md), [defense walkthrough](docs/defense-demo-runbook.md), [Phase 08 results](docs/phase-08-results.md) and [risk register](docs/phase-08-risk-register.md). No public deployment is configured or authorized.
+
+## Alpha/beta and Assignment 5 readiness
+
+The [Phase 09 evidence kit](docs/testing/README.md) provides EN/RU/KK consent/task/survey sheets, blank CSVs and an offline validator. [Alpha plan](docs/testing/alpha-plan.md), [beta protocol](docs/testing/beta-protocol.md), [Assignment 5 mapping](docs/testing/assignment-05-mapping.md) and [defense checklist](docs/testing/defense-checklist.md) separate engineering QA from real participants. **No human alpha/beta sessions or hypothesis result are claimed.** The numeric80%/120-second target and five-person plan require team adoption before testing. See [actual Phase 09 results](docs/phase-09-results.md) for engineering gates and pending human work. Keep real evidence in ignored `research-private/`; do not commit it.
 
 ## Run with Docker
 
