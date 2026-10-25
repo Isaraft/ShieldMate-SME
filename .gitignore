@@ -43,3 +43,5 @@ playwright-report/
 /reports-private/
 /backups/
 /qa-private/
+*.p12
+*.pfx

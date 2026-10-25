@@ -9,3 +9,23 @@ storage
 *.sqlite*
 .env*
 tests
+
+# Never send local credentials, private state or generated QA data to builders.
+**/.env
+**/.env.*
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*.db*
+**/*.sqlite*
+**/*.log
+**/storage
+**/backups
+**/research-private
+**/publication-private
+**/reports-private
+**/qa-private
+**/coverage
+**/test-results
+**/playwright-report
