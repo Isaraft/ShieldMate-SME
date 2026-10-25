@@ -1,0 +1,205 @@
+[
+  {
+    "check": "uv-install",
+    "command": [
+      "uv",
+      "sync",
+      "--locked",
+      "--python",
+      "3.14"
+    ],
+    "cwd": "backend",
+    "exit_code": 0
+  },
+  {
+    "check": "backend-tests",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "pytest",
+      "-q"
+    ],
+    "cwd": "backend",
+    "exit_code": 0
+  },
+  {
+    "check": "backend-lint",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "ruff",
+      "check",
+      "."
+    ],
+    "cwd": "backend",
+    "exit_code": 0
+  },
+  {
+    "check": "backend-format",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "ruff",
+      "format",
+      "--check",
+      "."
+    ],
+    "cwd": "backend",
+    "exit_code": 0
+  },
+  {
+    "check": "backend-types",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "mypy",
+      "app"
+    ],
+    "cwd": "backend",
+    "exit_code": 0
+  },
+  {
+    "check": "migrate",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "alembic",
+      "upgrade",
+      "head"
+    ],
+    "cwd": "backend",
+    "exit_code": 0
+  },
+  {
+    "check": "schema-check",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "alembic",
+      "check"
+    ],
+    "cwd": "backend",
+    "exit_code": 0
+  },
+  {
+    "check": "tool-tests",
+    "command": [
+      "backend/.venv/bin/pytest",
+      "scripts/tests",
+      "-q"
+    ],
+    "cwd": ".",
+    "exit_code": 0
+  },
+  {
+    "check": "tool-types",
+    "command": [
+      "backend/.venv/bin/mypy",
+      "--strict",
+      "scripts/research",
+      "scripts/research_evidence.py",
+      "scripts/publication"
+    ],
+    "cwd": ".",
+    "exit_code": 0
+  },
+  {
+    "check": "node-tests",
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "scripts/tests/qa-runtime.test.cjs"
+    ],
+    "cwd": ".",
+    "exit_code": 0
+  },
+  {
+    "check": "scenario",
+    "command": [
+      "python",
+      "-S",
+      "scripts/research_evidence.py",
+      "scenario"
+    ],
+    "cwd": ".",
+    "exit_code": 0
+  },
+  {
+    "check": "npm-install",
+    "command": [
+      "npm",
+      "ci"
+    ],
+    "cwd": "frontend",
+    "exit_code": 0
+  },
+  {
+    "check": "frontend-tests",
+    "command": [
+      "npm",
+      "test",
+      "--",
+      "--reporter=json",
+      "--outputFile=<private-work>/clean-frontend-tests.json"
+    ],
+    "cwd": "frontend",
+    "exit_code": 0
+  },
+  {
+    "check": "frontend-lint",
+    "command": [
+      "npm",
+      "run",
+      "lint"
+    ],
+    "cwd": "frontend",
+    "exit_code": 0
+  },
+  {
+    "check": "frontend-types",
+    "command": [
+      "npm",
+      "run",
+      "typecheck"
+    ],
+    "cwd": "frontend",
+    "exit_code": 0
+  },
+  {
+    "check": "frontend-format",
+    "command": [
+      "npm",
+      "run",
+      "format:check"
+    ],
+    "cwd": "frontend",
+    "exit_code": 0
+  },
+  {
+    "check": "frontend-locales",
+    "command": [
+      "npm",
+      "run",
+      "i18n:check"
+    ],
+    "cwd": "frontend",
+    "exit_code": 0
+  },
+  {
+    "check": "frontend-build",
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "cwd": "frontend",
+    "exit_code": 0
+  }
+]

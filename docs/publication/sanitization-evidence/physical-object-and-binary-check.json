@@ -1,0 +1,10 @@
+{
+  "physical_objects": 2175,
+  "excluded_image_blobs_including_unreachable": 0,
+  "retained_binary_counts": {
+    "images": 1075,
+    "pdfs": 37
+  },
+  "all_retained_image_pdf_bytes_in_prior_full_OCR_extraction_inventory": true,
+  "limits": "Existing OCR is heuristic; no new full OCR run or ownership certification is claimed"
+}

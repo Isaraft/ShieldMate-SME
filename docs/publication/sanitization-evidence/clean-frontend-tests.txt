@@ -1,0 +1,3 @@
+npm notice run shieldmate-frontend@0.0.0 test
+npm notice run vitest run --reporter=json --outputFile=<operator-home>/Documents/Codex/2026-10-23/extract-and-review-the-entire-archive/work/sanitization/clean-frontend-tests.json
+JSON report written to <operator-home>/Documents/Codex/2026-10-23/extract-and-review-the-entire-archive/work/sanitization/clean-frontend-tests.json

@@ -1,0 +1,20 @@
+[
+  {
+    "locale": "en",
+    "pages": 6,
+    "every_page_demo": true,
+    "sha256": "6b40d0d860d75a70dc65d7843043bc591fae62171f94e09cb758d8fd810b95b4"
+  },
+  {
+    "locale": "ru",
+    "pages": 6,
+    "every_page_demo": true,
+    "sha256": "e39af1f462f4e187682aacb66b91660dedb2e4ad74d3dcff850d70ee58b5c49f"
+  },
+  {
+    "locale": "kk",
+    "pages": 6,
+    "every_page_demo": true,
+    "sha256": "a33a18907114413c0b2de1c8ff894ef72c6109f619a5a4a8a46e6f7e4b57ea72"
+  }
+]
